@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Prototipo navegable de Verde Oliva Olivoterapia: 4 homes, 4 menús, 4 catálogos y una ficha de producto para comparar y elegir.">
+<title>Prototipo · Verde Oliva Olivoterapia — Selector de variantes</title>
+<style>
+:root{
+ --oliva:#3A4433;--oliva-d:#2C3427;--hoja:#6B7B3C;--hoja-t:#616F36;--corteza:#1C1917;
+ --crema:#F7F4EC;--crema2:#F1EBDD;--arena:#D4C4A8;--oro:#B08D3F;--terra:#C67B5C;--terra-t:#A25C3D;
+ --tinta:#54584B;--linea:rgba(58,68,51,.18);--linea-f:rgba(58,68,51,.10);
+ --fs:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+ --fb:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+ --e:cubic-bezier(.22,.61,.36,1)}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--crema);color:var(--corteza);font-family:var(--fb);font-size:16px;
+ line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.06;margin:0;letter-spacing:-.012em}
+p{margin:0 0 1em}
+svg{display:block;flex:none}
+::selection{background:var(--arena);color:var(--corteza)}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+.kicker{font:500 .71rem/1.4 var(--fb);letter-spacing:.24em;text-transform:uppercase;color:var(--tinta);margin:0 0 1rem}
+.lead{font-size:clamp(1.02rem,1.4vw,1.18rem);line-height:1.62;color:var(--tinta);max-width:66ch}
+.rule-oro{height:1px;background:var(--oro);border:0;width:56px;margin:0 0 1.4rem}
+a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--oliva);outline-offset:3px;border-radius:1px}
+.skip{position:absolute;left:-9999px;background:var(--oliva);color:var(--crema);padding:.9rem 1.3rem;font:500 .8rem var(--fb);text-decoration:none;z-index:99}
+.skip:focus{left:12px;top:12px}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.8rem 1.7rem;
+ background:var(--oliva);color:var(--crema);border:1px solid var(--oliva);font:500 .78rem/1 var(--fb);
+ letter-spacing:.11em;text-transform:uppercase;text-decoration:none;border-radius:2px;cursor:pointer;
+ transition:background .22s var(--e),border-color .22s var(--e),color .22s var(--e)}
+.btn:hover{background:var(--oliva-d);border-color:var(--oliva-d)}
+.btn-ghost{background:transparent;color:var(--oliva);border-color:var(--linea)}
+.btn-ghost:hover{background:var(--oliva);color:var(--crema);border-color:var(--oliva)}
+.btn-sm{min-height:42px;padding:.62rem 1.1rem;font-size:.7rem}
+
+/* ── cabecera ── */
+.top{background:var(--oliva);color:var(--crema);padding:clamp(40px,6vw,76px) 0 clamp(36px,5vw,64px);position:relative;overflow:hidden}
+.top::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.top .wrap{position:relative;z-index:1}
+.top-b{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:baseline;justify-content:space-between;margin-bottom:clamp(28px,4vw,52px)}
+.logo{display:flex;align-items:baseline;gap:.55rem;text-decoration:none;color:inherit;line-height:1}
+.logo-m{font-family:var(--fs);font-size:1.55rem;font-weight:600}
+.logo-s{font:500 .57rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--arena)}
+.top h1{font-size:clamp(2.4rem,6vw,4.6rem);max-width:15ch}
+.top .lead{color:rgba(247,244,236,.82);margin-top:1.4rem}
+.pill{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .85rem;border:1px solid rgba(247,244,236,.32);
+ border-radius:100px;font:500 .68rem/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--arena)}
+
+/* ── barra de elección ── */
+.pick{background:var(--crema2);border-bottom:1px solid var(--linea);position:sticky;top:0;z-index:30}
+.pick-in{display:flex;flex-wrap:wrap;gap:.7rem 1.4rem;align-items:center;padding:.9rem 0}
+.pick-l{font:500 .68rem/1 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--tinta);flex:none}
+.pick-f{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;flex:1 1 320px}
+.pick-f label{font:500 .74rem/1 var(--fb);letter-spacing:.06em;color:var(--oliva);flex:none}
+.pick-f input{flex:1 1 90px;min-width:80px;min-height:40px;padding:.4rem .7rem;background:var(--crema);
+ border:1px solid var(--linea);border-radius:2px;font:500 .88rem var(--fb);color:var(--corteza)}
+.pick-f input::placeholder{color:#8B8A80}
+.pick-ok{font:500 .72rem/1 var(--fb);color:var(--hoja-t);display:none;align-items:center;gap:.35rem}
+.pick-ok.on{display:inline-flex}
+
+/* ── secciones ── */
+.sect{padding:clamp(48px,6.5vw,92px) 0}
+.sect-h{max-width:64ch;margin-bottom:clamp(28px,4vw,48px)}
+.sect-h h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:.7rem}
+.sect+.sect{border-top:1px solid var(--linea)}
+.sand{background:var(--crema2)}
+
+/* ── grilla de variantes ── */
+.vg{display:grid;gap:clamp(22px,2.6vw,34px);grid-template-columns:1fr}
+@media(min-width:640px){.vg{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.vg{grid-template-columns:repeat(4,1fr)}}
+.v{display:flex;flex-direction:column;background:var(--crema);border:1px solid var(--linea);border-radius:3px;
+ overflow:hidden;transition:border-color .22s var(--e),box-shadow .22s var(--e)}
+.sand .v{background:var(--crema)}
+.v:hover{border-color:var(--oro);box-shadow:0 10px 30px -18px rgba(28,25,23,.4)}
+.v-thumb{display:block;text-decoration:none;color:inherit;cursor:pointer;background:var(--crema2);
+ border-bottom:1px solid var(--linea);padding:14px;aspect-ratio:16/11}
+.v-b{padding:1.15rem 1.25rem 1.3rem;display:flex;flex-direction:column;flex:1}
+.v-k{font:500 .63rem/1 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--tinta);margin-bottom:.6rem;display:flex;align-items:center;gap:.4rem}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--hoja);flex:none}
+.v-t{font-size:1.45rem;margin:0 0 .5rem}
+.v-d{font-size:.9rem;color:var(--tinta);margin:0 0 .9rem}
+.v-w{font-size:.85rem;line-height:1.55;margin:0 0 1.1rem;padding:.7rem .85rem;background:var(--crema2);
+ border-left:2px solid var(--oro);color:var(--corteza)}
+.v-w b{font-weight:600}
+.v-a{margin-top:auto;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.v-pick{display:inline-flex;align-items:center;gap:.4rem;min-height:42px;padding:.5rem .8rem;background:transparent;
+ border:1px solid var(--linea);border-radius:2px;font:500 .68rem/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;
+ color:var(--oliva);cursor:pointer;transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e)}
+.v-pick:hover{border-color:var(--oro)}
+.v-pick[aria-pressed="true"]{background:var(--oliva);color:var(--crema);border-color:var(--oliva)}
+.v-pick .ck{display:none}
+.v-pick[aria-pressed="true"] .ck{display:block}
+
+/* ── miniaturas wireframe ── */
+.tb{width:100%;height:100%;background:var(--crema);border:1px solid var(--linea-f);display:flex;flex-direction:column;
+ gap:4px;padding:6px;overflow:hidden;transition:transform .25s var(--e)}
+.v-thumb:hover .tb{transform:translateY(-2px)}
+.tb i{display:block;background:var(--arena);border-radius:1px}
+.tb .o{background:var(--oliva)}
+.tb .h{background:var(--hoja)}
+.tb .g{background:var(--crema2)}
+.tb .r{display:flex;gap:4px}
+.tb .col{display:flex;flex-direction:column;gap:4px}
+.tb .fill{flex:1}
+.bar{height:9px;display:flex;align-items:center;gap:3px;padding:0 3px}
+.bar i{height:3px;border-radius:1px}
+
+/* ── cómo leer esto ── */
+.hows{display:grid;gap:1.6rem;grid-template-columns:1fr}
+@media(min-width:760px){.hows{grid-template-columns:repeat(3,1fr)}}
+.how{display:flex;gap:.9rem}
+.how-n{font-family:var(--fs);font-size:2rem;line-height:1;color:var(--hoja-t);flex:none;width:1.6em}
+.how h3{font-size:1.2rem;margin:0 0 .35rem;font-family:var(--fb);font-weight:600;letter-spacing:0}
+.how p{font-size:.9rem;color:var(--tinta);margin:0}
+
+/* ── ficha destacada ── */
+.solo{display:grid;gap:clamp(24px,4vw,48px);grid-template-columns:1fr;align-items:center}
+@media(min-width:860px){.solo{grid-template-columns:.9fr 1.1fr}}
+.solo .v-thumb{aspect-ratio:16/10;border:1px solid var(--linea);border-radius:3px}
+
+/* ── notas ── */
+.notes{background:var(--oliva);color:var(--crema);padding:clamp(40px,5.5vw,72px) 0}
+.notes h2{color:var(--crema)}
+.nl{list-style:none;margin:1.6rem 0 0;padding:0;display:grid;gap:.9rem;max-width:70ch}
+.nl li{display:flex;gap:.8rem;font-size:.94rem;color:rgba(247,244,236,.84)}
+.nl svg{color:var(--arena);margin-top:4px}
+.ft{background:var(--corteza);color:rgba(247,244,236,.66);padding:1.6rem 0;font-size:.8rem}
+.ft-in{display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-dot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 12h14"/></symbol>
+</defs></svg>
+
+<header class="top">
+  <div class="wrap">
+    <div class="top-b">
+      <a class="logo" href="index.html"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
+      <span class="pill">Prototipo navegable · 2026</span>
+    </div>
+    <h1>Trece pantallas para elegir cómo se va a ver la tienda.</h1>
+    <p class="lead">Todo lo que sigue usa la misma identidad: mismos colores, misma tipografía, mismo tono, los 17 productos reales con sus precios. Lo único que cambia es <strong style="color:var(--crema);font-weight:600">cómo se ordena la información</strong>: por dónde entra la persona, qué ve primero y cómo navega. Abrí, mirá, y anotá abajo cuál te convence.</p>
+  </div>
+</header>
+
+<!-- ── barra de elección persistente ── -->
+<div class="pick">
+  <div class="wrap">
+    <div class="pick-in">
+      <span class="pick-l">Variante elegida</span>
+      <div class="pick-f">
+        <label for="p-home">Home</label><input id="p-home" data-k="home" placeholder="A / B / C / D" autocomplete="off">
+        <label for="p-menu">Menú</label><input id="p-menu" data-k="menu" placeholder="1 / 2 / 3 / 4" autocomplete="off">
+        <label for="p-cat">Catálogo</label><input id="p-cat" data-k="cat" placeholder="1 / 2 / 3 / 4" autocomplete="off">
+      </div>
+      <span class="pick-ok" id="okmsg"><svg width="14" height="14"><use href="#i-check"/></svg> Guardado en este navegador</span>
+      <button class="btn btn-ghost btn-sm" type="button" id="clearpick">Borrar</button>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ── cómo leer esto ── -->
+<section class="sect" style="padding-bottom:clamp(30px,4vw,48px)">
+  <div class="wrap">
+    <div class="hows">
+      <div class="how"><span class="how-n">1</span><div><h3>Elegí una Home</h3><p>Define por dónde entra alguien que llega por primera vez: por el relato, por el producto, por lo que necesita o por el origen.</p></div></div>
+      <div class="how"><span class="how-n">2</span><div><h3>Elegí un Menú</h3><p>Define cómo se mueve después. Se puede combinar cualquier menú con cualquier home; son decisiones independientes.</p></div></div>
+      <div class="how"><span class="how-n">3</span><div><h3>Elegí un Catálogo</h3><p>Define cómo se recorren los 17 productos. Es la pantalla donde se decide la compra.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HOMES ══ -->
+<section class="sect sand">
+  <div class="wrap">
+    <div class="sect-h">
+      <div class="rule-oro"></div>
+      <p class="kicker">Grupo 1 · Cuatro opciones</p>
+      <h2>Home</h2>
+      <p class="lead">La portada. Cuatro maneras distintas de contar lo mismo. No son variaciones de color: cambia qué aparece arriba de todo y qué se posterga.</p>
+    </div>
+    <div class="vg">
+
+      <div class="v">
+        <a class="v-thumb" href="home-1.html" aria-label="Abrir Home A, editorial">
+          <div class="tb">
+            <div class="bar" style="justify-content:center"><i class="o" style="width:34%;height:5px"></i></div>
+            <div class="bar" style="justify-content:center;gap:5px"><i style="width:12%"></i><i style="width:12%"></i><i style="width:12%"></i><i style="width:12%"></i></div>
+            <i class="h fill" style="min-height:38%"></i>
+            <i class="o" style="height:6px;width:70%"></i>
+            <i style="height:3px;width:52%"></i>
+            <div class="r fill"><i class="g" style="flex:1"></i><i class="g" style="flex:1"></i><i class="g" style="flex:1"></i></div>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Home A</span>
+          <h3 class="v-t">Editorial</h3>
+          <p class="v-d">Portada de revista. Foto a sangre, titular enorme, sumario numerado y una nota larga sobre qué le hace el aceite a la piel. El producto aparece recién en el cuarto scroll.</p>
+          <p class="v-w"><b>Conviene si</b> querés que la marca se lea como autoridad y contenido antes que como tienda. Construye deseo, no urgencia.</p>
+          <div class="v-a"><a class="btn btn-sm" href="home-1.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="home" data-val="A" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+      <div class="v">
+        <a class="v-thumb" href="home-2.html" aria-label="Abrir Home B, producto primero">
+          <div class="tb">
+            <div class="bar"><i class="o" style="width:22%;height:5px"></i><i style="flex:1"></i><i style="width:8%"></i><i style="width:8%"></i></div>
+            <i class="h" style="height:16%"></i>
+            <div class="r fill">
+              <div class="col fill"><i class="g fill"></i><i style="height:3px;width:70%"></i></div>
+              <div class="col fill"><i class="g fill"></i><i style="height:3px;width:70%"></i></div>
+              <div class="col fill"><i class="g fill"></i><i style="height:3px;width:70%"></i></div>
+              <div class="col fill"><i class="g fill"></i><i style="height:3px;width:70%"></i></div>
+            </div>
+            <div class="r fill">
+              <div class="col fill"><i class="g fill"></i><i style="height:3px;width:70%"></i></div>
+              <div class="col fill"><i class="g fill"></i><i style="height:3px;width:70%"></i></div>
+              <div class="col fill"><i class="g fill"></i><i style="height:3px;width:70%"></i></div>
+              <div class="col fill"><i class="g fill"></i><i style="height:3px;width:70%"></i></div>
+            </div>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Home B</span>
+          <h3 class="v-t">Producto primero</h3>
+          <p class="v-d">Ecommerce clásico bien hecho. Franja de categorías, grilla de 8 productos arriba del fold con precio y botón, envíos y garantías visibles. El relato queda como capas abajo.</p>
+          <p class="v-w"><b>Conviene si</b> la prioridad es vender ya, o si el tráfico viene de gente que ya conoce la marca (redes, hotel, recompra).</p>
+          <div class="v-a"><a class="btn btn-sm" href="home-2.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="home" data-val="B" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+      <div class="v">
+        <a class="v-thumb" href="home-3.html" aria-label="Abrir Home C, ritual guiado">
+          <div class="tb">
+            <div class="bar"><i class="o" style="width:22%;height:5px"></i><i style="flex:1"></i><i style="width:8%"></i></div>
+            <i class="o" style="height:5px;width:56%"></i>
+            <div class="r fill">
+              <i class="h fill"></i><i class="h fill"></i><i class="h fill"></i><i class="h fill"></i>
+            </div>
+            <div class="r fill">
+              <i class="h fill" style="opacity:.55"></i><i class="h fill" style="opacity:.55"></i><i class="h fill" style="opacity:.55"></i>
+            </div>
+            <div class="r fill"><i class="g" style="flex:1.6"></i><i class="g" style="flex:1"></i></div>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Home C</span>
+          <h3 class="v-t">Ritual · guiado</h3>
+          <p class="v-d">No entra por producto: entra por necesidad. «¿Qué buscás? Limpiar, hidratar, exfoliar, relajar…» y cada respuesta abre un ritual armado, con pasos y productos en orden.</p>
+          <p class="v-w"><b>Conviene si</b> el público no sabe qué comprar. Convierte 17 SKU en 6 decisiones simples y sube el ticket por combo.</p>
+          <div class="v-a"><a class="btn btn-sm" href="home-3.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="home" data-val="C" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+      <div class="v">
+        <a class="v-thumb" href="home-4.html" aria-label="Abrir Home D, origen inmersivo">
+          <div class="tb" style="background:var(--oliva);border-color:transparent">
+            <i class="h fill" style="min-height:44%;opacity:.8"></i>
+            <i style="height:5px;width:64%;background:var(--crema2)"></i>
+            <i style="height:3px;width:44%;background:var(--arena);opacity:.6"></i>
+            <i class="fill" style="background:rgba(212,196,168,.4)"></i>
+            <div class="r fill"><i style="flex:1;background:rgba(212,196,168,.55)"></i><i style="flex:1;background:rgba(212,196,168,.25)"></i></div>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Home D</span>
+          <h3 class="v-t">Origen · inmersiva</h3>
+          <p class="v-d">Scroll narrativo con línea de tiempo: 1890, el olivar, la prensada, el laboratorio, el frasco. Fondo oscuro, capítulos numerados, el producto aparece al final como consecuencia.</p>
+          <p class="v-w"><b>Conviene si</b> el diferencial que querés instalar es la finca de 1890. Es la más memorable y la más lenta para comprar.</p>
+          <div class="v-a"><a class="btn btn-sm" href="home-4.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="home" data-val="D" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ MENÚS ══ -->
+<section class="sect">
+  <div class="wrap">
+    <div class="sect-h">
+      <div class="rule-oro"></div>
+      <p class="kicker">Grupo 2 · Cuatro opciones</p>
+      <h2>Menú y navegación</h2>
+      <p class="lead">Los cuatro funcionan de verdad: abren, cierran, responden al mouse y al teclado (probá <kbd style="font:500 .8rem var(--fb);border:1px solid var(--linea);padding:.1rem .35rem;border-radius:2px">Tab</kbd> y <kbd style="font:500 .8rem var(--fb);border:1px solid var(--linea);padding:.1rem .35rem;border-radius:2px">Esc</kbd>). Se muestran sobre una misma página de ejemplo para que la comparación sea limpia.</p>
+    </div>
+    <div class="vg">
+
+      <div class="v">
+        <a class="v-thumb" href="menu-1.html" aria-label="Abrir menú 1, horizontal con mega-menú">
+          <div class="tb">
+            <div class="bar"><i class="o" style="width:20%;height:5px"></i><i style="width:10%"></i><i class="h" style="width:10%"></i><i style="width:10%"></i><i style="flex:1"></i><i style="width:7%"></i></div>
+            <div class="r" style="height:44%"><div class="col fill" style="background:var(--crema2);padding:4px;gap:3px">
+              <div class="r fill"><i style="flex:1;height:3px"></i><i style="flex:1;height:3px"></i><i style="flex:1;height:3px"></i></div>
+              <div class="r fill"><i style="flex:1;height:3px"></i><i style="flex:1;height:3px"></i><i style="flex:1;height:3px"></i></div>
+              <div class="r fill"><i class="h" style="flex:1"></i><i class="h" style="flex:1"></i><i style="flex:1"></i></div></div></div>
+            <i class="g fill"></i>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Menú 1</span>
+          <h3 class="v-t">Horizontal + mega</h3>
+          <p class="v-d">Barra clásica. Al pasar sobre cada línea baja un panel ancho con las subcategorías, un destacado y una nota educativa.</p>
+          <p class="v-w"><b>Conviene si</b> querés que los 17 productos se vean sin entrar a ningún lado. Es el más convencional y el más rápido de entender.</p>
+          <div class="v-a"><a class="btn btn-sm" href="menu-1.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="menu" data-val="1" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+      <div class="v">
+        <a class="v-thumb" href="menu-2.html" aria-label="Abrir menú 2, panel lateral">
+          <div class="tb">
+            <div class="bar"><i class="o" style="width:8%;height:5px"></i><i style="flex:1"></i><i class="o" style="width:20%;height:5px"></i><i style="flex:1"></i><i style="width:7%"></i></div>
+            <div class="r fill"><i class="g fill"></i><div class="col" style="width:42%;background:var(--oliva);padding:4px;gap:4px">
+              <i style="height:3px;width:80%;background:var(--arena)"></i><i style="height:3px;width:64%;background:var(--arena);opacity:.7"></i>
+              <i style="height:3px;width:72%;background:var(--arena);opacity:.7"></i><i style="height:3px;width:58%;background:var(--arena);opacity:.7"></i>
+              <i class="fill" style="background:rgba(212,196,168,.25)"></i></div></div>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Menú 2</span>
+          <h3 class="v-t">Minimal + panel lateral</h3>
+          <p class="v-d">Hamburguesa también en desktop. El header queda casi vacío y todo vive en un panel que se desliza desde la derecha, con submenús que se abren adentro.</p>
+          <p class="v-w"><b>Conviene si</b> querés máximo aire y que la foto mande. Cuesta un clic más llegar al producto.</p>
+          <div class="v-a"><a class="btn btn-sm" href="menu-2.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="menu" data-val="2" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+      <div class="v">
+        <a class="v-thumb" href="menu-3.html" aria-label="Abrir menú 3, barra doble sticky">
+          <div class="tb">
+            <div class="bar" style="background:var(--oliva);height:7px"><i style="width:12%;height:2px;background:var(--arena)"></i><i style="flex:1"></i><i style="width:9%;height:2px;background:var(--arena)"></i><i style="width:9%;height:2px;background:var(--arena)"></i></div>
+            <div class="bar"><i class="o" style="width:18%;height:5px"></i><i style="flex:1"></i><i style="width:9%"></i><i style="width:9%"></i><i style="width:9%"></i></div>
+            <div class="bar" style="background:var(--crema2)"><i class="h" style="width:12%;height:3px"></i><i style="width:12%;height:3px"></i><i style="width:12%;height:3px"></i><i style="width:12%;height:3px"></i></div>
+            <i class="g fill"></i><i class="g fill"></i>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Menú 3</span>
+          <h3 class="v-t">Barra doble sticky</h3>
+          <p class="v-d">Fila superior utilitaria (idioma, envíos, cuenta, carrito) y fila inferior de categorías. Al bajar se compacta en una sola barra fina que queda siempre a mano.</p>
+          <p class="v-w"><b>Conviene si</b> hay mucha información de servicio que comunicar (envíos, bilingüe, cuenta) sin ensuciar la navegación.</p>
+          <div class="v-a"><a class="btn btn-sm" href="menu-3.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="menu" data-val="3" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+      <div class="v">
+        <a class="v-thumb" href="menu-4.html" aria-label="Abrir menú 4, overlay a pantalla completa">
+          <div class="tb" style="background:var(--oliva);border-color:transparent;justify-content:center;gap:6px;padding:12px">
+            <i style="height:6px;width:74%;background:var(--crema2)"></i>
+            <i style="height:6px;width:60%;background:var(--crema2);opacity:.85"></i>
+            <i style="height:6px;width:68%;background:var(--crema2);opacity:.7"></i>
+            <i style="height:6px;width:48%;background:var(--crema2);opacity:.55"></i>
+            <i style="height:2px;width:30%;background:var(--oro);margin-top:4px"></i>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Menú 4</span>
+          <h3 class="v-t">Overlay tipográfico</h3>
+          <p class="v-d">Un botón abre una capa verde a pantalla completa con la navegación en serif gigante, más una columna lateral de contenido educativo y contacto.</p>
+          <p class="v-w"><b>Conviene si</b> querés que la navegación sea en sí misma un momento de marca. Es el más expresivo y el menos convencional.</p>
+          <div class="v-a"><a class="btn btn-sm" href="menu-4.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="menu" data-val="4" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ CATÁLOGOS ══ -->
+<section class="sect sand">
+  <div class="wrap">
+    <div class="sect-h">
+      <div class="rule-oro"></div>
+      <p class="kicker">Grupo 3 · Cuatro opciones</p>
+      <h2>Catálogo</h2>
+      <p class="lead">Las cuatro muestran los 17 productos reales con formato y precio. Cambia el criterio de orden: por filtro, por relato, por necesidad o por índice.</p>
+    </div>
+    <div class="vg">
+
+      <div class="v">
+        <a class="v-thumb" href="catalogo-1.html" aria-label="Abrir catálogo 1, grilla con filtros">
+          <div class="tb">
+            <div class="bar"><i class="o" style="width:20%;height:5px"></i><i style="flex:1"></i><i style="width:8%"></i></div>
+            <div class="r fill">
+              <div class="col" style="width:26%;gap:3px"><i style="height:3px;width:70%"></i><i class="h" style="height:3px;width:90%"></i><i style="height:3px;width:80%"></i><i style="height:3px;width:60%"></i><i style="height:3px;width:85%"></i></div>
+              <div class="col fill" style="gap:4px">
+                <div class="r fill"><i class="g fill"></i><i class="g fill"></i><i class="g fill"></i></div>
+                <div class="r fill"><i class="g fill"></i><i class="g fill"></i><i class="g fill"></i></div>
+                <div class="r fill"><i class="g fill"></i><i class="g fill"></i><i class="g fill"></i></div>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Catálogo 1</span>
+          <h3 class="v-t">Grilla + filtros</h3>
+          <p class="v-d">Tres o cuatro columnas con barra lateral de filtros por línea, formato y precio. Los filtros funcionan de verdad y el contador se actualiza.</p>
+          <p class="v-w"><b>Conviene si</b> el catálogo va a crecer. Es el patrón que la gente ya sabe usar sin pensar.</p>
+          <div class="v-a"><a class="btn btn-sm" href="catalogo-1.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="cat" data-val="1" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+      <div class="v">
+        <a class="v-thumb" href="catalogo-2.html" aria-label="Abrir catálogo 2, editorial por línea">
+          <div class="tb">
+            <i class="o" style="height:5px;width:44%"></i><i style="height:3px;width:70%"></i>
+            <div class="r fill"><i class="h" style="width:34%"></i><div class="col fill" style="gap:4px"><div class="r fill"><i class="g fill"></i><i class="g fill"></i><i class="g fill"></i></div></div></div>
+            <i class="o" style="height:5px;width:36%"></i>
+            <div class="r fill"><div class="col fill" style="gap:4px"><div class="r fill"><i class="g fill"></i><i class="g fill"></i></div></div><i class="h" style="width:30%"></i></div>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Catálogo 2</span>
+          <h3 class="v-t">Editorial por línea</h3>
+          <p class="v-d">Tres capítulos —Eco, Spa, Gourmet— cada uno con su portada, su texto de introducción y su grilla. Se lee de arriba a abajo como una nota.</p>
+          <p class="v-w"><b>Conviene si</b> querés que se entienda la diferencia entre las líneas antes de comparar precios. El más coherente con «una marca que enseña».</p>
+          <div class="v-a"><a class="btn btn-sm" href="catalogo-2.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="cat" data-val="2" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+      <div class="v">
+        <a class="v-thumb" href="catalogo-3.html" aria-label="Abrir catálogo 3, por necesidad">
+          <div class="tb">
+            <div class="bar" style="gap:3px"><i class="o" style="width:14%;height:6px;border-radius:3px"></i><i style="width:14%;height:6px;border-radius:3px"></i><i style="width:14%;height:6px;border-radius:3px"></i><i style="width:14%;height:6px;border-radius:3px"></i><i style="width:14%;height:6px;border-radius:3px"></i></div>
+            <i class="h" style="height:4px;width:30%"></i>
+            <div class="r fill"><i class="g fill"></i><i class="g fill"></i><i class="g fill"></i></div>
+            <i class="h" style="height:4px;width:36%"></i>
+            <div class="r fill"><i class="g fill"></i><i class="g fill"></i><i class="g fill"></i></div>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Catálogo 3</span>
+          <h3 class="v-t">Por necesidad</h3>
+          <p class="v-d">Agrupado por lo que resuelve: limpiar, hidratar, exfoliar, relajar, capilar, baño y mesa. Cada grupo se abre con una explicación breve.</p>
+          <p class="v-w"><b>Conviene si</b> la persona busca solución, no marca. Es el catálogo natural para acompañar la Home C.</p>
+          <div class="v-a"><a class="btn btn-sm" href="catalogo-3.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="cat" data-val="3" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+      <div class="v">
+        <a class="v-thumb" href="catalogo-4.html" aria-label="Abrir catálogo 4, lista densa tipo índice">
+          <div class="tb" style="gap:3px">
+            <div class="bar"><i class="o" style="width:20%;height:5px"></i><i style="flex:1"></i><i style="width:10%"></i></div>
+            <div class="bar" style="background:var(--crema2);height:6px"><i style="width:30%;height:2px"></i><i style="flex:1"></i><i style="width:12%;height:2px"></i><i style="width:12%;height:2px"></i></div>
+            <div class="bar" style="height:6px"><i class="h" style="width:36%;height:2px"></i><i style="flex:1"></i><i style="width:12%;height:2px"></i><i class="o" style="width:12%;height:2px"></i></div>
+            <div class="bar" style="height:6px"><i class="h" style="width:30%;height:2px"></i><i style="flex:1"></i><i style="width:12%;height:2px"></i><i class="o" style="width:12%;height:2px"></i></div>
+            <div class="bar" style="height:6px"><i class="h" style="width:40%;height:2px"></i><i style="flex:1"></i><i style="width:12%;height:2px"></i><i class="o" style="width:12%;height:2px"></i></div>
+            <div class="bar" style="height:6px"><i class="h" style="width:26%;height:2px"></i><i style="flex:1"></i><i style="width:12%;height:2px"></i><i class="o" style="width:12%;height:2px"></i></div>
+            <div class="bar" style="height:6px"><i class="h" style="width:34%;height:2px"></i><i style="flex:1"></i><i style="width:12%;height:2px"></i><i class="o" style="width:12%;height:2px"></i></div>
+          </div>
+        </a>
+        <div class="v-b">
+          <span class="v-k"><span class="dot"></span>Catálogo 4</span>
+          <h3 class="v-t">Lista densa · índice</h3>
+          <p class="v-d">Los 17 en una sola pantalla, una fila cada uno, con línea, formato, precio, para qué es y botón de agregar. Ordenable y buscable.</p>
+          <p class="v-w"><b>Conviene si</b> hay recompra frecuente o venta mayorista. Es la vista más rápida y la menos seductora: sirve como complemento, no como principal.</p>
+          <div class="v-a"><a class="btn btn-sm" href="catalogo-4.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
+            <button class="v-pick" type="button" data-pick="cat" data-val="4" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FICHA ══ -->
+<section class="sect">
+  <div class="wrap">
+    <div class="sect-h">
+      <div class="rule-oro"></div>
+      <p class="kicker">Grupo 4 · Una sola, no se compara</p>
+      <h2>Ficha de producto</h2>
+    </div>
+    <div class="solo">
+      <a class="v-thumb" href="producto.html" aria-label="Abrir ficha de producto">
+        <div class="tb">
+          <div class="bar"><i class="o" style="width:20%;height:5px"></i><i style="flex:1"></i><i style="width:8%"></i></div>
+          <div class="r fill"><i class="h" style="width:46%"></i><div class="col fill" style="gap:3px">
+            <i class="o" style="height:5px;width:70%"></i><i style="height:3px;width:40%"></i><i style="height:3px;width:88%"></i><i style="height:3px;width:80%"></i>
+            <i class="o" style="height:7px;width:56%;margin-top:3px"></i></div></div>
+          <div class="r fill" style="gap:3px"><i class="g fill"></i><i class="g fill"></i><i class="g fill"></i><i class="g fill"></i></div>
+          <div class="r fill"><i class="g fill"></i><i class="g fill"></i><i class="g fill"></i></div>
+        </div>
+      </a>
+      <div>
+        <h3 class="v-t" style="font-size:1.8rem">Emulsión humectante corporal 250 ml</h3>
+        <p class="lead" style="margin-top:.7rem">Es la pieza que demuestra el diferencial: la ficha no vende un frasco, explica un producto. Para qué es, para qué piel, cuándo usarlo, cómo aplicarlo paso a paso, con qué se combina, qué esperar semana a semana y qué <em>no</em> hace.</p>
+        <p class="lead" style="margin-top:.9rem">Este bloque educativo es el mismo para los 17 productos: cambia el contenido, no la estructura. Sirve igual con cualquier home, cualquier menú y cualquier catálogo de los de arriba.</p>
+        <div style="margin-top:1.6rem;display:flex;gap:.6rem;flex-wrap:wrap">
+          <a class="btn" href="producto.html">Abrir la ficha <svg width="15" height="15"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NOTAS ══ -->
+<section class="notes">
+  <div class="wrap">
+    <h2 style="font-size:clamp(1.7rem,3.4vw,2.6rem)">Qué mirar y qué no</h2>
+    <ul class="nl">
+      <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">Las fotos son bloques de color a propósito.</strong> Todavía no hay producción fotográfica, así que se usan degradados con grano y un dibujo del frasco. En la web real ahí van fotos; la estructura no cambia.</span></li>
+      <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">La identidad no está en discusión.</strong> Los colores, la tipografía y el tono son idénticos en las trece pantallas. Si algo de eso se cambia, se cambia en todas.</span></li>
+      <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">Se combinan libremente.</strong> Home C con Menú 3 y Catálogo 2, por ejemplo, es una combinación válida. Elegí una de cada grupo.</span></li>
+      <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">El toggle ES|EN es decorativo.</strong> Marca dónde va a vivir el cambio de idioma; la traducción se carga después.</span></li>
+      <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">Los precios y formatos son los reales.</strong> Los 17 SKU con sus valores en pesos, tal como los pasaste.</span></li>
+      <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">Abajo de todo, siempre.</strong> La barra negra fija está en cada pantalla para volver acá o saltar a otra variante sin usar el botón «atrás».</span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft"><div class="wrap"><div class="ft-in">
+  <span>Verde Oliva Olivoterapia · Coquimbito, Maipú, Mendoza · Prototipo de diseño 2026</span>
+  <span>De la tierra a la mesa, de la mesa a la piel.</span>
+</div></div></footer>
+
+<script>
+(function(){
+  var KEY='vo-pick';
+  var store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){store={};}
+
+  function paint(){
+    document.querySelectorAll('[data-k]').forEach(function(i){ i.value=store[i.dataset.k]||''; });
+    document.querySelectorAll('[data-pick]').forEach(function(b){
+      b.setAttribute('aria-pressed', (store[b.dataset.pick]||'').toUpperCase()===b.dataset.val ? 'true':'false');
+      b.lastChild.nodeValue = b.getAttribute('aria-pressed')==='true' ? 'Elegida' : 'Elegir';
+    });
+    var any=Object.keys(store).some(function(k){return store[k];});
+    document.getElementById('okmsg').classList.toggle('on',any);
+  }
+  function save(){ try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){} paint(); }
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-pick]'); if(!b) return;
+    var k=b.dataset.pick;
+    store[k] = (store[k]||'').toUpperCase()===b.dataset.val ? '' : b.dataset.val;
+    save();
+  });
+  document.addEventListener('input',function(e){
+    var i=e.target.closest('[data-k]'); if(!i) return;
+    store[i.dataset.k]=i.value.trim(); save();
+  });
+  document.getElementById('clearpick').addEventListener('click',function(){ store={}; save(); });
+  paint();
+})();
+</script>
+</body>
+</html>

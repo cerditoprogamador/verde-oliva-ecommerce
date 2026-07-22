@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Catálogo 4 · índice compacto. Los 17 productos en una lista densa, buscable y ordenable.">
+<title>Catálogo 4 · Índice compacto — Verde Oliva Olivoterapia</title>
+<style>
+:root{--oliva:#3A4433;--oliva-d:#2C3427;--hoja:#6B7B3C;--hoja-t:#616F36;--corteza:#1C1917;--crema:#F7F4EC;
+ --crema2:#F1EBDD;--arena:#D4C4A8;--oro:#B08D3F;--tinta:#54584B;--linea:rgba(58,68,51,.18);
+ --fs:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+ --fb:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+ --e:cubic-bezier(.22,.61,.36,1);--xn:54px}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--crema);color:var(--corteza);font:16px/1.6 var(--fb);
+ -webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:var(--xn)}
+h1,h2,h3{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.012em}
+p{margin:0 0 1em}svg{display:block;flex:none}
+::selection{background:var(--arena);color:var(--corteza)}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,3.5vw,48px)}
+.kicker{font:500 .7rem/1.4 var(--fb);letter-spacing:.24em;text-transform:uppercase;color:var(--tinta);margin:0 0 .9rem}
+.lead{font-size:1.02rem;line-height:1.6;color:var(--tinta);max-width:58ch}
+.rule-oro{height:1px;background:var(--oro);border:0;width:52px;margin:0 0 1.2rem}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--oliva);outline-offset:2px;border-radius:1px}
+.skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--oliva);color:var(--crema);padding:.9rem 1.3rem;font:500 .8rem var(--fb);text-decoration:none}
+.skip:focus{left:12px;top:12px}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:40px;padding:.5rem 1rem;
+ background:var(--oliva);color:var(--crema);border:1px solid var(--oliva);font:500 .68rem/1 var(--fb);
+ letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;cursor:pointer;
+ transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e)}
+.btn:hover{background:var(--oliva-d);border-color:var(--oliva-d)}
+.btn[disabled]{opacity:.75;cursor:default}
+.btn-ghost{background:transparent;color:var(--oliva);border-color:var(--linea)}
+.btn-ghost:hover{background:var(--oliva);color:var(--crema);border-color:var(--oliva)}
+.hdr{position:sticky;top:0;z-index:40;background:rgba(247,244,236,.97);border-bottom:1px solid var(--linea)}
+.hdr-in{display:flex;align-items:center;gap:.8rem;min-height:62px}
+.logo{display:flex;align-items:baseline;gap:.5rem;text-decoration:none;color:inherit;cursor:pointer}
+.logo-m{font-family:var(--fs);font-size:1.42rem;font-weight:600;white-space:nowrap}
+.logo-s{font:500 .55rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--tinta)}
+.hu{margin-left:auto;display:flex;align-items:center;gap:.15rem}
+.lang{display:inline-flex;align-items:center;gap:.3rem;font:500 .7rem/1 var(--fb);letter-spacing:.12em;color:var(--tinta);margin-right:.4rem}
+.lang button{background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:.45rem .25rem;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.lang button[aria-pressed="true"]{color:var(--oliva);border-color:var(--oro)}
+.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:none;border:0;color:inherit;cursor:pointer;border-radius:2px;position:relative;transition:background .2s}
+.iconbtn:hover{background:rgba(58,68,51,.07)}
+.badge{position:absolute;top:5px;right:4px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--oliva);color:var(--crema);font:600 .62rem/17px var(--fb);text-align:center}
+.top{padding:clamp(26px,4vw,52px) 0 clamp(18px,2.4vw,28px)}
+.top h1{font-size:clamp(1.9rem,4.4vw,3.2rem)}
+/* controles */
+.ctrl{position:sticky;top:62px;z-index:30;background:var(--crema2);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.ctrl-in{display:flex;flex-wrap:wrap;gap:.55rem;align-items:center;padding:.7rem 0}
+.sb{display:flex;align-items:center;gap:.5rem;flex:1 1 220px;min-width:180px;background:var(--crema);
+ border:1px solid var(--linea);border-radius:2px;padding:0 .7rem;transition:border-color .2s var(--e)}
+.sb:focus-within{border-color:var(--oro)}
+.sb input{flex:1;min-height:40px;border:0;background:transparent;font:400 .9rem var(--fb);color:var(--corteza);min-width:0}
+.sb input:focus{outline:none}
+.sb svg{color:var(--tinta)}
+.chip{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .85rem;border:1px solid var(--linea);
+ border-radius:100px;background:transparent;font:500 .74rem/1 var(--fb);color:var(--oliva);cursor:pointer;
+ white-space:nowrap;transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e)}
+.chip:hover{border-color:var(--oro)}
+.chip[aria-pressed="true"]{background:var(--oliva);color:var(--crema);border-color:var(--oliva)}
+.ctrl select{min-height:40px;padding:.4rem 1.9rem .4rem .7rem;border:1px solid var(--linea);border-radius:2px;
+ background:var(--crema);color:var(--corteza);font:500 .8rem var(--fb);cursor:pointer;appearance:none;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%233A4433' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+ background-repeat:no-repeat;background-position:right .6rem center}
+/* lista */
+.list{padding:0 0 clamp(40px,5vw,72px)}
+.hrow{display:none;padding:.7rem 0;border-bottom:1px solid var(--linea);font:600 .64rem/1 var(--fb);
+ letter-spacing:.16em;text-transform:uppercase;color:var(--tinta);position:sticky;top:118px;background:var(--crema);z-index:20}
+@media(min-width:900px){.hrow{display:grid;grid-template-columns:44px 2.1fr 1.1fr .8fr 1.5fr .8fr 106px;gap:1rem;align-items:center}}
+.row{display:grid;grid-template-columns:44px 1fr auto;gap:.8rem 1rem;align-items:center;padding:.8rem 0;
+ border-bottom:1px solid rgba(58,68,51,.10);transition:background .18s var(--e)}
+.row:hover{background:var(--crema2)}
+@media(min-width:900px){.row{grid-template-columns:44px 2.1fr 1.1fr .8fr 1.5fr .8fr 106px;padding:.65rem 0}}
+.thumb{width:44px;height:44px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;
+ background:linear-gradient(152deg,#8A9370,#6B7B3C 48%,#3A4433);color:rgba(247,244,236,.32);border-radius:2px}
+.t2{background:linear-gradient(158deg,#EDE5D3,#D4C4A8 62%,#B7A585);color:rgba(58,68,51,.34)}
+.t3{background:linear-gradient(140deg,#DFD3BA,#C67B5C);color:rgba(247,244,236,.4)}
+.t4{background:radial-gradient(118% 92% at 28% 18%,#F2ECDE,#D4C4A8 52%,#8A9370);color:rgba(58,68,51,.32)}
+.t5{background:linear-gradient(168deg,#3A4433,#2A3226 68%,#1C1917);color:rgba(212,196,168,.4)}
+.thumb svg{width:26px;height:34px}
+.rname{grid-column:2;font-family:var(--fs);font-size:1.18rem;line-height:1.2;text-decoration:none;color:var(--corteza);cursor:pointer;border-bottom:1px solid transparent;transition:border-color .2s var(--e)}
+.rname:hover{border-color:var(--oro)}
+.rlin,.rfmt,.rdesc{font-size:.85rem;color:var(--tinta)}
+.rlin{display:flex;align-items:center;gap:.4rem}
+.dot{width:5px;height:5px;border-radius:50%;background:var(--hoja);flex:none}
+.rprice{font:500 .93rem/1 var(--fb);white-space:nowrap;text-align:left}
+.ract{justify-self:end}
+@media(max-width:899px){
+  .rmeta{grid-column:2;display:flex;flex-wrap:wrap;gap:.3rem .8rem;font-size:.8rem;color:var(--tinta)}
+  .rdesc{grid-column:2;font-size:.83rem}
+  .rprice{grid-column:2;margin-top:.15rem}
+  .ract{grid-column:3;grid-row:1}
+  .row{grid-template-areas:none;align-items:start}
+  .thumb{grid-row:1}
+}
+@media(min-width:900px){.rmeta{display:none}}
+.count{padding:.9rem 0 .3rem;font-size:.86rem;color:var(--tinta)}
+.count b{color:var(--corteza);font-weight:600}
+.empty{padding:2.4rem 0;text-align:center;color:var(--tinta)}
+.note{margin-top:2rem;padding:1.1rem 1.3rem;background:var(--crema2);border-left:2px solid var(--oro);font-size:.92rem;color:var(--tinta);max-width:64ch}
+.ft{background:var(--oliva);color:var(--crema);padding:clamp(38px,5vw,60px) 0 1.8rem}
+.ft-g{display:grid;gap:2.2rem;grid-template-columns:1fr}
+@media(min-width:760px){.ft-g{grid-template-columns:1.7fr 1fr 1fr}}
+.ft h4{font:600 .68rem/1 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--arena);margin:0 0 1rem}
+.ft ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
+.ft a{color:rgba(247,244,236,.84);text-decoration:none;font-size:.89rem;cursor:pointer;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.ft a:hover{color:var(--crema);border-color:var(--oro)}
+.ft-tag{font-family:var(--fs);font-style:italic;font-size:1.45rem;line-height:1.25;max-width:15ch;margin:.9rem 0 0}
+.ft-bot{margin-top:2.2rem;padding-top:1.3rem;border-top:1px solid rgba(247,244,236,.18);font-size:.78rem;color:rgba(247,244,236,.62)}
+.xnav{position:fixed;left:0;right:0;bottom:0;z-index:60;height:var(--xn);background:var(--corteza);color:var(--crema);display:flex;align-items:center;border-top:1px solid rgba(247,244,236,.14)}
+.xnav-in{display:flex;align-items:center;gap:.3rem;width:100%;height:100%;padding:0 clamp(10px,2.5vw,20px);overflow-x:auto;white-space:nowrap}
+.xnav a,.xnav .xcur{display:inline-flex;align-items:center;gap:.4rem;height:34px;padding:0 .7rem;color:rgba(247,244,236,.72);text-decoration:none;border-radius:2px;font:500 .72rem/1 var(--fb);cursor:pointer;transition:background .18s,color .18s}
+.xnav a:hover{background:rgba(247,244,236,.12);color:var(--crema)}
+.xnav .xcur{background:var(--hoja);color:#fff;cursor:default}
+.xnav .xsep{width:1px;height:20px;background:rgba(247,244,236,.2);margin:0 .45rem;flex:none}
+.xnav .xlab{font:500 .63rem/1 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:rgba(247,244,236,.45);padding:0 .4rem;flex:none}
+.xnav .xhome{background:rgba(247,244,236,.1);color:var(--crema)}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+<symbol id="i-arrowl" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+<symbol id="m-jar" viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><path d="M38 56h44a6 6 0 0 1 6 6v46a10 10 0 0 1-10 10H42a10 10 0 0 1-10-10V62a6 6 0 0 1 6-6z"/><path d="M44 40h32a5 5 0 0 1 5 5v11H39V45a5 5 0 0 1 5-5z"/></symbol>
+<symbol id="m-bottle" viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><path d="M52 44h16v14c0 5 16 12 16 26v42a10 10 0 0 1-10 10H46a10 10 0 0 1-10-10V84c0-14 16-21 16-26z"/><rect x="50" y="26" width="20" height="16" rx="3"/></symbol>
+<symbol id="m-drop" viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><path d="M60 132c16 0 29-13 29-29 0-14-8-22-16-31s-11-16-13-24c-2 8-6 15-13 24s-16 17-16 31c0 16 13 29 29 29z"/></symbol>
+</defs></svg>
+
+<header class="hdr"><div class="wrap"><div class="hdr-in">
+  <a class="logo" href="index.html"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
+  <div class="hu">
+    <div class="lang" role="group" aria-label="Idioma"><button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button></div>
+    <button class="iconbtn" type="button" aria-label="Mi cuenta"><svg width="20" height="20"><use href="#i-user"/></svg></button>
+    <button class="iconbtn" type="button" aria-label="Carrito"><svg width="20" height="20"><use href="#i-bag"/></svg><span class="badge" data-cart>0</span></button>
+  </div>
+</div></div></header>
+
+<section class="top"><div class="wrap">
+  <div class="rule-oro"></div>
+  <p class="kicker">Catálogo · Índice completo</p>
+  <h1>Los 17, en una sola pantalla.</h1>
+  <p class="lead" style="margin-top:.8rem">Para quien ya sabe qué quiere: buscá por nombre, filtrá por línea, ordená por precio y agregá sin entrar a la ficha.</p>
+</div></section>
+
+<div class="ctrl"><div class="wrap"><div class="ctrl-in">
+  <div class="sb">
+    <svg width="16" height="16"><use href="#i-search"/></svg>
+    <label class="sr" for="q">Buscar productos</label>
+    <input id="q" type="search" placeholder="Buscar: aceite, crema, sales, shampoo…" autocomplete="off">
+  </div>
+  <button class="chip" type="button" data-lin="" aria-pressed="true">Todo</button>
+  <button class="chip" type="button" data-lin="eco" aria-pressed="false">Eco</button>
+  <button class="chip" type="button" data-lin="spa" aria-pressed="false">Spa</button>
+  <button class="chip" type="button" data-lin="gou" aria-pressed="false">Gourmet</button>
+  <label class="sr" for="sort">Ordenar</label>
+  <select id="sort">
+    <option value="az">Nombre A–Z</option>
+    <option value="asc">Precio ↑</option>
+    <option value="desc">Precio ↓</option>
+    <option value="lin">Por línea</option>
+  </select>
+</div></div></div>
+
+<main id="main"><div class="wrap">
+  <p class="count"><b id="cnt">17</b> productos</p>
+
+  <div class="hrow" aria-hidden="true">
+    <span></span><span>Producto</span><span>Línea</span><span>Formato</span><span>Para qué es</span><span>Precio</span><span></span>
+  </div>
+
+  <div class="list" id="list">
+    <div class="row" data-lin="eco" data-p="18500" data-n="Aceite corporal" data-o="1">
+      <div class="thumb t2"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Aceite corporal</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
+      <span class="rdesc">Piel muy seca, después del baño</span><span class="rprice">$18.500</span>
+      <span class="rmeta">Eco Cosmética · 250 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="13500" data-n="Acondicionador capilar" data-o="2">
+      <div class="thumb t4"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Acondicionador capilar</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
+      <span class="rdesc">Puntas quebradizas, agua dura</span><span class="rprice">$13.500</span>
+      <span class="rmeta">Eco Cosmética · 250 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="18000" data-n="Crema humectante facial" data-o="3">
+      <div class="thumb t2"><svg><use href="#m-jar"/></svg></div>
+      <a class="rname" href="producto.html">Crema humectante facial</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">50 gr</span>
+      <span class="rdesc">Piel normal a seca, todo el año</span><span class="rprice">$18.000</span>
+      <span class="rmeta">Eco Cosmética · 50 gr</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="15500" data-n="Crema exfoliante fina" data-o="4">
+      <div class="thumb t4"><svg><use href="#m-jar"/></svg></div>
+      <a class="rname" href="producto.html">Crema exfoliante fina</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">50 gr</span>
+      <span class="rdesc">Rostro, cuello y escote</span><span class="rprice">$15.500</span>
+      <span class="rmeta">Eco Cosmética · 50 gr</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="15500" data-n="Crema exfoliante gruesa" data-o="5">
+      <div class="thumb t3"><svg><use href="#m-jar"/></svg></div>
+      <a class="rname" href="producto.html">Crema exfoliante gruesa</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">50 gr</span>
+      <span class="rdesc">Codos, rodillas, talones, espalda</span><span class="rprice">$15.500</span>
+      <span class="rmeta">Eco Cosmética · 50 gr</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="19000" data-n="Emulsión de limpieza" data-o="6">
+      <div class="thumb t2"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Emulsión de limpieza</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
+      <span class="rdesc">Limpia sin dejar la piel tirante</span><span class="rprice">$19.000</span>
+      <span class="rmeta">Eco Cosmética · 250 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="19000" data-n="Emulsión humectante corporal" data-o="7">
+      <div class="thumb t4"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Emulsión humectante corporal</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
+      <span class="rdesc">Más liviana que el aceite, uso diario</span><span class="rprice">$19.000</span>
+      <span class="rmeta">Eco Cosmética · 250 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="19000" data-n="Espuma de baño" data-o="8">
+      <div class="thumb"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Espuma de baño</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
+      <span class="rdesc">Baño de inmersión sin resecar</span><span class="rprice">$19.000</span>
+      <span class="rmeta">Eco Cosmética · 250 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="15700" data-n="Loción hidratante" data-o="9">
+      <div class="thumb t2"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Loción hidratante</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
+      <span class="rdesc">Fluida: verano, piernas y brazos</span><span class="rprice">$15.700</span>
+      <span class="rmeta">Eco Cosmética · 250 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="15500" data-n="Máscara de barro" data-o="10">
+      <div class="thumb t5"><svg><use href="#m-jar"/></svg></div>
+      <a class="rname" href="producto.html">Máscara de barro</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">50 ml</span>
+      <span class="rdesc">Zona T, poro dilatado, piel apagada</span><span class="rprice">$15.500</span>
+      <span class="rmeta">Eco Cosmética · 50 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="15700" data-n="Sales de baño" data-o="11">
+      <div class="thumb t4"><svg><use href="#m-jar"/></svg></div>
+      <a class="rname" href="producto.html">Sales de baño</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 gr</span>
+      <span class="rdesc">Piernas cansadas, frío, fin de semana</span><span class="rprice">$15.700</span>
+      <span class="rmeta">Eco Cosmética · 250 gr</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="eco" data-p="14000" data-n="Shampoo" data-o="12">
+      <div class="thumb"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Shampoo</a>
+      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
+      <span class="rdesc">Uso frecuente, cuero cabelludo sensible</span><span class="rprice">$14.000</span>
+      <span class="rmeta">Eco Cosmética · 250 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="spa" data-p="24500" data-n="Aceite miorrelajante" data-o="13">
+      <div class="thumb"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Aceite miorrelajante</a>
+      <span class="rlin"><span class="dot"></span>Spa de Olivoterapia</span><span class="rfmt">300 ml</span>
+      <span class="rdesc">Contracturas, espalda, cuello</span><span class="rprice">$24.500</span>
+      <span class="rmeta">Spa de Olivoterapia · 300 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="spa" data-p="26500" data-n="Aceite drenaje linfático" data-o="14">
+      <div class="thumb t5"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Aceite drenaje linfático</a>
+      <span class="rlin"><span class="dot"></span>Spa de Olivoterapia</span><span class="rfmt">300 ml</span>
+      <span class="rdesc">Piernas pesadas, retención, viajes</span><span class="rprice">$26.500</span>
+      <span class="rmeta">Spa de Olivoterapia · 300 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="spa" data-p="23000" data-n="Emulsión ácido hialurónico" data-o="15">
+      <div class="thumb t3"><svg><use href="#m-drop"/></svg></div>
+      <a class="rname" href="producto.html">Emulsión ácido hialurónico</a>
+      <span class="rlin"><span class="dot"></span>Spa de Olivoterapia</span><span class="rfmt">60 ml</span>
+      <span class="rdesc">Deshidratación y líneas finas</span><span class="rprice">$23.000</span>
+      <span class="rmeta">Spa de Olivoterapia · 60 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="spa" data-p="15500" data-n="Neblina hidratante" data-o="16">
+      <div class="thumb t4"><svg><use href="#m-drop"/></svg></div>
+      <a class="rname" href="producto.html">Neblina hidratante</a>
+      <span class="rlin"><span class="dot"></span>Spa de Olivoterapia</span><span class="rfmt">60 ml</span>
+      <span class="rdesc">Aire acondicionado, avión, media tarde</span><span class="rprice">$15.500</span>
+      <span class="rmeta">Spa de Olivoterapia · 60 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+    <div class="row" data-lin="gou" data-p="39000" data-n="Aceite de Oliva Extra Virgen Vallesi Arauco" data-o="17">
+      <div class="thumb t5"><svg><use href="#m-bottle"/></svg></div>
+      <a class="rname" href="producto.html">Aceite de Oliva Extra Virgen Vallesi Arauco</a>
+      <span class="rlin"><span class="dot"></span>Gourmet</span><span class="rfmt">500 ml</span>
+      <span class="rdesc">Monovarietal Arauco, una prensada al año</span><span class="rprice">$39.000</span>
+      <span class="rmeta">Gourmet · 500 ml</span>
+      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
+    </div>
+  </div>
+
+  <p class="empty" id="empty" hidden>No encontramos nada con esa búsqueda. Probá con «aceite», «crema» o «baño».</p>
+
+  <p class="note">Esta vista está pensada para quien ya conoce la línea: recompra, regalos o venta mayorista. Si es tu primera vez, conviene entrar por <a href="catalogo-3.html" style="color:var(--hoja-t)">necesidad</a> o por <a href="catalogo-2.html" style="color:var(--hoja-t)">línea</a>, donde cada grupo viene explicado.</p>
+</div></main>
+
+<footer class="ft"><div class="wrap">
+  <div class="ft-g">
+    <div><span class="logo-m" style="color:var(--crema)">Verde Oliva</span>
+      <p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p></div>
+    <div><h4>Catálogo</h4><ul><li><a href="catalogo-1.html">Grilla con filtros</a></li><li><a href="catalogo-2.html">Editorial por línea</a></li><li><a href="catalogo-3.html">Por necesidad</a></li></ul></div>
+    <div><h4>Contacto</h4><ul><li><a href="#c">Coquimbito, Maipú, Mendoza</a></li><li><a href="#c">Envíos a todo el país</a></li><li><a href="#c">hola@verdeoliva.com.ar</a></li></ul></div>
+  </div>
+  <div class="ft-bot">© 2026 Verde Oliva Olivoterapia · Prototipo de diseño · Tienda independiente del hotel.</div>
+</div></footer>
+
+<nav class="xnav" aria-label="Navegación del prototipo"><div class="xnav-in">
+  <a class="xhome" href="index.html"><svg width="15" height="15"><use href="#i-arrowl"/></svg> Índice</a>
+  <span class="xsep"></span><span class="xlab">Catálogo</span>
+  <a href="catalogo-1.html">1 · Grilla</a><a href="catalogo-2.html">2 · Editorial</a><a href="catalogo-3.html">3 · Necesidad</a>
+  <span class="xcur" aria-current="page">4 · Índice</span>
+  <span class="xsep"></span><a href="home-1.html">Home</a>
+  <span class="xsep"></span><a href="menu-1.html">Menú</a>
+  <span class="xsep"></span><a href="producto.html">Ficha</a>
+</div></nav>
+
+<script>
+(function(){
+  var list=document.getElementById('list'), rows=[].slice.call(list.children);
+  var q=document.getElementById('q'), sort=document.getElementById('sort');
+  var cnt=document.getElementById('cnt'), empty=document.getElementById('empty'), lin='';
+
+  function norm(s){return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
+  function apply(){
+    var t=norm(q.value.trim()), n=0;
+    rows.forEach(function(r){
+      var txt=norm(r.dataset.n+' '+r.querySelector('.rdesc').textContent+' '+r.querySelector('.rfmt').textContent);
+      var ok=(!lin||r.dataset.lin===lin)&&(!t||txt.indexOf(t)>-1);
+      r.hidden=!ok; if(ok)n++;
+    });
+    cnt.textContent=n; empty.hidden=n>0;
+  }
+  function order(){
+    var v=sort.value,a=rows.slice();
+    if(v==='asc')a.sort(function(x,y){return x.dataset.p-y.dataset.p;});
+    else if(v==='desc')a.sort(function(x,y){return y.dataset.p-x.dataset.p;});
+    else if(v==='lin')a.sort(function(x,y){return x.dataset.o-y.dataset.o;});
+    else a.sort(function(x,y){return x.dataset.n.localeCompare(y.dataset.n,'es');});
+    a.forEach(function(r){list.appendChild(r);});
+  }
+  q.addEventListener('input',apply);
+  sort.addEventListener('change',order);
+  document.querySelectorAll('[data-lin]').forEach(function(c){
+    if(c.classList.contains('chip')) c.addEventListener('click',function(){
+      lin=c.dataset.lin;
+      document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false');});
+      apply();
+    });
+  });
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.lang button');
+    if(b){b.parentNode.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});return;}
+    var a=e.target.closest('[data-add]');
+    if(a){document.querySelectorAll('[data-cart]').forEach(function(c){c.textContent=(parseInt(c.textContent,10)||0)+1;});
+      var t=a.textContent;a.textContent='✓';a.disabled=true;
+      setTimeout(function(){a.textContent=t;a.disabled=false;},1000);}
+  });
+  order();
+})();
+</script>
+</body>
+</html>
