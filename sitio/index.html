@@ -229,7 +229,7 @@ body.mnav-open{overflow:hidden}
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;overflow:hidden;background:var(--corteza)}
 .hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
- background:linear-gradient(180deg,rgba(20,18,15,.62) 0%,rgba(20,18,15,.34) 20%,rgba(20,18,15,.3) 55%,rgba(20,18,15,.38) 75%,rgba(20,18,15,.72) 100%)}
+ background:linear-gradient(180deg,rgba(20,18,15,.7) 0%,rgba(20,18,15,.6) 20%,rgba(20,18,15,.58) 55%,rgba(20,18,15,.62) 75%,rgba(20,18,15,.8) 100%)}
 .hero-t{position:relative;z-index:2;width:100%;padding:calc(var(--hh) + clamp(32px,6vw,72px)) 0 clamp(40px,6vw,72px);
  display:flex;flex-direction:column;justify-content:flex-end;flex:1}
 .hero-t .inner{max-width:52ch;padding:0 clamp(20px,5vw,64px);width:100%;color:var(--crema)}
@@ -241,7 +241,7 @@ body.mnav-open{overflow:hidden}
 .hero-t .inner.in>*:nth-child(4){transition-delay:.38s}
 .hero-t .inner.in>*:nth-child(5){transition-delay:.49s}
 .hero-t .inner.in>*:nth-child(6){transition-delay:.6s}
-.hero-t .kicker{color:var(--arena);text-shadow:0 1px 6px rgba(0,0,0,.45)}
+.hero-t .kicker{color:var(--crema);text-shadow:0 1px 6px rgba(0,0,0,.5)}
 .hero-t .lead{color:rgba(247,244,236,.86);text-shadow:0 1px 8px rgba(0,0,0,.4)}
 .hero-t h1{text-shadow:0 2px 14px rgba(0,0,0,.4)}
 .hero-mini{text-shadow:0 1px 6px rgba(0,0,0,.4)}
@@ -258,20 +258,7 @@ body.mnav-open{overflow:hidden}
  border:1px solid rgba(247,244,236,.4);color:var(--crema);font:600 .72rem/1 var(--fb);
  letter-spacing:.09em;text-transform:uppercase;padding:.6rem 1.05rem;border-radius:999px;margin-bottom:1.2rem}
 .hero-badge svg{color:var(--arena);flex:none}
-.hero-products{position:absolute;z-index:2;right:clamp(16px,4vw,56px);bottom:clamp(28px,6vw,72px);
- display:none;align-items:flex-end;gap:.9rem;pointer-events:none}
-.hero-products img{display:block;object-fit:cover;border-radius:4px;border:3px solid var(--crema);
- box-shadow:0 20px 44px -12px rgba(28,25,23,.55);
- opacity:0;transform:translateY(22px) scale(.96);transition:opacity .7s var(--e),transform .7s var(--e)}
-.hero-products.in img{opacity:1;transform:translateY(0) scale(1)}
-.hero-products.in img:nth-child(1){transition-delay:.5s}
-.hero-products.in img:nth-child(2){transition-delay:.62s}
-.hero-products.in img:nth-child(3){transition-delay:.74s}
-.hero-products img:nth-child(1){width:112px;height:140px}
-.hero-products img:nth-child(2){width:138px;height:172px;margin-bottom:1.6rem}
-.hero-products img:nth-child(3){width:106px;height:132px}
-@media(min-width:860px){.hero-products{display:flex}}
-@media(prefers-reduced-motion:reduce){.hero-t .inner>*,.hero-products img{opacity:1;transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){.hero-t .inner>*{opacity:1;transform:none;transition:none}}
 /* 2 · polifenoles */
 .poli{background:var(--crema2);border-bottom:1px solid var(--linea);padding:clamp(40px,5vw,72px) 0}
 .poli-h{max-width:60ch;margin-bottom:clamp(26px,3.2vw,42px)}
@@ -591,11 +578,6 @@ body.mnav-open{overflow:hidden}
         <span data-i18n="hero-mini-3"><svg width="15" height="15"><use href="#i-trees"/></svg>Una cosecha por año</span>
       </div>
     </div>
-  </div>
-  <div class="hero-products" aria-hidden="true">
-    <img src="img/productos/crema-humectante-facial.jpg" alt="">
-    <img src="img/productos/emulsion-humectante-corporal.jpg" alt="">
-    <img src="img/productos/mascara-de-barro.jpg" alt="">
   </div>
 </section>
 
