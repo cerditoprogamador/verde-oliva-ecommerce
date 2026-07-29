@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Verde Oliva Olivoterapia — Home C, entrada guiada por necesidad. Elegí qué buscás y armamos el ritual.">
 <title>Home C · Ritual guiado — Verde Oliva Olivoterapia</title>
@@ -72,6 +73,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .logo{display:flex;align-items:baseline;gap:.55rem;text-decoration:none;color:inherit;cursor:pointer;line-height:1}
 .logo-m{font-family:var(--fs);font-size:1.5rem;font-weight:600;white-space:nowrap}
 .logo-s{font:500 .57rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--tinta);white-space:nowrap}
+.logo-ic{height:1.55rem;width:auto;align-self:center;flex:none}
 .lang{display:inline-flex;align-items:center;gap:.3rem;font:500 .7rem/1 var(--fb);letter-spacing:.12em;color:var(--tinta)}
 .lang button{background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:.45rem .25rem;
  border-bottom:1px solid transparent;transition:color .2s var(--e),border-color .2s var(--e)}
@@ -227,7 +229,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 
 <header class="hdr">
   <div class="wrap"><div class="hdr-in">
-    <a class="logo" href="index.html"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
+    <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
     <nav class="hdr-nav" aria-label="Principal">
       <a href="catalogo-3.html">Por necesidad</a>
       <a href="catalogo-2.html">Las tres líneas</a>
@@ -260,7 +262,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
     <button class="need" type="button" data-need="limpiar" aria-pressed="false"><svg class="ic" width="24" height="24"><use href="#i-droplet"/></svg>Limpiar<small>2 productos</small></button>
     <button class="need" type="button" data-need="hidratar" aria-pressed="true"><svg class="ic" width="24" height="24"><use href="#i-leaf"/></svg>Hidratar<small>6 productos</small></button>
     <button class="need" type="button" data-need="exfoliar" aria-pressed="false"><svg class="ic" width="24" height="24"><use href="#i-brush"/></svg>Exfoliar<small>2 productos</small></button>
-    <button class="need" type="button" data-need="relajar" aria-pressed="false"><svg class="ic" width="24" height="24"><use href="#i-hand"/></svg>Relajar<small>2 productos</small></button>
     <button class="need" type="button" data-need="capilar" aria-pressed="false"><svg class="ic" width="24" height="24"><use href="#i-wind"/></svg>Cuidar el pelo<small>2 productos</small></button>
     <button class="need" type="button" data-need="bano" aria-pressed="false"><svg class="ic" width="24" height="24"><use href="#i-sun"/></svg>Darme un baño<small>2 productos</small></button>
     <button class="need" type="button" data-need="mesa" aria-pressed="false"><svg class="ic" width="24" height="24"><use href="#i-trees"/></svg>La mesa<small>1 producto</small></button>
@@ -307,7 +308,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
     </div>
     <div class="combos">
       <a class="combo" href="catalogo-3.html">
-        <div class="ph ph5" aria-hidden="true"><svg class="ph-m"><use href="#m-jar"/></svg></div>
+        <div class="ph ph5" aria-hidden="true"><img src="img/productos/mascara-de-barro.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
         <div class="combo-b">
           <h3>Ritual de noche</h3>
           <p>Sacarse el día de la cara sin dejarla tirante, y dejar trabajando algo que hidrate mientras dormís.</p>
@@ -316,16 +317,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
         </div>
       </a>
       <a class="combo" href="catalogo-3.html">
-        <div class="ph" aria-hidden="true"><svg class="ph-m"><use href="#m-bottle"/></svg></div>
+        <div class="ph" aria-hidden="true"><img src="img/productos/sales-de-bano.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
         <div class="combo-b">
           <h3>Piernas cansadas</h3>
-          <p>Para el final del día, después de viajar o de estar mucho tiempo de pie. Es lo mismo que se hace en cabina.</p>
-          <ul><li>Sales de baño 250 gr</li><li>Aceite drenaje linfático 300 ml</li><li>Emulsión humectante corporal 250 ml</li></ul>
-          <span class="combo-p">$61.200 <s>3 productos</s></span>
+          <p>Para el final del día, después de viajar o de estar mucho tiempo de pie.</p>
+          <ul><li>Sales de baño 250 gr</li><li>Emulsión humectante corporal 250 ml</li></ul>
+          <span class="combo-p">$34.700 <s>2 productos</s></span>
         </div>
       </a>
       <a class="combo" href="catalogo-3.html">
-        <div class="ph ph3" aria-hidden="true"><svg class="ph-m"><use href="#m-drop"/></svg></div>
+        <div class="ph ph3" aria-hidden="true"><img src="img/productos/espuma-de-bano.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
         <div class="combo-b">
           <h3>Domingo largo</h3>
           <p>Un baño de inmersión de verdad, con exfoliación previa y aceite después. Se hace una vez por semana.</p>
@@ -373,7 +374,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   <div class="wrap">
     <div class="ft-g">
       <div>
-        <a class="logo" href="index.html"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span></a>
+        <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26" style="filter:brightness(0) invert(1)"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span></a>
         <p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p>
         <p style="font-size:.88rem;color:rgba(247,244,236,.7);max-width:34ch;margin:0">Cosmética natural con polifenoles de aceite de oliva. Coquimbito, Maipú, Mendoza. Olivar plantado en 1890.</p>
       </div>
@@ -401,9 +402,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   <a href="home-2.html">B · Producto primero</a>
   <span class="xcur" aria-current="page">C · Ritual guiado</span>
   <a href="home-4.html">D · Origen</a>
+  <a href="home-5.html">E · Definitiva</a>
   <span class="xsep"></span><a href="menu-1.html">Menú</a>
-  <span class="xsep"></span><a href="catalogo-1.html">Catálogo</a>
-  <span class="xsep"></span><a href="producto.html">Ficha</a>
+  <span class="xsep"></span><a href="catalogo-5.html">Catálogo</a>
+  <span class="xsep"></span><a href="producto-5.html">Ficha</a>
 </div></nav>
 
 <script>
@@ -424,10 +426,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
       s:[['Crema exfoliante fina','50 gr','$15.500','Rostro, cuello y escote. En círculos suaves, sin presionar.','Nunca el mismo día que la máscara de barro.'],
          ['Crema exfoliante gruesa','50 gr','$15.500','Codos, rodillas, talones y espalda, bajo la ducha, sobre piel mojada.',''],
          ['Emulsión humectante corporal','250 ml','$19.000','Inmediatamente después. La piel recién exfoliada absorbe mucho más.','']]},
-    relajar:{t:'Lo que hacemos en cabina, en casa',d:'Las dos fórmulas profesionales de la línea Spa, con las que Fernanda trabaja en los tratamientos de olivoterapia.',
-      time:'25 minutos',when:'Dos o tres veces por semana',skin:'Todo tipo de piel',total:'$51.000',
-      s:[['Aceite miorrelajante','300 ml','$24.500','Contracturas, espalda, cuello y hombros. Masaje firme y largo.','Entibiá el aceite entre las manos antes de aplicarlo: la piel lo recibe distinto.'],
-         ['Aceite drenaje linfático','300 ml','$26.500','Piernas pesadas, retención, después de viajar. Maniobras lentas de tobillo hacia el corazón.','Siempre en la misma dirección. Ida y vuelta no drena.']]},
     capilar:{t:'Cuero cabelludo primero',d:'El largo se acomoda solo si el cuero cabelludo está bien. Poca espuma no es poca limpieza.',
       time:'8 minutos',when:'Dos o tres veces por semana',skin:'Cuero cabelludo sensible',total:'$43.000',
       s:[['Shampoo','250 ml','$14.000','Base suave, poca espuma. Masajeá el cuero cabelludo, no el largo.','Con agua dura como la de Mendoza, una segunda pasada corta rinde más que una larga.'],

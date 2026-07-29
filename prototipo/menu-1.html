@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Verde Oliva Olivoterapia — Menú 1: barra horizontal clásica con mega-menú desplegable por línea.">
 <title>Menú 1 · Horizontal + mega-menú — Verde Oliva Olivoterapia</title>
@@ -64,6 +65,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .logo{display:flex;align-items:baseline;gap:.55rem;text-decoration:none;color:inherit;cursor:pointer;line-height:1}
 .logo-m{font-family:var(--fs);font-size:1.5rem;font-weight:600;white-space:nowrap}
 .logo-s{font:500 .57rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--tinta);white-space:nowrap}
+.logo-ic{height:1.55rem;width:auto;align-self:center;flex:none}
 .lang{display:inline-flex;align-items:center;gap:.3rem;font:500 .7rem/1 var(--fb);letter-spacing:.12em;color:var(--tinta)}
 .lang button{background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:.45rem .25rem;
  border-bottom:1px solid transparent;transition:color .2s var(--e),border-color .2s var(--e)}
@@ -179,7 +181,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 
 <header class="hdr" id="hdr">
   <div class="wrap"><div class="hdr-in">
-    <a class="logo" href="index.html"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
+    <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
 
     <nav class="mnav" aria-label="Principal">
       <button class="mtop" type="button" aria-expanded="false" aria-controls="mg-eco" data-mega="mg-eco">Eco Cosmética <svg class="ic" width="15" height="15"><use href="#i-down"/></svg></button>
@@ -210,9 +212,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
         <li><a href="producto.html">Máscara de barro <span>50 ml</span></a></li>
       </ul></div>
       <div><h3>Cuerpo</h3><ul>
-        <li><a href="producto.html">Aceite corporal <span>250 ml</span></a></li>
         <li><a href="producto.html">Emulsión humectante corporal <span>250 ml</span></a></li>
-        <li><a href="producto.html">Loción hidratante <span>250 ml</span></a></li>
         <li><a href="producto.html">Crema exfoliante gruesa <span>50 gr</span></a></li>
       </ul></div>
       <div><h3>Baño y capilar</h3><ul>
@@ -221,7 +221,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
         <li><a href="producto.html">Espuma de baño <span>250 ml</span></a></li>
         <li><a href="producto.html">Sales de baño <span>250 gr</span></a></li>
       </ul>
-      <div style="margin-top:1.2rem"><a class="link" href="catalogo-1.html">Ver los 12 <svg class="ic" width="14" height="14"><use href="#i-arrow"/></svg></a></div></div>
+      <div style="margin-top:1.2rem"><a class="link" href="catalogo-1.html">Ver los 10 <svg class="ic" width="14" height="14"><use href="#i-arrow"/></svg></a></div></div>
       <div class="mega-note">
         <h4>¿Fina o gruesa?</h4>
         <p>La exfoliante fina es para rostro, cuello y escote. La gruesa, para codos, rodillas y talones. Nunca al revés.</p>
@@ -233,24 +233,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   <!-- mega: Spa -->
   <div class="mega" id="mg-spa" role="region" aria-label="Spa de Olivoterapia">
     <div class="wrap"><div class="mega-in">
-      <div><h3>Las cuatro fórmulas</h3><ul>
-        <li><a href="producto.html">Aceite miorrelajante <span>300 ml</span></a></li>
-        <li><a href="producto.html">Aceite drenaje linfático <span>300 ml</span></a></li>
+      <div><h3>Las dos fórmulas</h3><ul>
         <li><a href="producto.html">Emulsión ácido hialurónico <span>60 ml</span></a></li>
         <li><a href="producto.html">Neblina hidratante <span>60 ml</span></a></li>
       </ul></div>
       <div><h3>Para qué sirven</h3><ul>
-        <li><a href="catalogo-3.html">Contracturas y espalda</a></li>
+        <li><a href="catalogo-3.html">Zona T y poro dilatado</a></li>
         <li><a href="catalogo-3.html">Piernas cansadas</a></li>
         <li><a href="catalogo-3.html">Piel deshidratada</a></li>
         <li><a href="catalogo-3.html">Aire seco y aire acondicionado</a></li>
       </ul></div>
       <div class="mega-feat"><a href="producto.html">
-        <div class="ph" aria-hidden="true"><svg class="ph-m" style="width:30%"><use href="#m-drop"/></svg></div>
-        <strong>Aceite drenaje linfático</strong><span>300 ml · $26.500</span></a></div>
+        <div class="ph" aria-hidden="true"><img src="img/productos/emulsion-acido-hialuronico.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
+        <strong>Emulsión ácido hialurónico</strong><span>60 ml · $23.000</span></a></div>
       <div class="mega-note">
         <h4>Lo mismo que en cabina</h4>
-        <p>Las cuatro fórmulas son las que Fernanda Herrera usa en los tratamientos. No hay versión profesional y versión doméstica.</p>
+        <p>Las dos fórmulas son las que Fernanda Herrera usa en los tratamientos. No hay versión profesional y versión doméstica.</p>
         <a class="link" href="home-4.html">Conocer la olivoterapia <svg class="ic" width="14" height="14"><use href="#i-arrow"/></svg></a>
       </div>
     </div></div>
@@ -282,8 +280,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   </div>
 
   <nav class="mob" id="mob" aria-label="Menú móvil">
-    <a href="catalogo-1.html">Eco Cosmética (12)</a>
-    <a href="catalogo-1.html">Spa de Olivoterapia (4)</a>
+    <a href="catalogo-1.html">Eco Cosmética (10)</a>
+    <a href="catalogo-1.html">Spa de Olivoterapia (2)</a>
     <a href="catalogo-1.html">Gourmet (1)</a>
     <a href="catalogo-3.html">Comprar por necesidad</a>
     <a href="producto.html">Aprender</a>
@@ -307,19 +305,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
       <h2 class="d3" style="margin-bottom:clamp(24px,3vw,40px)">Algunos productos</h2>
       <div class="pgrid">
         <article><a class="card" href="producto.html">
-          <div class="ph ph2" aria-hidden="true"><svg class="ph-m"><use href="#m-bottle"/></svg></div>
+          <div class="ph ph2" aria-hidden="true"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Emulsión humectante corporal</h3><p class="card-f">250 ml</p><p class="card-p">$19.000</p></div></a></article>
         <article><a class="card" href="producto.html">
-          <div class="ph ph4" aria-hidden="true"><svg class="ph-m"><use href="#m-jar"/></svg></div>
+          <div class="ph ph4" aria-hidden="true"><img src="img/productos/mascara-de-barro.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Máscara de barro</h3><p class="card-f">50 ml</p><p class="card-p">$15.500</p></div></a></article>
         <article><a class="card" href="producto.html">
-          <div class="ph" aria-hidden="true"><svg class="ph-m"><use href="#m-drop"/></svg></div>
+          <div class="ph" aria-hidden="true"><img src="img/productos/neblina-hidratante.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span>Spa de Olivoterapia</span><h3 class="card-t">Neblina hidratante</h3><p class="card-f">60 ml</p><p class="card-p">$15.500</p></div></a></article>
         <article><a class="card" href="producto.html">
-          <div class="ph ph3" aria-hidden="true"><svg class="ph-m"><use href="#m-bottle"/></svg></div>
+          <div class="ph ph3" aria-hidden="true"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span>Gourmet</span><h3 class="card-t">Vallesi Arauco</h3><p class="card-f">500 ml</p><p class="card-p">$39.000</p></div></a></article>
       </div>
-      <div style="margin-top:2rem"><a class="btn btn-ghost" href="catalogo-1.html">Ver los 17 productos <svg class="ic" width="15" height="15"><use href="#i-arrow"/></svg></a></div>
+      <div style="margin-top:2rem"><a class="btn btn-ghost" href="catalogo-1.html">Ver los 13 productos <svg class="ic" width="15" height="15"><use href="#i-arrow"/></svg></a></div>
     </div>
   </section>
 
@@ -344,7 +342,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   <div class="wrap">
     <div class="ft-g">
       <div>
-        <a class="logo" href="index.html"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span></a>
+        <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26" style="filter:brightness(0) invert(1)"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span></a>
         <p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p>
         <p style="font-size:.88rem;color:rgba(247,244,236,.7);max-width:34ch;margin:0">Cosmética natural con polifenoles de aceite de oliva. Coquimbito, Maipú, Mendoza.</p>
       </div>
@@ -363,9 +361,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
   <a href="menu-2.html">2 · Panel lateral</a>
   <a href="menu-3.html">3 · Barra doble</a>
   <a href="menu-4.html">4 · Overlay</a>
-  <span class="xsep"></span><a href="home-1.html">Home</a>
-  <span class="xsep"></span><a href="catalogo-1.html">Catálogo</a>
-  <span class="xsep"></span><a href="producto.html">Ficha</a>
+  <span class="xsep"></span><a href="home-5.html">Home</a>
+  <span class="xsep"></span><a href="catalogo-5.html">Catálogo</a>
+  <span class="xsep"></span><a href="producto-5.html">Ficha</a>
 </div></nav>
 
 <script>

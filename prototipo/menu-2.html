@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Menú 2 · minimal con panel lateral deslizante, también en escritorio.">
 <title>Menú 2 · Panel lateral — Verde Oliva Olivoterapia</title>
@@ -44,6 +45,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 .logo{display:flex;align-items:baseline;gap:.5rem;text-decoration:none;color:inherit;cursor:pointer}
 .logo-m{font-family:var(--fs);font-size:1.5rem;font-weight:600;white-space:nowrap}
 .logo-s{font:500 .56rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--tinta)}
+.logo-ic{height:1.55rem;width:auto;align-self:center;flex:none}
 .lang{display:inline-flex;align-items:center;gap:.3rem;font:500 .7rem/1 var(--fb);letter-spacing:.12em;color:var(--tinta)}
 .lang button{background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:.45rem .25rem;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
 .lang button[aria-pressed="true"]{color:var(--oliva);border-color:var(--oro)}
@@ -160,7 +162,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
       <svg width="22" height="22"><use href="#i-menu"/></svg><span class="lbl">Menú</span>
     </button>
   </div>
-  <a class="logo hdr-c" href="index.html"><span class="logo-m">Verde Oliva</span></a>
+  <a class="logo hdr-c" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span></a>
   <div class="hdr-r">
     <button class="iconbtn" type="button" aria-label="Buscar"><svg width="20" height="20"><use href="#i-search"/></svg></button>
     <button class="iconbtn" type="button" aria-label="Carrito"><svg width="20" height="20"><use href="#i-bag"/></svg><span class="badge" data-cart>0</span></button>
@@ -171,7 +173,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 
 <aside class="panel" id="panel" role="dialog" aria-modal="true" aria-label="Navegación" tabindex="-1">
   <div class="panel-h">
-    <span class="logo-m">Verde Oliva</span>
+    <div style="display:flex;align-items:center;gap:.55rem"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26" style="filter:brightness(0) invert(1)"><span class="logo-m">Verde Oliva</span></div>
     <button class="iconbtn" type="button" id="close" aria-label="Cerrar menú"><svg width="22" height="22"><use href="#i-x"/></svg></button>
   </div>
   <nav class="panel-b" aria-label="Principal">
@@ -179,16 +181,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
       <button type="button" aria-expanded="false" aria-controls="s1">Eco Cosmética <span class="cx" aria-hidden="true"></span></button>
       <div class="sub" id="s1"><ul>
         <li><a href="catalogo-2.html">Rostro <span>4</span></a></li>
-        <li><a href="catalogo-2.html">Cuerpo <span>4</span></a></li>
+        <li><a href="catalogo-2.html">Cuerpo <span>2</span></a></li>
         <li><a href="catalogo-2.html">Baño y capilar <span>4</span></a></li>
-        <li><a href="catalogo-1.html">Ver los 12</a></li>
+        <li><a href="catalogo-1.html">Ver los 10</a></li>
       </ul></div>
     </div>
     <div class="pgroup">
       <button type="button" aria-expanded="false" aria-controls="s2">Spa de Olivoterapia <span class="cx" aria-hidden="true"></span></button>
       <div class="sub" id="s2"><ul>
-        <li><a href="producto.html">Aceite miorrelajante <span>300 ml</span></a></li>
-        <li><a href="producto.html">Aceite drenaje linfático <span>300 ml</span></a></li>
         <li><a href="producto.html">Emulsión ácido hialurónico <span>60 ml</span></a></li>
         <li><a href="producto.html">Neblina hidratante <span>60 ml</span></a></li>
       </ul></div>
@@ -249,7 +249,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 
 <footer class="ft"><div class="wrap">
   <div class="ft-g">
-    <div><span class="logo-m" style="color:var(--crema)">Verde Oliva</span><p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p></div>
+    <div><div style="display:flex;align-items:center;gap:.55rem"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26" style="filter:brightness(0) invert(1)"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span></div><p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p></div>
     <div><h4>Tienda</h4><ul><li><a href="catalogo-1.html">Eco Cosmética</a></li><li><a href="catalogo-1.html">Spa de Olivoterapia</a></li><li><a href="catalogo-4.html">Todos los productos</a></li></ul></div>
     <div><h4>Contacto</h4><ul><li><a href="#c">Coquimbito, Maipú, Mendoza</a></li><li><a href="#c">Envíos a todo el país</a></li><li><a href="#c">hola@verdeoliva.com.ar</a></li></ul></div>
   </div>
@@ -262,9 +262,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
   <a href="menu-1.html">1 · Horizontal</a>
   <span class="xcur" aria-current="page">2 · Panel lateral</span>
   <a href="menu-3.html">3 · Barra doble</a><a href="menu-4.html">4 · Overlay</a>
-  <span class="xsep"></span><a href="home-1.html">Home</a>
-  <span class="xsep"></span><a href="catalogo-1.html">Catálogo</a>
-  <span class="xsep"></span><a href="producto.html">Ficha</a>
+  <span class="xsep"></span><a href="home-5.html">Home</a>
+  <span class="xsep"></span><a href="catalogo-5.html">Catálogo</a>
+  <span class="xsep"></span><a href="producto-5.html">Ficha</a>
 </div></nav>
 
 <script>

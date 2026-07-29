@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Catálogo 2 · editorial por línea. Eco Cosmética, Spa de Olivoterapia y Gourmet, cada una con su introducción.">
 <title>Catálogo 2 · Editorial por línea — Verde Oliva Olivoterapia</title>
@@ -51,6 +52,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 .logo{display:flex;align-items:baseline;gap:.5rem;text-decoration:none;color:inherit;cursor:pointer}
 .logo-m{font-family:var(--fs);font-size:1.45rem;font-weight:600;white-space:nowrap}
 .logo-s{font:500 .56rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--tinta)}
+.logo-ic{height:1.55rem;width:auto;align-self:center;flex:none}
 .hu{margin-left:auto;display:flex;align-items:center;gap:.15rem}
 .lang{display:inline-flex;align-items:center;gap:.3rem;font:500 .7rem/1 var(--fb);letter-spacing:.12em;color:var(--tinta);margin-right:.4rem}
 .lang button{background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:.45rem .25rem;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
@@ -136,7 +138,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 </defs></svg>
 
 <header class="hdr"><div class="wrap"><div class="hdr-in">
-  <a class="logo" href="index.html"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
+  <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
   <div class="hu">
     <div class="lang" role="group" aria-label="Idioma"><button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button></div>
     <button class="iconbtn" type="button" aria-label="Mi cuenta"><svg width="20" height="20"><use href="#i-user"/></svg></button>
@@ -145,8 +147,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 </div></div></header>
 
 <nav class="idx" aria-label="Capítulos del catálogo"><div class="wrap"><div class="idx-in">
-  <a href="#eco" data-s="eco" class="on">Eco Cosmética <span>12</span></a>
-  <a href="#spa" data-s="spa">Spa de Olivoterapia <span>4</span></a>
+  <a href="#eco" data-s="eco" class="on">Eco Cosmética <span>10</span></a>
+  <a href="#spa" data-s="spa">Spa de Olivoterapia <span>2</span></a>
   <a href="#gourmet" data-s="gourmet">Gourmet <span>1</span></a>
 </div></div></nav>
 
@@ -155,7 +157,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 <section class="top"><div class="wrap">
   <div class="rule-oro"></div>
   <p class="kicker">Catálogo · Las tres líneas</p>
-  <h1>Diecisiete productos, un solo aceite.</h1>
+  <h1>Trece productos, un solo aceite.</h1>
   <p class="lead" style="margin-top:1rem">Todo sale del mismo olivar de Coquimbito. Lo que cambia entre las líneas no es el origen: es la concentración, el formato y para qué momento están pensadas. Antes de comparar precios, conviene entender la diferencia.</p>
 </div></section>
 
@@ -163,39 +165,37 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 <section class="chap" id="eco">
   <div class="wrap">
     <div class="chead">
-      <div class="ph ph2"><svg class="ph-m"><use href="#m-jar"/></svg></div>
+      <div class="ph ph2"><img src="img/productos/crema-humectante-facial.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <div>
         <span class="cn">01</span>
         <h2>Eco Cosmética</h2>
-        <p class="lead">La línea de todos los días. Doce productos que cubren el ciclo completo: limpiar, exfoliar, hidratar, lavarse el pelo y darse un baño. Son fórmulas de uso diario, con concentraciones pensadas para sostener en el tiempo y no para un efecto inmediato.</p>
-        <p class="lead">Si nunca usaste cosmética con base de aceite de oliva, es acá donde hay que empezar: por el aceite corporal o por la crema facial.</p>
-        <div class="cmeta"><span>12 productos</span><span>Desde $13.500</span><span>Uso diario</span></div>
+        <p class="lead">La línea de todos los días. Diez productos que cubren el ciclo completo: limpiar, exfoliar, hidratar, lavarse el pelo y darse un baño. Son fórmulas de uso diario, con concentraciones pensadas para sostener en el tiempo y no para un efecto inmediato.</p>
+        <p class="lead">Si nunca usaste cosmética con base de aceite de oliva, es acá donde hay que empezar: por la emulsión humectante corporal o por la crema facial.</p>
+        <div class="cmeta"><span>10 productos</span><span>Desde $13.500</span><span>Uso diario</span></div>
         <div class="note">La textura se absorbe más despacio que un producto sintético. No es un defecto: es el tiempo que la piel necesita para tomar lo que le sirve.</div>
       </div>
     </div>
 
     <p class="sub">Rostro</p>
     <div class="grid">
-      <a class="card" href="producto.html"><div class="ph ph2"><svg class="ph-m"><use href="#m-jar"/></svg></div><div class="cb"><h3 class="ct">Crema humectante facial</h3><p class="cf">50 gr · Piel normal a seca, todo el año</p><p class="cp">$18.000</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph4"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct">Emulsión de limpieza</h3><p class="cf">250 ml · Limpia sin dejar tirante</p><p class="cp">$19.000</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph2"><svg class="ph-m"><use href="#m-jar"/></svg></div><div class="cb"><h3 class="ct">Crema exfoliante fina</h3><p class="cf">50 gr · Rostro, cuello y escote</p><p class="cp">$15.500</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph5"><svg class="ph-m"><use href="#m-jar"/></svg></div><div class="cb"><h3 class="ct">Máscara de barro</h3><p class="cf">50 ml · Zona T y poro dilatado</p><p class="cp">$15.500</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph2"><img src="img/productos/crema-humectante-facial.jpg" alt="Crema humectante facial Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Crema humectante facial</h3><p class="cf">50 gr · Piel normal a seca, todo el año</p><p class="cp">$18.000</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph4"><img src="img/productos/emulsion-de-limpieza.jpg" alt="Emulsión de limpieza Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Emulsión de limpieza</h3><p class="cf">250 ml · Limpia sin dejar tirante</p><p class="cp">$19.000</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph2"><img src="img/productos/crema-exfoliante-fina.jpg" alt="Crema exfoliante fina Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Crema exfoliante fina</h3><p class="cf">50 gr · Rostro, cuello y escote</p><p class="cp">$15.500</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph5"><img src="img/productos/mascara-de-barro.jpg" alt="Máscara de barro Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Máscara de barro</h3><p class="cf">50 ml · Zona T y poro dilatado</p><p class="cp">$15.500</p></div></a>
     </div>
 
     <p class="sub">Cuerpo</p>
     <div class="grid">
-      <a class="card" href="producto.html"><div class="ph ph2"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct">Aceite corporal</h3><p class="cf">250 ml · Piel muy seca, después del baño</p><p class="cp">$18.500</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph4"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct">Emulsión humectante corporal</h3><p class="cf">250 ml · Más liviana que el aceite</p><p class="cp">$19.000</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph2"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct">Loción hidratante</h3><p class="cf">250 ml · Fluida, para el verano</p><p class="cp">$15.700</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph3"><svg class="ph-m"><use href="#m-jar"/></svg></div><div class="cb"><h3 class="ct">Crema exfoliante gruesa</h3><p class="cf">50 gr · Codos, rodillas y talones</p><p class="cp">$15.500</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph4"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="Emulsión humectante corporal Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Emulsión humectante corporal</h3><p class="cf">250 ml · Más liviana que el aceite</p><p class="cp">$19.000</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph3"><img src="img/productos/crema-exfoliante-gruesa.jpg" alt="Crema exfoliante gruesa Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Crema exfoliante gruesa</h3><p class="cf">50 gr · Codos, rodillas y talones</p><p class="cp">$15.500</p></div></a>
     </div>
 
     <p class="sub">Baño y capilar</p>
     <div class="grid">
-      <a class="card" href="producto.html"><div class="ph"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct">Shampoo</h3><p class="cf">250 ml · Cuero cabelludo sensible</p><p class="cp">$14.000</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph4"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct">Acondicionador capilar</h3><p class="cf">250 ml · Desenreda sin apelmazar</p><p class="cp">$13.500</p></div></a>
-      <a class="card" href="producto.html"><div class="ph"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct">Espuma de baño</h3><p class="cf">250 ml · Baño de inmersión</p><p class="cp">$19.000</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph4"><svg class="ph-m"><use href="#m-jar"/></svg></div><div class="cb"><h3 class="ct">Sales de baño</h3><p class="cf">250 gr · Piernas cansadas, frío</p><p class="cp">$15.700</p></div></a>
+      <a class="card" href="producto.html"><div class="ph"><img src="img/productos/shampoo.jpg" alt="Shampoo Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Shampoo</h3><p class="cf">250 ml · Cuero cabelludo sensible</p><p class="cp">$14.000</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph4"><img src="img/productos/acondicionador-capilar.jpg" alt="Acondicionador capilar Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Acondicionador capilar</h3><p class="cf">250 ml · Desenreda sin apelmazar</p><p class="cp">$13.500</p></div></a>
+      <a class="card" href="producto.html"><div class="ph"><img src="img/productos/espuma-de-bano.jpg" alt="Espuma de baño Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Espuma de baño</h3><p class="cf">250 ml · Baño de inmersión</p><p class="cp">$19.000</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph4"><img src="img/productos/sales-de-bano.jpg" alt="Sales de baño Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Sales de baño</h3><p class="cf">250 gr · Piernas cansadas, frío</p><p class="cp">$15.700</p></div></a>
     </div>
   </div>
 </section>
@@ -207,18 +207,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
       <div>
         <span class="cn">02</span>
         <h2>Spa de Olivoterapia</h2>
-        <p class="lead">Las cuatro fórmulas que Fernanda Herrera usa en cabina. Misma concentración, mismo envase: no hay una versión profesional y otra doméstica. Son productos de tratamiento, no de rutina: se usan cuando hace falta.</p>
-        <p class="lead">Los dos aceites de 300 ml están pensados para masaje, con deslizamiento largo. La emulsión de hialurónico y la neblina son de rostro, en formato chico y concentrado.</p>
-        <div class="cmeta"><span>4 productos</span><span>Desde $15.500</span><span>Uso puntual</span></div>
+        <p class="lead">Las dos fórmulas que Fernanda Herrera usa en cabina, en formato chico y concentrado. Misma concentración, mismo envase: no hay una versión profesional y otra doméstica. Son productos de tratamiento, no de rutina: se usan cuando hace falta.</p>
+        <div class="cmeta"><span>2 productos</span><span>Desde $15.500</span><span>Uso puntual</span></div>
         <div class="note">La diferencia entre cabina y casa no está en el producto. Está en la mano y en el tiempo que le dedicás.</div>
       </div>
-      <div class="ph ph5"><svg class="ph-m"><use href="#m-drop"/></svg></div>
+      <div class="ph ph5"><img src="img/productos/neblina-hidratante.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
     </div>
     <div class="grid">
-      <a class="card" href="producto.html"><div class="ph"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct" style="color:var(--crema)">Aceite miorrelajante</h3><p class="cf">300 ml · Contracturas, espalda, cuello</p><p class="cp" style="color:var(--crema)">$24.500</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph5"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct" style="color:var(--crema)">Aceite drenaje linfático</h3><p class="cf">300 ml · Piernas pesadas, viajes</p><p class="cp" style="color:var(--crema)">$26.500</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph3"><svg class="ph-m"><use href="#m-drop"/></svg></div><div class="cb"><h3 class="ct" style="color:var(--crema)">Emulsión ácido hialurónico</h3><p class="cf">60 ml · Deshidratación, líneas finas</p><p class="cp" style="color:var(--crema)">$23.000</p></div></a>
-      <a class="card" href="producto.html"><div class="ph ph4"><svg class="ph-m"><use href="#m-drop"/></svg></div><div class="cb"><h3 class="ct" style="color:var(--crema)">Neblina hidratante</h3><p class="cf">60 ml · Aire seco, avión, media tarde</p><p class="cp" style="color:var(--crema)">$15.500</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph3"><img src="img/productos/emulsion-acido-hialuronico.jpg" alt="Emulsión de ácido hialurónico Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct" style="color:var(--crema)">Emulsión ácido hialurónico</h3><p class="cf">60 ml · Deshidratación, líneas finas</p><p class="cp" style="color:var(--crema)">$23.000</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph4"><img src="img/productos/neblina-hidratante.jpg" alt="Neblina hidratante Verde Oliva" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct" style="color:var(--crema)">Neblina hidratante</h3><p class="cf">60 ml · Aire seco, avión, media tarde</p><p class="cp" style="color:var(--crema)">$15.500</p></div></a>
     </div>
   </div>
 </section>
@@ -227,7 +224,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 <section class="chap" id="gourmet">
   <div class="wrap">
     <div class="chead">
-      <div class="ph ph3"><svg class="ph-m"><use href="#m-branch"/></svg></div>
+      <div class="ph ph3"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <div>
         <span class="cn">03</span>
         <h2>Gourmet</h2>
@@ -239,7 +236,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
       </div>
     </div>
     <div class="grid">
-      <a class="card" href="producto.html"><div class="ph ph5"><svg class="ph-m"><use href="#m-bottle"/></svg></div><div class="cb"><h3 class="ct">Aceite de Oliva Extra Virgen Vallesi Arauco</h3><p class="cf">500 ml · Monovarietal Arauco, prensado en frío</p><p class="cp">$39.000</p></div></a>
+      <a class="card" href="producto.html"><div class="ph ph5"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="Aceite de Oliva Extra Virgen Vallesi Arauco" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div><div class="cb"><h3 class="ct">Aceite de Oliva Extra Virgen Vallesi Arauco</h3><p class="cf">500 ml · Monovarietal Arauco, prensado en frío</p><p class="cp">$39.000</p></div></a>
     </div>
   </div>
 </section>
@@ -256,7 +253,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
 
 <footer class="ft"><div class="wrap">
   <div class="ft-g">
-    <div><span class="logo-m" style="color:var(--crema)">Verde Oliva</span>
+    <div><div style="display:flex;align-items:center;gap:.55rem"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26" style="filter:brightness(0) invert(1)"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span></div>
       <p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p></div>
     <div><h4>Catálogo</h4><ul><li><a href="catalogo-1.html">Grilla con filtros</a></li><li><a href="catalogo-3.html">Por necesidad</a></li><li><a href="catalogo-4.html">Índice completo</a></li></ul></div>
     <div><h4>Contacto</h4><ul><li><a href="#c">Coquimbito, Maipú, Mendoza</a></li><li><a href="#c">Envíos a todo el país</a></li><li><a href="#c">hola@verdeoliva.com.ar</a></li></ul></div>
@@ -269,10 +266,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--oliva);outline-offs
   <span class="xsep"></span><span class="xlab">Catálogo</span>
   <a href="catalogo-1.html">1 · Grilla</a>
   <span class="xcur" aria-current="page">2 · Editorial</span>
-  <a href="catalogo-3.html">3 · Necesidad</a><a href="catalogo-4.html">4 · Índice</a>
-  <span class="xsep"></span><a href="home-1.html">Home</a>
+  <a href="catalogo-3.html">3 · Necesidad</a><a href="catalogo-4.html">4 · Índice</a><a href="catalogo-5.html">Definitivo</a>
+  <span class="xsep"></span><a href="home-5.html">Home</a>
   <span class="xsep"></span><a href="menu-1.html">Menú</a>
-  <span class="xsep"></span><a href="producto.html">Ficha</a>
+  <span class="xsep"></span><a href="producto-5.html">Ficha</a>
 </div></nav>
 
 <script>

@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Menú 3 · barra doble: fila utilitaria arriba y fila de categorías abajo, que se compacta al hacer scroll.">
 <title>Menú 3 · Barra doble sticky — Verde Oliva Olivoterapia</title>
@@ -44,6 +45,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .logo{display:flex;align-items:baseline;gap:.5rem;text-decoration:none;color:inherit;cursor:pointer}
 .logo-m{font-family:var(--fs);font-size:1.5rem;font-weight:600;white-space:nowrap;transition:font-size .3s var(--e)}
 .logo-s{font:500 .56rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--tinta)}
+.logo-ic{height:1.55rem;width:auto;align-self:center;flex:none}
 .iconbtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:none;border:0;color:inherit;cursor:pointer;border-radius:2px;position:relative;transition:background .2s}
 .iconbtn:hover{background:rgba(58,68,51,.07)}
 .badge{position:absolute;top:5px;right:4px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--oliva);color:var(--crema);font:600 .62rem/17px var(--fb);text-align:center}
@@ -161,7 +163,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   </div>
 
   <div class="wrap"><div class="main-row">
-    <a class="logo" href="index.html"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
+    <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
     <nav class="cats" aria-label="Categorías">
       <a href="catalogo-1.html" aria-current="true">Eco Cosmética</a>
       <a href="catalogo-1.html">Spa de Olivoterapia</a>
@@ -183,8 +185,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   </div></div>
 
   <nav class="mob" id="mob" aria-label="Menú móvil">
-    <a href="catalogo-1.html">Eco Cosmética (12)</a>
-    <a href="catalogo-1.html">Spa de Olivoterapia (4)</a>
+    <a href="catalogo-1.html">Eco Cosmética (10)</a>
+    <a href="catalogo-1.html">Spa de Olivoterapia (2)</a>
     <a href="producto.html">Gourmet (1)</a>
     <a href="catalogo-3.html">Comprar por necesidad</a>
     <a href="producto.html">Aprender</a>
@@ -233,7 +235,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
 <footer class="ft"><div class="wrap">
   <div class="ft-g">
-    <div><span class="logo-m" style="color:var(--crema)">Verde Oliva</span><p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p></div>
+    <div><div style="display:flex;align-items:center;gap:.55rem"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26" style="filter:brightness(0) invert(1)"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span></div><p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p></div>
     <div><h4>Tienda</h4><ul><li><a href="catalogo-1.html">Eco Cosmética</a></li><li><a href="catalogo-1.html">Spa de Olivoterapia</a></li><li><a href="catalogo-4.html">Todos los productos</a></li></ul></div>
     <div><h4>Contacto</h4><ul><li><a href="#c">Coquimbito, Maipú, Mendoza</a></li><li><a href="#c">Envíos a todo el país</a></li><li><a href="#c">hola@verdeoliva.com.ar</a></li></ul></div>
   </div>
@@ -246,9 +248,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   <a href="menu-1.html">1 · Horizontal</a><a href="menu-2.html">2 · Panel lateral</a>
   <span class="xcur" aria-current="page">3 · Barra doble</span>
   <a href="menu-4.html">4 · Overlay</a>
-  <span class="xsep"></span><a href="home-1.html">Home</a>
-  <span class="xsep"></span><a href="catalogo-1.html">Catálogo</a>
-  <span class="xsep"></span><a href="producto.html">Ficha</a>
+  <span class="xsep"></span><a href="home-5.html">Home</a>
+  <span class="xsep"></span><a href="catalogo-5.html">Catálogo</a>
+  <span class="xsep"></span><a href="producto-5.html">Ficha</a>
 </div></nav>
 
 <script>

@@ -2,8 +2,9 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Catálogo 4 · índice compacto. Los 17 productos en una lista densa, buscable y ordenable.">
+<meta name="description" content="Catálogo 4 · índice compacto. Los 13 productos en una lista densa, buscable y ordenable.">
 <title>Catálogo 4 · Índice compacto — Verde Oliva Olivoterapia</title>
 <style>
 :root{--oliva:#3A4433;--oliva-d:#2C3427;--hoja:#6B7B3C;--hoja-t:#616F36;--corteza:#1C1917;--crema:#F7F4EC;
@@ -39,6 +40,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .logo{display:flex;align-items:baseline;gap:.5rem;text-decoration:none;color:inherit;cursor:pointer}
 .logo-m{font-family:var(--fs);font-size:1.42rem;font-weight:600;white-space:nowrap}
 .logo-s{font:500 .55rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--tinta)}
+.logo-ic{height:1.55rem;width:auto;align-self:center;flex:none}
 .hu{margin-left:auto;display:flex;align-items:center;gap:.15rem}
 .lang{display:inline-flex;align-items:center;gap:.3rem;font:500 .7rem/1 var(--fb);letter-spacing:.12em;color:var(--tinta);margin-right:.4rem}
 .lang button{background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:.45rem .25rem;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
@@ -135,7 +137,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </defs></svg>
 
 <header class="hdr"><div class="wrap"><div class="hdr-in">
-  <a class="logo" href="index.html"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
+  <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
   <div class="hu">
     <div class="lang" role="group" aria-label="Idioma"><button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button></div>
     <button class="iconbtn" type="button" aria-label="Mi cuenta"><svg width="20" height="20"><use href="#i-user"/></svg></button>
@@ -146,7 +148,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <section class="top"><div class="wrap">
   <div class="rule-oro"></div>
   <p class="kicker">Catálogo · Índice completo</p>
-  <h1>Los 17, en una sola pantalla.</h1>
+  <h1>Los 13, en una sola pantalla.</h1>
   <p class="lead" style="margin-top:.8rem">Para quien ya sabe qué quiere: buscá por nombre, filtrá por línea, ordená por precio y agregá sin entrar a la ficha.</p>
 </div></section>
 
@@ -170,23 +172,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </div></div></div>
 
 <main id="main"><div class="wrap">
-  <p class="count"><b id="cnt">17</b> productos</p>
+  <p class="count"><b id="cnt">13</b> productos</p>
 
   <div class="hrow" aria-hidden="true">
     <span></span><span>Producto</span><span>Línea</span><span>Formato</span><span>Para qué es</span><span>Precio</span><span></span>
   </div>
 
   <div class="list" id="list">
-    <div class="row" data-lin="eco" data-p="18500" data-n="Aceite corporal" data-o="1">
-      <div class="thumb t2"><svg><use href="#m-bottle"/></svg></div>
-      <a class="rname" href="producto.html">Aceite corporal</a>
-      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
-      <span class="rdesc">Piel muy seca, después del baño</span><span class="rprice">$18.500</span>
-      <span class="rmeta">Eco Cosmética · 250 ml</span>
-      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
-    </div>
     <div class="row" data-lin="eco" data-p="13500" data-n="Acondicionador capilar" data-o="2">
-      <div class="thumb t4"><svg><use href="#m-bottle"/></svg></div>
+      <div class="thumb t4"><img src="img/productos/acondicionador-capilar.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Acondicionador capilar</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
       <span class="rdesc">Puntas quebradizas, agua dura</span><span class="rprice">$13.500</span>
@@ -194,7 +188,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="eco" data-p="18000" data-n="Crema humectante facial" data-o="3">
-      <div class="thumb t2"><svg><use href="#m-jar"/></svg></div>
+      <div class="thumb t2"><img src="img/productos/crema-humectante-facial.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Crema humectante facial</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">50 gr</span>
       <span class="rdesc">Piel normal a seca, todo el año</span><span class="rprice">$18.000</span>
@@ -202,7 +196,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="eco" data-p="15500" data-n="Crema exfoliante fina" data-o="4">
-      <div class="thumb t4"><svg><use href="#m-jar"/></svg></div>
+      <div class="thumb t4"><img src="img/productos/crema-exfoliante-fina.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Crema exfoliante fina</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">50 gr</span>
       <span class="rdesc">Rostro, cuello y escote</span><span class="rprice">$15.500</span>
@@ -210,7 +204,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="eco" data-p="15500" data-n="Crema exfoliante gruesa" data-o="5">
-      <div class="thumb t3"><svg><use href="#m-jar"/></svg></div>
+      <div class="thumb t3"><img src="img/productos/crema-exfoliante-gruesa.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Crema exfoliante gruesa</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">50 gr</span>
       <span class="rdesc">Codos, rodillas, talones, espalda</span><span class="rprice">$15.500</span>
@@ -218,7 +212,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="eco" data-p="19000" data-n="Emulsión de limpieza" data-o="6">
-      <div class="thumb t2"><svg><use href="#m-bottle"/></svg></div>
+      <div class="thumb t2"><img src="img/productos/emulsion-de-limpieza.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Emulsión de limpieza</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
       <span class="rdesc">Limpia sin dejar la piel tirante</span><span class="rprice">$19.000</span>
@@ -226,7 +220,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="eco" data-p="19000" data-n="Emulsión humectante corporal" data-o="7">
-      <div class="thumb t4"><svg><use href="#m-bottle"/></svg></div>
+      <div class="thumb t4"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Emulsión humectante corporal</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
       <span class="rdesc">Más liviana que el aceite, uso diario</span><span class="rprice">$19.000</span>
@@ -234,23 +228,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="eco" data-p="19000" data-n="Espuma de baño" data-o="8">
-      <div class="thumb"><svg><use href="#m-bottle"/></svg></div>
+      <div class="thumb"><img src="img/productos/espuma-de-bano.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Espuma de baño</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
       <span class="rdesc">Baño de inmersión sin resecar</span><span class="rprice">$19.000</span>
       <span class="rmeta">Eco Cosmética · 250 ml</span>
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
-    <div class="row" data-lin="eco" data-p="15700" data-n="Loción hidratante" data-o="9">
-      <div class="thumb t2"><svg><use href="#m-bottle"/></svg></div>
-      <a class="rname" href="producto.html">Loción hidratante</a>
-      <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
-      <span class="rdesc">Fluida: verano, piernas y brazos</span><span class="rprice">$15.700</span>
-      <span class="rmeta">Eco Cosmética · 250 ml</span>
-      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
-    </div>
     <div class="row" data-lin="eco" data-p="15500" data-n="Máscara de barro" data-o="10">
-      <div class="thumb t5"><svg><use href="#m-jar"/></svg></div>
+      <div class="thumb t5"><img src="img/productos/mascara-de-barro.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Máscara de barro</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">50 ml</span>
       <span class="rdesc">Zona T, poro dilatado, piel apagada</span><span class="rprice">$15.500</span>
@@ -258,7 +244,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="eco" data-p="15700" data-n="Sales de baño" data-o="11">
-      <div class="thumb t4"><svg><use href="#m-jar"/></svg></div>
+      <div class="thumb t4"><img src="img/productos/sales-de-bano.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Sales de baño</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 gr</span>
       <span class="rdesc">Piernas cansadas, frío, fin de semana</span><span class="rprice">$15.700</span>
@@ -266,31 +252,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="eco" data-p="14000" data-n="Shampoo" data-o="12">
-      <div class="thumb"><svg><use href="#m-bottle"/></svg></div>
+      <div class="thumb"><img src="img/productos/shampoo.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Shampoo</a>
       <span class="rlin"><span class="dot"></span>Eco Cosmética</span><span class="rfmt">250 ml</span>
       <span class="rdesc">Uso frecuente, cuero cabelludo sensible</span><span class="rprice">$14.000</span>
       <span class="rmeta">Eco Cosmética · 250 ml</span>
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
-    <div class="row" data-lin="spa" data-p="24500" data-n="Aceite miorrelajante" data-o="13">
-      <div class="thumb"><svg><use href="#m-bottle"/></svg></div>
-      <a class="rname" href="producto.html">Aceite miorrelajante</a>
-      <span class="rlin"><span class="dot"></span>Spa de Olivoterapia</span><span class="rfmt">300 ml</span>
-      <span class="rdesc">Contracturas, espalda, cuello</span><span class="rprice">$24.500</span>
-      <span class="rmeta">Spa de Olivoterapia · 300 ml</span>
-      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
-    </div>
-    <div class="row" data-lin="spa" data-p="26500" data-n="Aceite drenaje linfático" data-o="14">
-      <div class="thumb t5"><svg><use href="#m-bottle"/></svg></div>
-      <a class="rname" href="producto.html">Aceite drenaje linfático</a>
-      <span class="rlin"><span class="dot"></span>Spa de Olivoterapia</span><span class="rfmt">300 ml</span>
-      <span class="rdesc">Piernas pesadas, retención, viajes</span><span class="rprice">$26.500</span>
-      <span class="rmeta">Spa de Olivoterapia · 300 ml</span>
-      <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
-    </div>
     <div class="row" data-lin="spa" data-p="23000" data-n="Emulsión ácido hialurónico" data-o="15">
-      <div class="thumb t3"><svg><use href="#m-drop"/></svg></div>
+      <div class="thumb t3"><img src="img/productos/emulsion-acido-hialuronico.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Emulsión ácido hialurónico</a>
       <span class="rlin"><span class="dot"></span>Spa de Olivoterapia</span><span class="rfmt">60 ml</span>
       <span class="rdesc">Deshidratación y líneas finas</span><span class="rprice">$23.000</span>
@@ -298,7 +268,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="spa" data-p="15500" data-n="Neblina hidratante" data-o="16">
-      <div class="thumb t4"><svg><use href="#m-drop"/></svg></div>
+      <div class="thumb t4"><img src="img/productos/neblina-hidratante.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Neblina hidratante</a>
       <span class="rlin"><span class="dot"></span>Spa de Olivoterapia</span><span class="rfmt">60 ml</span>
       <span class="rdesc">Aire acondicionado, avión, media tarde</span><span class="rprice">$15.500</span>
@@ -306,7 +276,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
       <span class="ract"><button class="btn" type="button" data-add>Agregar</button></span>
     </div>
     <div class="row" data-lin="gou" data-p="39000" data-n="Aceite de Oliva Extra Virgen Vallesi Arauco" data-o="17">
-      <div class="thumb t5"><svg><use href="#m-bottle"/></svg></div>
+      <div class="thumb t5"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
       <a class="rname" href="producto.html">Aceite de Oliva Extra Virgen Vallesi Arauco</a>
       <span class="rlin"><span class="dot"></span>Gourmet</span><span class="rfmt">500 ml</span>
       <span class="rdesc">Monovarietal Arauco, una prensada al año</span><span class="rprice">$39.000</span>
@@ -322,7 +292,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 
 <footer class="ft"><div class="wrap">
   <div class="ft-g">
-    <div><span class="logo-m" style="color:var(--crema)">Verde Oliva</span>
+    <div><div style="display:flex;align-items:center;gap:.55rem"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26" style="filter:brightness(0) invert(1)"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span></div>
       <p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p></div>
     <div><h4>Catálogo</h4><ul><li><a href="catalogo-1.html">Grilla con filtros</a></li><li><a href="catalogo-2.html">Editorial por línea</a></li><li><a href="catalogo-3.html">Por necesidad</a></li></ul></div>
     <div><h4>Contacto</h4><ul><li><a href="#c">Coquimbito, Maipú, Mendoza</a></li><li><a href="#c">Envíos a todo el país</a></li><li><a href="#c">hola@verdeoliva.com.ar</a></li></ul></div>
@@ -335,9 +305,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
   <span class="xsep"></span><span class="xlab">Catálogo</span>
   <a href="catalogo-1.html">1 · Grilla</a><a href="catalogo-2.html">2 · Editorial</a><a href="catalogo-3.html">3 · Necesidad</a>
   <span class="xcur" aria-current="page">4 · Índice</span>
-  <span class="xsep"></span><a href="home-1.html">Home</a>
+  <a href="catalogo-5.html">Definitivo</a>
+  <span class="xsep"></span><a href="home-5.html">Home</a>
   <span class="xsep"></span><a href="menu-1.html">Menú</a>
-  <span class="xsep"></span><a href="producto.html">Ficha</a>
+  <span class="xsep"></span><a href="producto-5.html">Ficha</a>
 </div></nav>
 
 <script>

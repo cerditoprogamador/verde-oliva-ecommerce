@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
+<link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Prototipo navegable de Verde Oliva Olivoterapia: 4 homes, 4 menús, 4 catálogos y una ficha de producto para comparar y elegir.">
 <title>Prototipo · Verde Oliva Olivoterapia — Selector de variantes</title>
@@ -47,6 +48,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .logo{display:flex;align-items:baseline;gap:.55rem;text-decoration:none;color:inherit;line-height:1}
 .logo-m{font-family:var(--fs);font-size:1.55rem;font-weight:600}
 .logo-s{font:500 .57rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--arena)}
+.logo-ic{height:1.55rem;width:auto;align-self:center;flex:none}
 .top h1{font-size:clamp(2.4rem,6vw,4.6rem);max-width:15ch}
 .top .lead{color:rgba(247,244,236,.82);margin-top:1.4rem}
 .pill{display:inline-flex;align-items:center;gap:.45rem;padding:.4rem .85rem;border:1px solid rgba(247,244,236,.32);
@@ -112,6 +114,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 .bar{height:9px;display:flex;align-items:center;gap:3px;padding:0 3px}
 .bar i{height:3px;border-radius:1px}
 
+/* ── propuesta definitiva ── */
+.def-s{background:var(--oliva);color:var(--crema)}
+.def{display:grid;gap:clamp(24px,3.4vw,52px);grid-template-columns:1fr;align-items:center}
+@media(min-width:900px){.def{grid-template-columns:.95fr 1.05fr}}
+.def-t{display:block;background:var(--crema2);border:1px solid rgba(247,244,236,.22);padding:14px;
+ aspect-ratio:16/11;text-decoration:none;cursor:pointer}
+.def-badge{display:inline-flex;align-items:center;gap:.45rem;padding:.42rem .85rem;border:1px solid rgba(247,244,236,.34);
+ border-radius:100px;font:500 .68rem/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--arena);margin-bottom:1.1rem}
+.def h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:.9rem}
+.def .lead{color:rgba(247,244,236,.82)}
+.def-l{list-style:none;margin:1.4rem 0 1.8rem;padding:0;display:grid;gap:.55rem;font-size:.92rem;color:rgba(247,244,236,.86)}
+.def-l li{display:flex;gap:.6rem;align-items:baseline}
+.def-l li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--arena);flex:none;transform:translateY(-2px)}
+.def-s .btn{background:var(--crema);color:var(--oliva);border-color:var(--crema)}
+.def-s .btn:hover{background:var(--arena);border-color:var(--arena)}
+.def-a{display:flex;flex-wrap:wrap;align-items:center;gap:1.1rem .5rem;margin-top:1.6rem}
+.def-2{display:inline-flex;align-items:center;gap:.4rem;color:rgba(247,244,236,.86);text-decoration:none;
+ font:500 .78rem/1 var(--fb);letter-spacing:.06em;border-bottom:1px solid rgba(247,244,236,.34);padding-bottom:2px;
+ transition:color .2s var(--e),border-color .2s var(--e)}
+.def-2:hover{color:var(--crema);border-color:var(--oro)}
+
 /* ── cómo leer esto ── */
 .hows{display:grid;gap:1.6rem;grid-template-columns:1fr}
 @media(min-width:760px){.hows{grid-template-columns:repeat(3,1fr)}}
@@ -148,11 +171,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 <header class="top">
   <div class="wrap">
     <div class="top-b">
-      <a class="logo" href="index.html"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
+      <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26" style="filter:brightness(0) invert(1)"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
       <span class="pill">Prototipo navegable · 2026</span>
     </div>
     <h1>Trece pantallas para elegir cómo se va a ver la tienda.</h1>
-    <p class="lead">Todo lo que sigue usa la misma identidad: mismos colores, misma tipografía, mismo tono, los 17 productos reales con sus precios. Lo único que cambia es <strong style="color:var(--crema);font-weight:600">cómo se ordena la información</strong>: por dónde entra la persona, qué ve primero y cómo navega. Abrí, mirá, y anotá abajo cuál te convence.</p>
+    <p class="lead">Todo lo que sigue usa la misma identidad: mismos colores, misma tipografía, mismo tono, los 13 productos reales con sus precios. Lo único que cambia es <strong style="color:var(--crema);font-weight:600">cómo se ordena la información</strong>: por dónde entra la persona, qué ve primero y cómo navega. Abrí, mirá, y anotá abajo cuál te convence.</p>
   </div>
 </header>
 
@@ -174,13 +197,59 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
 
 <main id="main">
 
+<!-- ══ PROPUESTA DEFINITIVA ══ -->
+<section class="sect def-s">
+  <div class="wrap">
+    <div class="def">
+      <a class="def-t" href="home-5.html" aria-label="Abrir la propuesta definitiva del ecommerce">
+        <div class="tb">
+          <div class="bar"><i class="o" style="width:22%;height:5px"></i><i style="flex:1"></i><i style="width:8%"></i><i style="width:8%"></i></div>
+          <i class="h" style="height:17%"></i>
+          <div class="r"><i class="g" style="flex:1;height:6px"></i><i class="g" style="flex:1;height:6px"></i><i class="g" style="flex:1;height:6px"></i></div>
+          <div class="r fill">
+            <div class="col fill"><i class="fill"></i><i style="height:3px;width:70%"></i></div>
+            <div class="col fill"><i class="fill"></i><i style="height:3px;width:70%"></i></div>
+            <div class="col fill"><i class="fill"></i><i style="height:3px;width:70%"></i></div>
+            <div class="col fill"><i class="fill"></i><i style="height:3px;width:70%"></i></div>
+          </div>
+          <div class="r fill">
+            <div class="col fill"><i class="fill"></i><i style="height:3px;width:70%"></i></div>
+            <div class="col fill"><i class="fill"></i><i style="height:3px;width:70%"></i></div>
+            <div class="col fill"><i class="fill"></i><i style="height:3px;width:70%"></i></div>
+            <div class="col fill"><i class="fill"></i><i style="height:3px;width:70%"></i></div>
+          </div>
+          <i class="o" style="height:9%"></i>
+          <div class="r"><i style="flex:1;height:9px"></i><i style="flex:1;height:9px"></i><i style="flex:1;height:9px"></i></div>
+        </div>
+      </a>
+      <div>
+        <span class="def-badge"><span class="dot" style="background:var(--arena)"></span>Propuesta definitiva</span>
+        <h2>El ecommerce, en una sola página.</h2>
+        <p class="lead">Consolida lo que el cliente eligió del prototipo: la fuerza comercial de la Home B, el sistema de rituales de la Home C y la separación editorial por línea del Catálogo 2.</p>
+        <ul class="def-l">
+          <li><b>Hero</b> — el olivar y los polifenoles, con acceso directo a los productos</li>
+          <li><b>Qué son los polifenoles</b> — qué son, qué hacen en la piel y qué no hacen</li>
+          <li><b>Los 13 productos</b> — el catálogo completo acá mismo, por línea, sin cambiar de página</li>
+          <li><b>Información</b> — qué hay adentro del aceite, por qué formulamos y guía por tipo de piel</li>
+          <li><b>Rutinas</b> — armá la tuya con el selector, o llevate una de las tres ya probadas</li>
+        </ul>
+        <div class="def-a">
+          <a class="btn" href="home-5.html">Abrir la propuesta <svg width="15" height="15"><use href="#i-arrow"/></svg></a>
+          <a class="def-2" href="catalogo-5.html">Ver el catálogo definitivo <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
+          <a class="def-2" href="producto-5.html">Ver la ficha definitiva <svg width="13" height="13"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── cómo leer esto ── -->
 <section class="sect" style="padding-bottom:clamp(30px,4vw,48px)">
   <div class="wrap">
     <div class="hows">
       <div class="how"><span class="how-n">1</span><div><h3>Elegí una Home</h3><p>Define por dónde entra alguien que llega por primera vez: por el relato, por el producto, por lo que necesita o por el origen.</p></div></div>
       <div class="how"><span class="how-n">2</span><div><h3>Elegí un Menú</h3><p>Define cómo se mueve después. Se puede combinar cualquier menú con cualquier home; son decisiones independientes.</p></div></div>
-      <div class="how"><span class="how-n">3</span><div><h3>Elegí un Catálogo</h3><p>Define cómo se recorren los 17 productos. Es la pantalla donde se decide la compra.</p></div></div>
+      <div class="how"><span class="how-n">3</span><div><h3>Elegí un Catálogo</h3><p>Define cómo se recorren los 13 productos. Es la pantalla donde se decide la compra.</p></div></div>
     </div>
   </div>
 </section>
@@ -264,7 +333,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
           <span class="v-k"><span class="dot"></span>Home C</span>
           <h3 class="v-t">Ritual · guiado</h3>
           <p class="v-d">No entra por producto: entra por necesidad. «¿Qué buscás? Limpiar, hidratar, exfoliar, relajar…» y cada respuesta abre un ritual armado, con pasos y productos en orden.</p>
-          <p class="v-w"><b>Conviene si</b> el público no sabe qué comprar. Convierte 17 SKU en 6 decisiones simples y sube el ticket por combo.</p>
+          <p class="v-w"><b>Conviene si</b> el público no sabe qué comprar. Convierte 13 SKU en 6 decisiones simples y sube el ticket por combo.</p>
           <div class="v-a"><a class="btn btn-sm" href="home-3.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
             <button class="v-pick" type="button" data-pick="home" data-val="C" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
         </div>
@@ -320,7 +389,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
           <span class="v-k"><span class="dot"></span>Menú 1</span>
           <h3 class="v-t">Horizontal + mega</h3>
           <p class="v-d">Barra clásica. Al pasar sobre cada línea baja un panel ancho con las subcategorías, un destacado y una nota educativa.</p>
-          <p class="v-w"><b>Conviene si</b> querés que los 17 productos se vean sin entrar a ningún lado. Es el más convencional y el más rápido de entender.</p>
+          <p class="v-w"><b>Conviene si</b> querés que los 13 productos se vean sin entrar a ningún lado. Es el más convencional y el más rápido de entender.</p>
           <div class="v-a"><a class="btn btn-sm" href="menu-1.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
             <button class="v-pick" type="button" data-pick="menu" data-val="1" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
         </div>
@@ -396,7 +465,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
       <div class="rule-oro"></div>
       <p class="kicker">Grupo 3 · Cuatro opciones</p>
       <h2>Catálogo</h2>
-      <p class="lead">Las cuatro muestran los 17 productos reales con formato y precio. Cambia el criterio de orden: por filtro, por relato, por necesidad o por índice.</p>
+      <p class="lead">Las cuatro muestran los 13 productos reales con formato y precio. Cambia el criterio de orden: por filtro, por relato, por necesidad o por índice.</p>
     </div>
     <div class="vg">
 
@@ -478,7 +547,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
         <div class="v-b">
           <span class="v-k"><span class="dot"></span>Catálogo 4</span>
           <h3 class="v-t">Lista densa · índice</h3>
-          <p class="v-d">Los 17 en una sola pantalla, una fila cada uno, con línea, formato, precio, para qué es y botón de agregar. Ordenable y buscable.</p>
+          <p class="v-d">Los 13 en una sola pantalla, una fila cada uno, con línea, formato, precio, para qué es y botón de agregar. Ordenable y buscable.</p>
           <p class="v-w"><b>Conviene si</b> hay recompra frecuente o venta mayorista. Es la vista más rápida y la menos seductora: sirve como complemento, no como principal.</p>
           <div class="v-a"><a class="btn btn-sm" href="catalogo-4.html">Abrir <svg width="14" height="14"><use href="#i-arrow"/></svg></a>
             <button class="v-pick" type="button" data-pick="cat" data-val="4" aria-pressed="false"><svg class="ck" width="13" height="13"><use href="#i-check"/></svg>Elegir</button></div>
@@ -511,7 +580,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
       <div>
         <h3 class="v-t" style="font-size:1.8rem">Emulsión humectante corporal 250 ml</h3>
         <p class="lead" style="margin-top:.7rem">Es la pieza que demuestra el diferencial: la ficha no vende un frasco, explica un producto. Para qué es, para qué piel, cuándo usarlo, cómo aplicarlo paso a paso, con qué se combina, qué esperar semana a semana y qué <em>no</em> hace.</p>
-        <p class="lead" style="margin-top:.9rem">Este bloque educativo es el mismo para los 17 productos: cambia el contenido, no la estructura. Sirve igual con cualquier home, cualquier menú y cualquier catálogo de los de arriba.</p>
+        <p class="lead" style="margin-top:.9rem">Este bloque educativo es el mismo para los 13 productos: cambia el contenido, no la estructura. Sirve igual con cualquier home, cualquier menú y cualquier catálogo de los de arriba.</p>
         <div style="margin-top:1.6rem;display:flex;gap:.6rem;flex-wrap:wrap">
           <a class="btn" href="producto.html">Abrir la ficha <svg width="15" height="15"><use href="#i-arrow"/></svg></a>
         </div>
@@ -529,7 +598,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,[tabindex]:focus-visibl
       <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">La identidad no está en discusión.</strong> Los colores, la tipografía y el tono son idénticos en las trece pantallas. Si algo de eso se cambia, se cambia en todas.</span></li>
       <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">Se combinan libremente.</strong> Home C con Menú 3 y Catálogo 2, por ejemplo, es una combinación válida. Elegí una de cada grupo.</span></li>
       <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">El toggle ES|EN es decorativo.</strong> Marca dónde va a vivir el cambio de idioma; la traducción se carga después.</span></li>
-      <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">Los precios y formatos son los reales.</strong> Los 17 SKU con sus valores en pesos, tal como los pasaste.</span></li>
+      <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">Los precios y formatos son los reales.</strong> Los 13 SKU con sus valores en pesos, tal como los pasaste.</span></li>
       <li><svg width="16" height="16"><use href="#i-dot"/></svg><span><strong style="color:var(--crema);font-weight:600">Abajo de todo, siempre.</strong> La barra negra fija está en cada pantalla para volver acá o saltar a otra variante sin usar el botón «atrás».</span></li>
     </ul>
   </div>
