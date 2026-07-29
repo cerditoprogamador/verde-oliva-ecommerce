@@ -118,7 +118,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .strip{background:var(--oliva);color:var(--crema);font:500 .74rem/1 var(--fb);letter-spacing:.05em}
 .strip-in{display:flex;align-items:center;justify-content:center;gap:.6rem;padding:.65rem 0;text-align:center}
 .strip svg{color:var(--arena)}
-.hdr{position:sticky;top:0;z-index:40;background:rgba(247,244,236,.96);backdrop-filter:blur(8px);
+.hdr{position:sticky;top:0;z-index:40;background:var(--crema);
  border-bottom:1px solid var(--linea)}
 .hdr-in{display:flex;align-items:center;gap:1rem;padding:.6rem 0;min-height:var(--hh)}
 .hdr-nav{display:none;align-items:center;gap:.2rem;margin-left:1.6rem}
