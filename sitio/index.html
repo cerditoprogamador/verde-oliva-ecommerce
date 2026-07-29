@@ -88,6 +88,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .skip{position:absolute;left:-9999px;top:0;z-index:99;background:var(--oliva);color:var(--crema);padding:.9rem 1.3rem;font:500 .8rem var(--fb);text-decoration:none}
 .skip:focus{left:12px;top:12px}
 .sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.reveal-block{opacity:0;transform:translateY(22px);transition:opacity .75s var(--e),transform .75s var(--e)}
+.reveal-block.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.reveal-block{opacity:1;transform:none;transition:none}}
 .logo{display:flex;align-items:baseline;gap:.55rem;text-decoration:none;color:inherit;cursor:pointer;line-height:1}
 .logo-m{font-family:var(--fs);font-size:1.5rem;font-weight:600;white-space:nowrap}
 .logo-s{font:500 .57rem/1 var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--tinta);white-space:nowrap}
@@ -163,7 +166,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .hdr.scrolled .hdr-u .iconbtn{color:var(--corteza)}
 .hdr.scrolled .hdr-u .iconbtn:hover{background:rgba(58,68,51,.07)}
 .searchbox{display:none;align-items:center;gap:.5rem;flex:1;max-width:280px;margin-left:1rem;
- border:1px solid var(--linea);border-radius:2px;padding:0 .7rem;background:var(--crema);
+ border:1px solid var(--linea);border-radius:2px;padding:0 .7rem;background:transparent;
  transition:border-color .2s var(--e)}
 .searchbox:focus-within{border-color:var(--oro)}
 .searchbox input{flex:1;min-height:42px;border:0;background:transparent;font:400 .88rem var(--fb);color:var(--corteza)}
@@ -195,6 +198,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .hero-t{position:relative;z-index:2;width:100%;padding:calc(var(--hh) + clamp(32px,6vw,72px)) 0 clamp(40px,6vw,72px);
  display:flex;flex-direction:column;justify-content:flex-end;flex:1}
 .hero-t .inner{max-width:52ch;padding:0 clamp(20px,5vw,64px);width:100%;color:var(--crema)}
+.hero-t .inner>*{opacity:0;transform:translateY(24px);transition:opacity .8s var(--e),transform .8s var(--e)}
+.hero-t .inner.in>*{opacity:1;transform:translateY(0)}
+.hero-t .inner.in>*:nth-child(1){transition-delay:.05s}
+.hero-t .inner.in>*:nth-child(2){transition-delay:.16s}
+.hero-t .inner.in>*:nth-child(3){transition-delay:.27s}
+.hero-t .inner.in>*:nth-child(4){transition-delay:.38s}
+.hero-t .inner.in>*:nth-child(5){transition-delay:.49s}
+.hero-t .inner.in>*:nth-child(6){transition-delay:.6s}
 .hero-t .kicker{color:var(--arena)}
 .hero-t .lead{color:rgba(247,244,236,.86)}
 .hero h1{font-size:clamp(2.3rem,5vw,4rem)}
@@ -213,17 +224,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .hero-products{position:absolute;z-index:2;right:clamp(16px,4vw,56px);bottom:clamp(28px,6vw,72px);
  display:none;align-items:flex-end;gap:.9rem;pointer-events:none}
 .hero-products img{display:block;object-fit:cover;border-radius:4px;border:3px solid var(--crema);
- box-shadow:0 20px 44px -12px rgba(28,25,23,.55)}
+ box-shadow:0 20px 44px -12px rgba(28,25,23,.55);
+ opacity:0;transform:translateY(22px) scale(.96);transition:opacity .7s var(--e),transform .7s var(--e)}
+.hero-products.in img{opacity:1;transform:translateY(0) scale(1)}
+.hero-products.in img:nth-child(1){transition-delay:.5s}
+.hero-products.in img:nth-child(2){transition-delay:.62s}
+.hero-products.in img:nth-child(3){transition-delay:.74s}
 .hero-products img:nth-child(1){width:112px;height:140px}
 .hero-products img:nth-child(2){width:138px;height:172px;margin-bottom:1.6rem}
 .hero-products img:nth-child(3){width:106px;height:132px}
 @media(min-width:860px){.hero-products{display:flex}}
+@media(prefers-reduced-motion:reduce){.hero-t .inner>*,.hero-products img{opacity:1;transform:none;transition:none}}
 /* 2 · polifenoles */
 .poli{background:var(--crema2);border-bottom:1px solid var(--linea);padding:clamp(40px,5vw,72px) 0}
 .poli-h{max-width:60ch;margin-bottom:clamp(26px,3.2vw,42px)}
 .poli-g{display:grid;gap:clamp(22px,2.8vw,44px);grid-template-columns:1fr}
 @media(min-width:780px){.poli-g{grid-template-columns:repeat(3,1fr)}}
-.poli-i{display:flex;flex-direction:column;gap:.7rem;padding-top:1.3rem;border-top:1px solid var(--linea)}
+.poli-i{display:flex;flex-direction:column;gap:.7rem;padding-top:1.3rem;border-top:1px solid var(--linea);
+ opacity:0;transform:translateY(18px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.poli-i.in{opacity:1;transform:translateY(0)}
+.poli-i:nth-child(1){transition-delay:0s}
+.poli-i:nth-child(2){transition-delay:.12s}
+.poli-i:nth-child(3){transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.poli-i{opacity:1;transform:none;transition:none}}
 .poli-i svg{color:var(--hoja-t)}
 .poli-i h3{font-size:1.45rem;margin:0}
 .poli-i p{font-size:.95rem;color:var(--tinta);margin:0}
@@ -234,8 +257,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .oliv-g{display:grid;gap:1.2rem;grid-template-columns:1fr}
 .oliv-card{display:flex;flex-direction:column;gap:.6rem;padding:1.6rem 1.5rem;background:var(--crema2);
  border:1px solid var(--linea);border-radius:3px;text-decoration:none;color:inherit;
- transition:border-color .2s var(--e),transform .2s var(--e)}
+ opacity:0;transform:translateY(18px);
+ transition:border-color .2s var(--e),opacity .6s var(--e),transform .6s var(--e)}
+.oliv-card.in{opacity:1;transform:translateY(0)}
+.oliv-card:not(.in):nth-child(2){transition-delay:.12s}
+.oliv-card:not(.in):nth-child(3){transition-delay:.24s}
 .oliv-card:hover{border-color:var(--oro);transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){.oliv-card{opacity:1;transform:none;transition:border-color .2s var(--e)}}
 .oliv-card svg{color:var(--hoja-t)}
 .oliv-card h3{font-family:var(--fs);font-size:1.35rem;margin:0}
 .oliv-card p{font-size:.88rem;color:var(--tinta);margin:0;flex:1}
@@ -412,6 +440,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .nf input{flex:1 1 220px;min-height:48px;padding:.8rem 1rem;background:transparent;color:var(--corteza);
  border:1px solid var(--linea);border-radius:2px;font:400 .95rem var(--fb)}
 .nf input:focus{outline:2px solid var(--oliva);outline-offset:2px}
+
 </style>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
@@ -699,7 +728,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   </div>
 </section>
 
-<!-- ── 02 · Spa de Olivoterapia ── -->
+<!-- ── 02 · Spa de Olivoterapia — rediseño editorial ── -->
 <section class="chap dark" id="spa">
   <div class="wrap">
     <div class="chead">
@@ -707,28 +736,50 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
         <span class="cn">02</span>
         <h2 data-i18n="spa-h2">Spa de Olivoterapia</h2>
         <p class="lead" data-i18n="spa-lead">Las dos fórmulas que Fernanda Herrera usa en cabina, en formato chico y concentrado. Misma concentración, mismo envase: no hay una versión profesional y otra doméstica. Son productos de tratamiento, no de rutina.</p>
-        <div class="cmeta"><span data-i18n="spa-meta-1">2 productos</span><span data-i18n="spa-meta-2">Desde $15.500</span><span data-i18n="spa-meta-3">Uso puntual</span></div>
-        <div class="note" data-i18n="spa-note">La diferencia entre cabina y casa no está en el producto. Está en la mano y en el tiempo que le dedicás.</div>
+        <div class="cmeta">
+          <span data-i18n="spa-meta-1">2 productos</span>
+          <span data-i18n="spa-meta-2">Desde $15.500</span>
+          <span data-i18n="spa-meta-3">Uso puntual</span>
+          <span data-i18n="spa-meta-4">Alta concentración</span>
+        </div>
+        <div class="note" data-i18n="spa-note">La diferencia entre cabina y casa no está en el producto. Está en la mano y en el tiempo que le dedicás. — Fernanda Herrera</div>
       </div>
-      <div class="ph ph5"><img src="img/productos/neblina-hidratante.jpg" alt="" loading="lazy"></div>
     </div>
-    <div class="pgrid">
+
+  <!-- Productos: grilla estándar del sitio -->
+  <div class="wrap" style="padding-top:clamp(26px,3vw,40px);padding-bottom:clamp(44px,5.5vw,72px)">
+    <div class="pgrid" style="grid-template-columns:repeat(2,1fr)">
+
       <article class="card-w"><span class="flag" data-i18n="flag-new">Nuevo</span>
         <a class="card" href="producto.html">
           <div class="ph ph3" aria-hidden="true"><img src="img/productos/emulsion-acido-hialuronico.jpg" alt="" loading="lazy"></div>
-          <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span>
-          <h3 class="card-t" data-i18n="p-emulsion-acido-hialuronico-t">Emulsión ácido hialurónico</h3><p class="card-f" data-i18n="p-emulsion-acido-hialuronico-f">60 ml · Deshidratación, líneas finas</p><p class="card-p">$23.000</p></div>
+          <div class="card-b">
+            <span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span>
+            <h3 class="card-t" data-i18n="p-emulsion-acido-hialuronico-t">Emulsión ácido hialurónico</h3>
+            <p class="card-f" data-i18n="p-emulsion-acido-hialuronico-f">60 ml · Deshidratación, líneas finas</p>
+            <p class="card-p">$23.000</p>
+          </div>
         </a>
-        <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="btn-agregar">Agregar</button></div>
+        <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add
+          data-sku="emulsion-acido-hialuronico" data-name="Emulsión ácido hialurónico" data-price="23000"
+          data-i18n="btn-agregar">Agregar</button></div>
       </article>
+
       <article class="card-w">
         <a class="card" href="producto.html">
           <div class="ph ph4" aria-hidden="true"><img src="img/productos/neblina-hidratante.jpg" alt="" loading="lazy"></div>
-          <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span>
-          <h3 class="card-t" data-i18n="p-neblina-hidratante-t">Neblina hidratante</h3><p class="card-f" data-i18n="p-neblina-hidratante-f">60 ml · Aire seco, avión, media tarde</p><p class="card-p">$15.500</p></div>
+          <div class="card-b">
+            <span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span>
+            <h3 class="card-t" data-i18n="p-neblina-hidratante-t">Neblina hidratante</h3>
+            <p class="card-f" data-i18n="p-neblina-hidratante-f">60 ml · Aire seco, avión, media tarde</p>
+            <p class="card-p">$15.500</p>
+          </div>
         </a>
-        <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="btn-agregar">Agregar</button></div>
+        <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add
+          data-sku="neblina-hidratante" data-name="Neblina hidratante" data-price="15500"
+          data-i18n="btn-agregar">Agregar</button></div>
       </article>
+
     </div>
   </div>
 </section>
