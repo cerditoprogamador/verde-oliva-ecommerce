@@ -52,23 +52,23 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
 .top{padding:clamp(30px,4.4vw,52px) 0 clamp(22px,2.8vw,32px)}
 .top h1{font-size:clamp(2rem,4.6vw,3.3rem);max-width:19ch}
 .toolbar{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);background:var(--crema2);padding:clamp(16px,2vw,22px) 0}
-.viewtoggle{position:relative;display:inline-flex;border:1px solid var(--oliva);border-radius:100px;overflow:hidden;margin-bottom:clamp(14px,1.8vw,18px)}
-.viewtoggle .pill{position:absolute;top:0;bottom:0;left:0;width:50%;background:var(--oliva);
- transition:transform .45s var(--e);z-index:0;will-change:transform}
-.tbtn{position:relative;z-index:1;background:transparent;color:var(--oliva);border:0;padding:.7rem 1.3rem;
- font:500 .78rem/1 var(--fb);letter-spacing:.06em;cursor:pointer;transition:color .45s var(--e)}
-.tbtn[aria-pressed="true"]{color:var(--crema)}
+.viewtoggle{position:relative;display:inline-flex;gap:1.8rem;border-bottom:1px solid var(--linea);margin-bottom:clamp(14px,1.8vw,18px)}
+.viewtoggle .tbunderline{position:absolute;left:0;bottom:-1px;height:2px;background:var(--oro);
+ transition:transform .45s var(--e),width .45s var(--e);will-change:transform,width}
+.tbtn{position:relative;background:transparent;color:var(--tinta);border:0;padding:.7rem 0;
+ font:500 1.1rem/1 var(--fs);letter-spacing:.01em;cursor:pointer;transition:color .3s var(--e)}
+.tbtn[aria-pressed="true"]{color:var(--oliva)}
 .filters{display:flex;flex-wrap:wrap;gap:.9rem 1.1rem;align-items:end}
 .ffield{display:flex;flex-direction:column;gap:.3rem;min-width:150px}
 .ffield label{font:500 .64rem/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--tinta)}
-.ffield select{min-height:42px;padding:.5rem .7rem;background:var(--crema);border:1px solid var(--linea);border-radius:2px;font:400 .84rem var(--fb);color:var(--corteza);cursor:pointer}
-.ffield select:hover{border-color:var(--oro)}
+.ffield select{min-height:42px;padding:.5rem 0;background:transparent;border:0;border-bottom:1px solid var(--linea);border-radius:0;font:400 .84rem var(--fb);color:var(--corteza);cursor:pointer;transition:border-color .2s var(--e)}
+.ffield select:hover,.ffield select:focus{border-color:var(--oro)}
 .freset{align-self:end}
 .fcount{margin:.9rem 0 0;font:500 .78rem/1 var(--fb);color:var(--tinta)}
 .fcount b{color:var(--oliva);font-weight:600}
 .jumpnav{position:sticky;top:var(--hh);z-index:35;background:var(--crema);border-bottom:1px solid var(--linea)}
 .jumpnav-in{display:flex;gap:.4rem;padding:.6rem 0;overflow-x:auto;white-space:nowrap}
-.jumpnav a{display:inline-flex;align-items:center;gap:.45rem;padding:.55rem .95rem;border-radius:100px;
+.jumpnav a{display:inline-flex;align-items:center;gap:.45rem;padding:.55rem .95rem;border-radius:2px;
  text-decoration:none;color:var(--oliva);font:500 .8rem/1 var(--fb);cursor:pointer;border:1px solid transparent;
  transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e),transform .3s var(--e),box-shadow .3s var(--e)}
 .jumpnav a:hover{border-color:var(--oro);transform:translateY(-2px);box-shadow:0 6px 14px -8px rgba(58,68,51,.3)}
@@ -220,9 +220,9 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
 
 <section class="toolbar" id="toolbar"><div class="wrap">
   <div class="viewtoggle" role="group" aria-label="Elegir vista del catálogo">
-    <span class="pill" aria-hidden="true"></span>
     <button class="tbtn" type="button" id="tab-necesidad" aria-pressed="true" data-i18n="tab-necesidad">Por necesidad</button>
     <button class="tbtn" type="button" id="tab-linea" aria-pressed="false" data-i18n="tab-linea">Por línea</button>
+    <span class="tbunderline" aria-hidden="true"></span>
   </div>
 
   <div class="filters">
@@ -707,7 +707,12 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
   }
   document.addEventListener('vo:lang-changed', render);
 
-  var viewPill=document.querySelector('.viewtoggle .pill');
+  var viewUnderline=document.querySelector('.viewtoggle .tbunderline');
+  function positionUnderline(btn){
+    if(!viewUnderline || !btn) return;
+    viewUnderline.style.width=btn.offsetWidth+'px';
+    viewUnderline.style.transform='translateX('+btn.offsetLeft+'px)';
+  }
   function setView(view){
     var isN=view==='necesidad';
     viewNecesidad.hidden=!isN;
@@ -716,12 +721,19 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
     jumpLinea.hidden=isN;
     tabN.setAttribute('aria-pressed', isN?'true':'false');
     tabL.setAttribute('aria-pressed', isN?'false':'true');
-    if(viewPill) viewPill.style.transform='translateX('+(isN?'0':'100%')+')';
+    positionUnderline(isN?tabN:tabL);
     render();
   }
 
   tabN.addEventListener('click',function(){ setView('necesidad'); });
   tabL.addEventListener('click',function(){ setView('linea'); });
+  positionUnderline(tabN);
+  window.addEventListener('resize',function(){
+    positionUnderline(tabN.getAttribute('aria-pressed')==='true'?tabN:tabL);
+  });
+  document.addEventListener('vo:lang-changed',function(){
+    positionUnderline(tabN.getAttribute('aria-pressed')==='true'?tabN:tabL);
+  });
 
   [fLinea,fNecesidad,fFormato,fPrecio,fPiel,fSort].forEach(function(el){
     el.addEventListener('change', render);
