@@ -222,8 +222,6 @@
 .skin summary{display:flex;align-items:center;gap:.8rem;padding:1.1rem 0;cursor:pointer;
  font-family:var(--fs);font-size:1.35rem;line-height:1.2;list-style:none}
 .skin summary::-webkit-details-marker{display:none}
-.skin summary::after{content:"+";margin-left:auto;font:400 1.5rem/1 var(--fb);color:var(--hoja-t);transition:transform .2s var(--e)}
-.skin details[open] summary::after{content:"–"}
 .skin-b{padding:0 0 1.4rem;display:grid;gap:.7rem;max-width:70ch}
 .skin-b p{margin:0;font-size:.95rem;color:var(--tinta)}
 .skin-b b{color:var(--corteza);font-weight:600}
@@ -735,7 +733,7 @@
       <a href="producto.html"><h3 data-i18n="edu-3-h3">Qué esperar y qué no</h3><p data-i18n="edu-3-p">Lo que se nota enseguida es el confort. La piel se renueva en semanas, no en horas: lo demás pide constancia, no cambiar de producto.</p><span class="rd" data-i18n="edu-3-rd">4 min de lectura</span></a>
     </div>
 
-    <div class="skin">
+    <div class="skin acc">
       <p class="sub" style="margin-top:clamp(30px,3.4vw,44px)" data-i18n="skin-guia-sub">Guía por tipo de piel</p>
       <details>
         <summary data-i18n="skin-1-sum">Piel seca</summary>
