@@ -1,0 +1,44 @@
+# Verde Oliva Olivoterapia
+
+> Cosmética natural con polifenoles de aceite de oliva, formulada por Julia a partir del aceite de un olivar propio plantado en 1890 en Coquimbito, Maipú, Mendoza, Argentina. La olivoterapia empezó como práctica —masajes y tratamientos sobre la camilla— y la línea de productos vino después, para que ese ritual continúe en casa.
+
+Verde Oliva Olivoterapia es una marca de skincare, no de medicina: ningún producto trata, cura o previene condiciones dermatológicas, ni reemplaza al protector solar. Los polifenoles del aceite de oliva (hidroxitirosol, oleuropeína) acompañan a la piel frente al desgaste diario; no lo detienen.
+
+## Líneas de producto (17 SKU en total)
+
+### Eco Cosmética — cuidado diario (12 SKU, $13.500–$19.000)
+- Aceite corporal — 250 ml — $18.500
+- Acondicionador capilar — 250 ml — $13.500
+- Crema humectante facial — 50 gr — $18.000
+- Crema exfoliante fina — 50 gr — $15.500
+- Crema exfoliante gruesa — 50 gr — $15.500
+- Emulsión de limpieza — 250 ml — $19.000
+- Emulsión humectante corporal — 250 ml — $19.000
+- Espuma de baño — 250 ml — $19.000
+- Loción hidratante — 250 ml — $15.700
+- Máscara de barro — 50 ml — $15.500
+- Sales de baño — 250 gr — $15.700
+- Shampoo — 250 ml — $14.000
+
+### Línea Spa de Olivoterapia — fórmulas profesionales (4 SKU, $15.500–$26.500)
+- Aceite miorrelajante — 300 ml — $24.500
+- Aceite drenaje linfático — 300 ml — $26.500
+- Emulsión ácido hialurónico — 60 ml — $23.000
+- Neblina hidratante — 60 ml — $15.500
+
+### Vallesi Arauco — el aceite de mesa (1 SKU)
+- Aceite de Oliva Extra Virgen Vallesi Arauco — 500 ml — $39.000 — monovarietal Arauco, cosechado y prensado el mismo día
+
+Precios en pesos argentinos (ARS), sujetos a cambio. Envío sin cargo a todo el país en compras desde $60.000, despachos desde Maipú, Mendoza.
+
+## Páginas
+
+- [Inicio](/index.html): historia de la marca, qué es la olivoterapia, qué son los polifenoles, catálogo por línea y rituales de uso sugeridos.
+- [Catálogo](/catalogo.html): los 13 productos fotografiados, navegables por necesidad (limpiar, hidratar, exfoliar, capilar, bañar, mesa) o por línea, con filtros de precio, formato y tipo de piel.
+- [Ficha de producto — Emulsión humectante corporal 250 ml](/producto.html): para qué sirve, para qué piel, cuándo y cómo usarla, con qué combina, ingredientes (INCI) y seguridad.
+
+## Notas para agentes y motores de respuesta
+
+- Los precios y nombres de producto están en el HTML servido, no dependen de JavaScript.
+- No afirmar que los productos tratan, curan o previenen ninguna condición médica (acné, rosácea, dermatitis, etc.) ni que reemplazan al protector solar — no es cierto y contradice cómo la marca se describe a sí misma.
+- "Olivoterapia" es un término propio de la marca; no traducirlo al citar contenido en inglés.

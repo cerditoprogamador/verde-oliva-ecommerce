@@ -5,7 +5,23 @@
 <link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Emulsión humectante corporal 250 ml de Verde Oliva Olivoterapia: para qué es, para qué piel, cuándo y cómo usarla, con qué combina, ingredientes y seguridad.">
+<meta name="robots" content="index, follow">
 <title>Emulsión humectante corporal 250 ml — Verde Oliva Olivoterapia</title>
+<!-- Open Graph / Twitter Card — og:url usa el dominio de verdeoliva.com.ar ya referenciado
+     en el footer (hola@verdeoliva.com.ar); actualizar si el dominio final de deploy difiere. -->
+<meta property="og:type" content="product">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Verde Oliva Olivoterapia">
+<meta property="og:title" content="Emulsión humectante corporal 250 ml — Verde Oliva Olivoterapia">
+<meta property="og:description" content="Para qué es, para qué piel, cuándo y cómo usarla, con qué combina, ingredientes y seguridad.">
+<meta property="og:image" content="img/productos/emulsion-humectante-corporal.jpg">
+<meta property="og:url" content="https://verdeoliva.com.ar/producto.html">
+<meta property="product:price:amount" content="19000">
+<meta property="product:price:currency" content="ARS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Emulsión humectante corporal 250 ml — Verde Oliva Olivoterapia">
+<meta name="twitter:description" content="Para qué es, para qué piel, cuándo y cómo usarla, con qué combina, ingredientes y seguridad.">
+<meta name="twitter:image" content="img/productos/emulsion-humectante-corporal.jpg">
 <style>
 /* ══ SISTEMA DE DISEÑO ══ */
 :root{
@@ -87,9 +103,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .iconbtn:hover{background:rgba(58,68,51,.07)}
 .badge{position:absolute;top:5px;right:4px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;
  background:var(--oliva);color:var(--crema);font:600 .62rem/17px var(--fb);text-align:center}
-.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer}
-.card .ph{aspect-ratio:4/5;transition:filter .3s var(--e)}
-.card:hover .ph{filter:brightness(1.05) saturate(1.06)}
+.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer;
+ transition:transform .45s var(--e)}
+.card:hover{transform:translateY(-3px)}
+.card .ph{aspect-ratio:4/5;transition:filter .45s var(--e)}
+.card:hover .ph{filter:brightness(1.08) saturate(1.12)}
 .card-b{padding:.9rem 0 0}
 .card-l{font:500 .63rem/1 var(--fb);letter-spacing:.2em;text-transform:uppercase;color:var(--tinta);
  display:flex;align-items:center;gap:.45rem;margin-bottom:.45rem}
@@ -121,9 +139,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
  border-bottom:1px solid var(--linea)}
 .hdr-in{display:flex;align-items:center;gap:1rem;padding:.6rem 0;min-height:var(--hh)}
 .hdr-nav{display:none;align-items:center;gap:.2rem;margin-left:1.6rem}
-.hdr-nav a{padding:.7rem .85rem;text-decoration:none;color:var(--oliva);font:500 .78rem/1 var(--fb);
+.hdr-nav a{position:relative;padding:.7rem .85rem;text-decoration:none;color:var(--oliva);font:500 .78rem/1 var(--fb);
  letter-spacing:.04em;border-radius:2px;cursor:pointer;transition:background .2s var(--e)}
 .hdr-nav a:hover{background:rgba(58,68,51,.07)}
+.hdr-nav a::after{content:"";position:absolute;left:.85rem;right:.85rem;bottom:.32rem;height:1.5px;background:var(--oro);
+ transform:scaleX(0);transform-origin:left;transition:transform .45s var(--e)}
+.hdr-nav a:hover::after{transform:scaleX(1)}
 .hdr-u{margin-left:auto;display:flex;align-items:center;gap:.15rem}
 .hdr-u .lang{margin-right:.5rem}
 @media(min-width:1000px){.hdr-nav{display:flex}}
@@ -189,6 +210,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .warn p{margin:0;font-size:.94rem;color:var(--tinta)}
 .grid3{display:grid;gap:clamp(18px,2.2vw,30px);grid-template-columns:repeat(2,1fr)}
 @media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr)}}
+.grid3>article{opacity:0;transform:translateY(16px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.grid3>article.in{opacity:1;transform:translateY(0)}
+.grid3>article:nth-child(1){transition-delay:0s}
+.grid3>article:nth-child(2){transition-delay:.06s}
+.grid3>article:nth-child(3){transition-delay:.12s}
+@media(prefers-reduced-motion:reduce){.grid3>article{opacity:1;transform:none;transition:none}}
 .card-why{font-size:.86rem;color:var(--hoja-t);margin:.5rem 0 0}
 .acc{border-top:1px solid var(--linea)}
 .acc details{border-bottom:1px solid var(--linea)}
@@ -198,6 +225,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .acc details[open] summary::after{transform:rotate(225deg) translateY(-3px)}
 .acc .body{padding:0 0 1.3rem;font-size:.95rem;color:var(--tinta);max-width:62ch}
 </style>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -223,7 +251,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 
 <div class="strip"><div class="wrap"><div class="strip-in">
   <svg class="ic" width="15" height="15"><use href="#i-truck"/></svg>
-  <span>Envío sin cargo a todo el país en compras desde $60.000 · Despachamos desde Maipú, Mendoza</span>
+  <span data-i18n="strip">Envío sin cargo a todo el país en compras desde $60.000 · Despachamos desde Maipú, Mendoza</span>
 </div></div></div>
 
 <header class="hdr">
@@ -231,29 +259,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
     <div class="hdr-in">
       <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
       <nav class="hdr-nav" aria-label="Principal">
-        <a href="catalogo.html">Catálogo</a>
-        <a href="index.html#polifenoles">Polifenoles</a>
-        <a href="index.html#rutinas">Rutinas</a>
-        <a href="index.html#origen">El olivar</a>
+        <a href="catalogo.html" data-i18n="nav-catalogo-2">Catálogo</a>
+        <a href="index.html#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
+        <a href="index.html#rutinas" data-i18n="nav-rutinas">Rutinas</a>
+        <a href="index.html#origen" data-i18n="nav-olivar">El olivar</a>
       </nav>
       <div class="searchbox">
         <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
-        <label class="sr" for="q">Buscar productos</label>
-        <input id="q" type="search" placeholder="Buscar: aceite, crema, sales…">
+        <label class="sr" for="q" data-i18n="buscar-label">Buscar productos</label>
+        <input id="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
       </div>
       <div class="hdr-u">
         <div class="lang" role="group" aria-label="Idioma">
           <button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button>
         </div>
-        <button class="iconbtn" type="button" aria-label="Mi cuenta"><svg class="ic" width="20" height="20"><use href="#i-user"/></svg></button>
-        <button class="iconbtn" type="button" aria-label="Carrito"><svg class="ic" width="20" height="20"><use href="#i-bag"/></svg><span class="badge" data-cart>0</span></button>
+        <button class="iconbtn" type="button" aria-label="Mi cuenta" data-i18n-aria="cuenta-aria"><svg class="ic" width="20" height="20"><use href="#i-user"/></svg></button>
+        <button class="iconbtn" type="button" aria-label="Carrito" data-i18n-aria="carrito-aria"><svg class="ic" width="20" height="20"><use href="#i-bag"/></svg><span class="badge" data-cart>0</span></button>
       </div>
     </div>
   </div>
 </header>
 
 <div class="crumbs"><div class="wrap">
-  <a href="index.html">Inicio</a> / <a href="catalogo.html">Catálogo</a> / <span>Emulsión humectante corporal</span>
+  <a href="index.html" data-i18n="crumb-inicio">Inicio</a> / <a href="catalogo.html" data-i18n="crumb-catalogo">Catálogo</a> / <span data-i18n="p-nombre">Emulsión humectante corporal</span>
 </div></div>
 
 <main id="main">
@@ -261,37 +289,37 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 
   <div class="gal">
     <div class="ph ph2 main" id="gmain" role="img" aria-label="Emulsión humectante corporal 250 ml, envase"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="Emulsión humectante corporal Verde Oliva, envase 250 ml" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></div>
-    <button class="ph ph2 th" type="button" aria-current="true" data-t="ph2" data-m="m-bottle" data-img="img/productos/emulsion-humectante-corporal.jpg" aria-label="Ver el envase"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></button>
-    <button class="ph ph4 th" type="button" aria-current="false" data-t="ph4" data-m="m-drop" aria-label="Ver la textura"><svg class="ph-m" style="width:42%"><use href="#m-drop"/></svg></button>
-    <button class="ph th" type="button" aria-current="false" data-t="" data-m="m-branch" aria-label="Ver el olivar"><svg class="ph-m" style="width:42%"><use href="#m-branch"/></svg></button>
-    <button class="ph ph5 th" type="button" aria-current="false" data-t="ph5" data-m="m-bottle" aria-label="Ver la aplicación"><svg class="ph-m" style="width:42%"><use href="#m-bottle"/></svg></button>
+    <button class="ph ph2 th" type="button" aria-current="true" data-t="ph2" data-m="m-bottle" data-img="img/productos/emulsion-humectante-corporal.jpg" aria-label="Ver el envase" data-i18n-aria="gal-envase"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"></button>
+    <button class="ph ph4 th" type="button" aria-current="false" data-t="ph4" data-m="m-drop" aria-label="Ver la textura" data-i18n-aria="gal-textura"><svg class="ph-m" style="width:42%"><use href="#m-drop"/></svg></button>
+    <button class="ph th" type="button" aria-current="false" data-t="" data-m="m-branch" aria-label="Ver el olivar" data-i18n-aria="gal-olivar"><svg class="ph-m" style="width:42%"><use href="#m-branch"/></svg></button>
+    <button class="ph ph5 th" type="button" aria-current="false" data-t="ph5" data-m="m-bottle" aria-label="Ver la aplicación" data-i18n-aria="gal-aplicacion"><svg class="ph-m" style="width:42%"><use href="#m-bottle"/></svg></button>
   </div>
 
   <div class="info">
-    <p class="kicker" style="margin-bottom:.6rem">Eco Cosmética · Línea diaria</p>
-    <h1>Emulsión humectante corporal</h1>
+    <p class="kicker" style="margin-bottom:.6rem" data-i18n="p-kicker">Eco Cosmética · Línea diaria</p>
+    <h1 data-i18n="p-nombre">Emulsión humectante corporal</h1>
     <div class="pmeta">
       <span class="tagl">250 ml</span>
-      <span class="tagl">Piel normal a seca</span>
-      <span class="tagl">Uso diario</span>
+      <span class="tagl" data-i18n="p-piel">Piel normal a seca</span>
+      <span class="tagl" data-i18n="p-uso">Uso diario</span>
     </div>
-    <p class="lead" style="margin-bottom:1.2rem">Liviana y de absorción rápida. Es la alternativa al aceite corporal para el día a día: la misma base de aceite de oliva del olivar propio, emulsionada para entrar en segundos y no ensuciar la ropa.</p>
+    <p class="lead" style="margin-bottom:1.2rem" data-i18n="p-lead">Liviana y de absorción rápida. Es la alternativa al aceite corporal para el día a día: la misma base de aceite de oliva del olivar propio, emulsionada para entrar en segundos y no ensuciar la ropa.</p>
     <p class="price">$19.000</p>
-    <p class="stock"><svg width="15" height="15"><use href="#i-check"/></svg> En stock · Preparado en Maipú, Mendoza</p>
+    <p class="stock"><svg width="15" height="15"><use href="#i-check"/></svg> <span data-i18n="p-stock">En stock · Preparado en Maipú, Mendoza</span></p>
 
     <div class="buy">
       <div class="qty" role="group" aria-label="Cantidad">
-        <button type="button" id="less" aria-label="Quitar uno"><svg width="16" height="16" style="margin:auto"><use href="#i-minus"/></svg></button>
+        <button type="button" id="less" aria-label="Quitar uno" data-i18n-aria="qty-menos"><svg width="16" height="16" style="margin:auto"><use href="#i-minus"/></svg></button>
         <span id="q-n" aria-live="polite">1</span>
-        <button type="button" id="more" aria-label="Sumar uno"><svg width="16" height="16" style="margin:auto"><use href="#i-plus"/></svg></button>
+        <button type="button" id="more" aria-label="Sumar uno" data-i18n-aria="qty-mas"><svg width="16" height="16" style="margin:auto"><use href="#i-plus"/></svg></button>
       </div>
-      <button class="btn" type="button" id="add">Agregar al carrito</button>
+      <button class="btn" type="button" id="add" data-i18n="btn-agregar">Agregar al carrito</button>
     </div>
 
     <div class="ship">
-      <div><svg width="17" height="17"><use href="#i-truck"/></svg><span>Envío sin cargo desde $60.000. Despacho en 48 h hábiles.</span></div>
-      <div><svg width="17" height="17"><use href="#i-leaf"/></svg><span>Formulado por Julia con polifenoles del olivar de 1890.</span></div>
-      <div><svg width="17" height="17"><use href="#i-droplet"/></svg><span>Sin perfume sintético. Rinde entre 6 y 8 semanas de uso diario.</span></div>
+      <div><svg width="17" height="17"><use href="#i-truck"/></svg><span data-i18n="ship-1">Envío sin cargo desde $60.000. Despacho en 48 h hábiles.</span></div>
+      <div><svg width="17" height="17"><use href="#i-leaf"/></svg><span data-i18n="ship-2">Formulado por Julia con polifenoles del olivar de 1890.</span></div>
+      <div><svg width="17" height="17"><use href="#i-droplet"/></svg><span data-i18n="ship-3">Sin perfume sintético. Rinde entre 6 y 8 semanas de uso diario.</span></div>
     </div>
   </div>
 
@@ -302,21 +330,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   <div class="wrap">
     <div class="edu-h">
       <div class="rule-oro"></div>
-      <p class="kicker">Antes de comprarlo, entendelo</p>
-      <h2>Qué hace, para quién es y cómo se usa</h2>
-      <p class="lead" style="margin-top:.9rem">Esta parte está en las 17 fichas. Cambia el contenido, no la estructura: preferimos que compres bien una vez a que compres tres veces mal.</p>
+      <p class="kicker" data-i18n="edu-kicker">Antes de comprarlo, entendelo</p>
+      <h2 data-i18n="edu-h2">Qué hace, para quién es y cómo se usa</h2>
+      <p class="lead" style="margin-top:.9rem" data-i18n="edu-lead">Esta parte está en las 17 fichas. Cambia el contenido, no la estructura: preferimos que compres bien una vez a que compres tres veces mal.</p>
     </div>
 
     <div class="qa">
       <div class="q">
-        <h3><svg width="20" height="20"><use href="#i-droplet"/></svg>Para qué es</h3>
-        <p>Para <b>hidratar el cuerpo entero, todos los días</b>, sin la sensación pesada del aceite puro. Combina agua y aceite de oliva del olivar propio: hidrata la piel y repone la grasa que el jabón se lleva, en una textura que se absorbe en segundos.</p>
-        <p>Es el producto indicado para el uso diario, cuando no hay tres minutos para esperar que un aceite se asiente.</p>
+        <h3><svg width="20" height="20"><use href="#i-droplet"/></svg><span data-i18n="q1-h3">Para qué es</span></h3>
+        <p data-i18n="q1-p1">Para <b>hidratar el cuerpo entero, todos los días</b>, sin la sensación pesada del aceite puro. Combina agua y aceite de oliva del olivar propio: hidrata la piel y repone la grasa que el jabón se lleva, en una textura que se absorbe en segundos.</p>
+        <p data-i18n="q1-p2">Es el producto indicado para el uso diario, cuando no hay tres minutos para esperar que un aceite se asiente.</p>
       </div>
 
       <div class="q">
-        <h3><svg width="20" height="20"><use href="#i-leaf"/></svg>Para qué piel</h3>
-        <ul>
+        <h3><svg width="20" height="20"><use href="#i-leaf"/></svg><span data-i18n="q2-h3">Para qué piel</span></h3>
+        <ul data-i18n="q2-ul">
           <li><b>Piel normal a seca:</b> es su uso principal, todo el año.</li>
           <li><b>Piel que no tolera bien el aceite puro:</b> entra más rápido y no deja tacto graso.</li>
           <li><b>Mañanas con apuro:</b> se termina de absorber mientras te vestís.</li>
@@ -325,26 +353,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
       </div>
 
       <div class="q">
-        <h3><svg width="20" height="20"><use href="#i-clock"/></svg>Cuándo usarlo</h3>
-        <p><b>Después de la ducha</b>, con la piel seca o apenas húmeda — a diferencia del aceite, no necesita agua para sellar. Sirve de mañana, antes de vestirte, y de noche.</p>
-        <p>También funciona como base liviana antes del maquillaje, cuando el aceite dejaría la piel demasiado brillante.</p>
+        <h3><svg width="20" height="20"><use href="#i-clock"/></svg><span data-i18n="q3-h3">Cuándo usarlo</span></h3>
+        <p data-i18n="q3-p1"><b>Después de la ducha</b>, con la piel seca o apenas húmeda — a diferencia del aceite, no necesita agua para sellar. Sirve de mañana, antes de vestirte, y de noche.</p>
+        <p data-i18n="q3-p2">También funciona como base liviana antes del maquillaje, cuando el aceite dejaría la piel demasiado brillante.</p>
       </div>
 
       <div class="q">
-        <h3><svg width="20" height="20"><use href="#i-hand"/></svg>Cómo se usa</h3>
-        <ol class="usteps">
+        <h3><svg width="20" height="20"><use href="#i-hand"/></svg><span data-i18n="q4-h3">Cómo se usa</span></h3>
+        <ol class="usteps" data-i18n="q4-ol">
           <li><p><b>Salí de la ducha y secate normalmente.</b> No hace falta dejar la piel húmeda como con el aceite.</p></li>
           <li><p><b>Serví dos o tres pulsaciones en la palma.</b> Rinde más de lo que parece: no hace falta cargar la mano.</p></li>
           <li><p><b>Aplicá con movimientos largos, de abajo hacia arriba.</b> Empezá por las piernas y terminá en brazos y hombros.</p></li>
           <li><p><b>Dejá que se absorba unos segundos antes de vestirte.</b> No hace falta masajear de más ni esperar a que "deje de brillar".</p></li>
         </ol>
-        <p class="safety">Uso cosmético. Si tenés una condición en la piel o estás bajo tratamiento dermatológico, consultá con tu profesional antes de incorporarlo.</p>
+        <p class="safety" data-i18n="q4-safety">Uso cosmético. Si tenés una condición en la piel o estás bajo tratamiento dermatológico, consultá con tu profesional antes de incorporarlo.</p>
       </div>
     </div>
 
     <div class="warn">
-      <h3>Qué esperar, y qué no</h3>
-      <p><b style="color:var(--corteza)">La primera semana</b> baja la sensación de piel tirante. <b style="color:var(--corteza)">Al mes</b> la piel se siente más pareja al tacto, sobre todo si exfoliás una vez por semana. <b style="color:var(--corteza)">A los tres meses</b> aguanta mejor el frío y el sol de altura.<br><br>
+      <h3 data-i18n="warn-h3">Qué esperar, y qué no</h3>
+      <p data-i18n="warn-p"><b style="color:var(--corteza)">La primera semana</b> baja la sensación de piel tirante. <b style="color:var(--corteza)">Al mes</b> la piel se siente más pareja al tacto, sobre todo si exfoliás una vez por semana. <b style="color:var(--corteza)">A los tres meses</b> aguanta mejor el frío y el sol de altura.<br><br>
       Lo que <b style="color:var(--corteza)">no</b> hace: no borra cicatrices, no trata ninguna condición de la piel, no reemplaza al protector solar y no adelgaza. Es cosmética, no medicamento — ver Seguridad más abajo.</p>
     </div>
   </div>
@@ -353,19 +381,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <!-- ══ COMBINA CON — con el porqué de cada combinación ══ -->
 <section class="sect">
   <div class="wrap">
-    <p class="kicker">Con qué combina</p>
-    <h2 style="font-size:clamp(1.7rem,3.2vw,2.5rem);margin-bottom:.7rem">La emulsión sola funciona. Acompañada, funciona mejor.</h2>
-    <p class="lead" style="margin-bottom:clamp(24px,3vw,40px)">Estos tres productos se usan antes o después de la emulsión, en este orden.</p>
+    <p class="kicker" data-i18n="combina-kicker">Con qué combina</p>
+    <h2 style="font-size:clamp(1.7rem,3.2vw,2.5rem);margin-bottom:.7rem" data-i18n="combina-h2">La emulsión sola funciona. Acompañada, funciona mejor.</h2>
+    <p class="lead" style="margin-bottom:clamp(24px,3vw,40px)" data-i18n="combina-lead">Estos tres productos se usan antes o después de la emulsión, en este orden.</p>
     <div class="grid3">
       <article>
         <a class="card" href="producto.html">
           <div class="ph ph3"><img src="img/productos/crema-exfoliante-gruesa.jpg" alt="Crema exfoliante gruesa Verde Oliva" loading="lazy"></div>
           <div class="card-b">
-            <span class="card-l"><span class="dot"></span>Antes</span>
-            <h3 class="card-t">Crema exfoliante gruesa</h3>
+            <span class="card-l"><span class="dot"></span><span data-i18n="card1-label">Antes</span></span>
+            <h3 class="card-t" data-i18n="card1-title">Crema exfoliante gruesa</h3>
             <p class="card-f">50 gr</p>
             <p class="card-p">$15.500</p>
-            <p class="card-why">Una vez por semana, bajo la ducha: la piel recién exfoliada absorbe mucho más.</p>
+            <p class="card-why" data-i18n="card1-why">Una vez por semana, bajo la ducha: la piel recién exfoliada absorbe mucho más.</p>
           </div>
         </a>
       </article>
@@ -373,11 +401,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
         <a class="card" href="producto.html">
           <div class="ph"><img src="img/productos/espuma-de-bano.jpg" alt="Espuma de baño Verde Oliva" loading="lazy"></div>
           <div class="card-b">
-            <span class="card-l"><span class="dot"></span>Antes</span>
-            <h3 class="card-t">Espuma de baño</h3>
+            <span class="card-l"><span class="dot"></span><span data-i18n="card2-label">Antes</span></span>
+            <h3 class="card-t" data-i18n="card2-title">Espuma de baño</h3>
             <p class="card-f">250 ml</p>
             <p class="card-p">$19.000</p>
-            <p class="card-why">Baño de inmersión y emulsión al salir, con la piel todavía tibia: el ritual más simple y el que más se nota.</p>
+            <p class="card-why" data-i18n="card2-why">Baño de inmersión y emulsión al salir, con la piel todavía tibia: el ritual más simple y el que más se nota.</p>
           </div>
         </a>
       </article>
@@ -385,11 +413,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
         <a class="card" href="producto.html">
           <div class="ph ph5"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="Aceite de Oliva Extra Virgen Vallesi Arauco" loading="lazy"></div>
           <div class="card-b">
-            <span class="card-l"><span class="dot"></span>El origen</span>
-            <h3 class="card-t">Vallesi Arauco</h3>
+            <span class="card-l"><span class="dot"></span><span data-i18n="card3-label">El origen</span></span>
+            <h3 class="card-t" data-i18n="card3-title">Vallesi Arauco</h3>
             <p class="card-f">500 ml</p>
             <p class="card-p">$39.000</p>
-            <p class="card-why">El mismo aceite, por el camino de siempre: la mesa. No se usa sobre la piel — es la otra mitad de la historia.</p>
+            <p class="card-why" data-i18n="card3-why">El mismo aceite, por el camino de siempre: la mesa. No se usa sobre la piel — es la otra mitad de la historia.</p>
           </div>
         </a>
       </article>
@@ -400,10 +428,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <!-- ══ EL ORIGEN ══ -->
 <section class="sect dark">
   <div class="wrap" style="max-width:820px;text-align:center">
-    <p class="kicker">De dónde sale</p>
-    <p style="font-family:var(--fs);font-size:clamp(1.4rem,2.8vw,2rem);line-height:1.28;margin:0 0 1.2rem">
+    <p class="kicker" data-i18n="origen-kicker">De dónde sale</p>
+    <p style="font-family:var(--fs);font-size:clamp(1.4rem,2.8vw,2rem);line-height:1.28;margin:0 0 1.2rem" data-i18n="origen-p">
       Los olivos que Ángel Cavagnaro plantó en Coquimbito en 1890 siguen dando fruto. Esta emulsión sale de esa misma prensada: una parte va a la mesa, la otra, a la piel.</p>
-    <a class="btn btn-ghost" href="index.html#origen">Conocer el olivar <svg class="ic" width="15" height="15"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-ghost" href="index.html#origen"><span data-i18n="origen-btn">Conocer el olivar</span> <svg class="ic" width="15" height="15"><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
@@ -411,18 +439,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <section class="sect" style="padding-top:0">
   <div class="wrap" style="max-width:900px">
     <div class="acc">
-      <details open><summary>Ingredientes (INCI)</summary>
-        <div class="body">Emulsión de agua y aceite de oliva extra virgen del olivar de la finca, prensado en frío una vez al año, con aporte natural de polifenoles y vitamina E. Sin perfume sintético, sin siliconas, sin colorantes. Formulada y envasada por Julia en el laboratorio de Maipú, en lotes chicos.<br><br>El listado INCI completo, como exige la normativa, figura impreso en el envase de cada lote.</div></details>
-      <details><summary>Por qué se absorbe rápido</summary>
-        <div class="body">Porque es una emulsión, no aceite puro: el agua entra primero y el aceite queda como una capa fina en la superficie, en vez de tener que integrarse entero como el aceite solo. Por eso rinde para el uso diario, cuando no hay tiempo de esperar a que un aceite se asiente.</div></details>
-      <details><summary>Qué son los polifenoles</summary>
-        <div class="body">Son los compuestos con los que el olivo se defiende del sol de altura y del estrés del secano. Son los responsables del amargo que se siente en la garganta al probar un aceite recién prensado. Si un aceite no amarga ni pica un poco, probablemente le quede poco de lo que estamos buscando.</div></details>
-      <details><summary>Seguridad</summary>
-        <div class="body">Uso cosmético. Si tenés una condición en la piel o estás bajo tratamiento dermatológico, consultá con tu profesional antes de incorporarlo.<br><br>Antes de la primera vez, probá en una zona pequeña —el antebrazo— y esperá un día. Es una fórmula, no aceite de oliva crudo embotellado: emulsionado y estabilizado hace lo que se busca sin los inconvenientes del aceite solo sobre la piel. Es cosmética, no medicamento: no sustituye ningún diagnóstico ni tratamiento.</div></details>
-      <details><summary>Conservación y vida útil</summary>
-        <div class="body">Guardalo lejos de la luz directa y del calor: la luz es el peor enemigo del aceite. Doce meses cerrado, seis meses una vez abierto. Si cambia el olor —de fruto a rancio— descartalo, aunque quede producto.</div></details>
-      <details><summary>Envíos y cambios</summary>
-        <div class="body">Despachamos en 48 h hábiles desde Maipú, Mendoza, a todo el país. Envío sin cargo en compras desde $60.000. Se puede retirar por la finca en Coquimbito coordinando por correo. Cambios dentro de los 30 días con el producto cerrado.</div></details>
+      <details open><summary data-i18n="acc1-summary">Ingredientes (INCI)</summary>
+        <div class="body" data-i18n="acc1-body">Emulsión de agua y aceite de oliva extra virgen del olivar de la finca, prensado en frío una vez al año, con aporte natural de polifenoles y vitamina E. Sin perfume sintético, sin siliconas, sin colorantes. Formulada y envasada por Julia en el laboratorio de Maipú, en lotes chicos.<br><br>El listado INCI completo, como exige la normativa, figura impreso en el envase de cada lote.</div></details>
+      <details><summary data-i18n="acc2-summary">Por qué se absorbe rápido</summary>
+        <div class="body" data-i18n="acc2-body">Porque es una emulsión, no aceite puro: el agua entra primero y el aceite queda como una capa fina en la superficie, en vez de tener que integrarse entero como el aceite solo. Por eso rinde para el uso diario, cuando no hay tiempo de esperar a que un aceite se asiente.</div></details>
+      <details><summary data-i18n="acc3-summary">Qué son los polifenoles</summary>
+        <div class="body" data-i18n="acc3-body">Son los compuestos con los que el olivo se defiende del sol de altura y del estrés del secano. Son los responsables del amargo que se siente en la garganta al probar un aceite recién prensado. Si un aceite no amarga ni pica un poco, probablemente le quede poco de lo que estamos buscando.</div></details>
+      <details><summary data-i18n="acc4-summary">Seguridad</summary>
+        <div class="body" data-i18n="acc4-body">Uso cosmético. Si tenés una condición en la piel o estás bajo tratamiento dermatológico, consultá con tu profesional antes de incorporarlo.<br><br>Antes de la primera vez, probá en una zona pequeña —el antebrazo— y esperá un día. Es una fórmula, no aceite de oliva crudo embotellado: emulsionado y estabilizado hace lo que se busca sin los inconvenientes del aceite solo sobre la piel. Es cosmética, no medicamento: no sustituye ningún diagnóstico ni tratamiento.</div></details>
+      <details><summary data-i18n="acc5-summary">Conservación y vida útil</summary>
+        <div class="body" data-i18n="acc5-body">Guardalo lejos de la luz directa y del calor: la luz es el peor enemigo del aceite. Doce meses cerrado, seis meses una vez abierto. Si cambia el olor —de fruto a rancio— descartalo, aunque quede producto.</div></details>
+      <details><summary data-i18n="acc6-summary">Envíos y cambios</summary>
+        <div class="body" data-i18n="acc6-body">Despachamos en 48 h hábiles desde Maipú, Mendoza, a todo el país. Envío sin cargo en compras desde $60.000. Se puede retirar por la finca en Coquimbito coordinando por correo. Cambios dentro de los 30 días con el producto cerrado.</div></details>
     </div>
   </div>
 </section>
@@ -431,11 +459,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <section class="sect sand" style="padding-top:0">
   <div class="wrap" style="max-width:760px">
     <div class="rule-oro"></div>
-    <p class="kicker">Cómo se integra</p>
-    <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:.9rem">Del ritual de hidratar de la cara a los pies</h2>
-    <p class="lead">En este ritual la emulsión es el paso del cuerpo: se aplica después de la ducha, con la piel todavía húmeda, mientras la emulsión de ácido hialurónico y la crema humectante facial hacen lo suyo en el rostro. Sobre piel húmeda todo entra mejor — es gratis y cambia el resultado.</p>
-    <p class="lead" style="margin-top:.9rem">También es el cierre de los rituales "Exfoliar una vez por semana" y "Un baño de verdad": se puede comprar sola, pero en cualquiera de los tres rinde más.</p>
-    <p style="margin-top:1.4rem"><a class="link" href="index.html#rutinas">Armar este ritual paso a paso <svg class="ic" width="15" height="15" style="display:inline;vertical-align:middle"><use href="#i-arrow"/></svg></a></p>
+    <p class="kicker" data-i18n="ritual-kicker">Cómo se integra</p>
+    <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:.9rem" data-i18n="ritual-h2">Del ritual de hidratar de la cara a los pies</h2>
+    <p class="lead" data-i18n="ritual-lead1">En este ritual la emulsión es el paso del cuerpo: se aplica después de la ducha, con la piel todavía húmeda, mientras la emulsión de ácido hialurónico y la crema humectante facial hacen lo suyo en el rostro. Sobre piel húmeda todo entra mejor — es gratis y cambia el resultado.</p>
+    <p class="lead" style="margin-top:.9rem" data-i18n="ritual-lead2">También es el cierre de los rituales "Exfoliar una vez por semana" y "Un baño de verdad": se puede comprar sola, pero en cualquiera de los tres rinde más.</p>
+    <p style="margin-top:1.4rem"><a class="link" href="index.html#rutinas"><span data-i18n="ritual-link">Armar este ritual paso a paso</span> <svg class="ic" width="15" height="15" style="display:inline;vertical-align:middle"><use href="#i-arrow"/></svg></a></p>
   </div>
 </section>
 
@@ -446,26 +474,33 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
     <div class="ft-g">
       <div>
         <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26" style="filter:brightness(0) invert(1)"><span class="logo-m" style="color:var(--crema)">Verde Oliva</span></a>
-        <p class="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p>
-        <p style="font-size:.88rem;color:rgba(247,244,236,.7);max-width:34ch;margin:0">Cosmética natural con polifenoles de aceite de oliva. Coquimbito, Maipú, Mendoza. Olivar plantado en 1890.</p>
+        <p class="ft-tag" data-i18n="ft-tag">De la tierra a la mesa, de la mesa a la piel.</p>
+        <p style="font-size:.88rem;color:rgba(247,244,236,.7);max-width:34ch;margin:0" data-i18n="ft-desc">Cosmética natural con polifenoles de aceite de oliva. Coquimbito, Maipú, Mendoza. Olivar plantado en 1890.</p>
       </div>
-      <div><h4>Tienda</h4><ul>
-        <li><a href="index.html#eco">Eco Cosmética</a></li><li><a href="index.html#spa">Spa de Olivoterapia</a></li>
-        <li><a href="index.html#gourmet">Gourmet</a></li><li><a href="catalogo.html">Catálogo completo</a></li></ul></div>
-      <div><h4>Aprender</h4><ul>
-        <li><a href="index.html#polifenoles">Qué son los polifenoles</a></li><li><a href="index.html#informacion">Qué hay adentro del aceite</a></li>
-        <li><a href="index.html#rutinas">Armá tu rutina</a></li><li><a href="index.html#origen">El olivar de 1890</a></li></ul></div>
-      <div><h4>Contacto</h4><ul>
-        <li><a href="#c">Coquimbito, Maipú</a></li><li><a href="#c">Mendoza, Argentina</a></li>
-        <li><a href="#c">Envíos a todo el país</a></li><li><a href="#c">hola@verdeoliva.com.ar</a></li></ul></div>
+      <div><h4 data-i18n="ft-tienda-h">Tienda</h4><ul>
+        <li><a href="index.html#eco" data-i18n="ft-eco">Eco Cosmética</a></li><li><a href="index.html#spa" data-i18n="ft-spa">Spa de Olivoterapia</a></li>
+        <li><a href="index.html#gourmet" data-i18n="ft-gourmet">Gourmet</a></li><li><a href="catalogo.html" data-i18n="ft-catalogo-completo">Catálogo completo</a></li></ul></div>
+      <div><h4 data-i18n="ft-aprender-h">Aprender</h4><ul>
+        <li><a href="index.html#polifenoles" data-i18n="ft-polifenoles-link">Qué son los polifenoles</a></li><li><a href="index.html#informacion" data-i18n="ft-informacion-link">Qué hay adentro del aceite</a></li>
+        <li><a href="index.html#rutinas" data-i18n="ft-rutinas-link">Armá tu rutina</a></li><li><a href="index.html#origen" data-i18n="ft-origen-link">El olivar de 1890</a></li></ul></div>
+      <div><h4 data-i18n="ft-contacto-h">Contacto</h4><ul>
+        <li><a href="#c" data-i18n="ft-c1">Coquimbito, Maipú</a></li><li><a href="#c" data-i18n="ft-c2">Mendoza, Argentina</a></li>
+        <li><a href="#c" data-i18n="ft-c3">Envíos a todo el país</a></li><li><a href="#c">hola@verdeoliva.com.ar</a></li></ul></div>
     </div>
     <div class="ft-bot">
-      <span>© 2026 Verde Oliva Olivoterapia</span>
-      <span>Tienda independiente. El olivar y la casa nos dan origen, no catálogo.</span>
+      <span data-i18n="ft-copyright">© 2026 Verde Oliva Olivoterapia</span>
+      <span data-i18n="ft-independiente">Tienda independiente. El olivar y la casa nos dan origen, no catálogo.</span>
     </div>
   </div>
 </footer>
 
+<script src="js/cart.js"></script>
+<script src="js/header.js"></script>
+<script src="js/i18n-common.js"></script>
+<script src="js/i18n-data-producto.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/i18n.js"></script>
 <script>
 (function(){
   var main=document.getElementById('gmain');
@@ -485,13 +520,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   document.getElementById('more').addEventListener('click',function(){n++;qn.textContent=n;});
   document.getElementById('less').addEventListener('click',function(){if(n>1){n--;qn.textContent=n;}});
   document.getElementById('add').addEventListener('click',function(){
-    document.querySelectorAll('[data-cart]').forEach(function(c){c.textContent=(parseInt(c.textContent,10)||0)+n;});
+    window.VOCart.add('emulsion-humectante-corporal','Emulsión humectante corporal',19000,n);
     var b=this,t=b.textContent;b.textContent='Agregado ✓';b.disabled=true;
     setTimeout(function(){b.textContent=t;b.disabled=false;},1300);
-  });
-  document.addEventListener('click',function(e){
-    var b=e.target.closest('.lang button');
-    if(b){b.parentNode.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});}
   });
 })();
 </script>

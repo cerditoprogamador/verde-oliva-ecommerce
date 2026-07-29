@@ -5,7 +5,21 @@
 <link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Catálogo Verde Oliva Olivoterapia — los 13 productos, por necesidad o por línea, con filtros de línea, necesidad, formato, precio y tipo de piel.">
+<meta name="robots" content="index, follow">
 <title>Catálogo — Verde Oliva Olivoterapia</title>
+<!-- Open Graph / Twitter Card — og:url usa el dominio de verdeoliva.com.ar ya referenciado
+     en el footer (hola@verdeoliva.com.ar); actualizar si el dominio final de deploy difiere. -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Verde Oliva Olivoterapia">
+<meta property="og:title" content="Catálogo — Verde Oliva Olivoterapia">
+<meta property="og:description" content="Los 13 productos, por necesidad o por línea, con filtros de línea, necesidad, formato, precio y tipo de piel.">
+<meta property="og:image" content="img/productos/emulsion-humectante-corporal.jpg">
+<meta property="og:url" content="https://verdeoliva.com.ar/catalogo.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Catálogo — Verde Oliva Olivoterapia">
+<meta name="twitter:description" content="Los 13 productos, por necesidad o por línea, con filtros de línea, necesidad, formato, precio y tipo de piel.">
+<meta name="twitter:image" content="img/productos/emulsion-humectante-corporal.jpg">
 <style>
 /* ══ SISTEMA DE DISEÑO ══ */
 :root{
@@ -77,10 +91,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .top h1{font-size:clamp(2rem,4.6vw,3.3rem);max-width:19ch}
 /* toggle de vista */
 .toolbar{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);background:var(--crema2);padding:clamp(16px,2vw,22px) 0}
-.viewtoggle{display:inline-flex;border:1px solid var(--oliva);border-radius:100px;overflow:hidden;margin-bottom:clamp(14px,1.8vw,18px)}
-.tbtn{background:var(--crema);color:var(--oliva);border:0;padding:.7rem 1.3rem;font:500 .78rem/1 var(--fb);letter-spacing:.06em;cursor:pointer;transition:background .2s var(--e),color .2s var(--e)}
-.tbtn[aria-pressed="true"]{background:var(--oliva);color:var(--crema)}
-.tbtn:not(:last-child){border-right:1px solid var(--oliva)}
+.viewtoggle{position:relative;display:inline-flex;border:1px solid var(--oliva);border-radius:100px;overflow:hidden;margin-bottom:clamp(14px,1.8vw,18px)}
+.viewtoggle .pill{position:absolute;top:0;bottom:0;left:0;width:50%;background:var(--oliva);
+ transition:transform .45s var(--e);z-index:0;will-change:transform}
+.tbtn{position:relative;z-index:1;background:transparent;color:var(--oliva);border:0;padding:.7rem 1.3rem;
+ font:500 .78rem/1 var(--fb);letter-spacing:.06em;cursor:pointer;transition:color .45s var(--e)}
+.tbtn[aria-pressed="true"]{color:var(--crema)}
 .filters{display:flex;flex-wrap:wrap;gap:.9rem 1.1rem;align-items:end}
 .ffield{display:flex;flex-direction:column;gap:.3rem;min-width:150px}
 .ffield label{font:500 .64rem/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;color:var(--tinta)}
@@ -94,8 +110,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .jumpnav-in{display:flex;gap:.4rem;padding:.6rem 0;overflow-x:auto;white-space:nowrap}
 .jumpnav a{display:inline-flex;align-items:center;gap:.45rem;padding:.55rem .95rem;border-radius:100px;
  text-decoration:none;color:var(--oliva);font:500 .8rem/1 var(--fb);cursor:pointer;border:1px solid transparent;
- transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e)}
-.jumpnav a:hover{border-color:var(--oro)}
+ transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e),transform .3s var(--e),box-shadow .3s var(--e)}
+.jumpnav a:hover{border-color:var(--oro);transform:translateY(-2px);box-shadow:0 6px 14px -8px rgba(58,68,51,.3)}
 .jumpnav a.on{background:var(--oliva);color:var(--crema)}
 .jumpnav a svg{color:var(--hoja-t)}
 .jumpnav a.on svg{color:var(--arena)}
@@ -129,6 +145,15 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 @media(min-width:700px){.grid,.pgrid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1120px){.grid,.pgrid{grid-template-columns:repeat(4,1fr)}}
 .card-w{position:relative;display:flex;flex-direction:column}
+.grid .card-w,.pgrid .card-w{opacity:0;transform:translateY(16px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.grid .card-w.in,.pgrid .card-w.in{opacity:1;transform:translateY(0)}
+.grid .card-w:nth-child(1),.pgrid .card-w:nth-child(1){transition-delay:0s}
+.grid .card-w:nth-child(2),.pgrid .card-w:nth-child(2){transition-delay:.05s}
+.grid .card-w:nth-child(3),.pgrid .card-w:nth-child(3){transition-delay:.1s}
+.grid .card-w:nth-child(4),.pgrid .card-w:nth-child(4){transition-delay:.15s}
+.grid .card-w:nth-child(5),.pgrid .card-w:nth-child(5){transition-delay:.2s}
+.grid .card-w:nth-child(6),.pgrid .card-w:nth-child(6){transition-delay:.25s}
+@media(prefers-reduced-motion:reduce){.grid .card-w,.pgrid .card-w{opacity:1;transform:none;transition:none}}
 .card-w[hidden],.card-w.is-hidden{display:none!important}
 .card{display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer;flex:1}
 .card .ph{aspect-ratio:4/5;transition:filter .3s var(--e)}
@@ -158,6 +183,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .ft-bot{margin-top:2.4rem;padding-top:1.3rem;border-top:1px solid rgba(247,244,236,.18);font-size:.78rem;color:rgba(247,244,236,.62)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
@@ -179,8 +205,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
   <div class="hu">
     <div class="lang" role="group" aria-label="Idioma"><button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button></div>
-    <button class="iconbtn" type="button" aria-label="Mi cuenta"><svg width="20" height="20"><use href="#i-user"/></svg></button>
-    <button class="iconbtn" type="button" aria-label="Carrito"><svg width="20" height="20"><use href="#i-bag"/></svg><span class="badge" data-cart>0</span></button>
+    <button class="iconbtn" type="button" aria-label="Mi cuenta" data-i18n-aria="cuenta-aria"><svg width="20" height="20"><use href="#i-user"/></svg></button>
+    <button class="iconbtn" type="button" aria-label="Carrito" data-i18n-aria="carrito-aria"><svg width="20" height="20"><use href="#i-bag"/></svg><span class="badge" data-cart>0</span></button>
   </div>
 </div></div></header>
 
@@ -188,98 +214,99 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 
 <section class="top" id="catalog-top"><div class="wrap">
   <div class="rule-oro"></div>
-  <p class="kicker">El catálogo</p>
-  <h1>Los 13 productos, por lo que resuelven o por la línea que ya conocés.</h1>
-  <p class="lead" style="margin-top:1rem">Nadie se levanta queriendo "una emulsión": la vista por necesidad es la que abre por defecto, porque parte de lo que buscás resolver y no del nombre del frasco. Si ya conocés Eco Cosmética, Spa de Olivoterapia y el aceite, la vista por línea está a un clic.</p>
+  <p class="kicker" data-i18n="top-kicker">El catálogo</p>
+  <h1 data-i18n="top-h1">Los 13 productos, por lo que resuelven o por la línea que ya conocés.</h1>
+  <p class="lead" style="margin-top:1rem" data-i18n="top-lead">Nadie se levanta queriendo "una emulsión": la vista por necesidad es la que abre por defecto, porque parte de lo que buscás resolver y no del nombre del frasco. Si ya conocés Eco Cosmética, Spa de Olivoterapia y el aceite, la vista por línea está a un clic.</p>
 </div></section>
 
 <section class="toolbar" id="toolbar"><div class="wrap">
   <div class="viewtoggle" role="group" aria-label="Elegir vista del catálogo">
-    <button class="tbtn" type="button" id="tab-necesidad" aria-pressed="true">Por necesidad</button>
-    <button class="tbtn" type="button" id="tab-linea" aria-pressed="false">Por línea</button>
+    <span class="pill" aria-hidden="true"></span>
+    <button class="tbtn" type="button" id="tab-necesidad" aria-pressed="true" data-i18n="tab-necesidad">Por necesidad</button>
+    <button class="tbtn" type="button" id="tab-linea" aria-pressed="false" data-i18n="tab-linea">Por línea</button>
   </div>
 
   <div class="filters">
     <div class="ffield">
-      <label for="f-linea">Línea</label>
+      <label for="f-linea" data-i18n="filt-linea-label">Línea</label>
       <select id="f-linea">
-        <option value="">Todas</option>
-        <option value="eco">Eco Cosmética</option>
-        <option value="spa">Spa de Olivoterapia</option>
-        <option value="gourmet">Gourmet</option>
+        <option value="" data-i18n="filt-linea-todas">Todas</option>
+        <option value="eco" data-i18n="filt-linea-eco">Eco Cosmética</option>
+        <option value="spa" data-i18n="filt-linea-spa">Spa de Olivoterapia</option>
+        <option value="gourmet" data-i18n="filt-linea-gourmet">Gourmet</option>
       </select>
     </div>
     <div class="ffield">
-      <label for="f-necesidad">Necesidad</label>
+      <label for="f-necesidad" data-i18n="filt-necesidad-label">Necesidad</label>
       <select id="f-necesidad">
-        <option value="">Todas</option>
-        <option value="limpiar">Limpiar</option>
-        <option value="hidratar">Hidratar</option>
-        <option value="exfoliar">Exfoliar</option>
-        <option value="capilar">Capilar</option>
-        <option value="bano">Baño</option>
-        <option value="mesa">Mesa</option>
+        <option value="" data-i18n="filt-necesidad-todas">Todas</option>
+        <option value="limpiar" data-i18n="filt-necesidad-limpiar">Limpiar</option>
+        <option value="hidratar" data-i18n="filt-necesidad-hidratar">Hidratar</option>
+        <option value="exfoliar" data-i18n="filt-necesidad-exfoliar">Exfoliar</option>
+        <option value="capilar" data-i18n="filt-necesidad-capilar">Capilar</option>
+        <option value="bano" data-i18n="filt-necesidad-bano">Baño</option>
+        <option value="mesa" data-i18n="filt-necesidad-mesa">Mesa</option>
       </select>
     </div>
     <div class="ffield">
-      <label for="f-formato">Formato</label>
+      <label for="f-formato" data-i18n="filt-formato-label">Formato</label>
       <select id="f-formato">
-        <option value="">Todos</option>
-        <option value="chico">Chico (50–60 ml/gr)</option>
-        <option value="mediano">Mediano (250 ml/gr)</option>
-        <option value="grande">Grande (500 ml)</option>
+        <option value="" data-i18n="filt-formato-todos">Todos</option>
+        <option value="chico" data-i18n="filt-formato-chico">Chico (50–60 ml/gr)</option>
+        <option value="mediano" data-i18n="filt-formato-mediano">Mediano (250 ml/gr)</option>
+        <option value="grande" data-i18n="filt-formato-grande">Grande (500 ml)</option>
       </select>
     </div>
     <div class="ffield">
-      <label for="f-precio">Precio</label>
+      <label for="f-precio" data-i18n="filt-precio-label">Precio</label>
       <select id="f-precio">
-        <option value="">Todos</option>
-        <option value="b1">Hasta $15.000</option>
-        <option value="b2">$15.000 – $20.000</option>
-        <option value="b3">$20.000 – $30.000</option>
-        <option value="b4">Más de $30.000</option>
+        <option value="" data-i18n="filt-precio-todos">Todos</option>
+        <option value="b1" data-i18n="filt-precio-b1">Hasta $15.000</option>
+        <option value="b2" data-i18n="filt-precio-b2">$15.000 – $20.000</option>
+        <option value="b3" data-i18n="filt-precio-b3">$20.000 – $30.000</option>
+        <option value="b4" data-i18n="filt-precio-b4">Más de $30.000</option>
       </select>
     </div>
     <div class="ffield">
-      <label for="f-piel">Tipo de piel</label>
+      <label for="f-piel" data-i18n="filt-piel-label">Tipo de piel</label>
       <select id="f-piel">
-        <option value="">Todos</option>
-        <option value="normal-seca">Normal a seca</option>
-        <option value="grasa-mixta">Grasa o mixta</option>
-        <option value="sensible">Sensible</option>
-        <option value="deshidratada">Deshidratada</option>
-        <option value="madura">Madura</option>
+        <option value="" data-i18n="filt-piel-todos">Todos</option>
+        <option value="normal-seca" data-i18n="filt-piel-normal-seca">Normal a seca</option>
+        <option value="grasa-mixta" data-i18n="filt-piel-grasa-mixta">Grasa o mixta</option>
+        <option value="sensible" data-i18n="filt-piel-sensible">Sensible</option>
+        <option value="deshidratada" data-i18n="filt-piel-deshidratada">Deshidratada</option>
+        <option value="madura" data-i18n="filt-piel-madura">Madura</option>
       </select>
     </div>
     <div class="ffield">
-      <label for="f-sort">Ordenar</label>
+      <label for="f-sort" data-i18n="filt-sort-label">Ordenar</label>
       <select id="f-sort">
-        <option value="relevancia">Relevancia</option>
-        <option value="precio-asc">Precio: menor a mayor</option>
-        <option value="precio-desc">Precio: mayor a menor</option>
-        <option value="novedades">Novedades</option>
+        <option value="relevancia" data-i18n="filt-sort-relevancia">Relevancia</option>
+        <option value="precio-asc" data-i18n="filt-sort-precio-asc">Precio: menor a mayor</option>
+        <option value="precio-desc" data-i18n="filt-sort-precio-desc">Precio: mayor a menor</option>
+        <option value="novedades" data-i18n="filt-sort-novedades">Novedades</option>
       </select>
     </div>
-    <button class="btn btn-ghost btn-sm freset" type="button" id="f-reset">Limpiar filtros</button>
+    <button class="btn btn-ghost btn-sm freset" type="button" id="f-reset" data-i18n="filt-reset-btn">Limpiar filtros</button>
   </div>
   <p class="fcount" id="fcount" aria-live="polite"><b>13</b> de 13 productos</p>
 </div></section>
 
 <!-- jumpnav: necesidad -->
 <nav class="jumpnav" id="jumpnav-necesidad" aria-label="Ir a una necesidad"><div class="wrap"><div class="jumpnav-in">
-  <a href="#limpiar" data-s="limpiar" class="on"><svg width="15" height="15"><use href="#i-droplet"/></svg>Limpiar</a>
-  <a href="#hidratar" data-s="hidratar"><svg width="15" height="15"><use href="#i-leaf"/></svg>Hidratar</a>
-  <a href="#exfoliar" data-s="exfoliar"><svg width="15" height="15"><use href="#i-brush"/></svg>Exfoliar</a>
-  <a href="#capilar" data-s="capilar"><svg width="15" height="15"><use href="#i-wind"/></svg>Capilar</a>
-  <a href="#bano" data-s="bano"><svg width="15" height="15"><use href="#i-sun"/></svg>Baño</a>
-  <a href="#mesa" data-s="mesa"><svg width="15" height="15"><use href="#i-trees"/></svg>Mesa</a>
+  <a href="#limpiar" data-s="limpiar" class="on"><svg width="15" height="15"><use href="#i-droplet"/></svg><span data-i18n="jn-limpiar">Limpiar</span></a>
+  <a href="#hidratar" data-s="hidratar"><svg width="15" height="15"><use href="#i-leaf"/></svg><span data-i18n="jn-hidratar">Hidratar</span></a>
+  <a href="#exfoliar" data-s="exfoliar"><svg width="15" height="15"><use href="#i-brush"/></svg><span data-i18n="jn-exfoliar">Exfoliar</span></a>
+  <a href="#capilar" data-s="capilar"><svg width="15" height="15"><use href="#i-wind"/></svg><span data-i18n="jn-capilar">Capilar</span></a>
+  <a href="#bano" data-s="bano"><svg width="15" height="15"><use href="#i-sun"/></svg><span data-i18n="jn-bano">Baño</span></a>
+  <a href="#mesa" data-s="mesa"><svg width="15" height="15"><use href="#i-trees"/></svg><span data-i18n="jn-mesa">Mesa</span></a>
 </div></div></nav>
 
 <!-- jumpnav: línea -->
 <nav class="jumpnav" id="jumpnav-linea" aria-label="Ir a una línea" hidden><div class="wrap"><div class="jumpnav-in">
-  <a href="#eco" data-s="eco" class="on"><svg width="15" height="15"><use href="#i-leaf"/></svg>Eco Cosmética <b>10</b></a>
-  <a href="#spa" data-s="spa"><svg width="15" height="15"><use href="#i-droplet"/></svg>Spa de Olivoterapia <b>2</b></a>
-  <a href="#gourmet" data-s="gourmet"><svg width="15" height="15"><use href="#i-trees"/></svg>Gourmet <b>1</b></a>
+  <a href="#eco" data-s="eco" class="on"><svg width="15" height="15"><use href="#i-leaf"/></svg><span data-i18n="jn-eco">Eco Cosmética</span> <b>10</b></a>
+  <a href="#spa" data-s="spa"><svg width="15" height="15"><use href="#i-droplet"/></svg><span data-i18n="jn-spa">Spa de Olivoterapia</span> <b>2</b></a>
+  <a href="#gourmet" data-s="gourmet"><svg width="15" height="15"><use href="#i-trees"/></svg><span data-i18n="jn-gourmet">Gourmet</span> <b>1</b></a>
 </div></div></nav>
 
 <!-- ══════════════ VISTA POR NECESIDAD (por defecto) ══════════════ -->
@@ -288,26 +315,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <section class="grp" id="limpiar"><div class="wrap">
   <div class="ghead">
     <div>
-      <h2><svg width="24" height="24"><use href="#i-droplet"/></svg>Limpiar</h2>
-      <p>Sacarse el día de encima sin arrasar con la barrera de la piel. Si después de lavarte la cara sentís tirantez, el problema no es la falta de crema: es el exceso de limpieza.</p>
-      <p class="tip">Una vez al día alcanza. Limpiar de mañana y de noche solo tiene sentido si usás maquillaje o protector solar.</p>
+      <h2><svg width="24" height="24"><use href="#i-droplet"/></svg><span data-i18n="nec-limpiar-h2">Limpiar</span></h2>
+      <p data-i18n="nec-limpiar-desc">Sacarse el día de encima sin arrasar con la barrera de la piel. Si después de lavarte la cara sentís tirantez, el problema no es la falta de crema: es el exceso de limpieza.</p>
+      <p class="tip" data-i18n="nec-limpiar-tip">Una vez al día alcanza. Limpiar de mañana y de noche solo tiene sentido si usás maquillaje o protector solar.</p>
     </div>
     <span class="gcount" data-gcount>2 productos</span>
   </div>
   <div class="grid">
     <article class="card-w" data-linea="eco" data-necesidad="limpiar" data-piel="normal-seca grasa-mixta sensible madura" data-formato="250 ml" data-vol="250" data-precio="19000" data-nov="4" data-order="1">
       <a class="card" href="producto.html">
-        <div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-de-limpieza.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Emulsión de limpieza</h3><p class="card-f">250 ml · Desmaquilla sin dejar tirante</p><p class="card-p">$19.000</p></div>
+        <div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-de-limpieza.jpg" alt="Emulsión de limpieza Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-limpieza-name">Emulsión de limpieza</h3><p class="card-f" data-i18n="p-limpieza-nec-desc">250 ml · Desmaquilla sin dejar tirante</p><p class="card-p">$19.000</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="limpiar" data-piel="grasa-mixta" data-formato="50 ml" data-vol="50" data-precio="15500" data-nov="3" data-order="2">
       <a class="card" href="producto.html">
-        <div class="ph ph5" aria-hidden="true"><img src="img/productos/mascara-de-barro.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Máscara de barro</h3><p class="card-f">50 ml · Zona T, poro dilatado, piel apagada</p><p class="card-p">$15.500</p></div>
+        <div class="ph ph5" aria-hidden="true"><img src="img/productos/mascara-de-barro.jpg" alt="Máscara de barro Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-barro-name">Máscara de barro</h3><p class="card-f" data-i18n="p-barro-nec-desc">50 ml · Zona T, poro dilatado, piel apagada</p><p class="card-p">$15.500</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
   </div>
 </div></section>
@@ -315,41 +342,41 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <section class="grp sand" id="hidratar"><div class="wrap">
   <div class="ghead">
     <div>
-      <h2><svg width="24" height="24"><use href="#i-leaf"/></svg>Hidratar</h2>
-      <p>Reponer agua y reponer grasa son dos cosas distintas, y la piel necesita las dos. El agua la aportan la neblina y el hialurónico; la grasa, las cremas. El orden es de lo más líquido a lo más espeso.</p>
-      <p class="tip">Siempre sobre piel húmeda. La crema no aporta agua: sella la que ya está ahí.</p>
+      <h2><svg width="24" height="24"><use href="#i-leaf"/></svg><span data-i18n="nec-hidratar-h2">Hidratar</span></h2>
+      <p data-i18n="nec-hidratar-desc">Reponer agua y reponer grasa son dos cosas distintas, y la piel necesita las dos. El agua la aportan la neblina y el hialurónico; la grasa, las cremas. El orden es de lo más líquido a lo más espeso.</p>
+      <p class="tip" data-i18n="nec-hidratar-tip">Siempre sobre piel húmeda. La crema no aporta agua: sella la que ya está ahí.</p>
     </div>
     <span class="gcount" data-gcount>4 productos</span>
   </div>
   <div class="grid">
     <article class="card-w" data-linea="spa" data-necesidad="hidratar" data-piel="normal-seca grasa-mixta deshidratada madura" data-formato="60 ml" data-vol="60" data-precio="15500" data-nov="2" data-order="1">
       <a class="card" href="producto.html">
-        <div class="ph ph4" aria-hidden="true"><img src="img/productos/neblina-hidratante.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Spa de Olivoterapia</span><h3 class="card-t">Neblina hidratante</h3><p class="card-f">60 ml · Paso 1 · Aire seco, avión</p><p class="card-p">$15.500</p></div>
+        <div class="ph ph4" aria-hidden="true"><img src="img/productos/neblina-hidratante.jpg" alt="Neblina hidratante Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span><h3 class="card-t" data-i18n="p-neblina-name">Neblina hidratante</h3><p class="card-f" data-i18n="p-neblina-nec-desc">60 ml · Paso 1 · Aire seco, avión</p><p class="card-p">$15.500</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="spa" data-necesidad="hidratar" data-piel="grasa-mixta deshidratada madura" data-formato="60 ml" data-vol="60" data-precio="23000" data-nov="1" data-order="2">
-      <span class="flag">Nuevo</span>
+      <span class="flag" data-i18n="flag-nuevo">Nuevo</span>
       <a class="card" href="producto.html">
-        <div class="ph ph3" aria-hidden="true"><img src="img/productos/emulsion-acido-hialuronico.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Spa de Olivoterapia</span><h3 class="card-t">Emulsión ácido hialurónico</h3><p class="card-f">60 ml · Paso 2 · Deshidratación</p><p class="card-p">$23.000</p></div>
+        <div class="ph ph3" aria-hidden="true"><img src="img/productos/emulsion-acido-hialuronico.jpg" alt="Emulsión ácido hialurónico Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span><h3 class="card-t" data-i18n="p-hialuronico-name">Emulsión ácido hialurónico</h3><p class="card-f" data-i18n="p-hialuronico-nec-desc">60 ml · Paso 2 · Deshidratación</p><p class="card-p">$23.000</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="hidratar" data-piel="normal-seca grasa-mixta sensible madura" data-formato="50 gr" data-vol="50" data-precio="18000" data-nov="8" data-order="3">
       <a class="card" href="producto.html">
-        <div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-humectante-facial.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Crema humectante facial</h3><p class="card-f">50 gr · Paso 3 · Rostro, todo el año</p><p class="card-p">$18.000</p></div>
+        <div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-humectante-facial.jpg" alt="Crema humectante facial Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-crema-facial-name">Crema humectante facial</h3><p class="card-f" data-i18n="p-crema-facial-nec-desc">50 gr · Paso 3 · Rostro, todo el año</p><p class="card-p">$18.000</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="hidratar" data-piel="normal-seca grasa-mixta" data-formato="250 ml" data-vol="250" data-precio="19000" data-nov="7" data-order="4">
       <a class="card" href="producto.html">
-        <div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Emulsión humectante corporal</h3><p class="card-f">250 ml · Cuerpo · Uso diario</p><p class="card-p">$19.000</p></div>
+        <div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="Emulsión humectante corporal Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-emulsion-corporal-name">Emulsión humectante corporal</h3><p class="card-f" data-i18n="p-emulsion-corporal-nec-desc">250 ml · Cuerpo · Uso diario</p><p class="card-p">$19.000</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
   </div>
 </div></section>
@@ -357,26 +384,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <section class="grp" id="exfoliar"><div class="wrap">
   <div class="ghead">
     <div>
-      <h2><svg width="24" height="24"><use href="#i-brush"/></svg>Exfoliar</h2>
-      <p>Renovar la superficie para que lo que venga después entre mejor. Grano fino para rostro, cuello y escote; grano grueso para codos, rodillas, talones y espalda.</p>
-      <p class="tip">Una o dos veces por semana alcanza. Exfoliar todos los días rompe la barrera y te deja peor que al principio.</p>
+      <h2><svg width="24" height="24"><use href="#i-brush"/></svg><span data-i18n="nec-exfoliar-h2">Exfoliar</span></h2>
+      <p data-i18n="nec-exfoliar-desc">Renovar la superficie para que lo que venga después entre mejor. Grano fino para rostro, cuello y escote; grano grueso para codos, rodillas, talones y espalda.</p>
+      <p class="tip" data-i18n="nec-exfoliar-tip">Una o dos veces por semana alcanza. Exfoliar todos los días rompe la barrera y te deja peor que al principio.</p>
     </div>
     <span class="gcount" data-gcount>2 productos</span>
   </div>
   <div class="grid">
     <article class="card-w" data-linea="eco" data-necesidad="exfoliar" data-piel="normal-seca grasa-mixta madura" data-formato="50 gr" data-vol="50" data-precio="15500" data-nov="5" data-order="1">
       <a class="card" href="producto.html">
-        <div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-exfoliante-fina.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Crema exfoliante fina</h3><p class="card-f">50 gr · Rostro, cuello y escote</p><p class="card-p">$15.500</p></div>
+        <div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-exfoliante-fina.jpg" alt="Crema exfoliante fina Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-exfoliante-fina-name">Crema exfoliante fina</h3><p class="card-f" data-i18n="p-exfoliante-fina-desc">50 gr · Rostro, cuello y escote</p><p class="card-p">$15.500</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="exfoliar" data-piel="normal-seca" data-formato="50 gr" data-vol="50" data-precio="15500" data-nov="6" data-order="2">
       <a class="card" href="producto.html">
-        <div class="ph ph3" aria-hidden="true"><img src="img/productos/crema-exfoliante-gruesa.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Crema exfoliante gruesa</h3><p class="card-f">50 gr · Codos, rodillas, talones</p><p class="card-p">$15.500</p></div>
+        <div class="ph ph3" aria-hidden="true"><img src="img/productos/crema-exfoliante-gruesa.jpg" alt="Crema exfoliante gruesa Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-exfoliante-gruesa-name">Crema exfoliante gruesa</h3><p class="card-f" data-i18n="p-exfoliante-gruesa-nec-desc">50 gr · Codos, rodillas, talones</p><p class="card-p">$15.500</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
   </div>
 </div></section>
@@ -384,26 +411,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <section class="grp sand" id="capilar"><div class="wrap">
   <div class="ghead">
     <div>
-      <h2><svg width="24" height="24"><use href="#i-wind"/></svg>Cuidado capilar</h2>
-      <p>Cuero cabelludo primero; el largo se acomoda solo. Nuestra base hace poca espuma, y eso no significa que limpie menos: la espuma es un efecto del detergente, no una medida de limpieza.</p>
-      <p class="tip">Con agua dura como la de Mendoza, dos pasadas cortas de shampoo rinden más que una larga.</p>
+      <h2><svg width="24" height="24"><use href="#i-wind"/></svg><span data-i18n="nec-capilar-h2">Cuidado capilar</span></h2>
+      <p data-i18n="nec-capilar-desc">Cuero cabelludo primero; el largo se acomoda solo. Nuestra base hace poca espuma, y eso no significa que limpie menos: la espuma es un efecto del detergente, no una medida de limpieza.</p>
+      <p class="tip" data-i18n="nec-capilar-tip">Con agua dura como la de Mendoza, dos pasadas cortas de shampoo rinden más que una larga.</p>
     </div>
     <span class="gcount" data-gcount>2 productos</span>
   </div>
   <div class="grid">
     <article class="card-w" data-linea="eco" data-necesidad="capilar" data-piel="" data-formato="250 ml" data-vol="250" data-precio="14000" data-nov="12" data-order="1">
       <a class="card" href="producto.html">
-        <div class="ph" aria-hidden="true"><img src="img/productos/shampoo.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Shampoo</h3><p class="card-f">250 ml · Uso frecuente, cuero cabelludo sensible</p><p class="card-p">$14.000</p></div>
+        <div class="ph" aria-hidden="true"><img src="img/productos/shampoo.jpg" alt="Shampoo Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-shampoo-name">Shampoo</h3><p class="card-f" data-i18n="p-shampoo-nec-desc">250 ml · Uso frecuente, cuero cabelludo sensible</p><p class="card-p">$14.000</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="capilar" data-piel="" data-formato="250 ml" data-vol="250" data-precio="13500" data-nov="11" data-order="2">
       <a class="card" href="producto.html">
-        <div class="ph ph4" aria-hidden="true"><img src="img/productos/acondicionador-capilar.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Acondicionador capilar</h3><p class="card-f">250 ml · Puntas quebradizas, agua dura</p><p class="card-p">$13.500</p></div>
+        <div class="ph ph4" aria-hidden="true"><img src="img/productos/acondicionador-capilar.jpg" alt="Acondicionador capilar Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-acondicionador-name">Acondicionador capilar</h3><p class="card-f" data-i18n="p-acondicionador-nec-desc">250 ml · Puntas quebradizas, agua dura</p><p class="card-p">$13.500</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
   </div>
 </div></section>
@@ -411,26 +438,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <section class="grp" id="bano"><div class="wrap">
   <div class="ghead">
     <div>
-      <h2><svg width="24" height="24"><use href="#i-sun"/></svg>Ritual de baño</h2>
-      <p>Veinte minutos de agua caliente valen una semana de crema. Es el ritual más simple de todos y el que más se nota, sobre todo en invierno y después de entrenar o viajar.</p>
-      <p class="tip">Si tenés la piel muy seca, usá sales o espuma, no las dos juntas. Y emulsión al salir, sin secarte del todo.</p>
+      <h2><svg width="24" height="24"><use href="#i-sun"/></svg><span data-i18n="nec-bano-h2">Ritual de baño</span></h2>
+      <p data-i18n="nec-bano-desc">Veinte minutos de agua caliente valen una semana de crema. Es el ritual más simple de todos y el que más se nota, sobre todo en invierno y después de entrenar o viajar.</p>
+      <p class="tip" data-i18n="nec-bano-tip">Si tenés la piel muy seca, usá sales o espuma, no las dos juntas. Y emulsión al salir, sin secarte del todo.</p>
     </div>
     <span class="gcount" data-gcount>2 productos</span>
   </div>
   <div class="grid">
     <article class="card-w" data-linea="eco" data-necesidad="bano" data-piel="normal-seca grasa-mixta" data-formato="250 ml" data-vol="250" data-precio="19000" data-nov="9" data-order="1">
       <a class="card" href="producto.html">
-        <div class="ph" aria-hidden="true"><img src="img/productos/espuma-de-bano.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Espuma de baño</h3><p class="card-f">250 ml · Espuma corta y estable</p><p class="card-p">$19.000</p></div>
+        <div class="ph" aria-hidden="true"><img src="img/productos/espuma-de-bano.jpg" alt="Espuma de baño Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-espuma-name">Espuma de baño</h3><p class="card-f" data-i18n="p-espuma-nec-desc">250 ml · Espuma corta y estable</p><p class="card-p">$19.000</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="bano" data-piel="normal-seca grasa-mixta" data-formato="250 gr" data-vol="250" data-precio="15700" data-nov="10" data-order="2">
       <a class="card" href="producto.html">
-        <div class="ph ph4" aria-hidden="true"><img src="img/productos/sales-de-bano.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Sales de baño</h3><p class="card-f">250 gr · Piernas cansadas, frío</p><p class="card-p">$15.700</p></div>
+        <div class="ph ph4" aria-hidden="true"><img src="img/productos/sales-de-bano.jpg" alt="Sales de baño Verde Oliva" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-sales-name">Sales de baño</h3><p class="card-f" data-i18n="p-sales-desc">250 gr · Piernas cansadas, frío</p><p class="card-p">$15.700</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
   </div>
 </div></section>
@@ -438,19 +465,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 <section class="grp sand" id="mesa"><div class="wrap">
   <div class="ghead">
     <div>
-      <h2><svg width="24" height="24"><use href="#i-trees"/></svg>La mesa</h2>
-      <p>Donde empieza todo. El mismo aceite, por el camino de siempre: monovarietal Arauco, prensado una vez al año en la finca de Coquimbito. Frutado medio, amargo noble y un picor final que dura poco.</p>
-      <p class="tip">Ese amargo en la garganta son los polifenoles: el mismo compuesto que buscamos cuando el aceite toma el otro camino.</p>
+      <h2><svg width="24" height="24"><use href="#i-trees"/></svg><span data-i18n="nec-mesa-h2">La mesa</span></h2>
+      <p data-i18n="nec-mesa-desc">Donde empieza todo. El mismo aceite, por el camino de siempre: monovarietal Arauco, prensado una vez al año en la finca de Coquimbito. Frutado medio, amargo noble y un picor final que dura poco.</p>
+      <p class="tip" data-i18n="nec-mesa-tip">Ese amargo en la garganta son los polifenoles: el mismo compuesto que buscamos cuando el aceite toma el otro camino.</p>
     </div>
     <span class="gcount" data-gcount>1 producto</span>
   </div>
   <div class="grid">
     <article class="card-w" data-linea="gourmet" data-necesidad="mesa" data-piel="" data-formato="500 ml" data-vol="500" data-precio="39000" data-nov="13" data-order="1">
       <a class="card" href="producto.html">
-        <div class="ph ph5" aria-hidden="true"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="" loading="lazy"></div>
-        <div class="card-b"><span class="card-l"><span class="dot"></span>Gourmet</span><h3 class="card-t">Aceite de Oliva Extra Virgen Vallesi Arauco</h3><p class="card-f">500 ml · En crudo: pan, tomate, pescado</p><p class="card-p">$39.000</p></div>
+        <div class="ph ph5" aria-hidden="true"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="Aceite de Oliva Extra Virgen Vallesi Arauco" loading="lazy"></div>
+        <div class="card-b"><span class="card-l"><span class="dot"></span>Gourmet</span><h3 class="card-t" data-i18n="p-aceite-name">Aceite de Oliva Extra Virgen Vallesi Arauco</h3><p class="card-f" data-i18n="p-aceite-nec-desc">500 ml · En crudo: pan, tomate, pescado</p><p class="card-p">$39.000</p></div>
       </a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
   </div>
 </div></section>
@@ -462,65 +489,65 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 
 <section class="chap" id="eco"><div class="wrap">
   <div class="chead">
-    <div class="ph ph2"><img src="img/productos/crema-humectante-facial.jpg" alt="" loading="lazy"></div>
+    <div class="ph ph2"><img src="img/productos/crema-humectante-facial.jpg" alt="Crema humectante facial Verde Oliva" loading="lazy"></div>
     <div>
       <span class="cn">01</span>
-      <h2>Eco Cosmética <span class="gcount" data-gcount style="display:inline-block;margin-left:.6rem;font-size:.62rem">10 productos</span></h2>
-      <p class="lead">La línea de todos los días. Diez productos que cubren el ciclo completo: limpiar, exfoliar, hidratar, lavarse el pelo y darse un baño. Fórmulas pensadas para sostener en el tiempo, no para un efecto inmediato.</p>
-      <div class="cmeta"><span>10 productos</span><span>Desde $13.500</span><span>Uso diario</span></div>
-      <div class="note">La textura se absorbe más despacio que un producto sintético. No es un defecto: es el tiempo que la piel necesita para tomar lo que le sirve.</div>
+      <h2><span data-i18n="lin-eco-h2">Eco Cosmética</span> <span class="gcount" data-gcount style="display:inline-block;margin-left:.6rem;font-size:.62rem">10 productos</span></h2>
+      <p class="lead" data-i18n="lin-eco-lead">La línea de todos los días. Diez productos que cubren el ciclo completo: limpiar, exfoliar, hidratar, lavarse el pelo y darse un baño. Fórmulas pensadas para sostener en el tiempo, no para un efecto inmediato.</p>
+      <div class="cmeta"><span data-i18n="lin-eco-cmeta1">10 productos</span><span data-i18n="lin-eco-cmeta2">Desde $13.500</span><span data-i18n="lin-eco-cmeta3">Uso diario</span></div>
+      <div class="note" data-i18n="lin-eco-note">La textura se absorbe más despacio que un producto sintético. No es un defecto: es el tiempo que la piel necesita para tomar lo que le sirve.</div>
     </div>
   </div>
   <div class="pgrid">
     <article class="card-w" data-linea="eco" data-necesidad="hidratar" data-piel="normal-seca grasa-mixta sensible madura" data-formato="50 gr" data-vol="50" data-precio="18000" data-nov="8" data-order="1">
-      <a class="card" href="producto.html"><div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-humectante-facial.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Crema humectante facial</h3><p class="card-f">50 gr · Piel normal a seca, todo el año</p><p class="card-p">$18.000</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-humectante-facial.jpg" alt="Crema humectante facial Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-crema-facial-name">Crema humectante facial</h3><p class="card-f" data-i18n="p-crema-facial-lin-desc">50 gr · Piel normal a seca, todo el año</p><p class="card-p">$18.000</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="limpiar" data-piel="normal-seca grasa-mixta sensible madura" data-formato="250 ml" data-vol="250" data-precio="19000" data-nov="4" data-order="2">
-      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-de-limpieza.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Emulsión de limpieza</h3><p class="card-f">250 ml · Limpia sin dejar tirante</p><p class="card-p">$19.000</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-de-limpieza.jpg" alt="Emulsión de limpieza Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-limpieza-name">Emulsión de limpieza</h3><p class="card-f" data-i18n="p-limpieza-lin-desc">250 ml · Limpia sin dejar tirante</p><p class="card-p">$19.000</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="exfoliar" data-piel="normal-seca grasa-mixta madura" data-formato="50 gr" data-vol="50" data-precio="15500" data-nov="5" data-order="3">
-      <a class="card" href="producto.html"><div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-exfoliante-fina.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Crema exfoliante fina</h3><p class="card-f">50 gr · Rostro, cuello y escote</p><p class="card-p">$15.500</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-exfoliante-fina.jpg" alt="Crema exfoliante fina Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-exfoliante-fina-name">Crema exfoliante fina</h3><p class="card-f" data-i18n="p-exfoliante-fina-desc">50 gr · Rostro, cuello y escote</p><p class="card-p">$15.500</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="limpiar" data-piel="grasa-mixta" data-formato="50 ml" data-vol="50" data-precio="15500" data-nov="3" data-order="4">
-      <a class="card" href="producto.html"><div class="ph ph5" aria-hidden="true"><img src="img/productos/mascara-de-barro.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Máscara de barro</h3><p class="card-f">50 ml · Zona T y poro dilatado</p><p class="card-p">$15.500</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph ph5" aria-hidden="true"><img src="img/productos/mascara-de-barro.jpg" alt="Máscara de barro Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-barro-name">Máscara de barro</h3><p class="card-f" data-i18n="p-barro-lin-desc">50 ml · Zona T y poro dilatado</p><p class="card-p">$15.500</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="hidratar" data-piel="normal-seca grasa-mixta" data-formato="250 ml" data-vol="250" data-precio="19000" data-nov="7" data-order="5">
-      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Emulsión humectante corporal</h3><p class="card-f">250 ml · Más liviana en el cuerpo</p><p class="card-p">$19.000</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="Emulsión humectante corporal Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-emulsion-corporal-name">Emulsión humectante corporal</h3><p class="card-f" data-i18n="p-emulsion-corporal-lin-desc">250 ml · Más liviana en el cuerpo</p><p class="card-p">$19.000</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="exfoliar" data-piel="normal-seca" data-formato="50 gr" data-vol="50" data-precio="15500" data-nov="6" data-order="6">
-      <a class="card" href="producto.html"><div class="ph ph3" aria-hidden="true"><img src="img/productos/crema-exfoliante-gruesa.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Crema exfoliante gruesa</h3><p class="card-f">50 gr · Codos, rodillas y talones</p><p class="card-p">$15.500</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph ph3" aria-hidden="true"><img src="img/productos/crema-exfoliante-gruesa.jpg" alt="Crema exfoliante gruesa Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-exfoliante-gruesa-name">Crema exfoliante gruesa</h3><p class="card-f" data-i18n="p-exfoliante-gruesa-lin-desc">50 gr · Codos, rodillas y talones</p><p class="card-p">$15.500</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="capilar" data-piel="" data-formato="250 ml" data-vol="250" data-precio="14000" data-nov="12" data-order="7">
-      <a class="card" href="producto.html"><div class="ph" aria-hidden="true"><img src="img/productos/shampoo.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Shampoo</h3><p class="card-f">250 ml · Cuero cabelludo sensible</p><p class="card-p">$14.000</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph" aria-hidden="true"><img src="img/productos/shampoo.jpg" alt="Shampoo Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-shampoo-name">Shampoo</h3><p class="card-f" data-i18n="p-shampoo-lin-desc">250 ml · Cuero cabelludo sensible</p><p class="card-p">$14.000</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="capilar" data-piel="" data-formato="250 ml" data-vol="250" data-precio="13500" data-nov="11" data-order="8">
-      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/acondicionador-capilar.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Acondicionador capilar</h3><p class="card-f">250 ml · Desenreda sin apelmazar</p><p class="card-p">$13.500</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/acondicionador-capilar.jpg" alt="Acondicionador capilar Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-acondicionador-name">Acondicionador capilar</h3><p class="card-f" data-i18n="p-acondicionador-lin-desc">250 ml · Desenreda sin apelmazar</p><p class="card-p">$13.500</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="bano" data-piel="normal-seca grasa-mixta" data-formato="250 ml" data-vol="250" data-precio="19000" data-nov="9" data-order="9">
-      <a class="card" href="producto.html"><div class="ph" aria-hidden="true"><img src="img/productos/espuma-de-bano.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Espuma de baño</h3><p class="card-f">250 ml · Baño de inmersión</p><p class="card-p">$19.000</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph" aria-hidden="true"><img src="img/productos/espuma-de-bano.jpg" alt="Espuma de baño Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-espuma-name">Espuma de baño</h3><p class="card-f" data-i18n="p-espuma-lin-desc">250 ml · Baño de inmersión</p><p class="card-p">$19.000</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="eco" data-necesidad="bano" data-piel="normal-seca grasa-mixta" data-formato="250 gr" data-vol="250" data-precio="15700" data-nov="10" data-order="10">
-      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/sales-de-bano.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Eco Cosmética</span><h3 class="card-t">Sales de baño</h3><p class="card-f">250 gr · Piernas cansadas, frío</p><p class="card-p">$15.700</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/sales-de-bano.jpg" alt="Sales de baño Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span><h3 class="card-t" data-i18n="p-sales-name">Sales de baño</h3><p class="card-f" data-i18n="p-sales-desc">250 gr · Piernas cansadas, frío</p><p class="card-p">$15.700</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
   </div>
 </div></section>
@@ -529,45 +556,45 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   <div class="chead">
     <div>
       <span class="cn">02</span>
-      <h2>Spa de Olivoterapia <span class="gcount" data-gcount style="display:inline-block;margin-left:.6rem;font-size:.62rem">2 productos</span></h2>
-      <p class="lead">Las dos fórmulas que Fernanda Herrera usa en cabina, en formato chico y concentrado. Misma concentración, mismo envase: no hay una versión profesional y otra doméstica. Son productos de tratamiento puntual, no de rutina diaria.</p>
-      <div class="cmeta"><span>2 productos</span><span>Desde $15.500</span><span>Uso puntual</span></div>
-      <div class="note">La diferencia entre cabina y casa no está en el producto. Está en la mano y en el tiempo que le dedicás.</div>
+      <h2><span data-i18n="lin-spa-h2">Spa de Olivoterapia</span> <span class="gcount" data-gcount style="display:inline-block;margin-left:.6rem;font-size:.62rem">2 productos</span></h2>
+      <p class="lead" data-i18n="lin-spa-lead">Las dos fórmulas que Fernanda Herrera usa en cabina, en formato chico y concentrado. Misma concentración, mismo envase: no hay una versión profesional y otra doméstica. Son productos de tratamiento puntual, no de rutina diaria.</p>
+      <div class="cmeta"><span data-i18n="lin-spa-cmeta1">2 productos</span><span data-i18n="lin-spa-cmeta2">Desde $15.500</span><span data-i18n="lin-spa-cmeta3">Uso puntual</span></div>
+      <div class="note" data-i18n="lin-spa-note">La diferencia entre cabina y casa no está en el producto. Está en la mano y en el tiempo que le dedicás.</div>
     </div>
-    <div class="ph ph5"><img src="img/productos/neblina-hidratante.jpg" alt="" loading="lazy"></div>
+    <div class="ph ph5"><img src="img/productos/neblina-hidratante.jpg" alt="Neblina hidratante Verde Oliva" loading="lazy"></div>
   </div>
   <div class="pgrid">
     <article class="card-w" data-linea="spa" data-necesidad="hidratar" data-piel="grasa-mixta deshidratada madura" data-formato="60 ml" data-vol="60" data-precio="23000" data-nov="1" data-order="1">
-      <span class="flag">Nuevo</span>
-      <a class="card" href="producto.html"><div class="ph ph3" aria-hidden="true"><img src="img/productos/emulsion-acido-hialuronico.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Spa de Olivoterapia</span><h3 class="card-t">Emulsión ácido hialurónico</h3><p class="card-f">60 ml · Deshidratación, líneas finas</p><p class="card-p">$23.000</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <span class="flag" data-i18n="flag-nuevo">Nuevo</span>
+      <a class="card" href="producto.html"><div class="ph ph3" aria-hidden="true"><img src="img/productos/emulsion-acido-hialuronico.jpg" alt="Emulsión ácido hialurónico Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span><h3 class="card-t" data-i18n="p-hialuronico-name">Emulsión ácido hialurónico</h3><p class="card-f" data-i18n="p-hialuronico-lin-desc">60 ml · Deshidratación, líneas finas</p><p class="card-p">$23.000</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
     <article class="card-w" data-linea="spa" data-necesidad="hidratar" data-piel="normal-seca grasa-mixta deshidratada madura" data-formato="60 ml" data-vol="60" data-precio="15500" data-nov="2" data-order="2">
-      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/neblina-hidratante.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Spa de Olivoterapia</span><h3 class="card-t">Neblina hidratante</h3><p class="card-f">60 ml · Aire seco, avión, media tarde</p><p class="card-p">$15.500</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <a class="card" href="producto.html"><div class="ph ph4" aria-hidden="true"><img src="img/productos/neblina-hidratante.jpg" alt="Neblina hidratante Verde Oliva" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span><h3 class="card-t" data-i18n="p-neblina-name">Neblina hidratante</h3><p class="card-f" data-i18n="p-neblina-lin-desc">60 ml · Aire seco, avión, media tarde</p><p class="card-p">$15.500</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
   </div>
 </div></section>
 
 <section class="chap" id="gourmet"><div class="wrap">
   <div class="chead">
-    <div class="ph ph3"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="" loading="lazy"></div>
+    <div class="ph ph3"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="Aceite de Oliva Extra Virgen Vallesi Arauco" loading="lazy"></div>
     <div>
       <span class="cn">03</span>
-      <h2>Gourmet <span class="gcount" data-gcount style="display:inline-block;margin-left:.6rem;font-size:.62rem">1 producto</span></h2>
-      <p class="lead">Un solo producto, y es el origen de todos los demás. El Vallesi Arauco es monovarietal: solo aceituna Arauco, cosechada en su punto y prensada en frío el mismo día, una vez al año.</p>
-      <div class="cmeta"><span>1 producto</span><span>$39.000</span><span>Una prensada al año</span></div>
-      <div class="note">De la tierra a la mesa, de la mesa a la piel. Acá se ve por qué la frase no es un eslogan.</div>
+      <h2><span data-i18n="lin-gourmet-h2">Gourmet</span> <span class="gcount" data-gcount style="display:inline-block;margin-left:.6rem;font-size:.62rem">1 producto</span></h2>
+      <p class="lead" data-i18n="lin-gourmet-lead">Un solo producto, y es el origen de todos los demás. El Vallesi Arauco es monovarietal: solo aceituna Arauco, cosechada en su punto y prensada en frío el mismo día, una vez al año.</p>
+      <div class="cmeta"><span data-i18n="lin-gourmet-cmeta1">1 producto</span><span>$39.000</span><span data-i18n="lin-gourmet-cmeta3">Una prensada al año</span></div>
+      <div class="note" data-i18n="lin-gourmet-note">De la tierra a la mesa, de la mesa a la piel. Acá se ve por qué la frase no es un eslogan.</div>
     </div>
   </div>
   <div class="pgrid">
     <article class="card-w" data-linea="gourmet" data-necesidad="mesa" data-piel="" data-formato="500 ml" data-vol="500" data-precio="39000" data-nov="13" data-order="1">
-      <span class="flag">Una vez al año</span>
-      <a class="card" href="producto.html"><div class="ph ph5" aria-hidden="true"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="" loading="lazy"></div>
-      <div class="card-b"><span class="card-l"><span class="dot"></span>Gourmet</span><h3 class="card-t">Aceite de Oliva Extra Virgen Vallesi Arauco</h3><p class="card-f">500 ml · Monovarietal, prensado en frío</p><p class="card-p">$39.000</p></div></a>
-      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add>Agregar</button></div>
+      <span class="flag" data-i18n="flag-anual">Una vez al año</span>
+      <a class="card" href="producto.html"><div class="ph ph5" aria-hidden="true"><img src="img/productos/aceite-oliva-vallesi.jpg" alt="Aceite de Oliva Extra Virgen Vallesi Arauco" loading="lazy"></div>
+      <div class="card-b"><span class="card-l"><span class="dot"></span>Gourmet</span><h3 class="card-t" data-i18n="p-aceite-name">Aceite de Oliva Extra Virgen Vallesi Arauco</h3><p class="card-f" data-i18n="p-aceite-lin-desc">500 ml · Monovarietal, prensado en frío</p><p class="card-p">$39.000</p></div></a>
+      <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="add-to-cart-btn">Agregar</button></div>
     </article>
   </div>
 </div></section>
@@ -587,6 +614,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
   <div class="ft-bot">© 2026 Verde Oliva Olivoterapia · Tienda independiente del hotel.</div>
 </div></footer>
 
+<script src="js/cart.js"></script>
+<script src="js/header.js"></script>
+<script src="js/i18n-common.js"></script>
+<script src="js/i18n-data-catalogo.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/reveal.js"></script>
+<script src="js/i18n.js"></script>
 <script>
 (function(){
   var viewNecesidad=document.getElementById('view-necesidad');
@@ -647,6 +681,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
     cards.forEach(function(c){ grid.appendChild(c); });
   }
 
+  function tr(key,es){
+    return (document.documentElement.lang==='en' && window.VO_I18N_PAGE && window.VO_I18N_PAGE[key]!=null) ? window.VO_I18N_PAGE[key] : es;
+  }
+
   function render(){
     var container=activeContainer();
     var groups=container.querySelectorAll('.grp, .chap');
@@ -661,14 +699,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
       });
       g.hidden = visibleInGroup===0;
       var badge=g.querySelector('[data-gcount]');
-      if(badge){ badge.textContent=visibleInGroup+(visibleInGroup===1?' producto':' productos'); }
+      if(badge){ badge.textContent=visibleInGroup+' '+(visibleInGroup===1?tr('gcount-producto','producto'):tr('gcount-productos','productos')); }
       var grid=g.querySelector('.grid, .pgrid');
       if(grid) sortGrid(grid);
       visibleTotal+=visibleInGroup;
     });
-    fcount.innerHTML='<b>'+visibleTotal+'</b> de '+TOTAL+' productos';
+    fcount.innerHTML='<b>'+visibleTotal+'</b> '+tr('fcount-de','de')+' '+TOTAL+' '+tr('fcount-productos','productos');
   }
+  document.addEventListener('vo:lang-changed', render);
 
+  var viewPill=document.querySelector('.viewtoggle .pill');
   function setView(view){
     var isN=view==='necesidad';
     viewNecesidad.hidden=!isN;
@@ -677,6 +717,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
     jumpLinea.hidden=isN;
     tabN.setAttribute('aria-pressed', isN?'true':'false');
     tabL.setAttribute('aria-pressed', isN?'false':'true');
+    if(viewPill) viewPill.style.transform='translateX('+(isN?'0':'100%')+')';
     render();
   }
 
@@ -716,17 +757,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
     });
   });
 
-  /* ── carrito, idioma ── */
-  document.addEventListener('click',function(e){
-    var b=e.target.closest('.lang button');
-    if(b){b.parentNode.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});return;}
-    var a=e.target.closest('[data-add]');
-    if(a){
-      document.querySelectorAll('[data-cart]').forEach(function(c){c.textContent=(parseInt(c.textContent,10)||0)+1;});
-      var t=a.textContent;a.textContent='Agregado ✓';a.disabled=true;
-      setTimeout(function(){a.textContent=t;a.disabled=false;},1200);
-    }
-  });
 })();
 </script>
 </body>
