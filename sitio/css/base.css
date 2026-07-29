@@ -155,7 +155,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 .mnav-top .logo-m{font-family:var(--fs);font-size:1.25rem;font-weight:600;color:var(--corteza)}
 .mnav-close{width:40px;height:40px;flex:none;display:flex;align-items:center;justify-content:center;background:transparent;border:0;color:var(--corteza);cursor:pointer}
 .mnav-search{display:flex;align-items:center;gap:.5rem;margin:1rem clamp(20px,5vw,28px) 0;padding:.7rem 1rem;
- border:1px solid var(--linea);border-radius:999px;background:var(--crema2)}
+ border:1px solid var(--linea);border-radius:2px;background:var(--crema2)}
 .mnav-search input{flex:1;min-width:0;border:0;background:transparent;font:400 .92rem var(--fb);color:var(--corteza)}
 .mnav-search input:focus{outline:none}
 .mnav-search svg{color:var(--tinta);flex:none}
