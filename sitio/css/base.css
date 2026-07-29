@@ -44,20 +44,23 @@ svg{display:block;flex:none}
 .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .ph-m{width:46%;max-width:170px;height:auto;position:relative;z-index:1}
 .ic{display:block;flex:none}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;
- padding:.8rem 1.7rem;background:var(--oliva);color:var(--crema);border:1px solid var(--oliva);
- font:500 .78rem/1 var(--fb);letter-spacing:.11em;text-transform:uppercase;text-decoration:none;
- border-radius:2px;cursor:pointer;transition:background .22s var(--e),color .22s var(--e),border-color .22s var(--e)}
-.btn:hover{background:var(--oliva-d);border-color:var(--oliva-d)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:58px;
+ padding:1rem 2rem;background:var(--oliva);color:var(--crema);border:1px solid var(--oliva);
+ font:600 1.02rem/1 var(--fb);letter-spacing:-.005em;text-transform:none;text-decoration:none;
+ border-radius:2px;cursor:pointer;transition:background .22s var(--e),color .22s var(--e),border-color .22s var(--e),transform .22s var(--e),box-shadow .22s var(--e)}
+.btn:hover{background:var(--oliva-d);border-color:var(--oliva-d);transform:translateY(-2px);box-shadow:0 12px 22px -10px rgba(28,25,23,.4)}
+.btn:active{transform:translateY(0);box-shadow:none}
 .btn[disabled]{opacity:.75;cursor:default}
+.btn[disabled]:hover{transform:none;box-shadow:none}
 .btn-ghost{background:transparent;color:var(--oliva);border-color:var(--linea)}
-.btn-ghost:hover{background:var(--oliva);color:var(--crema);border-color:var(--oliva)}
-.btn-sm{min-height:42px;padding:.6rem 1.1rem;font-size:.7rem}
+.btn-ghost:hover{background:var(--oliva);color:var(--crema);border-color:var(--oliva);box-shadow:0 12px 22px -10px rgba(28,25,23,.3)}
+.btn-sm{min-height:48px;padding:.75rem 1.4rem;font-size:.9rem}
 .btn-block{width:100%}
 .dark .btn{background:var(--crema);color:var(--oliva);border-color:var(--crema)}
-.dark .btn:hover{background:var(--arena);border-color:var(--arena)}
+.dark .btn:hover{background:var(--arena);border-color:var(--arena);box-shadow:0 12px 22px -10px rgba(0,0,0,.35)}
 .dark .btn-ghost{background:transparent;color:var(--crema);border-color:rgba(247,244,236,.42)}
 .dark .btn-ghost:hover{background:var(--crema);color:var(--oliva)}
+@media(prefers-reduced-motion:reduce){.btn:hover,.btn-ghost:hover{transform:none}}
 .link{display:inline-flex;align-items:center;gap:.5rem;color:var(--oliva);text-decoration:none;
  font:500 .76rem/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;padding:.5rem 0;
  border-bottom:1px solid var(--linea);cursor:pointer;transition:border-color .2s var(--e),gap .2s var(--e)}
