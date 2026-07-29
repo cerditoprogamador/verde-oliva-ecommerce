@@ -24,4 +24,30 @@
   syncStripHeight();
   markHeader();
   markChipsStuck();
+
+  /* menú mobile: hamburguesa + panel deslizante (solo si la página lo tiene) */
+  var menuBtn = document.getElementById('menuToggle');
+  var mnav = document.getElementById('mobileNav');
+  var backdrop = document.getElementById('mnavBackdrop');
+  var mnavClose = document.getElementById('mnavClose');
+  if(menuBtn && mnav && backdrop){
+    function openMnav(){
+      mnav.classList.add('open'); backdrop.classList.add('open');
+      mnav.setAttribute('aria-hidden','false');
+      menuBtn.setAttribute('aria-expanded','true');
+      document.body.classList.add('mnav-open');
+    }
+    function closeMnav(){
+      mnav.classList.remove('open'); backdrop.classList.remove('open');
+      mnav.setAttribute('aria-hidden','true');
+      menuBtn.setAttribute('aria-expanded','false');
+      document.body.classList.remove('mnav-open');
+    }
+    menuBtn.addEventListener('click', openMnav);
+    backdrop.addEventListener('click', closeMnav);
+    if(mnavClose) mnavClose.addEventListener('click', closeMnav);
+    mnav.querySelectorAll('.mnav-links a').forEach(function(a){ a.addEventListener('click', closeMnav); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMnav(); });
+    window.addEventListener('resize', function(){ if(window.innerWidth>=1000) closeMnav(); });
+  }
 })();
