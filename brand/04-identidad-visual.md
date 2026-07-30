@@ -269,6 +269,20 @@ El oro acá sí funciona: es un indicador no textual, y contra Crema tiene 2.84:
 
 ---
 
+## Adenda — convenciones consolidadas
+
+*Estas reglas salieron de pulir `sitio/` contra este mismo documento, no de un cambio de rumbo. Quedan registradas acá para que no se repita la deriva de implementación.*
+
+**1. Sin "pills".** Ningún `border-radius` de 100px o más — botones, toggles, badges, tags o chips totalmente redondeados quedan prohibidos. La escala ya está definida en "Grilla, espaciado y forma": `2px` en botones e inputs, `4px` en tarjetas, `0` en imágenes editoriales; no existe una cuarta opción "pill". Un botón-píldora lee como chrome de app o de SaaS genérico, no como diseño editorial impreso — fue deriva de implementación heredada del prototipo, nunca un mandato de marca.
+
+**2. Dos tipografías, no tres.** El sistema tiene exactamente dos fuentes: Cormorant Garamond (display, titulares, y su itálica para acentos editoriales) e Inter (cuerpo, UI, precios). No se suma una tercera bajo ningún pretexto, ni para una etiqueta chica. Fraunces, que había entrado para el wordmark "Olivoterapia" junto al isotipo, queda descartada — ese lugar usa Cormorant Garamond itálica, dentro del mismo sistema de dos tipografías. Registrado acá para que nadie la reintroduzca.
+
+**3. El `.ph` (placeholder de degradé y grano) es legítimo, no un defecto.** Los bloques de degradé con textura de ruido que ocupan el lugar de una foto de producto que todavía no existe son el placeholder correcto, no un estado roto ni pendiente de "arreglar". Se reemplazan por un `<img>` real, uno por uno, a medida que haya foto para ese lugar puntual — no antes, y no como limpieza general.
+
+**4. Un solo patrón de acordeón.** Todo `<details>/<summary>` del sitio usa el mismo tratamiento visual: un chevron que rota al abrir, nunca un signo `+`/`–` que cambia de contenido. Cualquier expandir/colapsar nuevo reutiliza este patrón en vez de inventar uno.
+
+---
+
 ## Checklist antes de entregar
 
 **Color**
