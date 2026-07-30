@@ -4,31 +4,44 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repo is
 
-Three things, currently unconnected by any build system:
+Four things:
 
 - **`brand/`** — the complete brand system for Verde Oliva Olivoterapia, a natural olive-polyphenol skincare ecommerce brand (Coquimbito, Maipú, Mendoza, Argentina). Markdown documents, numbered `00`–`08` in reading order; `brand/README.md` is the index and states the six settled decisions.
-- **`prototipo/`** — a static HTML prototype for choosing the site's UX direction (4 homes × 4 menus × 4 catalogs + 1 product page, all mixable), plus a **definitive proposal** (`home-5.html` / `catalogo-5.html` / `producto-5.html`) that consolidates what the client picked from that comparison. Not the production site.
-- **`sitio/`** — the deployable consolidation of that definitive proposal: `index.html`, `catalogo.html`, `producto.html`, plus its own `img/` (copied from `prototipo/img/`). Real filenames, no prototype-comparison chrome, no `localStorage` picker, no `.xnav` bar. This is what actually ships, but it's still static HTML — not the Next.js/Shopify architecture `brand/07` describes as the long-term plan (see below).
+- **`prototipo/`** — a static HTML prototype for choosing the site's UX direction (4 homes × 4 menus × 4 catalogs + 1 product page, all mixable), plus a **definitive proposal** (`home-5.html` / `catalogo-5.html` / `producto-5.html`) that consolidates what the client picked from that comparison. Not the production site — frozen as historical record, not actively developed.
+- **`sitio/`** — the real, shipping frontend. Started as a static consolidation of the definitive proposal but has since diverged with its own JS modules (`sitio/js/`), a bilingual ES/EN system, a real cart, Google login, Mercado Pago checkout, and checkout result pages. Served by `api/` as static files from the same origin.
+- **`api/`** — an Express backend (plain JS, no TypeScript) providing Google login, MySQL-backed sessions, and Mercado Pago checkout, and serving `sitio/` statically from the same process/origin. This is a real, installable, runnable Node app (unlike `brand/` and `prototipo/`).
 
-There is no package.json, build tool, linter, or test suite — this is a design/content-planning stage, not an implemented application yet.
+`brand/07-estrategia-ecommerce.md`'s long-term plan was Next.js + headless Shopify; `api/` + `sitio/` is what actually got built instead — plain Express + static HTML/JS + MySQL, not that architecture. Treat `brand/07` as background rationale for product/UX decisions, not as a description of the current stack.
 
 ## Commands
 
-Nothing to build, install, or test. Both `prototipo/` and `sitio/` are plain static HTML — open any file directly, or serve a directory if you need a real origin:
+`prototipo/` is plain static HTML — open any file directly, or serve the directory:
 
 ```bash
-open prototipo/index.html                 # or sitio/index.html — file:// works for either
-python3 -m http.server -d prototipo 8000   # swap -d sitio to serve the production site instead
+open prototipo/index.html
+python3 -m http.server -d prototipo 8000
 ```
 
-`prototipo/` is a linked Vercel project (`prototipo/.vercel/project.json`, gitignored by `prototipo/.gitignore`), so it deploys as a plain static directory:
+It's a linked Vercel project (`prototipo/.vercel/project.json`, gitignored by `prototipo/.gitignore`):
 
 ```bash
 npx vercel --cwd prototipo          # preview
 npx vercel --cwd prototipo --prod   # production
 ```
 
-`sitio/` has no `.vercel` link yet — it hasn't been deployed.
+`sitio/` is not run standalone — it's served by `api/`. To run the real app locally:
+
+```bash
+cd api
+npm install
+cp .env.example .env       # then fill in GOOGLE_CLIENT_ID, MERCADOPAGO_ACCESS_TOKEN, SESSION_SECRET, DB_*
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS verde_oliva"
+mysql -u root -p verde_oliva < schema.sql   # creates users, orders, order_items; `sessions` is created by express-mysql-session on first boot
+npm run dev                 # node --watch server.js
+# or: npm start
+```
+
+This serves `sitio/index.html` at `http://localhost:3000/` and the API at `http://localhost:3000/api/*` — same origin, no CORS. No lint/test scripts are defined in `api/package.json`; there is no test suite.
 
 ## Working with `prototipo/`
 
@@ -65,12 +78,32 @@ Keep every variant a drop-in replacement: same CSS custom properties (`--oliva`,
 
 ## Working with `sitio/`
 
-`sitio/index.html` / `catalogo.html` / `producto.html` are `home-5` / `catalogo-5` / `producto-5` with the prototype-comparison scaffolding stripped: no `.xnav` cross-links, no `data-pick`/`localStorage`, copy cleaned of "definitiva/prototipo" language, internal links rewritten to the real filenames. Treat `prototipo/`'s `-5` trio as the source of truth for *content and structure* decisions (it's cross-referenced from `brand/07` reasoning above) and `sitio/` as where *visual/interaction polish* now happens independently — the two have already diverged (see below) and there's no sync step that pulls one into the other.
+`sitio/index.html` / `catalogo.html` / `producto.html` originated as `home-5` / `catalogo-5` / `producto-5` with the prototype-comparison scaffolding stripped (no `.xnav`, no `data-pick`/`localStorage`, real filenames), but have since diverged well beyond that: real cart, real bilingual copy, Google login, Mercado Pago checkout, and checkout result pages (`checkout-exito.html`, `checkout-pendiente.html`, `checkout-error.html`) that don't exist in `prototipo/`. Treat `prototipo/`'s `-5` trio as historical reference for the original content/structure decisions, not as a page to sync against — there's no sync step, and `sitio/` is now the one that matters.
 
-- The ES/EN toggle in `sitio/`'s header (`<button>ES</button>|<button>EN</button>`) is a UI stub: it flips `aria-pressed`, nothing else. No English copy exists yet anywhere in `sitio/`.
-- `sitio/index.html`'s hero is a full-bleed `<video>` (`#heroVideo`) with an Unsplash `poster` fallback; the JS pauses/hides autoplay under `prefers-reduced-motion`. **The video file it points to, `sitio/img/hero-olivar.mp4`, does not exist in the repo** — the hero currently only shows the poster image. Add that asset (or point `<source>` at something real) before treating the hero as finished.
-- Scroll-driven behavior — `.hdr.scrolled` (header goes from transparent-over-video to solid), `.chips.stuck` (shadow once the anchor-chip bar sticks under the header), and `IntersectionObserver`-driven `.card-w.in` / `.grid3>article.in` reveal-on-scroll — is wired in each page's own inline `<script>`; there's no shared JS file, so a fix in one page's scroll handler doesn't propagate to the others.
-- `sitio/` has its own `img/` (a copy of `prototipo/img/`, same filenames) and no `.vercel` link or `.gitignore` of its own yet.
+- **`sitio/js/`** holds the shared frontend logic, loaded across pages via plain `<script>` tags (no bundler, no module system):
+  - `i18n.js` — the ES/EN engine: real language swap (not a stub), keyed by `data-i18n`/`data-i18n-aria`/`data-i18n-placeholder` attributes, dictionary assembled from `window.VO_I18N_COMMON` (`i18n-common.js`) plus a page-specific `window.VO_I18N_PAGE` (`i18n-data-home.js` / `i18n-data-catalogo.js` / `i18n-data-producto.js`, loaded before `i18n.js`). English is a brand rewrite per `brand/03-identidad-verbal.md#bilingüe-esen`, not a literal translation, kept once per key even when the same product recurs (e.g. catálogo por línea/necesidad). Original Spanish is cached in `data-*Cache` attrs the first time a node flips to English. Persists the pick to `localStorage` (`vo-lang`) and fires `vo:lang-changed`.
+  - `auth.js` — Google Identity Services login flow, talks to `POST /api/auth/google` in `api/`.
+  - `cart.js` — the real cart (replaces the old cart-badge-only behavior), talks to `api/` for checkout.
+  - `header.js`, `reveal.js` — header behavior and the `IntersectionObserver`-driven reveal-on-scroll (`.card-w.in`, `.grid3>article.in`, etc.).
+  - A fix in one of these files now propagates to every page that includes it — this is different from the per-page inline `<script>` scroll handlers that still exist for page-specific behavior (`.hdr.scrolled`, `.chips.stuck`).
+- `sitio/index.html`'s hero is a full-bleed `<video>` (`#heroVideo`, `sitio/video/hero-loop.mp4`) with an Unsplash `poster` fallback; JS pauses/hides autoplay under `prefers-reduced-motion`.
+- `sitio/` has its own `img/` (originally copied from `prototipo/img/`) and no `.vercel` link or `.gitignore` of its own — it's not deployed independently, it ships as static assets served by `api/server.js`.
+- Any request to `/api/*` reaching `sitio/`'s frontend code is a call into the `api/` backend described below — same origin, so plain `fetch('/api/...')` with no CORS handling.
+
+## Working with `api/`
+
+Plain JS Express app (no TypeScript, no framework beyond Express). `server.js` wires everything: `express.json()` → session middleware → routers mounted under `/api` → `express.static(sitio/)` → `/api` 404 handler → last-resort error handler → `unhandledRejection` safety net (logs, doesn't crash the process).
+
+- **`routes/auth.js`** — `POST /api/auth/google` verifies a Google Identity Services ID token (`google-auth-library`, audience = `GOOGLE_CLIENT_ID`) and establishes a session; no full OAuth authorization-code flow, no client secret needed.
+- **`routes/checkout.js`** — `POST /api/checkout` (requires session). Re-prices every item server-side against `api/products.js` (sourced from `brand/05-catalogo.md`) and never trusts a price sent in the request body, then creates a Mercado Pago `Preference`.
+- **`routes/orders.js`**, **`routes/webhooks.js`** — order lookups and the Mercado Pago webhook receiver. The webhook router intentionally skips the CSRF mitigation the other routers apply, since Mercado Pago's server calls it directly, not a browser with a session.
+- **`lib/csrf.js`** (`requireXhrHeader`) — applied per-route, not via `router.use()`, because every router in this app is mounted at the same `/api` prefix and Express dispatches a request to each router mounted there in order; a bare `router.use()` in one file would also intercept requests meant for another router (e.g. it must not apply to `/api/webhooks/mercadopago`).
+- **`lib/requireAuth.js`** — session-gate middleware for routes like checkout.
+- **`lib/session.js`** — `express-mysql-session`-backed sessions; the `sessions` table is created by that package on first boot, not by `schema.sql`.
+- **`lib/db.js`** — the `mysql2` pool, credentials from `.env` (`DB_HOST`/`DB_USER`/`DB_PASS`/`DB_NAME`).
+- **`schema.sql`** — `users`, `orders`, `order_items` only (not `sessions`, see above).
+- **`.env`** (gitignored; template in `.env.example`) — `GOOGLE_CLIENT_ID`, `MERCADOPAGO_ACCESS_TOKEN` (use TEST- sandbox credentials until the very end), `SESSION_SECRET`, `DB_*`, `PORT`, `PUBLIC_BASE_URL` (optional, used to build Mercado Pago back_urls/notification_url behind a proxy), `NODE_ENV` (only `production` enables the `secure` session cookie, which requires HTTPS).
+- Deploy target is Hostinger's Node.js Selector (hPanel): one Node process serves both `sitio/` static files and `/api/*` from the same origin specifically to avoid configuring CORS or cross-origin cookies on shared hosting. Never upload `.env` via FTP/git — set the same variables as panel env vars, run `schema.sql` against the Hostinger MySQL instance, and point `GOOGLE_CLIENT_ID`'s authorized origins and Mercado Pago's `back_urls` at the real domain before an end-to-end purchase test.
 
 ## Brand rules that constrain any content or UI work
 
@@ -83,6 +116,6 @@ These aren't background reading — they're binding constraints most tasks in th
 - **The catalog is fixed at 17 SKUs** (`brand/05-catalogo.md`): 12 Eco Cosmética + 4 Línea Spa de Olivoterapia + Vallesi Arauco 500 ml olive oil. No wine. Names, formats and prices there come from the existing Verde Oliva site — don't invent or adjust them.
 - Product/UX/content decisions marked **⚑ A validar** throughout `brand/` are open proposals, not settled facts — flag them rather than treating them as final when they matter to a task.
 
-## Planned production architecture (not yet built)
+## Original architecture proposal vs. what was actually built
 
-`sitio/` is a static consolidation of the design, not the real build. `brand/07-estrategia-ecommerce.md` documents the actual target architecture: Next.js (App Router) on Vercel, ES/EN via `/` and `/en/` with mirrored routes, educational content in MDX in-repo, and commerce data on a separate platform — recommendation is Shopify headless (alternatives considered: Medusa/Vendure self-hosted, Tiendanube), still flagged ⚑ A validar as "the most important decision in the project." The sitemap, the three user-journey types (repeat guest / label-reader / gift-buyer), and the fixed product-page structure (need → skin type → when → how → what to expect, including what *not* to expect) in that same file are the source of truth once real implementation starts — read it before scaffolding routes or data models.
+`brand/07-estrategia-ecommerce.md` documents an earlier target architecture — Next.js (App Router) on Vercel, ES/EN via `/` and `/en/` mirrored routes, MDX educational content, commerce data on Shopify headless (alternatives considered: Medusa/Vendure, Tiendanube). **That platform choice was not what got built.** The actual stack is `api/`'s plain Express + MySQL + static `sitio/` + client-side JS i18n, described above. Still read `brand/07` for the parts that remain the source of truth regardless of stack: the sitemap, the three user-journey types (repeat guest / label-reader / gift-buyer), and the fixed product-page structure (need → skin type → when → how → what to expect, including what it does *not* do).
