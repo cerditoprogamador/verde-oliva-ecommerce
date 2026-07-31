@@ -27,15 +27,13 @@ window.VO_I18N_PAGE = {
   "edu-lead": "This section is on all 17 product pages. The content changes, the structure doesn't: we'd rather you buy the right thing once than the wrong thing three times.",
 
   "q1-h3": "What it's for",
-  "q1-p1": "To <b>moisturize the whole body, every day</b>, without the heavy feel of pure oil. It combines water and oil from our own grove: it hydrates the skin and replaces the lipids soap strips away, in a texture that absorbs in seconds.",
-  "q1-p2": "It's the one for daily use, when you don't have three minutes to wait for an oil to sink in.",
+  "q1-p1": "To <b>moisturize the whole body, every day</b>, without the heavy feel of pure oil: it combines water and oil from our own grove, replaces the lipids soap strips away, and absorbs in seconds — ideal when you don't have three minutes to wait for an oil to sink in.",
 
   "q2-h3": "Who it's for",
   "q2-ul": "<li><b>Normal to dry skin:</b> its main use, year-round.</li><li><b>Skin that doesn't take well to pure oil:</b> it absorbs faster and leaves no greasy feel.</li><li><b>Rushed mornings:</b> it finishes absorbing while you get dressed.</li><li><b>Very dry or cracked skin:</b> the body oil is richer and works better.</li>",
 
   "q3-h3": "When to use it",
-  "q3-p1": "<b>After the shower</b>, on dry or barely damp skin — unlike the oil, it doesn't need water to seal in. Works in the morning before you dress, and at night.",
-  "q3-p2": "It also works as a light base before makeup, when the oil would leave skin too shiny.",
+  "q3-p1": "<b>After the shower</b>, on dry or barely damp skin — it doesn't need water to seal in, unlike the oil. Works in the morning, at night, or as a light base before makeup.",
 
   "q4-h3": "How to use it",
   "q4-ol": "<li><p><b>Step out of the shower and towel off as usual.</b> No need to leave skin damp like you would with the oil.</p></li><li><p><b>Pump two or three times into your palm.</b> It goes further than it looks — no need to use more.</p></li><li><p><b>Apply in long strokes, bottom to top.</b> Start at the legs, finish at arms and shoulders.</p></li><li><p><b>Let it absorb for a few seconds before dressing.</b> No need to over-massage or wait for the shine to disappear.</p></li>",
@@ -62,25 +60,25 @@ window.VO_I18N_PAGE = {
 
   "origen-kicker": "Where it comes from",
   "origen-p": "The olive trees Ángel Cavagnaro planted in Coquimbito in 1890 still bear fruit. This emulsion comes from that same pressing: part goes to the table, part to the skin.",
-  "origen-btn": "Discover the grove",
+  "origen-btn": "Discover the estate",
 
   "acc1-summary": "Ingredients (INCI)",
   "acc1-body": "An emulsion of water and extra virgin olive oil from our own grove, cold-pressed once a year, with a natural contribution of polyphenols and vitamin E. No synthetic fragrance, no silicones, no dyes. Formulated and bottled by Julia in the Maipú lab, in small batches.<br><br>The full INCI list, as required by regulation, is printed on each batch's packaging.",
 
   "acc2-summary": "Why it absorbs fast",
-  "acc2-body": "Because it's an emulsion, not pure oil: the water sinks in first and the oil settles as a thin surface layer, instead of needing to fully absorb the way oil alone does. That's what makes it work for daily use, when there's no time to wait for an oil to settle.",
+  "acc2-body": "Because it's an emulsion, not pure oil: the water sinks in first and the oil settles as a thin surface layer, instead of fully absorbing. That's what makes it work for daily use.",
 
   "acc3-summary": "What polyphenols are",
-  "acc3-body": "They're the compounds the olive tree uses to defend itself against high-altitude sun and dry-farming stress. They're what causes the bitterness you feel in your throat when tasting freshly pressed oil. If an oil doesn't taste at least a little bitter or peppery, it probably has little of what we're after left in it.",
+  "acc3-body": "They're the compounds the olive tree uses to defend itself against high-altitude sun and dry-farming stress — what causes the bitterness you feel when tasting freshly pressed oil. If it doesn't taste at least a little bitter or peppery, it probably has little of what we're after left in it.",
 
   "acc4-summary": "Safety",
   "acc4-body": "For cosmetic use. If you have a skin condition or are under dermatological treatment, check with your professional first.<br><br>Before the first use, test on a small area — the inside of your forearm — and wait a day. This is a formula, not raw bottled olive oil: emulsified and stabilized, it does the job without the drawbacks of oil alone on skin. It's cosmetics, not medicine: it doesn't substitute for any diagnosis or treatment.",
 
   "acc5-summary": "Storage and shelf life",
-  "acc5-body": "Keep it away from direct light and heat — light is oil's worst enemy. Twelve months unopened, six months once opened. If the scent turns from fruity to rancid, discard it, even if there's product left.",
+  "acc5-body": "Keep it away from light and heat: twelve months unopened, six once opened. If the scent turns from fruity to rancid, discard it, even if there's product left.",
 
   "acc6-summary": "Shipping and returns",
-  "acc6-body": "We dispatch within 48 business hours from Maipú, Mendoza, nationwide. Free shipping on orders over $60,000. Pickup at the estate in Coquimbito is available by arranging it via email. Returns accepted within 30 days with the product unopened.",
+  "acc6-body": "We dispatch nationwide within 48 business hours, free on orders over $60,000. Pickup at the Coquimbito estate by arranging it via email. Returns within 30 days, product unopened.",
 
   "ritual-kicker": "How it fits in",
   "ritual-h2": "From the head-to-toe hydration ritual",

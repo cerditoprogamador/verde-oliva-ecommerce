@@ -3,28 +3,11 @@
    renderizan por JS (rit-title, rit-desc, #steps, etc.) no están acá: viven
    en el objeto R del script inline de index.html. */
 window.VO_I18N_PAGE = {
-  "hero-badge": "Natural skincare · Face & Body",
-
-  /* ── olivoterapia (qué es + qué vas a encontrar) ── */
-  "oliv-kicker": "What this is",
-  "oliv-h2": "Olivoterapia, and what you'll find here",
-  "oliv-lead": "Caring for skin and body with olive oil and its natural compounds. At Verde Oliva it started as a practice — massage and treatments on the table, in Maipú — and the product line came later, so that ritual could continue at home.",
-  "oliv-eco-p": "Daily care: cleansing, hydration, exfoliation, bath and hair.",
-  "oliv-spa-p": "The professional formulas — the same ones used on the treatment table.",
-  "oliv-gourmet-p": "The same oil, on the table: single-varietal, pressed the same day it's harvested.",
-  "oliv-productos": "products",
-  "oliv-producto-singular": "product",
-
   "rit-kick": "Suggested ritual",
   /* ── hero ── */
-  "hero-kicker": "Our own grove since 1890 · Coquimbito, Maipú",
-  "hero-h1": "The olive's <span class=\"accent-word\">polyphenols<svg class=\"accent-circle\" viewBox=\"0 0 300 110\" aria-hidden=\"true\" focusable=\"false\"><path d=\"M14,58 C9,20 62,5 152,7 C250,9 296,28 291,54 C286,84 216,99 145,97 C66,95 11,90 14,58 Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"5\" stroke-linecap=\"round\"/></svg></span>, on your skin.",
-  "hero-lead": "Thirteen products formulated with oil from our own estate. The same oil that goes to the table, taking the other path.",
+  "hero-h1": "The olive's polyphenols, on your skin.",
   "hero-cta-ver": "See all 13 products",
   "hero-cta-armar": "Build my ritual",
-  "hero-mini-1": "<svg width=\"15\" height=\"15\"><use href=\"#i-check\"/></svg>Free shipping over $60,000",
-  "hero-mini-2": "<svg width=\"15\" height=\"15\"><use href=\"#i-flask\"/></svg>Formulated by Julia, in Maipú",
-  "hero-mini-3": "<svg width=\"15\" height=\"15\"><use href=\"#i-trees\"/></svg>One harvest a year",
 
   /* ── chips ── */
   "chip-productos": "All 13 products",
@@ -121,22 +104,22 @@ window.VO_I18N_PAGE = {
   "serv-4-h3": "We explain how to use it",
   "serv-4-p": "Every product page says which skin it's for, when and how to apply it.",
 
-  /* ── información ── */
-  "info-kicker": "Information",
-  "info-h2": "What's inside an olive oil.",
-  "info-lead": "Basically three things. All three matter, and the third is what shapes everything we do.",
+  /* ── información (fusiona Olivoterapia + qué hay adentro del aceite) ── */
+  "info-kicker": "What this is, and what it's made of",
+  "info-h2": "Olivoterapia, and what's inside an olive oil",
+  "info-lead": "Caring for skin and body using olive oil and its natural compounds. Basically four things, and the last one is what shapes everything we do.",
   "comp-1-h3": "Oleic acid",
   "comp-1-p": "It gives the oil its texture and glide, and much of its emollient effect: it softens skin and helps it feel more supple.",
   "comp-2-h3": "Squalene",
   "comp-2-p": "A component your skin already makes: it's part of its natural sebum. That's why olive oil feels so at home on skin — you're not putting on something foreign.",
   "comp-3-h3": "Polyphenols",
-  "comp-3-p": "The antioxidants. How much you get depends on the variety, how carefully it's harvested, and above all how much time passes between picking and pressing. That's why ours is single-varietal Arauco, pressed the same day.",
+  "comp-3-p": "The antioxidants. How much you get depends on the variety, how carefully it's harvested, and above all how much time passes between picking and pressing.",
+  "comp-4-h3": "Arauco, the variety",
+  "comp-4-p": "Argentina's traditional variety: intense, expressive, and uncommon outside of careful small production, because it yields less and asks for more. Ours is single-varietal — no blending — picked once a year and pressed the same day.",
 
   "cocina-h2": "If olive oil is so good, why not just use the one from the kitchen?",
-  "cocina-p1": "You can. Plenty of people do, and it works fine for them.",
-  "cocina-p2": "But pure olive oil on skin has a real limit: applied on its own, regularly, on sensitive skin, it doesn't always help the skin barrier — that thin layer that holds in moisture and protects you from the outside. In some cases it can disrupt it. It's not serious, but it's real, and we'd rather say so.",
-  "cocina-p3": "Formulating solves that. When the oil is emulsified with water, stabilized, and dosed alongside other ingredients, you get what you're after — the squalene, the polyphenols, the texture — without the drawbacks of applying pure oil every day. That's why our products are creams, emulsions and lotions, not kitchen oil in a different bottle.",
-  "cocina-p4": "And that's why we also sell the edible oil: because it's the same oil, and on the table it gives its best without any of these drawbacks.",
+  "cocina-p1": "You can — plenty of people do. But pure oil, on its own and daily on sensitive skin, doesn't always help the skin barrier: the layer that holds in moisture and protects you. It's not serious, but it's real.",
+  "cocina-p2": "Formulating solves that: emulsified and dosed, it gives you the squalene and polyphenols without that problem. That's why our products are creams and emulsions, not kitchen oil in a different bottle. And that's why we also sell the edible oil: it's the same oil, served at the table.",
 
   "edu-1-h3": "Damp skin, always",
   "edu-1-p": "Oil doesn't add water — it holds in what's already there. On dry skin, it's just oil sitting on dry skin. It's free, and it changes the result more than any product can.",
@@ -160,7 +143,7 @@ window.VO_I18N_PAGE = {
   "skin-3-sum": "Sensitive or reactive skin",
   "skin-3-p1": "Turns red, itches, reacts fast.",
   "skin-3-p2": "<b>Ritual:</b> the bare minimum. Cleansing emulsion → face moisturizing cream. Nothing else, until it settles down.",
-  "skin-3-p3": "<b>Always:</b> test on a small area first — your forearm — and wait a day. And if you have a diagnosed condition, check with your dermatologist first.",
+  "skin-3-p3": "<b>Always:</b> test on your forearm first and wait a day; with a diagnosed condition, check with your dermatologist first.",
   "skin-4-sum": "Dehydrated skin",
   "skin-4-p1": "Not the same as dry: it lacks water, not oil. It can happen even to oily skin.",
   "skin-4-p2": "<b>How to spot it:</b> it looks dull, fine lines show more, and no matter how much cream you apply, it's never enough.",
@@ -168,23 +151,36 @@ window.VO_I18N_PAGE = {
   "skin-5-sum": "Mature skin",
   "skin-5-p1": "Less sebum, less firmness, more dryness.",
   "skin-5-p2": "<b>Ritual:</b> cleansing emulsion → mist → hyaluronic acid emulsion → face moisturizing cream. Fine exfoliant once a week.",
-  "skin-5-p3": "<b>Honestly:</b> no cosmetic reverses the passage of time. What a steady antioxidant routine does do is support skin, keep it hydrated and comfortable, and help it stand up to everyday wear.",
-
-  /* ── origen ── */
-  "origen-kicker": "Where all of this comes from",
-  "origen-italic": "The olive trees Ángel Cavagnaro planted in Coquimbito in 1890 are still bearing fruit. Part of that oil goes to the table. The other part, to the skin.",
-  "origen-lead": "Julia formulates in the lab with oil from the grove. Fernanda Herrera gives the olivoterapia treatments — the practice of caring for skin with olive polyphenols. What's used in the treatment room is the same as what's sold here. A tree past a hundred and thirty years old doesn't give much oil — that's why there are batches, dated by year, like wine.",
+  "skin-5-p3": "<b>Honestly:</b> no cosmetic reverses time — but a steady antioxidant routine keeps skin hydrated, comfortable, and standing up to everyday wear.",
 
   /* ── rutinas ── */
   "rut-kicker": "Rituals",
   "rut-h2": "Build your ritual",
   "rut-lead": "Choose what your skin needs and we'll lay out the order of use, with the why behind each step. We organize care by moment, not by product.",
-  "need-limpiar": "<svg class=\"ic\" width=\"24\" height=\"24\"><use href=\"#i-droplet\"/></svg>Cleanse<small>3 steps</small>",
-  "need-hidratar": "<svg class=\"ic\" width=\"24\" height=\"24\"><use href=\"#i-leaf\"/></svg>Moisturize<small>3 steps</small>",
-  "need-exfoliar": "<svg class=\"ic\" width=\"24\" height=\"24\"><use href=\"#i-brush\"/></svg>Exfoliate<small>3 steps</small>",
-  "need-capilar": "<svg class=\"ic\" width=\"24\" height=\"24\"><use href=\"#i-wind\"/></svg>Hair care<small>3 steps</small>",
-  "need-bano": "<svg class=\"ic\" width=\"24\" height=\"24\"><use href=\"#i-sun\"/></svg>Take a bath<small>3 steps</small>",
-  "need-mesa": "<svg class=\"ic\" width=\"24\" height=\"24\"><use href=\"#i-trees\"/></svg>The table<small>1 step</small>",
+  "rq-1-kicker": "Question 1 of 3",
+  "rq-1-h3": "What do you want to work on?",
+  "rq-need-limpiar": "Cleanse",
+  "rq-need-hidratar": "Moisturize",
+  "rq-need-exfoliar": "Exfoliate",
+  "rq-need-capilar": "Hair care",
+  "rq-need-bano": "Take a bath",
+  "rq-need-mesa": "The table",
+
+  "rq-2-kicker": "Question 2 of 3",
+  "rq-2-h3": "What's your skin type?",
+  "rq-skin-seca": "Dry",
+  "rq-skin-grasa": "Oily or combination",
+  "rq-skin-sensible": "Sensitive or reactive",
+  "rq-skin-deshidratada": "Dehydrated",
+  "rq-skin-madura": "Mature",
+
+  "rq-3-kicker": "Question 3 of 3",
+  "rq-3-h3": "How much time do you have?",
+  "rq-time-rapido": "Quick — just the essentials",
+  "rq-time-completo": "Complete — the full ritual",
+
+  "rq-back": "← Back",
+  "rq-restart": "Retake the quiz",
   "rit-ver-todos": "See all products <svg class=\"ic\" width=\"15\" height=\"15\"><use href=\"#i-arrow\"/></svg>",
   "rit-alternativas": "See alternatives",
   "rit-agregar": "Add the ritual",

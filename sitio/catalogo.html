@@ -22,16 +22,16 @@
 <meta name="twitter:image" content="img/productos/emulsion-humectante-corporal.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 :root{
  --oliva:#3A4433;--oliva-d:#2C3427;--hoja:#6B7B3C;--hoja-t:#616F36;--corteza:#1C1917;
  --crema:#F7F4EC;--crema2:#F1EBDD;--arena:#D4C4A8;--oro:#B08D3F;--terra:#C67B5C;--terra-t:#A25C3D;
  --tinta:#54584B;--linea:rgba(58,68,51,.18);--linea-f:rgba(58,68,51,.10);
- --fs:'Cormorant Garamond',Georgia,'Times New Roman',serif;
- --fb:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
- --e:cubic-bezier(.22,.61,.36,1);--hh:64px}
+ --fs:'Lora',Georgia,'Times New Roman',serif;
+ --fb:'Raleway',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+ --e:cubic-bezier(.22,.61,.36,1);--hh:100px}
 h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.012em}
 .lead{font-size:clamp(1rem,1.3vw,1.14rem);line-height:1.62;color:var(--tinta);max-width:62ch}
 .dark .lead,.dark .cf,.dark .card-f{color:rgba(247,244,236,.78)}
@@ -45,6 +45,9 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
 .lang{display:inline-flex;align-items:center;gap:.3rem;font:500 .7rem/1 var(--fb);letter-spacing:.12em;color:var(--tinta);margin-right:.4rem}
 .top{padding:clamp(30px,4.4vw,52px) 0 clamp(22px,2.8vw,32px)}
 .top h1{font-size:clamp(2rem,4.6vw,3.3rem);max-width:19ch}
+.claims{display:flex;flex-wrap:wrap;gap:.9rem 1.2rem;margin-top:1.2rem;font-size:.78rem;color:var(--tinta)}
+.claims span{display:flex;align-items:center;gap:.4rem}
+.claims svg{color:var(--hoja-t)}
 .toolbar{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);background:var(--crema2);padding:clamp(16px,2vw,22px) 0}
 .viewtoggle{position:relative;display:inline-flex;gap:1.8rem;border-bottom:1px solid var(--linea);margin-bottom:clamp(14px,1.8vw,18px)}
 .viewtoggle .tbunderline{position:absolute;left:0;bottom:-1px;height:2px;background:var(--oro);
@@ -148,6 +151,9 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
 <symbol id="i-wind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></symbol>
 <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></symbol>
 <symbol id="i-trees" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 10v12"/><path d="M10 2 4 10h12z"/><path d="M10 8 5.5 14h9z"/><path d="M18 12v10"/><path d="m18 8-3 4h6z"/></symbol>
+<symbol id="i-wheat-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2 8.15 13.85"/><path d="M9 22 21 10"/><path d="M15.47 13.53 17 12l1.53 1.53a3.5 3.5 0 0 1 0 4.94L17 20l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-flask-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6.5L4.6 18a2 2 0 0 0 1.7 3h6.4"/><path d="M13.56 13.5H19a2 2 0 0 1 1.7 3l-1.36 2.27"/><path d="M8.5 2h7"/><path d="M7 15a6.47 6.47 0 0 1 5-2"/><path d="M14 9.5V4"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-rabbit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 16a3 3 0 0 1 2.24 5 7 7 0 0 0-1.4-9.58C16.5 9.83 17.94 5.5 15.5 2c-1.5 2-3.7 3.28-5.62 4.5C8.24 7.55 7 9.24 7 11.5c0 .3.03.59.09.87A5 5 0 0 0 6 16.9c0 .5.1 1 .27 1.5A3 3 0 0 0 9 22h4a3 3 0 0 0 3-3"/><path d="M12.5 17.5 15 22"/><circle cx="16" cy="7.5" r=".5" fill="currentColor"/></symbol>
 </defs></svg>
 
 
@@ -157,12 +163,11 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
 </div></div></div>
 
 <header class="hdr"><div class="wrap"><div class="hdr-in">
-  <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
   <nav class="hdr-nav" aria-label="Principal">
     <a href="index.html" data-i18n="crumb-inicio">Inicio</a>
     <a href="index.html#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
     <a href="index.html#rutinas" data-i18n="nav-rutinas">Rutinas</a>
-    <a href="index.html#origen" data-i18n="nav-olivar">El olivar</a>
+    <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
   </nav>
   <div class="searchbox">
     <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
@@ -196,7 +201,7 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
     <a href="index.html" data-i18n="crumb-inicio">Inicio</a>
     <a href="index.html#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
     <a href="index.html#rutinas" data-i18n="nav-rutinas">Rutinas</a>
-    <a href="index.html#origen" data-i18n="nav-olivar">El olivar</a>
+    <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
   </nav>
   <div class="mnav-lang lang" role="group" aria-label="Idioma">
     <button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button>
@@ -210,6 +215,11 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
   <p class="kicker" data-i18n="top-kicker">El catálogo</p>
   <h1 data-i18n="top-h1">Los 13 productos, por lo que resuelven o por la línea que ya conocés.</h1>
   <p class="lead" style="margin-top:1rem" data-i18n="top-lead">Nadie se levanta queriendo "una emulsión": la vista por necesidad es la que abre por defecto, porque parte de lo que buscás resolver y no del nombre del frasco. Si ya conocés Eco Cosmética, Spa de Olivoterapia y el aceite, la vista por línea está a un clic.</p>
+  <div class="claims">
+    <span data-i18n="claim-gluten"><svg width="15" height="15"><use href="#i-wheat-off"/></svg>Libre de gluten</span>
+    <span data-i18n="claim-paraben"><svg width="15" height="15"><use href="#i-flask-off"/></svg>Libre de parabenos</span>
+    <span data-i18n="claim-cruelty"><svg width="15" height="15"><use href="#i-rabbit"/></svg>Cruelty free</span>
+  </div>
 </div></section>
 
 <section class="toolbar" id="toolbar"><div class="wrap">

@@ -25,13 +25,15 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 [id]{scroll-margin-top:calc(var(--hh) + 58px)}
-.strip{position:fixed;top:0;left:0;right:0;z-index:41;background:var(--oliva);color:var(--crema);font:500 .74rem/1 var(--fb);letter-spacing:.05em}
+.strip{position:fixed;top:0;left:0;right:0;z-index:41;background:var(--oliva);color:var(--crema);font:500 .74rem/1 var(--fb);letter-spacing:.05em;
+ transition:transform .3s var(--e)}
+.strip.hidden{transform:translateY(-100%)}
 .hdr{position:fixed;top:var(--stripH,40px);left:0;right:0;z-index:40;background:transparent;
- border-bottom:1px solid transparent;transition:background .3s var(--e),border-color .3s var(--e)}
+ border-bottom:1px solid transparent;transition:background .3s var(--e),border-color .3s var(--e),top .3s var(--e)}
 .hdr .logo-m{color:var(--crema);text-shadow:0 1px 6px rgba(0,0,0,.45);transition:color .3s var(--e)}
 .hdr .logo-s{color:rgba(247,244,236,.75);text-shadow:0 1px 6px rgba(0,0,0,.45);transition:color .3s var(--e)}
 .hdr-nav a{position:relative;padding:.7rem .85rem;text-decoration:none;color:var(--crema);font:500 .78rem/1 var(--fb);
@@ -55,9 +57,10 @@
 .menubtn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;flex:none;
  background:transparent;border:0;color:var(--crema);filter:drop-shadow(0 1px 4px rgba(0,0,0,.45));cursor:pointer;transition:color .3s var(--e)}
 .hdr.scrolled .menubtn{color:var(--corteza);filter:none}
+@media(min-width:1000px){.menubtn{display:none}}
 .chips{position:sticky;top:calc(var(--stripH,40px) + var(--hh));z-index:30;
  border-bottom:1px solid transparent;background:var(--crema2);
- transition:box-shadow .3s var(--e),border-color .3s var(--e)}
+ transition:box-shadow .3s var(--e),border-color .3s var(--e),top .3s var(--e)}
 .chips.stuck{border-bottom-color:var(--linea);box-shadow:0 8px 18px -12px rgba(28,25,23,.28)}
 .chips .chips-in{transition:transform .3s var(--e)}
 .chips-in{display:flex;gap:.5rem;padding:.72rem 0;overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -76,33 +79,27 @@
 .hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
  background:linear-gradient(180deg,rgba(20,18,15,.7) 0%,rgba(20,18,15,.6) 20%,rgba(20,18,15,.58) 55%,rgba(20,18,15,.62) 75%,rgba(20,18,15,.8) 100%)}
 .hero-t{position:relative;z-index:2;width:100%;padding:calc(var(--hh) + clamp(32px,6vw,72px)) 0 clamp(40px,6vw,72px);
- display:grid;grid-template-columns:repeat(12,1fr);align-content:end;flex:1}
-.hero-t .inner{grid-column:1/span 12;max-width:52ch;padding:0 clamp(20px,5vw,64px);width:100%;color:var(--crema)}
-@media(min-width:900px){.hero-t .inner{grid-column:1/span 7}}
+ display:grid;grid-template-columns:repeat(12,1fr);align-content:center;flex:1}
+.hero-t .inner{grid-column:1/span 12;max-width:640px;margin:0 auto;padding:0 clamp(20px,5vw,64px);width:100%;color:var(--crema);text-align:center}
 .hero-t .inner>*{opacity:0;transform:translateY(24px);transition:opacity .8s var(--e),transform .8s var(--e)}
 .hero-t .inner.in>*{opacity:1;transform:translateY(0)}
 .hero-t .inner.in>*:nth-child(1){transition-delay:.05s}
 .hero-t .inner.in>*:nth-child(2){transition-delay:.16s}
 .hero-t .inner.in>*:nth-child(3){transition-delay:.27s}
 .hero-t .inner.in>*:nth-child(4){transition-delay:.38s}
-.hero-t .inner.in>*:nth-child(5){transition-delay:.49s}
-.hero-t .inner.in>*:nth-child(6){transition-delay:.6s}
-.hero-t .kicker{color:var(--crema);text-shadow:0 1px 6px rgba(0,0,0,.5)}
-.hero-t .lead{color:rgba(247,244,236,.86);text-shadow:0 1px 8px rgba(0,0,0,.4)}
 .hero-t h1{text-shadow:0 2px 14px rgba(0,0,0,.4)}
-.hero-mini{text-shadow:0 1px 6px rgba(0,0,0,.4)}
 .hero h1{font-size:clamp(2.3rem,5vw,4rem)}
-.accent-word{position:relative;display:inline-block}
-.accent-circle{position:absolute;left:-8%;top:-22%;width:116%;height:155%;color:var(--oro);pointer-events:none;overflow:visible}
-.hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.7rem}
+.hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:1.7rem}
 .hero-cta .btn-ghost{color:var(--crema);border-color:rgba(247,244,236,.5)}
 .hero-cta .btn-ghost:hover{background:rgba(247,244,236,.15);border-color:var(--crema)}
-.hero-mini{display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:1.9rem;font-size:.82rem;color:rgba(247,244,236,.86)}
-.hero-mini span{display:flex;align-items:center;gap:.4rem}
-.hero-mini svg{color:var(--arena)}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;color:var(--crema);font:500 .71rem/1.4 var(--fb);
- letter-spacing:.24em;text-transform:uppercase;text-shadow:0 1px 6px rgba(0,0,0,.5);margin-bottom:1.2rem}
-.hero-badge svg{color:var(--arena);flex:none}
+.hero-logo{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.7rem;margin:0 0 1.8rem}
+.hero-logo img{height:clamp(58px,8vw,92px);width:auto}
+.hero-logo-t{font-family:var(--fs);font-size:clamp(2.2rem,5.4vw,3.6rem);font-weight:600;line-height:1.1;color:var(--crema);text-shadow:0 2px 14px rgba(0,0,0,.4)}
+.hero-logo-t em{display:block;font-style:italic;font-weight:500;font-size:.4em;letter-spacing:.1em;text-transform:lowercase;color:rgba(247,244,236,.82);margin-top:.25rem}
+.hero h1.hero-sub{font-size:clamp(1.5rem,3vw,2.15rem);font-weight:500;margin:0 auto}
+.claims{display:flex;flex-wrap:wrap;justify-content:center;gap:1.1rem .9rem;margin-top:1.6rem;font-size:.76rem;letter-spacing:.02em;color:rgba(247,244,236,.86)}
+.claims span{display:flex;align-items:center;gap:.4rem}
+.claims svg{color:var(--arena)}
 @media(prefers-reduced-motion:reduce){.hero-t .inner>*{opacity:1;transform:none;transition:none}}
 .poli{background:var(--crema2);border-bottom:1px solid var(--linea);padding:clamp(40px,5vw,72px) 0}
 .poli-h{max-width:60ch;margin-bottom:clamp(26px,3.2vw,42px)}
@@ -190,42 +187,83 @@
  font-size:.94rem;color:var(--tinta);max-width:46ch}
 .layers{display:grid;gap:clamp(28px,4vw,64px);grid-template-columns:1fr;align-items:center}
 @media(min-width:900px){.layers{grid-template-columns:5fr 7fr}}
-.layers .ph{aspect-ratio:4/3}
-.comp{display:grid;gap:1.4rem;margin-top:1.6rem}
-.comp div{padding-left:1rem;border-left:2px solid var(--linea)}
-.comp h3{font-size:1.3rem;margin:0 0 .25rem}
-.comp p{font-size:.94rem;color:var(--tinta);margin:0}
-.comp div:last-child{border-left-color:var(--oro)}
-.edu{display:grid;gap:clamp(28px,3.6vw,48px);grid-template-columns:1fr}
+.layers .ph{aspect-ratio:3/4}
+.info-grid{display:grid;gap:clamp(14px,1.6vw,18px);grid-template-columns:1fr;margin-top:clamp(30px,3.6vw,48px)}
+@media(min-width:640px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.info-grid{grid-template-columns:repeat(4,1fr)}}
+.info-card{position:relative;padding:clamp(22px,2.4vw,28px) clamp(20px,2vw,24px);border:1px solid var(--linea);
+ border-radius:3px;display:flex;flex-direction:column;gap:.7rem;background:var(--crema);
+ opacity:0;transform:translateY(16px);transition:opacity .6s var(--e),transform .6s var(--e)}
+.info-card.in{opacity:1;transform:translateY(0)}
+.info-card:nth-child(1){transition-delay:0s}
+.info-card:nth-child(2){transition-delay:.08s}
+.info-card:nth-child(3){transition-delay:.16s}
+.info-card:nth-child(4){transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.info-card{opacity:1;transform:none;transition:none}}
+.info-num{position:absolute;top:.8rem;right:1rem;font-family:var(--fs);font-size:2.1rem;font-weight:600;
+ line-height:1;color:var(--linea)}
+.info-ic{width:42px;height:42px;border-radius:50%;background:var(--crema2);display:flex;align-items:center;
+ justify-content:center;color:var(--hoja-t);flex:none}
+.info-card h3{font-size:1.2rem;margin:0}
+.info-card p{font-size:.92rem;color:var(--tinta);margin:0}
+.info-card.featured{border-color:var(--oro);border-width:1.5px;background:var(--crema2)}
+.info-card.featured .info-ic{background:var(--oro);color:var(--crema)}
+.info-card.featured .info-num{color:rgba(176,141,63,.35)}
+.cocina-h{display:flex;align-items:flex-start;gap:1.1rem}
+.cocina-h .info-ic{width:52px;height:52px;margin-top:.3rem}
+.edu{display:grid;gap:clamp(18px,2.2vw,26px);grid-template-columns:1fr}
 @media(min-width:800px){.edu{grid-template-columns:repeat(3,1fr)}}
 .edu a{display:flex;flex-direction:column;gap:.8rem;text-decoration:none;color:inherit;cursor:pointer;
- padding-top:1.3rem;border-top:1px solid var(--linea)}
-.edu h3{font-size:1.5rem;margin:0;transition:color .2s var(--e)}
+ padding:1.5rem 1.4rem;border:1px solid var(--linea);border-radius:3px;background:var(--crema);
+ transition:border-color .2s var(--e),transform .3s var(--e),box-shadow .3s var(--e)}
+.edu a:hover{border-color:var(--oro);transform:translateY(-3px);box-shadow:0 12px 24px -14px rgba(28,25,23,.25)}
+.edu h3{font-size:1.35rem;margin:0;transition:color .2s var(--e)}
 .edu a:hover h3{color:var(--hoja-t)}
 .edu p{font-size:.95rem;color:var(--tinta);margin:0}
 .edu span.rd{font:500 .68rem/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--hoja-t);margin-top:auto;padding-top:.6rem}
 .skin{border-top:1px solid var(--linea);margin-top:clamp(30px,3.6vw,48px)}
 .skin details{border-bottom:1px solid var(--linea)}
-.skin summary{display:flex;align-items:center;gap:.8rem;padding:1.1rem 0;cursor:pointer;
- font-family:var(--fs);font-size:1.35rem;line-height:1.2;list-style:none}
+.skin summary{padding:1.1rem 0;cursor:pointer;font-family:var(--fs);font-size:1.35rem;line-height:1.2;list-style:none}
 .skin summary::-webkit-details-marker{display:none}
-.skin-b{padding:0 0 1.4rem;display:grid;gap:.7rem;max-width:70ch}
+.skin-sum{display:flex;align-items:center;gap:.9rem}
+.skin-sum .info-ic{width:36px;height:36px;flex:none}
+.skin-b{padding:0 0 1.4rem 3.3rem;display:grid;gap:.7rem;max-width:70ch}
+@media(max-width:479px){.skin-b{padding-left:0}}
 .skin-b p{margin:0;font-size:.95rem;color:var(--tinta)}
 .skin-b b{color:var(--corteza);font-weight:600}
-.needs{display:grid;gap:clamp(10px,1.2vw,16px);grid-template-columns:repeat(2,1fr);margin-bottom:clamp(26px,3vw,42px)}
-@media(min-width:700px){.needs{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1060px){.needs{grid-template-columns:repeat(6,1fr)}}
-.need{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;
- min-height:118px;padding:1.1rem .6rem;background:var(--crema);border:1px solid var(--linea);border-radius:3px;
- font:500 .84rem/1.2 var(--fb);color:var(--oliva);cursor:pointer;text-align:center;
- transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e)}
-.need svg{color:var(--hoja-t);transition:color .2s var(--e)}
-.need:hover{border-color:var(--oro)}
-.need[aria-pressed="true"]{background:var(--oliva);color:var(--crema);border-color:var(--oliva)}
-.need[aria-pressed="true"] svg{color:var(--arena)}
-.need small{display:block;font:400 .7rem/1.2 var(--fb);color:var(--tinta);margin-top:.15rem}
-.need[aria-pressed="true"] small{color:rgba(247,244,236,.72)}
-.ritual-in{display:grid;gap:clamp(24px,3.4vw,52px);grid-template-columns:1fr}
+.rquiz{margin-bottom:clamp(30px,3.6vw,48px)}
+.rquiz.rq-done{display:none}
+.rq-progress{display:flex;align-items:center;justify-content:center;margin-bottom:clamp(26px,3vw,40px)}
+.rq-dot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--linea);background:var(--crema);flex:none;
+ transition:background .3s var(--e),border-color .3s var(--e)}
+.rq-dot.rq-done{background:var(--oliva);border-color:var(--oliva)}
+.rq-dot.rq-on{border-color:var(--oro);background:var(--oro)}
+.rq-line{width:clamp(28px,4.5vw,64px);height:1.5px;background:var(--linea)}
+.rq-step{display:none}
+.rq-step.rq-on{display:block}
+.rq-q{text-align:center;max-width:52ch;margin:0 auto clamp(20px,2.4vw,28px)}
+.rq-q .kicker{justify-content:center;display:flex}
+.rq-opts{display:grid;gap:.7rem;grid-template-columns:repeat(2,1fr);max-width:640px;margin:0 auto}
+@media(min-width:700px){.rq-opts{grid-template-columns:repeat(3,1fr)}}
+.rq-opts.rq-opts-2{grid-template-columns:1fr;max-width:420px}
+@media(min-width:560px){.rq-opts.rq-opts-2{grid-template-columns:repeat(2,1fr);max-width:520px}}
+.rq-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+ min-height:104px;padding:1rem .7rem;background:var(--crema);border:1px solid var(--linea);border-radius:3px;
+ font:500 .84rem/1.25 var(--fb);color:var(--oliva);cursor:pointer;text-align:center;
+ transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e),transform .2s var(--e)}
+.rq-opt:hover{border-color:var(--oro);transform:translateY(-2px)}
+.rq-opt svg{color:var(--hoja-t);transition:color .2s var(--e)}
+.rq-back{display:block;margin:1.6rem auto 0;background:none;border:0;cursor:pointer;
+ font:500 .76rem/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--tinta);
+ transition:color .2s var(--e)}
+.rq-back:hover{color:var(--oliva)}
+.rq-tip{margin-top:1.2rem;padding-left:1rem;border-left:2px solid var(--oro);font-size:.9rem;color:var(--tinta);max-width:46ch}
+.rq-restart{background:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;
+ font:500 .74rem/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--tinta);
+ margin-top:1.2rem;transition:color .2s var(--e)}
+.rq-restart:hover{color:var(--oliva)}
+.ritual-in{display:none;gap:clamp(24px,3.4vw,52px);grid-template-columns:1fr}
+.ritual-in.rq-on{display:grid}
 @media(min-width:980px){.ritual-in{grid-template-columns:.85fr 1.15fr;align-items:start}}
 .rit-head .rule-oro{margin-bottom:1.2rem}
 .rit-head h3{font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:.8rem}
@@ -318,6 +356,9 @@
 <path d="M40 74V58M60 74V54M80 74V58"/>
 <g fill="currentColor" stroke="none"><circle cx="48" cy="97" r="6"/><circle cx="66" cy="101" r="6"/><circle cx="58" cy="115" r="6"/><circle cx="76" cy="113" r="6"/></g>
 </symbol>
+<symbol id="i-wheat-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2 8.15 13.85"/><path d="M9 22 21 10"/><path d="M15.47 13.53 17 12l1.53 1.53a3.5 3.5 0 0 1 0 4.94L17 20l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-flask-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6.5L4.6 18a2 2 0 0 0 1.7 3h6.4"/><path d="M13.56 13.5H19a2 2 0 0 1 1.7 3l-1.36 2.27"/><path d="M8.5 2h7"/><path d="M7 15a6.47 6.47 0 0 1 5-2"/><path d="M14 9.5V4"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-rabbit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 16a3 3 0 0 1 2.24 5 7 7 0 0 0-1.4-9.58C16.5 9.83 17.94 5.5 15.5 2c-1.5 2-3.7 3.28-5.62 4.5C8.24 7.55 7 9.24 7 11.5c0 .3.03.59.09.87A5 5 0 0 0 6 16.9c0 .5.1 1 .27 1.5A3 3 0 0 0 9 22h4a3 3 0 0 0 3-3"/><path d="M12.5 17.5 15 22"/><circle cx="16" cy="7.5" r=".5" fill="currentColor"/></symbol>
 </defs></svg>
 
 <div class="strip"><div class="wrap"><div class="strip-in">
@@ -328,12 +369,12 @@
 <header class="hdr">
   <div class="wrap">
     <div class="hdr-in">
-      <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
       <nav class="hdr-nav" aria-label="Principal">
         <a href="#productos" data-i18n="nav-productos">Productos</a>
         <a href="#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
         <a href="#informacion" data-i18n="nav-informacion">Información</a>
         <a href="#rutinas" data-i18n="nav-rutinas">Rutinas</a>
+        <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
         <a href="catalogo.html" data-i18n="nav-catalogo">Catálogo completo</a>
       </nav>
       <div class="searchbox">
@@ -373,6 +414,7 @@
     <a href="#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
     <a href="#informacion" data-i18n="nav-informacion">Información</a>
     <a href="#rutinas" data-i18n="nav-rutinas">Rutinas</a>
+    <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
     <a href="catalogo.html" data-i18n="nav-catalogo">Catálogo completo</a>
   </nav>
   <div class="mnav-lang lang" role="group" aria-label="Idioma">
@@ -391,18 +433,19 @@
   <div class="hero-scrim" aria-hidden="true"></div>
   <div class="hero-t">
     <div class="inner">
-      <span class="hero-badge"><svg width="14" height="14"><use href="#i-leaf"/></svg><span data-i18n="hero-badge">Cosmética natural · Rostro y cuerpo</span></span>
-      <p class="kicker" style="margin-bottom:.8rem" data-i18n="hero-kicker">Olivar propio desde 1890 · Coquimbito, Maipú</p>
-      <h1 class="d1" data-i18n="hero-h1">Los <span class="accent-word">polifenoles<svg class="accent-circle" viewBox="0 0 300 110" aria-hidden="true" focusable="false"><path d="M14,58 C9,20 62,5 152,7 C250,9 296,28 291,54 C286,84 216,99 145,97 C66,95 11,90 14,58 Z" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg></span> del olivo, sobre tu piel.</h1>
-      <p class="lead" style="margin-top:1rem" data-i18n="hero-lead">Trece productos formulados con el aceite de nuestra finca. El mismo que va a la mesa, por el otro camino.</p>
+      <div class="hero-logo">
+        <img src="img/logo.png" alt="" width="56" height="66">
+        <span class="hero-logo-t">Verde Oliva<em>Olivoterapia</em></span>
+      </div>
+      <h1 class="d1 hero-sub" data-i18n="hero-h1">Los polifenoles del olivo, sobre tu piel.</h1>
       <div class="hero-cta">
         <a class="btn" href="#productos" data-i18n="hero-cta-ver">Ver los 13 productos</a>
         <a class="btn btn-ghost" href="#rutinas" data-i18n="hero-cta-armar">Armar mi rutina</a>
       </div>
-      <div class="hero-mini">
-        <span data-i18n="hero-mini-1"><svg width="15" height="15"><use href="#i-check"/></svg>Envío gratis desde $60.000</span>
-        <span data-i18n="hero-mini-2"><svg width="15" height="15"><use href="#i-flask"/></svg>Formulado por Julia, en Maipú</span>
-        <span data-i18n="hero-mini-3"><svg width="15" height="15"><use href="#i-trees"/></svg>Una cosecha por año</span>
+      <div class="claims">
+        <span data-i18n="claim-gluten"><svg width="16" height="16"><use href="#i-wheat-off"/></svg>Libre de gluten</span>
+        <span data-i18n="claim-paraben"><svg width="16" height="16"><use href="#i-flask-off"/></svg>Libre de parabenos</span>
+        <span data-i18n="claim-cruelty"><svg width="16" height="16"><use href="#i-rabbit"/></svg>Cruelty free</span>
       </div>
     </div>
   </div>
@@ -417,18 +460,6 @@
   <a class="chip" href="#informacion" data-i18n="chip-informacion"><svg width="14" height="14"><use href="#i-book"/></svg>Información</a>
   <a class="chip" href="#rutinas" data-i18n="chip-rutinas"><svg width="14" height="14"><use href="#i-clock"/></svg>Armá tu rutina</a>
 </div></div></div>
-
-<!-- ══ 1.5 · OLIVOTERAPIA — qué es y qué vas a encontrar ══ -->
-<section class="oliv" id="olivoterapia" aria-labelledby="oliv-t">
-  <div class="wrap">
-    <div class="oliv-h">
-      <div class="rule-oro"></div>
-      <p class="kicker" data-i18n="oliv-kicker">Qué es esto</p>
-      <h2 class="d3" id="oliv-t" data-i18n="oliv-h2">La olivoterapia, y lo que vas a encontrar acá</h2>
-      <p class="lead" data-i18n="oliv-lead">Cuidar la piel y el cuerpo con aceite de oliva y sus componentes. En Verde Oliva empezó como práctica —masajes y tratamientos sobre la camilla, en Maipú— y la línea de productos vino después, para que ese ritual siga en tu casa.</p>
-    </div>
-  </div>
-</section>
 
 <!-- ══ 2 · POLIFENOLES — la respuesta corta ══ -->
 <section class="poli" id="polifenoles" aria-labelledby="poli-t">
@@ -666,18 +697,19 @@
 <section class="sect" id="informacion">
   <div class="wrap">
     <div class="layers">
-      <div class="ph" aria-hidden="true"><svg class="ph-m"><use href="#m-harvest"/></svg></div>
+      <div class="ph"><img src="img/informacion-productos.jpg" alt="Máscara de barro, crema humectante facial y emulsión de limpieza Verde Oliva, sostenidas en la mano" loading="lazy"></div>
       <div>
         <div class="rule-oro"></div>
-        <p class="kicker" data-i18n="info-kicker">Información</p>
-        <h2 class="d3" data-i18n="info-h2">Qué hay adentro de un aceite de oliva.</h2>
-        <p class="lead" style="margin-top:1rem" data-i18n="info-lead">Básicamente tres cosas. Las tres importan, y la tercera es la que ordena todo nuestro trabajo.</p>
-        <div class="comp">
-          <div><h3 data-i18n="comp-1-h3">Ácido oleico</h3><p data-i18n="comp-1-p">Le da al aceite su textura y su deslizamiento, y buena parte de su efecto emoliente: ablanda la piel y ayuda a que se sienta más flexible.</p></div>
-          <div><h3 data-i18n="comp-2-h3">Escualeno</h3><p data-i18n="comp-2-p">Un componente que tu piel ya fabrica: forma parte de su sebo natural. Por eso el aceite de oliva se siente tan afín — no le estás poniendo algo ajeno.</p></div>
-          <div><h3 data-i18n="comp-3-h3">Polifenoles</h3><p data-i18n="comp-3-p">Los antioxidantes. Su cantidad depende de la variedad, del cuidado de la cosecha y sobre todo de cuánto tiempo pasa entre cosechar y prensar. Por eso el nuestro es Arauco monovarietal y se prensa el mismo día.</p></div>
-        </div>
+        <p class="kicker" data-i18n="info-kicker">Qué es esto, y de qué está hecho</p>
+        <h2 class="d3" data-i18n="info-h2">La olivoterapia, y qué hay adentro de un aceite de oliva</h2>
+        <p class="lead" style="margin-top:1rem" data-i18n="info-lead">Cuidar la piel y el cuerpo usando el aceite de oliva y sus componentes. Básicamente son cuatro cosas, y la última es la que ordena todo nuestro trabajo.</p>
       </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card"><span class="info-num">01</span><span class="info-ic"><svg width="20" height="20"><use href="#i-droplet"/></svg></span><h3 data-i18n="comp-1-h3">Ácido oleico</h3><p data-i18n="comp-1-p">Le da al aceite su textura y su deslizamiento, y buena parte de su efecto emoliente: ablanda la piel y ayuda a que se sienta más flexible.</p></div>
+      <div class="info-card"><span class="info-num">02</span><span class="info-ic"><svg width="20" height="20"><use href="#i-shield"/></svg></span><h3 data-i18n="comp-2-h3">Escualeno</h3><p data-i18n="comp-2-p">Un componente que tu piel ya fabrica: forma parte de su sebo natural. Por eso el aceite de oliva se siente tan afín — no le estás poniendo algo ajeno.</p></div>
+      <div class="info-card"><span class="info-num">03</span><span class="info-ic"><svg width="20" height="20"><use href="#i-leaf"/></svg></span><h3 data-i18n="comp-3-h3">Polifenoles</h3><p data-i18n="comp-3-p">Los antioxidantes. Su cantidad depende de la variedad, del cuidado de la cosecha y sobre todo de cuánto tiempo pasa entre cosechar y prensar.</p></div>
+      <div class="info-card featured"><span class="info-num">04</span><span class="info-ic"><svg width="20" height="20"><use href="#i-trees"/></svg></span><h3 data-i18n="comp-4-h3">Arauco, la variedad</h3><p data-i18n="comp-4-p">La variedad tradicional argentina: intensa, expresiva y poco habitual fuera de producciones cuidadas, porque rinde menos y exige más. El nuestro es monovarietal —no se corta con nada—, se cosecha una vez al año y se prensa el mismo día.</p></div>
     </div>
   </div>
 </section>
@@ -685,23 +717,24 @@
 <section class="sect sand" style="padding-top:0;background:var(--crema)">
   <div class="wrap">
     <div style="max-width:62ch">
-      <h2 class="d3" data-i18n="cocina-h2">Si el aceite de oliva es tan bueno, ¿por qué no me pongo el de la cocina?</h2>
-      <p class="lead" style="margin-top:1rem" data-i18n="cocina-p1">Podés. Mucha gente lo hace y le va bien.</p>
-      <p class="lead" data-i18n="cocina-p2">Pero el aceite de oliva puro sobre la piel tiene un límite real: aplicado solo, de forma constante y sobre pieles sensibles, no siempre ayuda a la barrera cutánea —esa capa fina que retiene la humedad y te protege de afuera—. En algunos casos puede alterarla. No es grave, pero es real, y preferimos decirlo.</p>
-      <p class="lead" data-i18n="cocina-p3">Formular resuelve eso. Cuando el aceite se emulsiona con agua, se estabiliza y se dosifica junto con otros componentes, obtenés lo que buscás —el escualeno, los polifenoles, la textura— sin los inconvenientes de aplicar aceite puro todos los días. Por eso nuestros productos son cremas, emulsiones y lociones, y no aceite de cocina en otro frasco.</p>
-      <p class="lead" data-i18n="cocina-p4">Y por eso vendemos también el aceite comestible: porque es el mismo, y porque en la mesa da lo mejor de sí sin ninguna de estas objeciones.</p>
+      <div class="cocina-h">
+        <span class="info-ic"><svg width="24" height="24"><use href="#i-flask"/></svg></span>
+        <h2 class="d3" data-i18n="cocina-h2">Si el aceite de oliva es tan bueno, ¿por qué no me pongo el de la cocina?</h2>
+      </div>
+      <p class="lead" style="margin-top:1rem" data-i18n="cocina-p1">Podés — mucha gente lo hace. Pero el aceite puro, solo y a diario sobre piel sensible, no siempre ayuda a la barrera cutánea: la capa que retiene la humedad y te protege. No es grave, pero es real.</p>
+      <p class="lead" data-i18n="cocina-p2">Formular resuelve eso: emulsionado y dosificado, da el escualeno y los polifenoles sin ese problema. Por eso nuestros productos son cremas y emulsiones, no aceite de cocina en otro frasco. Y por eso vendemos también el aceite comestible: es el mismo, servido en la mesa.</p>
     </div>
 
     <div class="edu" style="margin-top:clamp(34px,4vw,56px)">
-      <a href="producto.html"><h3 data-i18n="edu-1-h3">Piel húmeda, siempre</h3><p data-i18n="edu-1-p">El aceite no aporta agua: retiene la que ya está. Sobre piel seca es aceite arriba de piel seca. Es gratis y cambia el resultado más que cualquier producto.</p><span class="rd" data-i18n="edu-1-rd">3 min de lectura</span></a>
-      <a href="catalogo.html#exfoliar"><h3 data-i18n="edu-2-h3">Exfoliante fino o grueso</h3><p data-i18n="edu-2-p">El fino es para rostro, cuello y escote. El grueso, para codos, rodillas y talones. Y el trabajo lo hace el grano, no la presión.</p><span class="rd" data-i18n="edu-2-rd">2 min de lectura</span></a>
-      <a href="producto.html"><h3 data-i18n="edu-3-h3">Qué esperar y qué no</h3><p data-i18n="edu-3-p">Lo que se nota enseguida es el confort. La piel se renueva en semanas, no en horas: lo demás pide constancia, no cambiar de producto.</p><span class="rd" data-i18n="edu-3-rd">4 min de lectura</span></a>
+      <a href="producto.html"><span class="info-ic"><svg width="20" height="20"><use href="#i-droplet"/></svg></span><h3 data-i18n="edu-1-h3">Piel húmeda, siempre</h3><p data-i18n="edu-1-p">El aceite no aporta agua: retiene la que ya está. Sobre piel seca es aceite arriba de piel seca. Es gratis y cambia el resultado más que cualquier producto.</p><span class="rd" data-i18n="edu-1-rd">3 min de lectura</span></a>
+      <a href="catalogo.html#exfoliar"><span class="info-ic"><svg width="20" height="20"><use href="#i-brush"/></svg></span><h3 data-i18n="edu-2-h3">Exfoliante fino o grueso</h3><p data-i18n="edu-2-p">El fino es para rostro, cuello y escote. El grueso, para codos, rodillas y talones. Y el trabajo lo hace el grano, no la presión.</p><span class="rd" data-i18n="edu-2-rd">2 min de lectura</span></a>
+      <a href="producto.html"><span class="info-ic"><svg width="20" height="20"><use href="#i-check"/></svg></span><h3 data-i18n="edu-3-h3">Qué esperar y qué no</h3><p data-i18n="edu-3-p">Lo que se nota enseguida es el confort. La piel se renueva en semanas, no en horas: lo demás pide constancia, no cambiar de producto.</p><span class="rd" data-i18n="edu-3-rd">4 min de lectura</span></a>
     </div>
 
     <div class="skin acc">
       <p class="sub" style="margin-top:clamp(30px,3.4vw,44px)" data-i18n="skin-guia-sub">Guía por tipo de piel</p>
       <details>
-        <summary data-i18n="skin-1-sum">Piel seca</summary>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-droplet"/></svg></span><span data-i18n="skin-1-sum">Piel seca</span></span></summary>
         <div class="skin-b">
           <p data-i18n="skin-1-p1">Le falta grasa. Se siente áspera, tirante, a veces se descama.</p>
           <p data-i18n="skin-1-p2"><b>Ritual:</b> emulsión de limpieza → neblina → crema humectante facial. Para el cuerpo, exfoliante grueso una vez por semana y emulsión corporal sobre piel húmeda, siempre.</p>
@@ -709,7 +742,7 @@
         </div>
       </details>
       <details>
-        <summary data-i18n="skin-2-sum">Piel grasa o mixta</summary>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-sun"/></svg></span><span data-i18n="skin-2-sum">Piel grasa o mixta</span></span></summary>
         <div class="skin-b">
           <p data-i18n="skin-2-p1">Produce sebo de más. Brilla, sobre todo en la zona T.</p>
           <p data-i18n="skin-2-p2"><b>Ritual:</b> emulsión de limpieza → neblina → emulsión de ácido hialurónico. Máscara de barro una vez por semana.</p>
@@ -717,15 +750,15 @@
         </div>
       </details>
       <details>
-        <summary data-i18n="skin-3-sum">Piel sensible o reactiva</summary>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-shield"/></svg></span><span data-i18n="skin-3-sum">Piel sensible o reactiva</span></span></summary>
         <div class="skin-b">
           <p data-i18n="skin-3-p1">Se enrojece, pica, reacciona rápido.</p>
           <p data-i18n="skin-3-p2"><b>Ritual:</b> el mínimo posible. Emulsión de limpieza → crema humectante facial. Nada más, hasta que se estabilice.</p>
-          <p data-i18n="skin-3-p3"><b>Siempre:</b> probá primero en una zona pequeña —el antebrazo— y esperá un día. Y si hay una condición diagnosticada, consultá con tu dermatólogo antes.</p>
+          <p data-i18n="skin-3-p3"><b>Siempre:</b> probá primero en el antebrazo y esperá un día; con una condición diagnosticada, consultá a tu dermatólogo antes.</p>
         </div>
       </details>
       <details>
-        <summary data-i18n="skin-4-sum">Piel deshidratada</summary>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-wind"/></svg></span><span data-i18n="skin-4-sum">Piel deshidratada</span></span></summary>
         <div class="skin-b">
           <p data-i18n="skin-4-p1">No es lo mismo que seca: le falta agua, no grasa. Le puede pasar incluso a una piel grasa.</p>
           <p data-i18n="skin-4-p2"><b>Cómo la reconocés:</b> se ve opaca, las líneas finas se marcan más, y por más crema que te pongas nunca alcanza.</p>
@@ -733,24 +766,14 @@
         </div>
       </details>
       <details>
-        <summary data-i18n="skin-5-sum">Piel madura</summary>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-leaf"/></svg></span><span data-i18n="skin-5-sum">Piel madura</span></span></summary>
         <div class="skin-b">
           <p data-i18n="skin-5-p1">Menos sebo, menos firmeza, más sequedad.</p>
           <p data-i18n="skin-5-p2"><b>Ritual:</b> emulsión de limpieza → neblina → emulsión de ácido hialurónico → crema humectante facial. Exfoliante fino una vez por semana.</p>
-          <p data-i18n="skin-5-p3"><b>Con honestidad:</b> ningún cosmético revierte el paso del tiempo. Lo que sí hace una rutina sostenida con antioxidantes es acompañar a la piel, mantenerla hidratada y confortable, y protegerla del desgaste diario.</p>
+          <p data-i18n="skin-5-p3"><b>Con honestidad:</b> ningún cosmético revierte el tiempo — pero una rutina sostenida con antioxidantes mantiene la piel hidratada, confortable y protegida del desgaste diario.</p>
         </div>
       </details>
     </div>
-  </div>
-</section>
-
-<!-- ══ ORIGEN ══ -->
-<section class="sect" id="origen">
-  <div class="wrap" style="max-width:900px;text-align:center">
-    <p class="kicker" data-i18n="origen-kicker">De dónde sale todo esto</p>
-    <p style="font-family:var(--fs);font-size:clamp(1.6rem,3.2vw,2.5rem);line-height:1.22;margin:0 0 1.4rem" data-i18n="origen-italic">
-      Los olivos que Ángel Cavagnaro plantó en Coquimbito en 1890 siguen dando fruto. Una parte de ese aceite va a la mesa. La otra, a la piel.</p>
-    <p class="lead" style="margin:0 auto 1.8rem;text-align:center" data-i18n="origen-lead">Julia formula en laboratorio con el aceite del olivar. Fernanda Herrera da los tratamientos de olivoterapia. Lo que se usa en cabina es lo mismo que se vende acá. De un olivo de más de ciento treinta años sale poco: por eso hay tandas, con año, como el vino.</p>
   </div>
 </section>
 
@@ -764,16 +787,57 @@
       <p class="lead" style="margin-top:.9rem" data-i18n="rut-lead">Elegí lo que necesita tu piel y te armamos el orden de uso, con el porqué de cada paso. La marca no organiza el cuidado por producto, sino por momento.</p>
     </div>
 
-    <div class="needs" role="group" aria-label="Elegí qué necesitás">
-      <button class="need" type="button" data-need="limpiar" aria-pressed="false" data-i18n="need-limpiar"><svg class="ic" width="24" height="24"><use href="#i-droplet"/></svg>Limpiar<small>3 pasos</small></button>
-      <button class="need" type="button" data-need="hidratar" aria-pressed="true" data-i18n="need-hidratar"><svg class="ic" width="24" height="24"><use href="#i-leaf"/></svg>Hidratar<small>3 pasos</small></button>
-      <button class="need" type="button" data-need="exfoliar" aria-pressed="false" data-i18n="need-exfoliar"><svg class="ic" width="24" height="24"><use href="#i-brush"/></svg>Exfoliar<small>3 pasos</small></button>
-      <button class="need" type="button" data-need="capilar" aria-pressed="false" data-i18n="need-capilar"><svg class="ic" width="24" height="24"><use href="#i-wind"/></svg>Cuidar el pelo<small>3 pasos</small></button>
-      <button class="need" type="button" data-need="bano" aria-pressed="false" data-i18n="need-bano"><svg class="ic" width="24" height="24"><use href="#i-sun"/></svg>Darme un baño<small>3 pasos</small></button>
-      <button class="need" type="button" data-need="mesa" aria-pressed="false" data-i18n="need-mesa"><svg class="ic" width="24" height="24"><use href="#i-trees"/></svg>La mesa<small>1 paso</small></button>
+    <div class="rquiz" id="rquiz">
+      <div class="rq-progress" aria-hidden="true">
+        <span class="rq-dot rq-on" data-dot="1"></span><span class="rq-line"></span>
+        <span class="rq-dot" data-dot="2"></span><span class="rq-line"></span>
+        <span class="rq-dot" data-dot="3"></span>
+      </div>
+
+      <div class="rq-step rq-on" data-step="1">
+        <div class="rq-q">
+          <p class="kicker" data-i18n="rq-1-kicker">Pregunta 1 de 3</p>
+          <h3 class="d4" data-i18n="rq-1-h3">¿Qué querés resolver?</h3>
+        </div>
+        <div class="rq-opts" role="group" aria-label="Qué necesitás">
+          <button class="rq-opt" type="button" data-q="need" data-v="limpiar"><svg class="ic" width="22" height="22"><use href="#i-droplet"/></svg><span data-i18n="rq-need-limpiar">Limpiar</span></button>
+          <button class="rq-opt" type="button" data-q="need" data-v="hidratar"><svg class="ic" width="22" height="22"><use href="#i-leaf"/></svg><span data-i18n="rq-need-hidratar">Hidratar</span></button>
+          <button class="rq-opt" type="button" data-q="need" data-v="exfoliar"><svg class="ic" width="22" height="22"><use href="#i-brush"/></svg><span data-i18n="rq-need-exfoliar">Exfoliar</span></button>
+          <button class="rq-opt" type="button" data-q="need" data-v="capilar"><svg class="ic" width="22" height="22"><use href="#i-wind"/></svg><span data-i18n="rq-need-capilar">Cuidar el pelo</span></button>
+          <button class="rq-opt" type="button" data-q="need" data-v="bano"><svg class="ic" width="22" height="22"><use href="#i-sun"/></svg><span data-i18n="rq-need-bano">Darme un baño</span></button>
+          <button class="rq-opt" type="button" data-q="need" data-v="mesa"><svg class="ic" width="22" height="22"><use href="#i-trees"/></svg><span data-i18n="rq-need-mesa">La mesa</span></button>
+        </div>
+      </div>
+
+      <div class="rq-step" data-step="2">
+        <div class="rq-q">
+          <p class="kicker" data-i18n="rq-2-kicker">Pregunta 2 de 3</p>
+          <h3 class="d4" data-i18n="rq-2-h3">¿Qué tipo de piel tenés?</h3>
+        </div>
+        <div class="rq-opts" role="group" aria-label="Tipo de piel">
+          <button class="rq-opt" type="button" data-q="skin" data-v="seca"><svg class="ic" width="22" height="22"><use href="#i-droplet"/></svg><span data-i18n="rq-skin-seca">Seca</span></button>
+          <button class="rq-opt" type="button" data-q="skin" data-v="grasa"><svg class="ic" width="22" height="22"><use href="#i-sun"/></svg><span data-i18n="rq-skin-grasa">Grasa o mixta</span></button>
+          <button class="rq-opt" type="button" data-q="skin" data-v="sensible"><svg class="ic" width="22" height="22"><use href="#i-shield"/></svg><span data-i18n="rq-skin-sensible">Sensible o reactiva</span></button>
+          <button class="rq-opt" type="button" data-q="skin" data-v="deshidratada"><svg class="ic" width="22" height="22"><use href="#i-wind"/></svg><span data-i18n="rq-skin-deshidratada">Deshidratada</span></button>
+          <button class="rq-opt" type="button" data-q="skin" data-v="madura"><svg class="ic" width="22" height="22"><use href="#i-leaf"/></svg><span data-i18n="rq-skin-madura">Madura</span></button>
+        </div>
+        <button class="rq-back" type="button" data-back data-i18n="rq-back">← Volver</button>
+      </div>
+
+      <div class="rq-step" data-step="3">
+        <div class="rq-q">
+          <p class="kicker" data-i18n="rq-3-kicker">Pregunta 3 de 3</p>
+          <h3 class="d4" data-i18n="rq-3-h3">¿Cuánto tiempo le dedicás?</h3>
+        </div>
+        <div class="rq-opts rq-opts-2" role="group" aria-label="Tiempo disponible">
+          <button class="rq-opt" type="button" data-q="time" data-v="rapido"><svg class="ic" width="22" height="22"><use href="#i-clock"/></svg><span data-i18n="rq-time-rapido">Rápido — lo esencial</span></button>
+          <button class="rq-opt" type="button" data-q="time" data-v="completo"><svg class="ic" width="22" height="22"><use href="#i-clock"/></svg><span data-i18n="rq-time-completo">Completo — el ritual entero</span></button>
+        </div>
+        <button class="rq-back" type="button" data-back data-i18n="rq-back">← Volver</button>
+      </div>
     </div>
 
-    <div class="ritual-in">
+    <div class="ritual-in" id="rresult">
       <div class="rit-head">
         <div class="rule-oro"></div>
         <p class="kicker" id="rit-kick" data-i18n="rit-kick">Ritual sugerido</p>
@@ -784,7 +848,11 @@
           <span id="rit-when">Mañana y noche</span>
           <span id="rit-skin">Piel normal a seca</span>
         </div>
-        <div style="margin-top:1.6rem"><a class="link" href="#productos" data-i18n="rit-ver-todos">Ver todos los productos <svg class="ic" width="15" height="15"><use href="#i-arrow"/></svg></a></div>
+        <p class="rq-tip" id="rq-skin-tip"></p>
+        <div style="margin-top:1.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:1.4rem">
+          <a class="link" href="#productos" data-i18n="rit-ver-todos">Ver todos los productos <svg class="ic" width="15" height="15"><use href="#i-arrow"/></svg></a>
+          <button class="rq-restart" type="button" id="rq-restart"><svg width="14" height="14"><use href="#i-arrowl"/></svg><span data-i18n="rq-restart">Rehacer el quiz</span></button>
+        </div>
       </div>
       <div>
         <ol class="steps" id="steps" aria-live="polite"></ol>
@@ -886,7 +954,7 @@
         <li><a href="#gourmet" data-i18n="ft-gourmet">Gourmet</a></li><li><a href="catalogo.html" data-i18n="ft-catalogo-completo">Catálogo completo</a></li></ul></div>
       <div><h4 data-i18n="ft-aprender-h">Aprender</h4><ul>
         <li><a href="#polifenoles" data-i18n="ft-polifenoles-link">Qué son los polifenoles</a></li><li><a href="#informacion" data-i18n="ft-informacion-link">Qué hay adentro del aceite</a></li>
-        <li><a href="#rutinas" data-i18n="ft-rutinas-link">Armá tu rutina</a></li><li><a href="#origen" data-i18n="ft-origen-link">El olivar de 1890</a></li></ul></div>
+        <li><a href="#rutinas" data-i18n="ft-rutinas-link">Armá tu rutina</a></li><li><a href="finca.html" data-i18n="ft-finca-link">Nuestra finca</a></li></ul></div>
       <div><h4 data-i18n="ft-contacto-h">Contacto</h4><ul>
         <li><a href="#c" data-i18n="ft-c1">Coquimbito, Maipú</a></li><li><a href="#c" data-i18n="ft-c2">Mendoza, Argentina</a></li>
         <li><a href="#c" data-i18n="ft-c3">Envíos a todo el país</a></li><li><a href="#c">hola@verdeoliva.com.ar</a></li></ul></div>
@@ -969,6 +1037,28 @@
 
   var steps=document.getElementById('steps');
   var currentNeed='hidratar';
+  var currentSteps=[];
+  var answers={need:null,skin:null,time:null};
+
+  var SKIN_LABEL={seca:'Piel seca',grasa:'Piel grasa o mixta',sensible:'Piel sensible o reactiva',deshidratada:'Piel deshidratada',madura:'Piel madura'};
+  var SKIN_LABEL_EN={seca:'Dry skin',grasa:'Oily or combination skin',sensible:'Sensitive or reactive skin',deshidratada:'Dehydrated skin',madura:'Mature skin'};
+  var SKIN_TIP={
+    seca:'Sumale exfoliante grueso una vez por semana, y usá la emulsión corporal siempre sobre piel húmeda.',
+    grasa:'No la reseques para controlarla — cuanto más reseca, más sebo produce. Máscara de barro una vez por semana ayuda.',
+    sensible:'Empezá con lo mínimo, y probá primero en el antebrazo esperando un día antes de sumar algo nuevo.',
+    deshidratada:'Es agua, no grasa, lo que le falta — la neblina antes de la crema es el paso clave.',
+    madura:'Ningún cosmético revierte el tiempo, pero sostenido, este ritual acompaña a la piel frente al desgaste diario.'
+  };
+  var SKIN_TIP_EN={
+    seca:'Add coarse exfoliant once a week, and always use the body emulsion on damp skin.',
+    grasa:'Don’t dry it out to control it — the drier it gets, the more sebum it produces. A clay mask once a week helps.',
+    sensible:'Start with the bare minimum, and test on your forearm first, waiting a day before adding anything new.',
+    deshidratada:'It’s water, not oil, that’s missing — the mist before the cream is the key step.',
+    madura:'No cosmetic reverses time, but kept up, this ritual supports skin against everyday wear.'
+  };
+  function formatPrice(n){ return '$'+n.toLocaleString('es-AR'); }
+  function parsePrice(s){ return parseInt(String(s).replace(/[^0-9]/g,''),10)||0; }
+
   function render(k){
     k = k||currentNeed;
     var r=R[k]; if(!r) return;
@@ -980,9 +1070,13 @@
     document.getElementById('rit-time').textContent=tr.time;
     document.getElementById('rit-when').textContent=tr.when;
     document.getElementById('rit-skin').textContent=tr.skin;
-    document.getElementById('rit-total').textContent=r.total;
+
+    var full=r.s;
+    var showN=(answers.time==='rapido' && full.length>1)?full.length-1:full.length;
+    currentSteps=full.slice(0,showN);
+
     var h='';
-    r.s.forEach(function(s,i){
+    currentSteps.forEach(function(s,i){
       var trs = (isEn && r.en) ? r.en.s[i] : null;
       var name = trs ? trs[0] : s[0];
       var desc = trs ? trs[1] : s[3];
@@ -994,19 +1088,58 @@
     });
     steps.innerHTML=h;
     steps.classList.remove('fade'); void steps.offsetWidth; steps.classList.add('fade');
+
+    var total=0;
+    currentSteps.forEach(function(s){ total+=parsePrice(s[2]); });
+    document.getElementById('rit-total').textContent=formatPrice(total);
+
+    var tipEl=document.getElementById('rq-skin-tip');
+    if(answers.skin){
+      var tips=isEn?SKIN_TIP_EN:SKIN_TIP, labels=isEn?SKIN_LABEL_EN:SKIN_LABEL;
+      tipEl.innerHTML='<b>'+labels[answers.skin]+':</b> '+tips[answers.skin];
+      tipEl.style.display='';
+    } else {
+      tipEl.style.display='none';
+    }
   }
-  document.querySelectorAll('[data-need]').forEach(function(b){
+
+  /* ── quiz: 3 preguntas, avanza sola, arma el ritual al final ── */
+  var rqStep=1;
+  function rqShow(n){
+    rqStep=n;
+    document.querySelectorAll('.rq-step').forEach(function(s){ s.classList.toggle('rq-on', +s.dataset.step===n); });
+    document.querySelectorAll('.rq-dot').forEach(function(d,i){
+      var idx=i+1;
+      d.classList.toggle('rq-on', idx===n);
+      d.classList.toggle('rq-done', idx<n);
+    });
+  }
+  document.querySelectorAll('.rq-opt').forEach(function(b){
     b.addEventListener('click',function(){
-      document.querySelectorAll('[data-need]').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
-      render(b.dataset.need);
+      answers[b.dataset.q]=b.dataset.v;
+      if(rqStep<3){ rqShow(rqStep+1); }
+      else {
+        render(answers.need);
+        document.getElementById('rquiz').classList.add('rq-done');
+        document.getElementById('rresult').classList.add('rq-on');
+        document.getElementById('rresult').scrollIntoView({behavior:'smooth',block:'start'});
+      }
     });
   });
-  render('hidratar');
-  document.addEventListener('vo:lang-changed', function(){ render(currentNeed); });
+  document.querySelectorAll('[data-back]').forEach(function(b){
+    b.addEventListener('click',function(){ if(rqStep>1) rqShow(rqStep-1); });
+  });
+  document.getElementById('rq-restart').addEventListener('click',function(){
+    answers={need:null,skin:null,time:null};
+    document.getElementById('rresult').classList.remove('rq-on');
+    document.getElementById('rquiz').classList.remove('rq-done');
+    rqShow(1);
+    document.getElementById('rquiz').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  document.addEventListener('vo:lang-changed', function(){ if(answers.need) render(currentNeed); });
 
   document.getElementById('addall').addEventListener('click',function(){
-    var r=R[currentNeed];
-    r.s.forEach(function(s){
+    currentSteps.forEach(function(s){
       window.VOCart.add(s[5], s[0], parseInt(s[2].replace(/[^0-9]/g,''),10)||0, 1);
     });
     var t=this.textContent; this.textContent='Agregado ✓'; this.disabled=true;

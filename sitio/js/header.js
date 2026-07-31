@@ -6,12 +6,37 @@
   var hdr = document.querySelector('.hdr');
   var strip = document.querySelector('.strip');
   var chipsEl = document.querySelector('.chips');
+  var lastY = window.scrollY;
 
   function markHeader(){
-    if(hdr) hdr.classList.toggle('scrolled', window.scrollY>40);
+    if(!hdr) return;
+    var y = window.scrollY;
+    hdr.classList.toggle('scrolled', y>40);
+
+    /* la barra de navegación (.hdr) acompaña siempre al usuario — nunca se
+       oculta. Solo la franja de envío (.strip, fija arriba de todo en el
+       home) se retrae al bajar. El header y los chips leen su posición de
+       --stripH, así que bajarla a 0 es lo que hace que el header suba a
+       ocupar ese lugar SIN dejar hueco entre el header y los chips (si solo
+       se transforma .strip visualmente, --stripH queda con el valor viejo y
+       los chips, que la usan para su propio `top`, quedan flotando de más).
+       Umbral de 4px para no titilar con el rebote/inercia del scroll. */
+    if(!strip) { lastY = y; return; }
+    var naturalH = strip.offsetHeight || stripNaturalH;
+    if(y > lastY + 4 && y > naturalH){
+      strip.classList.add('hidden');
+      document.documentElement.style.setProperty('--stripH', '0px');
+    } else if(y < lastY - 4 || y <= naturalH){
+      strip.classList.remove('hidden');
+      document.documentElement.style.setProperty('--stripH', naturalH+'px');
+    }
+    lastY = y;
   }
+  var stripNaturalH = 0;
   function syncStripHeight(){
-    if(strip) document.documentElement.style.setProperty('--stripH', strip.offsetHeight+'px');
+    if(!strip) return;
+    if(!strip.classList.contains('hidden')) stripNaturalH = strip.offsetHeight;
+    document.documentElement.style.setProperty('--stripH', (strip.classList.contains('hidden') ? 0 : stripNaturalH)+'px');
   }
   function markChipsStuck(){
     if(!chipsEl || !hdr) return;

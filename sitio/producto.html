@@ -27,7 +27,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 .crumbs{padding:.9rem 0;font-size:.82rem;color:var(--tinta);border-bottom:1px solid var(--linea)}
@@ -55,6 +55,9 @@
 .ship{border-top:1px solid var(--linea);padding-top:1.1rem;display:grid;gap:.55rem;font-size:.87rem;color:var(--tinta)}
 .ship div{display:flex;gap:.55rem;align-items:flex-start}
 .ship svg{color:var(--hoja-t);margin-top:3px}
+.claims{display:flex;flex-wrap:wrap;gap:.9rem 1rem;margin:0 0 1.1rem;font-size:.78rem;color:var(--tinta)}
+.claims span{display:flex;align-items:center;gap:.4rem}
+.claims svg{color:var(--hoja-t)}
 .edu{background:var(--crema2);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);
  padding:clamp(44px,6vw,84px) 0}
 .edu-h{max-width:60ch;margin-bottom:clamp(26px,3.4vw,44px)}
@@ -118,6 +121,9 @@
 <symbol id="m-branch" viewBox="0 0 120 160"><path d="M60 158C57 112 62 70 80 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><g fill="currentColor"><ellipse cx="41" cy="120" rx="17" ry="7" transform="rotate(-25 41 120)"/><ellipse cx="80" cy="106" rx="17" ry="7" transform="rotate(20 80 106)"/><ellipse cx="46" cy="88" rx="15" ry="6.4" transform="rotate(-28 46 88)"/><ellipse cx="85" cy="72" rx="15" ry="6.4" transform="rotate(18 85 72)"/><ellipse cx="55" cy="56" rx="13" ry="5.8" transform="rotate(-32 55 56)"/><ellipse cx="93" cy="42" rx="13" ry="5.8" transform="rotate(14 93 42)"/><circle cx="66" cy="97" r="6.5"/><circle cx="71" cy="64" r="5.5"/></g></symbol>
 <symbol id="m-bottle" viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M52 44h16v14c0 5 16 12 16 26v42a10 10 0 0 1-10 10H46a10 10 0 0 1-10-10V84c0-14 16-21 16-26z"/><rect x="50" y="26" width="20" height="16" rx="3"/><path d="M36 96h48"/></symbol>
 <symbol id="m-drop" viewBox="0 0 120 160" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M60 132c16 0 29-13 29-29 0-14-8-22-16-31s-11-16-13-24c-2 8-6 15-13 24s-16 17-16 31c0 16 13 29 29 29z"/><path d="M46 104c0 8 6 14 14 14"/></symbol>
+<symbol id="i-wheat-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22 16 8"/><path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="M20 2 8.15 13.85"/><path d="M9 22 21 10"/><path d="M15.47 13.53 17 12l1.53 1.53a3.5 3.5 0 0 1 0 4.94L17 20l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-flask-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v6.5L4.6 18a2 2 0 0 0 1.7 3h6.4"/><path d="M13.56 13.5H19a2 2 0 0 1 1.7 3l-1.36 2.27"/><path d="M8.5 2h7"/><path d="M7 15a6.47 6.47 0 0 1 5-2"/><path d="M14 9.5V4"/><path d="m2 2 20 20"/></symbol>
+<symbol id="i-rabbit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 16a3 3 0 0 1 2.24 5 7 7 0 0 0-1.4-9.58C16.5 9.83 17.94 5.5 15.5 2c-1.5 2-3.7 3.28-5.62 4.5C8.24 7.55 7 9.24 7 11.5c0 .3.03.59.09.87A5 5 0 0 0 6 16.9c0 .5.1 1 .27 1.5A3 3 0 0 0 9 22h4a3 3 0 0 0 3-3"/><path d="M12.5 17.5 15 22"/><circle cx="16" cy="7.5" r=".5" fill="currentColor"/></symbol>
 </defs></svg>
 
 <div class="strip"><div class="wrap"><div class="strip-in">
@@ -128,12 +134,12 @@
 <header class="hdr">
   <div class="wrap">
     <div class="hdr-in">
-      <a class="logo" href="index.html"><img class="logo-ic" src="img/logo.png" alt="" width="22" height="26"><span class="logo-m">Verde Oliva</span><span class="logo-s">Olivoterapia</span></a>
       <nav class="hdr-nav" aria-label="Principal">
+        <a href="index.html" data-i18n="crumb-inicio">Inicio</a>
         <a href="catalogo.html" data-i18n="nav-catalogo-2">Catálogo</a>
         <a href="index.html#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
         <a href="index.html#rutinas" data-i18n="nav-rutinas">Rutinas</a>
-        <a href="index.html#origen" data-i18n="nav-olivar">El olivar</a>
+        <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
       </nav>
       <div class="searchbox">
         <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
@@ -168,10 +174,11 @@
     <input id="q-mobile" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
   </div>
   <nav class="mnav-links" aria-label="Principal mobile">
+    <a href="index.html" data-i18n="crumb-inicio">Inicio</a>
     <a href="catalogo.html" data-i18n="nav-catalogo-2">Catálogo</a>
     <a href="index.html#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
     <a href="index.html#rutinas" data-i18n="nav-rutinas">Rutinas</a>
-    <a href="index.html#origen" data-i18n="nav-olivar">El olivar</a>
+    <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
   </nav>
   <div class="mnav-lang lang" role="group" aria-label="Idioma">
     <button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button>
@@ -204,6 +211,11 @@
     <p class="lead" style="margin-bottom:1.2rem" data-i18n="p-lead">Liviana y de absorción rápida. Es la alternativa al aceite corporal para el día a día: la misma base de aceite de oliva del olivar propio, emulsionada para entrar en segundos y no ensuciar la ropa.</p>
     <p class="price">$19.000</p>
     <p class="stock"><svg width="15" height="15"><use href="#i-check"/></svg> <span data-i18n="p-stock">En stock · Preparado en Maipú, Mendoza</span></p>
+    <div class="claims">
+      <span data-i18n="claim-gluten"><svg width="15" height="15"><use href="#i-wheat-off"/></svg>Libre de gluten</span>
+      <span data-i18n="claim-paraben"><svg width="15" height="15"><use href="#i-flask-off"/></svg>Libre de parabenos</span>
+      <span data-i18n="claim-cruelty"><svg width="15" height="15"><use href="#i-rabbit"/></svg>Cruelty free</span>
+    </div>
 
     <div class="buy">
       <div class="qty" role="group" aria-label="Cantidad">
@@ -236,8 +248,7 @@
     <div class="qa">
       <div class="q">
         <h3><svg width="20" height="20"><use href="#i-droplet"/></svg><span data-i18n="q1-h3">Para qué es</span></h3>
-        <p data-i18n="q1-p1">Para <b>hidratar el cuerpo entero, todos los días</b>, sin la sensación pesada del aceite puro. Combina agua y aceite de oliva del olivar propio: hidrata la piel y repone la grasa que el jabón se lleva, en una textura que se absorbe en segundos.</p>
-        <p data-i18n="q1-p2">Es el producto indicado para el uso diario, cuando no hay tres minutos para esperar que un aceite se asiente.</p>
+        <p data-i18n="q1-p1">Para <b>hidratar el cuerpo entero, todos los días</b>, sin la sensación pesada del aceite puro: combina agua y aceite de oliva del olivar, repone la grasa que el jabón se lleva, y se absorbe en segundos — ideal cuando no hay tres minutos para esperar que un aceite se asiente.</p>
       </div>
 
       <div class="q">
@@ -252,8 +263,7 @@
 
       <div class="q">
         <h3><svg width="20" height="20"><use href="#i-clock"/></svg><span data-i18n="q3-h3">Cuándo usarlo</span></h3>
-        <p data-i18n="q3-p1"><b>Después de la ducha</b>, con la piel seca o apenas húmeda — a diferencia del aceite, no necesita agua para sellar. Sirve de mañana, antes de vestirte, y de noche.</p>
-        <p data-i18n="q3-p2">También funciona como base liviana antes del maquillaje, cuando el aceite dejaría la piel demasiado brillante.</p>
+        <p data-i18n="q3-p1"><b>Después de la ducha</b>, con la piel seca o apenas húmeda — no necesita agua para sellar, como el aceite. Sirve de mañana, de noche, o como base liviana antes del maquillaje.</p>
       </div>
 
       <div class="q">
@@ -329,7 +339,7 @@
     <p class="kicker" data-i18n="origen-kicker">De dónde sale</p>
     <p style="font-family:var(--fs);font-size:clamp(1.4rem,2.8vw,2rem);line-height:1.28;margin:0 0 1.2rem" data-i18n="origen-p">
       Los olivos que Ángel Cavagnaro plantó en Coquimbito en 1890 siguen dando fruto. Esta emulsión sale de esa misma prensada: una parte va a la mesa, la otra, a la piel.</p>
-    <a class="btn btn-ghost" href="index.html#origen"><span data-i18n="origen-btn">Conocer el olivar</span> <svg class="ic" width="15" height="15"><use href="#i-arrow"/></svg></a>
+    <a class="btn btn-ghost" href="finca.html"><span data-i18n="origen-btn">Conocer la finca</span> <svg class="ic" width="15" height="15"><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
@@ -340,15 +350,15 @@
       <details open><summary data-i18n="acc1-summary">Ingredientes (INCI)</summary>
         <div class="body" data-i18n="acc1-body">Emulsión de agua y aceite de oliva extra virgen del olivar de la finca, prensado en frío una vez al año, con aporte natural de polifenoles y vitamina E. Sin perfume sintético, sin siliconas, sin colorantes. Formulada y envasada por Julia en el laboratorio de Maipú, en lotes chicos.<br><br>El listado INCI completo, como exige la normativa, figura impreso en el envase de cada lote.</div></details>
       <details><summary data-i18n="acc2-summary">Por qué se absorbe rápido</summary>
-        <div class="body" data-i18n="acc2-body">Porque es una emulsión, no aceite puro: el agua entra primero y el aceite queda como una capa fina en la superficie, en vez de tener que integrarse entero como el aceite solo. Por eso rinde para el uso diario, cuando no hay tiempo de esperar a que un aceite se asiente.</div></details>
+        <div class="body" data-i18n="acc2-body">Porque es una emulsión, no aceite puro: el agua entra primero y el aceite queda como una capa fina en la superficie, en vez de integrarse entero. Por eso rinde para el uso diario.</div></details>
       <details><summary data-i18n="acc3-summary">Qué son los polifenoles</summary>
-        <div class="body" data-i18n="acc3-body">Son los compuestos con los que el olivo se defiende del sol de altura y del estrés del secano. Son los responsables del amargo que se siente en la garganta al probar un aceite recién prensado. Si un aceite no amarga ni pica un poco, probablemente le quede poco de lo que estamos buscando.</div></details>
+        <div class="body" data-i18n="acc3-body">Son los compuestos con los que el olivo se defiende del sol de altura y del estrés del secano — los responsables del amargor que se siente al probar un aceite recién prensado. Si no amarga ni pica un poco, probablemente le quede poco de lo que buscamos.</div></details>
       <details><summary data-i18n="acc4-summary">Seguridad</summary>
         <div class="body" data-i18n="acc4-body">Uso cosmético. Si tenés una condición en la piel o estás bajo tratamiento dermatológico, consultá con tu profesional antes de incorporarlo.<br><br>Antes de la primera vez, probá en una zona pequeña —el antebrazo— y esperá un día. Es una fórmula, no aceite de oliva crudo embotellado: emulsionado y estabilizado hace lo que se busca sin los inconvenientes del aceite solo sobre la piel. Es cosmética, no medicamento: no sustituye ningún diagnóstico ni tratamiento.</div></details>
       <details><summary data-i18n="acc5-summary">Conservación y vida útil</summary>
-        <div class="body" data-i18n="acc5-body">Guardalo lejos de la luz directa y del calor: la luz es el peor enemigo del aceite. Doce meses cerrado, seis meses una vez abierto. Si cambia el olor —de fruto a rancio— descartalo, aunque quede producto.</div></details>
+        <div class="body" data-i18n="acc5-body">Guardalo lejos de la luz y del calor: doce meses cerrado, seis una vez abierto. Si el olor cambia de fruto a rancio, descartalo aunque quede producto.</div></details>
       <details><summary data-i18n="acc6-summary">Envíos y cambios</summary>
-        <div class="body" data-i18n="acc6-body">Despachamos en 48 h hábiles desde Maipú, Mendoza, a todo el país. Envío sin cargo en compras desde $60.000. Se puede retirar por la finca en Coquimbito coordinando por correo. Cambios dentro de los 30 días con el producto cerrado.</div></details>
+        <div class="body" data-i18n="acc6-body">Despachamos en 48 h hábiles a todo el país, sin cargo desde $60.000. Retiro en la finca de Coquimbito coordinando por correo. Cambios dentro de los 30 días, producto cerrado.</div></details>
     </div>
   </div>
 </section>
@@ -380,7 +390,7 @@
         <li><a href="index.html#gourmet" data-i18n="ft-gourmet">Gourmet</a></li><li><a href="catalogo.html" data-i18n="ft-catalogo-completo">Catálogo completo</a></li></ul></div>
       <div><h4 data-i18n="ft-aprender-h">Aprender</h4><ul>
         <li><a href="index.html#polifenoles" data-i18n="ft-polifenoles-link">Qué son los polifenoles</a></li><li><a href="index.html#informacion" data-i18n="ft-informacion-link">Qué hay adentro del aceite</a></li>
-        <li><a href="index.html#rutinas" data-i18n="ft-rutinas-link">Armá tu rutina</a></li><li><a href="index.html#origen" data-i18n="ft-origen-link">El olivar de 1890</a></li></ul></div>
+        <li><a href="index.html#rutinas" data-i18n="ft-rutinas-link">Armá tu rutina</a></li><li><a href="finca.html" data-i18n="ft-finca-link">Nuestra finca</a></li></ul></div>
       <div><h4 data-i18n="ft-contacto-h">Contacto</h4><ul>
         <li><a href="#c" data-i18n="ft-c1">Coquimbito, Maipú</a></li><li><a href="#c" data-i18n="ft-c2">Mendoza, Argentina</a></li>
         <li><a href="#c" data-i18n="ft-c3">Envíos a todo el país</a></li><li><a href="#c">hola@verdeoliva.com.ar</a></li></ul></div>

@@ -4,40 +4,47 @@
 <meta charset="utf-8">
 <link rel="icon" type="image/png" href="img/logo.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex">
-<meta name="description" content="El pago no se completó — Verde Oliva Olivoterapia.">
-<title>No pudimos confirmar el pago — Verde Oliva Olivoterapia</title>
+<meta name="description" content="Nuestra finca: el olivar de 1890 en Coquimbito, Maipú, Mendoza, y la variedad Arauco de la que sale todo el aceite de Verde Oliva Olivoterapia.">
+<meta name="robots" content="index, follow">
+<title data-i18n="finca-title">Nuestra finca — Verde Oliva Olivoterapia</title>
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_AR">
 <meta property="og:site_name" content="Verde Oliva Olivoterapia">
-<meta property="og:title" content="No pudimos confirmar el pago — Verde Oliva Olivoterapia">
-<meta property="og:description" content="El pago no se completó — Verde Oliva Olivoterapia.">
-<meta property="og:image" content="img/logo.png">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="No pudimos confirmar el pago — Verde Oliva Olivoterapia">
-<meta name="twitter:description" content="El pago no se completó — Verde Oliva Olivoterapia.">
-<meta name="twitter:image" content="img/logo.png">
+<meta property="og:title" content="Nuestra finca — Verde Oliva Olivoterapia">
+<meta property="og:description" content="El olivar de 1890 en Coquimbito, Maipú, y la variedad Arauco de la que sale todo el aceite.">
+<meta property="og:image" content="img/hero-poster.jpg">
+<meta property="og:url" content="https://verdeoliva.com.ar/finca.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nuestra finca — Verde Oliva Olivoterapia">
+<meta name="twitter:description" content="El olivar de 1890 en Coquimbito, Maipú, y la variedad Arauco de la que sale todo el aceite.">
+<meta name="twitter:image" content="img/hero-poster.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
-.result{padding:clamp(72px,11vw,132px) 0}
-.result .wrap{max-width:1040px}
-.result-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(2.2rem,6vw,4.5rem);align-items:center}
-.result-state{font-family:var(--fs);font-weight:500;line-height:.96;letter-spacing:-.01em;
- font-size:clamp(3.4rem,6.4vw,5.6rem);color:var(--oliva);border-left:2px solid var(--oro);
- padding-left:clamp(1.1rem,2.2vw,1.9rem);margin:0}
-.result-body{max-width:46ch}
-.result .rule-oro{margin:0 0 1.4rem}
-.result h1{font-size:clamp(1.7rem,3.1vw,2.3rem);margin-bottom:1rem}
-.result .lead{margin:0 0 2.2rem}
-.result-actions{display:flex;flex-direction:column;align-items:flex-start;gap:1rem}
-@media (max-width:760px){
- .result-grid{grid-template-columns:1fr;gap:2rem}
- .result-state{border-left:0;border-top:2px solid var(--oro);padding-left:0;padding-top:1.2rem;
-  font-size:clamp(2.6rem,13vw,3.6rem)}
-}
+.crumbs{padding:.9rem 0;font-size:.82rem;color:var(--tinta);border-bottom:1px solid var(--linea)}
+.crumbs a{color:var(--tinta);text-decoration:none;cursor:pointer}
+.crumbs a:hover{color:var(--hoja-t)}
+.fbanner{position:relative;min-height:52vh;display:flex;align-items:center;overflow:hidden;background:var(--corteza)}
+.fbanner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fbanner::after{content:"";position:absolute;inset:0;
+ background:linear-gradient(180deg,rgba(20,18,15,.62) 0%,rgba(20,18,15,.42) 45%,rgba(20,18,15,.7) 100%)}
+.fbanner .wrap{position:relative;z-index:1;color:var(--crema);padding:clamp(48px,7vw,84px) 0}
+.fbanner .kicker{color:var(--arena)}
+.fbanner h1{font-size:clamp(2.2rem,5.4vw,4rem);text-shadow:0 2px 14px rgba(0,0,0,.4);max-width:16ch}
+.fstory{max-width:62ch}
+.fstory p+p{margin-top:1.1rem}
+.fquote{font-family:var(--fs);font-style:italic;font-size:clamp(1.3rem,2.4vw,1.75rem);line-height:1.4;
+ color:var(--corteza);margin:1.6rem 0 0;padding-left:1.1rem;border-left:2px solid var(--oro)}
+.dark .fquote{color:var(--crema)}
+.seasons{display:grid;gap:clamp(16px,2vw,24px);grid-template-columns:1fr;margin-top:clamp(26px,3vw,42px)}
+@media(min-width:700px){.seasons{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1020px){.seasons{grid-template-columns:repeat(4,1fr)}}
+.season{padding-top:1.1rem;border-top:1px solid rgba(247,244,236,.24)}
+.season h3{font-size:1.3rem;margin-bottom:.35rem}
+.season p{margin:0;font-size:.92rem;color:rgba(247,244,236,.78)}
+.fclose{max-width:56ch;text-align:center;margin:0 auto}
 </style>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
@@ -48,6 +55,7 @@
 <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
 <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
 <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
 <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17h4V5H2v12h3"/><path d="M20 17h2v-3.34a4 4 0 0 0-1.17-2.83L19 9h-5v8h2"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
 </defs></svg>
 
@@ -110,24 +118,87 @@
   </div>
 </div>
 
+<div class="crumbs"><div class="wrap">
+  <a href="index.html" data-i18n="crumb-inicio">Inicio</a> / <span data-i18n="finca-crumb">Nuestra finca</span>
+</div></div>
+
 <main id="main">
-<section class="result">
+
+<section class="fbanner">
+  <img src="img/hero-poster.jpg" alt="">
   <div class="wrap">
-    <div class="result-grid">
-      <p class="result-state">Probá de nuevo.</p>
-      <div class="result-body">
-        <div class="rule-oro"></div>
-        <p class="kicker" data-i18n="co-error-kicker">Pago no completado</p>
-        <h1 data-i18n="co-error-h1">No pudimos confirmar el pago</h1>
-        <p class="lead" data-i18n="co-error-lead">Podés intentarlo de nuevo o revisar el medio de pago. No se generó ningún cargo.</p>
-        <div class="result-actions">
-          <a class="btn" href="catalogo.html"><span data-i18n="co-error-btn">Intentar de nuevo</span></a>
-          <a class="link" href="#c"><span data-i18n="co-error-link">Escribinos si necesitás ayuda</span></a>
-        </div>
+    <p class="kicker" data-i18n="finca-kicker">De dónde sale todo esto</p>
+    <h1 data-i18n="finca-h1">Nuestra finca</h1>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="wrap">
+    <div class="rule-oro"></div>
+    <p class="kicker" data-i18n="finca-historia-kicker">1890</p>
+    <h2 class="d3" data-i18n="finca-historia-h2">Los olivos que Ángel Cavagnaro plantó en Coquimbito</h2>
+    <div class="fstory" style="margin-top:1.2rem">
+      <p class="lead" data-i18n="finca-historia-p1">En 1890, un inmigrante italiano llamado Ángel Cavagnaro plantó olivos en Coquimbito, Maipú, en el corazón de la tierra del vino y del olivo argentino. Ciento treinta y cinco años después, esos mismos árboles siguen dando fruto.</p>
+      <p class="lead" data-i18n="finca-historia-p2">De un olivo de esa edad sale poco aceite. Ese es el costo de los años, y también la razón de su carácter: cada cosecha es una tanda, con año, como el vino.</p>
+      <p class="fquote" data-i18n="finca-historia-quote">Nace en Verde Oliva, una casa de huéspedes entre olivares en Maipú, Mendoza.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sect sand">
+  <div class="wrap">
+    <div class="rule-oro"></div>
+    <p class="kicker" data-i18n="finca-casa-kicker">La casa</p>
+    <h2 class="d3" data-i18n="finca-casa-h2">Rodeada de olivar, con la cordillera al fondo</h2>
+    <p class="lead" style="margin-top:1rem" data-i18n="finca-casa-p">El ritmo lo marca la mesa: las mañanas empiezan despacio, el café llega cuando estás listo, la luz entra de a poco. Julia formula en el laboratorio con el aceite del olivar propio. Fernanda Herrera da los tratamientos de olivoterapia. Lo que se usa en cabina es lo mismo que se vende en el catálogo.</p>
+  </div>
+</section>
+
+<section class="sect">
+  <div class="wrap">
+    <div class="rule-oro"></div>
+    <p class="kicker" data-i18n="finca-arauco-kicker">La variedad</p>
+    <h2 class="d3" data-i18n="finca-arauco-h2">Arauco, la variedad tradicional argentina</h2>
+    <div class="fstory" style="margin-top:1.2rem">
+      <p class="lead" data-i18n="finca-arauco-p1">Intensa, expresiva y poco habitual fuera de producciones cuidadas, porque rinde menos y exige más que las variedades que se plantan para volumen. El Vallesi Arauco es monovarietal: no se corta con nada.</p>
+      <p class="lead" data-i18n="finca-arauco-p2">Se cosecha una vez al año y se prensa el mismo día, que es la diferencia entre un aceite fresco y un aceite correcto. La cantidad de polifenoles de un aceite depende de la variedad, del cuidado de la cosecha y, sobre todo, de cuánto tiempo pasa entre cosechar y prensar. Por eso importa que el nuestro sea Arauco monovarietal.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sect dark">
+  <div class="wrap">
+    <div class="rule-oro"></div>
+    <p class="kicker" data-i18n="finca-cal-kicker">El año en la finca</p>
+    <h2 class="d3" data-i18n="finca-cal-h2">Un calendario que marca la mesa, no el catálogo</h2>
+    <div class="seasons">
+      <div class="season">
+        <h3 data-i18n="finca-cal-1-h3">Otoño</h3>
+        <p data-i18n="finca-cal-1-p">Cosecha de aceitunas y prensado. El momento más fuerte del año.</p>
+      </div>
+      <div class="season">
+        <h3 data-i18n="finca-cal-2-h3">Invierno</h3>
+        <p data-i18n="finca-cal-2-p">Poda de olivares y viñas. El trabajo de cuidado que no se ve.</p>
+      </div>
+      <div class="season">
+        <h3 data-i18n="finca-cal-3-h3">Primavera</h3>
+        <p data-i18n="finca-cal-3-p">Floración. Lo que va a ser la próxima cosecha.</p>
+      </div>
+      <div class="season">
+        <h3 data-i18n="finca-cal-4-h3">Verano</h3>
+        <p data-i18n="finca-cal-4-p">Maduración, con luz alta. El fruto toma forma.</p>
       </div>
     </div>
   </div>
 </section>
+
+<section class="sect sand">
+  <div class="wrap fclose">
+    <p class="lead" data-i18n="finca-cierre-p">Esto es lo que hay detrás de cada frasco. El catálogo está acá.</p>
+    <a class="btn" style="margin-top:1.2rem" href="catalogo.html"><span data-i18n="finca-cierre-btn">Ver el catálogo</span> <svg class="ic" width="15" height="15"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
 </main>
 
 <footer class="ft">
@@ -158,7 +229,9 @@
 <script src="js/cart.js"></script>
 <script src="js/header.js"></script>
 <script src="js/i18n-common.js"></script>
+<script src="js/i18n-data-finca.js"></script>
 <script src="js/auth.js"></script>
+<script src="js/reveal.js"></script>
 <script src="js/i18n.js"></script>
 </body>
 </html>
