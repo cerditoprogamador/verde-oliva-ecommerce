@@ -1,0 +1,16 @@
+# Dependencias
+node_modules/
+
+# Material de investigación: scrapes y clones de sitios de terceros usados
+# como referencia de diseño. No forman parte de lo que se despliega y son
+# contenido con derechos de otros — se quedan en local.
+.firecrawl/
+clon-furtuna/
+
+# Estado local de la herramienta de diseño (impeccable). config.json sí se
+# versiona: lleva las excepciones acordadas del detector.
+.impeccable/hook.cache.json
+
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db

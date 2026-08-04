@@ -213,7 +213,3 @@ table.adm-table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:64
 
 /* ── login ── */
 .adm-login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem}
-.adm-login-card{width:100%;max-width:380px;background:#fff;border:1px solid var(--linea);border-radius:3px;
- padding:2.4rem clamp(1.6rem,4vw,2.4rem)}
-.adm-login-card .logo-m{font-family:var(--fs);font-size:1.7rem;display:block;margin-bottom:.2rem}
-.adm-login-card .kicker{margin-bottom:1.6rem}

@@ -78,16 +78,14 @@
       '.vo-auth-overlay{position:fixed;inset:0;background:rgba(28,25,23,.5);z-index:198;opacity:0;pointer-events:none;transition:opacity .25s ease}'+
       '.vo-auth-overlay.open{opacity:1;pointer-events:auto}'+
       '.vo-auth-modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-46%);width:min(380px,92vw);'+
-      ' background:var(--crema,#F7F4EC);z-index:199;border-radius:3px;box-shadow:0 24px 64px -16px rgba(28,25,23,.4);'+
-      ' opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;'+
-      ' font-family:var(--fb,Inter,sans-serif);padding:1.6rem 1.5rem 1.8rem}'+
+      ' z-index:199;opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;'+
+      ' max-height:90vh;overflow-y:auto}'+
       '.vo-auth-modal.open{opacity:1;pointer-events:auto;transform:translate(-50%,-50%)}'+
-      '.vo-auth-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.2rem}'+
-      '.vo-auth-head h2{font-family:var(--fs,serif);font-size:1.5rem;margin:0}'+
-      '.vo-auth-close{background:none;border:0;font-size:1.4rem;line-height:1;cursor:pointer;color:var(--corteza,#1C1917);padding:.2rem .4rem;flex:none}'+
-      '.vo-auth-context{font-size:.88rem;color:var(--tinta,#54584B);margin:.3rem 0 1.3rem}'+
-      '.vo-auth-btnwrap{display:flex;justify-content:center;padding:.2rem 0 .3rem;min-height:44px}'+
-      '.vo-auth-error{font-size:.82rem;color:var(--terra-t,#A25C3D);margin-top:1rem;display:none}'+
+      '.vo-auth-close{position:absolute;top:1.1rem;right:1.1rem;background:none;border:0;font-size:1.4rem;line-height:1;'+
+      ' cursor:pointer;color:var(--tinta,#54584B);padding:.2rem .4rem}'+
+      '.vo-auth-context{font-size:.86rem;color:var(--tinta,#54584B);margin:-.6rem 0 0}'+
+      '.vo-auth-btnwrap{display:flex;justify-content:center;padding:.1rem 0}'+
+      '.vo-auth-error{font-size:.82rem;color:var(--terra-t,#A25C3D);display:none}'+
       '.vo-auth-error.show{display:block}'+
       '.vo-acct-wrap{position:relative;display:inline-flex}'+
       '.vo-acct-menu{position:absolute;top:calc(100% + 6px);right:0;background:var(--crema,#F7F4EC);'+
@@ -111,16 +109,61 @@
     document.body.insertAdjacentHTML('beforeend',
       '<div class="vo-auth-overlay" data-vo-auth-overlay hidden></div>'+
       '<div class="vo-auth-modal" data-vo-auth-modal role="dialog" aria-modal="true" aria-labelledby="vo-auth-h" hidden>'+
-      '  <div class="vo-auth-head">'+
-      '    <h2 id="vo-auth-h" data-i18n="auth-titulo">Iniciar sesión</h2>'+
+      '  <div class="vo-login-card">'+
       '    <button type="button" class="vo-auth-close" data-vo-auth-close aria-label="Cerrar" data-i18n-aria="auth-cerrar-aria">&times;</button>'+
+      '    <img class="vo-login-logo" src="/img/logo.png" alt="" width="40" height="40">'+
+      '    <div class="vo-login-heading">'+
+      '      <h2 id="vo-auth-h" data-i18n="auth-titulo">Bienvenido de nuevo</h2>'+
+      '      <p class="vo-auth-context" data-vo-auth-context hidden data-i18n="auth-contexto-checkout">Necesitás iniciar sesión para finalizar la compra</p>'+
+      '    </div>'+
+      '    <form class="vo-login-form" data-vo-magic-form novalidate>'+
+      '      <input type="email" required autocomplete="email" data-vo-magic-email data-i18n-placeholder="auth-email-placeholder" placeholder="Tu email">'+
+      '      <button type="submit" class="btn btn-block" data-vo-magic-submit><span data-i18n="auth-magic-btn">Enviame el enlace mágico</span></button>'+
+      '    </form>'+
+      '    <div class="vo-login-sep"><span data-i18n="auth-sep-or">O</span></div>'+
+      '    <div class="vo-auth-btnwrap" id="g_id_signin"></div>'+
+      '    <p class="vo-auth-error" data-vo-auth-error data-i18n="auth-error">No pudimos iniciar sesión. Intentá de nuevo.</p>'+
+      '    <p class="vo-login-legal">'+
+      '      <span data-i18n="auth-legal">Al continuar aceptás nuestros</span> '+
+      '      <a href="/terminos.html" data-i18n="auth-legal-terminos">Términos de servicio</a> '+
+      '      <span data-i18n="auth-legal-y">y nuestra</span> '+
+      '      <a href="/privacidad.html" data-i18n="auth-legal-privacidad">Política de privacidad</a>.'+
+      '    </p>'+
       '  </div>'+
-      '  <p class="vo-auth-context" data-vo-auth-context hidden data-i18n="auth-contexto-checkout">Necesitás iniciar sesión para finalizar la compra</p>'+
-      '  <div class="vo-auth-btnwrap" id="g_id_signin"></div>'+
-      '  <p class="vo-auth-error" data-vo-auth-error data-i18n="auth-error">No pudimos iniciar sesión. Intentá de nuevo.</p>'+
       '</div>'
     );
     primeScope(document.querySelector('[data-vo-auth-modal]'));
+  }
+
+  function showMagicLinkFeedback(msg, isError){
+    var err = document.querySelector('[data-vo-auth-error]');
+    if(!err) return;
+    err.textContent = msg;
+    err.style.color = isError ? 'var(--terra-t,#A25C3D)' : 'var(--hoja-t,#616F36)';
+    err.classList.add('show');
+  }
+
+  function handleMagicLinkSubmit(e){
+    e.preventDefault();
+    var input = document.querySelector('[data-vo-magic-email]');
+    var btn = document.querySelector('[data-vo-magic-submit]');
+    var email = input ? input.value.trim() : '';
+    if(!email) return;
+    if(btn) btn.disabled = true;
+    fetch('/api/auth/magic-link/request', {
+      method:'POST',
+      headers:{ 'Content-Type':'application/json', 'X-Requested-With':'XMLHttpRequest' },
+      credentials:'same-origin',
+      body: JSON.stringify({ email: email })
+    }).then(function(res){
+      if(!res.ok) throw new Error('POST /api/auth/magic-link/request -> '+res.status);
+      showMagicLinkFeedback(t('auth-magic-sent','Revisá tu email — te mandamos un enlace para iniciar sesión.'), false);
+    }).catch(function(err){
+      console.error('[VO auth] no se pudo pedir el magic link', err);
+      showMagicLinkFeedback(t('auth-magic-error','No pudimos enviar el enlace. Intentá de nuevo.'), true);
+    }).finally(function(){
+      if(btn) btn.disabled = false;
+    });
   }
 
   function openModal(fromCheckout){
@@ -350,6 +393,9 @@
     }
     if(!e.target.closest('.vo-acct-wrap')) closeAcctMenu();
   });
+  document.addEventListener('submit', function(e){
+    if(e.target.closest('[data-vo-magic-form]')) handleMagicLinkSubmit(e);
+  });
   document.addEventListener('keydown', function(e){
     if(e.key !== 'Escape') return;
     var modal = document.querySelector('[data-vo-auth-modal]');
@@ -357,8 +403,26 @@
     closeAcctMenu();
   });
 
+  /* ══ magic link: vuelta desde GET /api/auth/magic-link/verify (?login=ok|error|expired) ══ */
+  function handleMagicLinkReturn(){
+    var params = new URLSearchParams(window.location.search);
+    var login = params.get('login');
+    if(!login) return;
+    params.delete('login');
+    var qs = params.toString();
+    window.history.replaceState({}, '', window.location.pathname + (qs ? '?'+qs : ''));
+    if(login === 'ok'){
+      refreshAuthState();
+    } else if(login === 'expired'){
+      showToast(t('auth-magic-error','No pudimos enviar el enlace. Intentá de nuevo.'));
+    } else if(login === 'error'){
+      showToast(t('auth-error','No pudimos iniciar sesión. Intentá de nuevo.'));
+    }
+  }
+
   /* ══ arranque ══ */
   buildModal();
+  handleMagicLinkReturn();
   ensureAcctWrapper();
   ensureGis();
   refreshAuthState();

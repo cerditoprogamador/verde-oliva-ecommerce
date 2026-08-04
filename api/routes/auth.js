@@ -2,6 +2,8 @@ const express = require('express');
 const { OAuth2Client } = require('google-auth-library');
 const pool = require('../lib/db');
 const { requireXhrHeader } = require('../lib/csrf');
+const { createToken, consumeToken } = require('../lib/magicLink');
+const { sendMagicLinkEmail } = require('../lib/mailer');
 
 const router = express.Router();
 const client = new OAuth2Client();
@@ -86,6 +88,79 @@ router.post('/auth/google', requireXhrHeader, async (req, res) => {
   } catch (err) {
     console.error('[auth/google] db error:', err.message);
     return res.status(500).json({ error: 'server_error' });
+  } finally {
+    if (conn) conn.release();
+  }
+});
+
+/**
+ * POST /api/auth/magic-link/request
+ * body: { email } — siempre responde ok (no revela si el email existe o
+ * no como usuario) y, si RESEND_API_KEY esta configurada, manda el enlace.
+ */
+router.post('/auth/magic-link/request', requireXhrHeader, async (req, res) => {
+  const email = (req.body && req.body.email || '').trim().toLowerCase();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ error: 'invalid_email' });
+  }
+
+  try {
+    const token = await createToken(email);
+    const baseUrl = process.env.PUBLIC_BASE_URL || `${req.protocol}://${req.get('host')}`;
+    const url = `${baseUrl}/api/auth/magic-link/verify?token=${token}`;
+    await sendMagicLinkEmail(email, url);
+    return res.json({ ok: true });
+  } catch (err) {
+    console.error('[auth/magic-link/request] error:', err.message);
+    return res.status(500).json({ error: 'server_error' });
+  }
+});
+
+/**
+ * GET /api/auth/magic-link/verify?token=...
+ * Se abre directo desde el link del email (no es un fetch XHR de la SPA,
+ * por eso no lleva requireXhrHeader), crea/actualiza el usuario por email
+ * y redirige al home ya logueado.
+ */
+router.get('/auth/magic-link/verify', async (req, res) => {
+  const token = (req.query && req.query.token || '').trim();
+  if (!token) return res.redirect('/?login=error');
+
+  let conn;
+  try {
+    const email = await consumeToken(token);
+    if (!email) return res.redirect('/?login=expired');
+
+    conn = await pool.getConnection();
+    await conn.execute(
+      `INSERT INTO users (email, last_login_at)
+       VALUES (?, NOW())
+       ON DUPLICATE KEY UPDATE last_login_at = NOW()`,
+      [email]
+    );
+    const [rows] = await conn.execute(
+      'SELECT id, email, name, avatar_url FROM users WHERE email = ?',
+      [email]
+    );
+    const user = rows[0];
+
+    req.session.regenerate((err) => {
+      if (err) {
+        console.error('[auth/magic-link/verify] session.regenerate failed:', err.message);
+        return res.redirect('/?login=error');
+      }
+      req.session.userId = user.id;
+      req.session.save((saveErr) => {
+        if (saveErr) {
+          console.error('[auth/magic-link/verify] session.save failed:', saveErr.message);
+          return res.redirect('/?login=error');
+        }
+        return res.redirect('/?login=ok');
+      });
+    });
+  } catch (err) {
+    console.error('[auth/magic-link/verify] db error:', err.message);
+    return res.redirect('/?login=error');
   } finally {
     if (conn) conn.release();
   }
