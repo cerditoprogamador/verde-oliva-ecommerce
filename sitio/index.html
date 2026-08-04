@@ -25,7 +25,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 [id]{scroll-margin-top:calc(var(--hh) + 58px)}
@@ -54,7 +54,7 @@
 .hdr.scrolled .hdr-u .lang button[aria-pressed="true"]{color:var(--oliva)}
 .hdr.scrolled .hdr-u .iconbtn{color:var(--corteza)}
 .hdr.scrolled .hdr-u .iconbtn:hover{background:rgba(58,68,51,.07)}
-.menubtn{display:flex;align-items:center;justify-content:center;width:40px;height:40px;flex:none;
+.menubtn{display:flex;align-items:center;justify-content:center;width:44px;height:44px;flex:none;
  background:transparent;border:0;color:var(--crema);filter:drop-shadow(0 1px 4px rgba(0,0,0,.45));cursor:pointer;transition:color .3s var(--e)}
 .hdr.scrolled .menubtn{color:var(--corteza);filter:none}
 @media(min-width:1000px){.menubtn{display:none}}
@@ -101,7 +101,6 @@
 .claims span{display:flex;align-items:center;gap:.4rem}
 .claims svg{color:var(--arena)}
 @media(prefers-reduced-motion:reduce){.hero-t .inner>*{opacity:1;transform:none;transition:none}}
-.poli{background:var(--crema2);border-bottom:1px solid var(--linea);padding:clamp(40px,5vw,72px) 0}
 .poli-h{max-width:60ch;margin-bottom:clamp(26px,3.2vw,42px)}
 .poli-g{display:grid;gap:clamp(22px,2.8vw,44px);grid-template-columns:1fr}
 @media(min-width:780px){
@@ -124,7 +123,6 @@
 .poli-i h3{font-size:1.45rem;margin:0}
 .poli-i p{font-size:.95rem;color:var(--tinta);margin:0}
 .poli-i em{font-style:normal;color:var(--corteza)}
-.poli-f{margin-top:clamp(24px,3vw,38px)}
 .oliv{background:var(--crema);padding:clamp(40px,5vw,72px) 0}
 .oliv-h{max-width:62ch;margin-bottom:clamp(26px,3.2vw,42px)}
 .chap{padding:clamp(44px,5.5vw,84px) 0;border-top:1px solid var(--linea)}
@@ -135,11 +133,6 @@
 .cn{font-family:var(--fs);font-size:clamp(2.6rem,5vw,4rem);line-height:.9;color:rgba(58,68,51,.55);display:block;margin-bottom:.5rem}
 .dark .cn{color:rgba(212,196,168,.62)}
 .chead h2{font-size:clamp(1.9rem,4vw,3rem);margin-bottom:.9rem}
-.cmeta{display:flex;flex-wrap:wrap;margin-top:1.2rem;font:500 .88rem/1.5 var(--fb);color:var(--tinta)}
-.cmeta span:not(:first-child)::before{content:"·";margin:0 .6rem;color:var(--linea)}
-.dark .cmeta span{color:rgba(247,244,236,.82)}
-.note{margin-top:1.3rem;padding-left:1rem;border-left:2px solid var(--oro);font-size:.94rem;color:var(--tinta);max-width:46ch}
-.dark .note{color:rgba(247,244,236,.78)}
 .sub{font:500 .64rem/1 var(--fb);letter-spacing:.18em;text-transform:uppercase;color:var(--tinta);
  margin:clamp(26px,3vw,40px) 0 1.1rem;display:flex;align-items:center;gap:.6rem}
 .sub::after{content:"";flex:1;height:1px;background:var(--linea)}
@@ -159,7 +152,7 @@
 .pgrid .card-w:nth-child(6){transition-delay:.25s}
 @media(prefers-reduced-motion:reduce){.pgrid .card-w{opacity:1;transform:none;transition:none}}
 .card-w .card{flex:1}
-.flag{display:block;margin:0 0 .3rem;color:var(--terra-t);font:600 .68rem/1 var(--fb);letter-spacing:.1em;text-transform:uppercase}
+.flag{position:absolute;top:10px;left:10px;z-index:2;padding:.3rem .6rem;background:var(--crema);color:var(--terra-t);font:600 .6rem/1 var(--fb);letter-spacing:.14em;text-transform:uppercase;border-radius:2px}
 .card-add{margin-top:.7rem}
 .dark .card-t,.dark .card-p{color:var(--crema)}
 .dark .card-l,.dark .card-f{color:rgba(247,244,236,.72)}
@@ -188,39 +181,24 @@
 .layers{display:grid;gap:clamp(28px,4vw,64px);grid-template-columns:1fr;align-items:center}
 @media(min-width:900px){.layers{grid-template-columns:5fr 7fr}}
 .layers .ph{aspect-ratio:3/4}
-.info-grid{display:grid;gap:clamp(14px,1.6vw,18px);grid-template-columns:1fr;margin-top:clamp(30px,3.6vw,48px)}
-@media(min-width:640px){.info-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1100px){.info-grid{grid-template-columns:repeat(4,1fr)}}
-.info-card{position:relative;padding:clamp(22px,2.4vw,28px) clamp(20px,2vw,24px);border:1px solid var(--linea);
- border-radius:3px;display:flex;flex-direction:column;gap:.7rem;background:var(--crema);
- opacity:0;transform:translateY(16px);transition:opacity .6s var(--e),transform .6s var(--e)}
-.info-card.in{opacity:1;transform:translateY(0)}
-.info-card:nth-child(1){transition-delay:0s}
-.info-card:nth-child(2){transition-delay:.08s}
-.info-card:nth-child(3){transition-delay:.16s}
-.info-card:nth-child(4){transition-delay:.24s}
-@media(prefers-reduced-motion:reduce){.info-card{opacity:1;transform:none;transition:none}}
-.info-num{position:absolute;top:.8rem;right:1rem;font-family:var(--fs);font-size:2.1rem;font-weight:600;
- line-height:1;color:var(--linea)}
 .info-ic{width:42px;height:42px;border-radius:50%;background:var(--crema2);display:flex;align-items:center;
  justify-content:center;color:var(--hoja-t);flex:none}
-.info-card h3{font-size:1.2rem;margin:0}
-.info-card p{font-size:.92rem;color:var(--tinta);margin:0}
-.info-card.featured{border-color:var(--oro);border-width:1.5px;background:var(--crema2)}
-.info-card.featured .info-ic{background:var(--oro);color:var(--crema)}
-.info-card.featured .info-num{color:rgba(176,141,63,.35)}
-.cocina-h{display:flex;align-items:flex-start;gap:1.1rem}
-.cocina-h .info-ic{width:52px;height:52px;margin-top:.3rem}
-.edu{display:grid;gap:clamp(18px,2.2vw,26px);grid-template-columns:1fr}
-@media(min-width:800px){.edu{grid-template-columns:repeat(3,1fr)}}
-.edu a{display:flex;flex-direction:column;gap:.8rem;text-decoration:none;color:inherit;cursor:pointer;
- padding:1.5rem 1.4rem;border:1px solid var(--linea);border-radius:3px;background:var(--crema);
- transition:border-color .2s var(--e),transform .3s var(--e),box-shadow .3s var(--e)}
-.edu a:hover{border-color:var(--oro);transform:translateY(-3px);box-shadow:0 12px 24px -14px rgba(28,25,23,.25)}
-.edu h3{font-size:1.35rem;margin:0;transition:color .2s var(--e)}
-.edu a:hover h3{color:var(--hoja-t)}
-.edu p{font-size:.95rem;color:var(--tinta);margin:0}
-.edu span.rd{font:500 .68rem/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--hoja-t);margin-top:auto;padding-top:.6rem}
+.comp-bar{display:flex;height:13px;border-radius:2px;overflow:hidden;margin-top:clamp(30px,3.6vw,48px);background:var(--linea-f)}
+.comp-seg{height:100%}
+.comp-seg.c-oleico,.comp-dot.c-oleico{background:var(--hoja)}
+.comp-seg.c-escualeno,.comp-dot.c-escualeno{background:var(--oro)}
+.comp-seg.c-polifenoles,.comp-dot.c-polifenoles{background:var(--terra)}
+.comp-cap{display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;margin-top:.9rem;font-size:.78rem;color:var(--tinta)}
+.comp-cap span{display:flex;align-items:center;gap:.45rem}
+.comp-dot{width:9px;height:9px;border-radius:50%;flex:none}
+.comp-note{margin-top:.7rem;font-size:.92rem;color:var(--tinta);max-width:58ch}
+.comp-acc{margin-top:clamp(22px,2.8vw,34px)}
+.comp-acc .comp-dot{width:11px;height:11px}
+.comp-feat{margin-top:clamp(30px,3.6vw,48px);padding:clamp(22px,2.6vw,30px);border:1.5px solid var(--oro);
+ background:var(--crema2);display:flex;gap:1.1rem;align-items:flex-start}
+.comp-feat .info-ic{background:var(--oro);color:var(--crema)}
+.comp-feat h3{font-size:1.25rem;margin:0 0 .5rem}
+.comp-feat p{margin:0;color:var(--tinta);font-size:.94rem}
 .skin{border-top:1px solid var(--linea);margin-top:clamp(30px,3.6vw,48px)}
 .skin details{border-bottom:1px solid var(--linea)}
 .skin summary{padding:1.1rem 0;cursor:pointer;font-family:var(--fs);font-size:1.35rem;line-height:1.2;list-style:none}
@@ -293,25 +271,6 @@
 .rit-total small{display:block;font:500 .68rem/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--tinta);margin-bottom:.35rem}
 .fade{animation:fd .32s var(--e)}
 @keyframes fd{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.combos{display:grid;gap:clamp(18px,2.2vw,30px);grid-template-columns:1fr}
-@media(min-width:800px){.combos{grid-template-columns:repeat(3,1fr)}}
-.combo{display:flex;flex-direction:column;text-decoration:none;color:inherit;cursor:pointer}
-.combo .ph{aspect-ratio:16/10;transition:filter .3s var(--e)}
-.combo:hover .ph{filter:brightness(1.05) saturate(1.08)}
-.combo-b{padding:1.1rem 0 0;display:flex;flex-direction:column;flex:1}
-.combo h3{font-size:1.6rem;margin:0 0 .4rem;transition:color .2s var(--e)}
-.combo:hover h3{color:var(--hoja-t)}
-.combo p{font-size:.9rem;color:var(--tinta);margin:0 0 1rem}
-.combo ul{list-style:none;margin:0 0 1.1rem;padding:0;display:grid;gap:.35rem;font-size:.85rem;color:var(--corteza)}
-.combo li{display:flex;gap:.5rem;align-items:baseline}
-.combo li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--hoja);flex:none;transform:translateY(-2px)}
-.combo-p{margin-top:auto;display:flex;align-items:baseline;gap:.6rem;font:500 1rem/1 var(--fb)}
-.combo-p span{color:var(--tinta);font-weight:400;font-size:.85rem}
-.method{display:grid;gap:clamp(24px,3vw,44px);grid-template-columns:1fr}
-@media(min-width:820px){.method{grid-template-columns:repeat(3,1fr)}}
-.mstep h3{font-size:1.4rem;margin:.8rem 0 .4rem}
-.mstep p{color:var(--tinta);font-size:.94rem;margin:0}
-.mnum{font-family:var(--fs);font-size:2.6rem;line-height:1;color:var(--hoja-t)}
 .news{display:grid;gap:1.6rem;grid-template-columns:1fr;align-items:center}
 @media(min-width:860px){.news{grid-template-columns:1fr 1fr}}
 .nf{display:flex;flex-wrap:wrap;gap:.6rem}
@@ -453,8 +412,7 @@
 
 <!-- Accesos directos: son anclas dentro de esta misma página, no navegación -->
 <div class="chips"><div class="wrap"><div class="chips-in" role="group" aria-label="Ir a">
-  <a class="chip on" href="#productos" data-i18n="chip-productos">Los 13 productos</a>
-  <a class="chip" href="#eco" data-i18n="chip-eco"><svg width="14" height="14"><use href="#i-leaf"/></svg>Eco Cosmética <b>10</b></a>
+  <a class="chip on" href="#eco" data-i18n="chip-eco"><svg width="14" height="14"><use href="#i-leaf"/></svg>Eco Cosmética <b>10</b></a>
   <a class="chip" href="#spa" data-i18n="chip-spa"><svg width="14" height="14"><use href="#i-droplet"/></svg>Spa de Olivoterapia <b>2</b></a>
   <a class="chip" href="#gourmet" data-i18n="chip-gourmet"><svg width="14" height="14"><use href="#i-trees"/></svg>Gourmet <b>1</b></a>
   <a class="chip" href="#informacion" data-i18n="chip-informacion"><svg width="14" height="14"><use href="#i-book"/></svg>Información</a>
@@ -462,44 +420,8 @@
 </div></div></div>
 
 <!-- ══ 2 · POLIFENOLES — la respuesta corta ══ -->
-<section class="poli" id="polifenoles" aria-labelledby="poli-t">
-  <div class="wrap">
-    <div class="poli-h">
-      <div class="rule-oro"></div>
-      <p class="kicker" data-i18n="poli-kicker">Antes que nada</p>
-      <h2 class="d3" id="poli-t" data-i18n="poli-h2">¿Qué son los polifenoles?</h2>
-    </div>
-    <div class="poli-g">
-      <div class="poli-i">
-        <h3 data-i18n="poli-1-h3">Qué son</h3>
-        <p data-i18n="poli-1-p">Los antioxidantes del aceite de oliva. Los principales son el <em>hidroxitirosol</em> y la <em>oleuropeína</em>. Son los responsables del amargor y de ese picor al final de la garganta cuando probás un aceite de verdad: el picor no es un defecto, es la señal de que los polifenoles están vivos.</p>
-      </div>
-      <div class="poli-i">
-        <h3 data-i18n="poli-2-h3">Qué hacen en la piel</h3>
-        <p data-i18n="poli-2-p">Sobre la piel, los antioxidantes acompañan al cuerpo frente al desgaste diario: el sol, el viento, la contaminación, el aire seco. <em>No lo detienen. Lo acompañan.</em> Y como el aceite de oliva también aporta escualeno —algo que tu piel ya fabrica—, entra sin pelearse.</p>
-      </div>
-      <div class="poli-i">
-        <h3 data-i18n="poli-3-h3">Qué no hacen</h3>
-        <p data-i18n="poli-3-p">No son protector solar ni lo reemplazan: si te exponés al sol, usá uno. Ningún cosmético revierte el paso del tiempo. Lo que sí hace una rutina sostenida es mantener la piel hidratada, confortable y acompañada. <em>Eso es real y no es poco.</em></p>
-      </div>
-    </div>
-    <div class="poli-f">
-      <a class="link" href="#informacion" data-i18n="poli-link">Cómo funciona el aceite de oliva sobre la piel <svg class="ic" width="15" height="15"><use href="#i-down"/></svg></a>
-    </div>
-  </div>
-</section>
-
 <!-- ══ 3 · PRODUCTOS — el catálogo completo, acá mismo ══ -->
 <div id="productos">
-
-<section class="sect" style="padding-bottom:0">
-  <div class="wrap">
-    <div class="rule-oro"></div>
-    <p class="kicker" data-i18n="prod-kicker">El catálogo</p>
-    <h2 class="d2" style="max-width:16ch" data-i18n="prod-h2">Trece productos, un solo aceite.</h2>
-    <p class="lead" style="margin-top:1rem" data-i18n="prod-lead">Todo sale del mismo olivar de Coquimbito. Lo que cambia entre las líneas no es el origen: es la concentración, el formato y para qué momento están pensadas.</p>
-  </div>
-</section>
 
 <!-- ── 01 · Eco Cosmética ── -->
 <section class="chap" id="eco" style="border-top:0;padding-top:clamp(32px,4vw,56px)">
@@ -510,16 +432,13 @@
         <span class="cn">01</span>
         <h2 data-i18n="eco-h2">Eco Cosmética</h2>
         <p class="lead" data-i18n="eco-lead-1">La línea de todos los días. Diez productos que cubren el ciclo completo: limpiar, exfoliar, hidratar, lavarse el pelo y darse un baño. Fórmulas pensadas para sostener en el tiempo, no para un efecto inmediato.</p>
-        <p class="lead" data-i18n="eco-lead-2">Si nunca usaste cosmética con base de aceite de oliva, es acá donde hay que empezar: por la emulsión humectante corporal o por la crema facial.</p>
-        <div class="cmeta"><span data-i18n="eco-meta-1">10 productos</span><span data-i18n="eco-meta-2">Desde $13.500</span><span data-i18n="eco-meta-3">Uso diario</span></div>
-        <div class="note" data-i18n="eco-note">La textura se absorbe más despacio que un producto sintético. No es un defecto: es el tiempo que la piel necesita para tomar lo que le sirve.</div>
       </div>
     </div>
 
     <p class="sub" data-i18n="sub-rostro">Rostro</p>
     <div class="pgrid">
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-crema-humectante-facial.html">
           <div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-humectante-facial.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-crema-humectante-facial-t">Crema humectante facial</h3><p class="card-f" data-i18n="p-crema-humectante-facial-f">50 gr · Piel normal a seca, todo el año</p><p class="card-p">$18.000</p></div>
@@ -527,7 +446,7 @@
         <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="btn-agregar">Agregar</button></div>
       </article>
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-emulsion-de-limpieza.html">
           <div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-de-limpieza.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-emulsion-de-limpieza-t">Emulsión de limpieza</h3><p class="card-f" data-i18n="p-emulsion-de-limpieza-f">250 ml · Limpia sin dejar tirante</p><p class="card-p">$19.000</p></div>
@@ -535,7 +454,7 @@
         <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="btn-agregar">Agregar</button></div>
       </article>
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-crema-exfoliante-fina.html">
           <div class="ph ph2" aria-hidden="true"><img src="img/productos/crema-exfoliante-fina.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-crema-exfoliante-fina-t">Crema exfoliante fina</h3><p class="card-f" data-i18n="p-crema-exfoliante-fina-f">50 gr · Rostro, cuello y escote</p><p class="card-p">$15.500</p></div>
@@ -543,7 +462,7 @@
         <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="btn-agregar">Agregar</button></div>
       </article>
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-mascara-de-barro.html">
           <div class="ph ph5" aria-hidden="true"><img src="img/productos/mascara-de-barro.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-mascara-de-barro-t">Máscara de barro</h3><p class="card-f" data-i18n="p-mascara-de-barro-f">50 ml · Zona T y poro dilatado</p><p class="card-p">$15.500</p></div>
@@ -555,7 +474,7 @@
     <p class="sub" data-i18n="sub-cuerpo">Cuerpo</p>
     <div class="pgrid">
       <article class="card-w"><span class="flag" data-i18n="flag-bestseller">Más vendido</span>
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-emulsion-humectante-corporal.html">
           <div class="ph ph4" aria-hidden="true"><img src="img/productos/emulsion-humectante-corporal.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-emulsion-humectante-corporal-t">Emulsión humectante corporal</h3><p class="card-f" data-i18n="p-emulsion-humectante-corporal-f">250 ml · Más liviana que el aceite</p><p class="card-p">$19.000</p></div>
@@ -563,7 +482,7 @@
         <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="btn-agregar">Agregar</button></div>
       </article>
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-crema-exfoliante-gruesa.html">
           <div class="ph ph3" aria-hidden="true"><img src="img/productos/crema-exfoliante-gruesa.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-crema-exfoliante-gruesa-t">Crema exfoliante gruesa</h3><p class="card-f" data-i18n="p-crema-exfoliante-gruesa-f">50 gr · Codos, rodillas y talones</p><p class="card-p">$15.500</p></div>
@@ -575,7 +494,7 @@
     <p class="sub" data-i18n="sub-bano-capilar">Baño y capilar</p>
     <div class="pgrid">
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-shampoo.html">
           <div class="ph" aria-hidden="true"><img src="img/productos/shampoo.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-shampoo-t">Shampoo</h3><p class="card-f" data-i18n="p-shampoo-f">250 ml · Cuero cabelludo sensible</p><p class="card-p">$14.000</p></div>
@@ -583,7 +502,7 @@
         <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="btn-agregar">Agregar</button></div>
       </article>
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-acondicionador-capilar.html">
           <div class="ph ph4" aria-hidden="true"><img src="img/productos/acondicionador-capilar.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-acondicionador-capilar-t">Acondicionador capilar</h3><p class="card-f" data-i18n="p-acondicionador-capilar-f">250 ml · Desenreda sin apelmazar</p><p class="card-p">$13.500</p></div>
@@ -591,7 +510,7 @@
         <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="btn-agregar">Agregar</button></div>
       </article>
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-espuma-de-bano.html">
           <div class="ph" aria-hidden="true"><img src="img/productos/espuma-de-bano.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-espuma-de-bano-t">Espuma de baño</h3><p class="card-f" data-i18n="p-espuma-de-bano-f">250 ml · Baño de inmersión</p><p class="card-p">$19.000</p></div>
@@ -599,7 +518,7 @@
         <div class="card-add"><button class="btn btn-sm btn-block" type="button" data-add data-i18n="btn-agregar">Agregar</button></div>
       </article>
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-sales-de-bano.html">
           <div class="ph ph4" aria-hidden="true"><img src="img/productos/sales-de-bano.jpg" alt="" loading="lazy"></div>
           <div class="card-b"><span class="card-l"><span class="dot"></span><span data-i18n="linea-eco">Eco Cosmética</span></span>
           <h3 class="card-t" data-i18n="p-sales-de-bano-t">Sales de baño</h3><p class="card-f" data-i18n="p-sales-de-bano-f">250 gr · Piernas cansadas, frío</p><p class="card-p">$15.700</p></div>
@@ -618,22 +537,15 @@
         <span class="cn">02</span>
         <h2 data-i18n="spa-h2">Spa de Olivoterapia</h2>
         <p class="lead" data-i18n="spa-lead">Las dos fórmulas que Fernanda Herrera usa en cabina, en formato chico y concentrado. Misma concentración, mismo envase: no hay una versión profesional y otra doméstica. Son productos de tratamiento, no de rutina.</p>
-        <div class="cmeta">
-          <span data-i18n="spa-meta-1">2 productos</span>
-          <span data-i18n="spa-meta-2">Desde $15.500</span>
-          <span data-i18n="spa-meta-3">Uso puntual</span>
-          <span data-i18n="spa-meta-4">Alta concentración</span>
-        </div>
-        <div class="note" data-i18n="spa-note">La diferencia entre cabina y casa no está en el producto. Está en la mano y en el tiempo que le dedicás. — Fernanda Herrera</div>
       </div>
     </div>
 
   <!-- Productos: grilla estándar del sitio -->
   <div class="wrap" style="padding-top:clamp(26px,3vw,40px);padding-bottom:clamp(44px,5.5vw,72px)">
-    <div class="pgrid" style="grid-template-columns:repeat(2,1fr)">
+    <div class="pgrid" style="grid-template-columns:repeat(2,1fr);max-width:660px">
 
       <article class="card-w"><span class="flag" data-i18n="flag-new">Nuevo</span>
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-emulsion-acido-hialuronico.html">
           <div class="ph ph3" aria-hidden="true"><img src="img/productos/emulsion-acido-hialuronico.jpg" alt="" loading="lazy"></div>
           <div class="card-b">
             <span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span>
@@ -648,7 +560,7 @@
       </article>
 
       <article class="card-w">
-        <a class="card" href="producto.html">
+        <a class="card" href="producto-neblina-hidratante.html">
           <div class="ph ph4" aria-hidden="true"><img src="img/productos/neblina-hidratante.jpg" alt="" loading="lazy"></div>
           <div class="card-b">
             <span class="card-l"><span class="dot"></span><span data-i18n="linea-spa">Spa de Olivoterapia</span></span>
@@ -683,7 +595,7 @@
         <div class="gourmet-meta"><span data-i18n="gourmet-meta-1">500 ml</span><span data-i18n="gourmet-meta-2">Prensado en frío</span><span data-i18n="gourmet-meta-3">Una prensada al año</span></div>
         <div class="gourmet-buy">
           <span class="gourmet-price">$39.000</span>
-          <a class="btn" href="producto.html" style="text-decoration:none" data-i18n="gourmet-ver">Ver el aceite</a>
+          <a class="btn" href="producto-aceite-oliva-vallesi.html" style="text-decoration:none" data-i18n="gourmet-ver">Ver el aceite</a>
           <button class="btn btn-ghost" type="button" data-add data-sku="aceite-oliva-vallesi" data-name="Aceite de Oliva Extra Virgen Vallesi Arauco" data-price="39000" data-i18n="gourmet-agregar">Agregar al carrito</button>
         </div>
         <p class="gourmet-note" data-i18n="gourmet-note">De la tierra a la mesa, de la mesa a la piel. Acá se ve por qué la frase no es un eslogan.</p>
@@ -705,74 +617,63 @@
         <p class="lead" style="margin-top:1rem" data-i18n="info-lead">Cuidar la piel y el cuerpo usando el aceite de oliva y sus componentes. Básicamente son cuatro cosas, y la última es la que ordena todo nuestro trabajo.</p>
       </div>
     </div>
-    <div class="info-grid">
-      <div class="info-card"><span class="info-num">01</span><span class="info-ic"><svg width="20" height="20"><use href="#i-droplet"/></svg></span><h3 data-i18n="comp-1-h3">Ácido oleico</h3><p data-i18n="comp-1-p">Le da al aceite su textura y su deslizamiento, y buena parte de su efecto emoliente: ablanda la piel y ayuda a que se sienta más flexible.</p></div>
-      <div class="info-card"><span class="info-num">02</span><span class="info-ic"><svg width="20" height="20"><use href="#i-shield"/></svg></span><h3 data-i18n="comp-2-h3">Escualeno</h3><p data-i18n="comp-2-p">Un componente que tu piel ya fabrica: forma parte de su sebo natural. Por eso el aceite de oliva se siente tan afín — no le estás poniendo algo ajeno.</p></div>
-      <div class="info-card"><span class="info-num">03</span><span class="info-ic"><svg width="20" height="20"><use href="#i-leaf"/></svg></span><h3 data-i18n="comp-3-h3">Polifenoles</h3><p data-i18n="comp-3-p">Los antioxidantes. Su cantidad depende de la variedad, del cuidado de la cosecha y sobre todo de cuánto tiempo pasa entre cosechar y prensar.</p></div>
-      <div class="info-card featured"><span class="info-num">04</span><span class="info-ic"><svg width="20" height="20"><use href="#i-trees"/></svg></span><h3 data-i18n="comp-4-h3">Arauco, la variedad</h3><p data-i18n="comp-4-p">La variedad tradicional argentina: intensa, expresiva y poco habitual fuera de producciones cuidadas, porque rinde menos y exige más. El nuestro es monovarietal —no se corta con nada—, se cosecha una vez al año y se prensa el mismo día.</p></div>
+    <div class="comp-bar" role="img" aria-label="Proporción aproximada de los tres componentes del aceite: el ácido oleico es la mayor parte, con escualeno y polifenoles en una fracción mucho menor" data-i18n-aria="comp-bar-aria">
+      <span class="comp-seg c-oleico" style="width:78%"></span>
+      <span class="comp-seg c-escualeno" style="width:9%"></span>
+      <span class="comp-seg c-polifenoles" style="width:13%"></span>
+    </div>
+    <div class="comp-cap">
+      <span><span class="comp-dot c-oleico"></span><span data-i18n="comp-1-h3">Ácido oleico</span></span>
+      <span><span class="comp-dot c-escualeno"></span><span data-i18n="comp-2-h3">Escualeno</span></span>
+      <span><span class="comp-dot c-polifenoles"></span><span data-i18n="comp-3-h3">Polifenoles</span></span>
+    </div>
+    <p class="comp-note" data-i18n="comp-note">Lo que menos pesa es lo que más trabaja: el ácido oleico ocupa casi todo el aceite, pero el efecto que buscamos en la piel sale, sobre todo, de la fracción más chica. Tocá cada uno para leer qué hace.</p>
+
+    <div class="acc comp-acc">
+      <details>
+        <summary><span class="comp-dot c-oleico"></span><span data-i18n="comp-1-h3">Ácido oleico</span></summary>
+        <div class="body" data-i18n="comp-1-p">Le da al aceite su textura y su deslizamiento, y buena parte de su efecto emoliente: ablanda la piel y ayuda a que se sienta más flexible.</div>
+      </details>
+      <details>
+        <summary><span class="comp-dot c-escualeno"></span><span data-i18n="comp-2-h3">Escualeno</span></summary>
+        <div class="body" data-i18n="comp-2-p">Un componente que tu piel ya fabrica: forma parte de su sebo natural. Por eso el aceite de oliva se siente tan afín — no le estás poniendo algo ajeno.</div>
+      </details>
+      <details>
+        <summary><span class="comp-dot c-polifenoles"></span><span data-i18n="comp-3-h3">Polifenoles</span></summary>
+        <div class="body" data-i18n="comp-3-p">Los antioxidantes. Su cantidad depende de la variedad, del cuidado de la cosecha y sobre todo de cuánto tiempo pasa entre cosechar y prensar.</div>
+      </details>
+    </div>
+
+    <div class="comp-feat">
+      <span class="info-ic"><svg width="20" height="20"><use href="#i-trees"/></svg></span>
+      <div>
+        <h3 data-i18n="comp-4-h3">Arauco, la variedad</h3>
+        <p data-i18n="comp-4-p">La variedad tradicional argentina: intensa, expresiva y poco habitual fuera de producciones cuidadas, porque rinde menos y exige más. El nuestro es monovarietal —no se corta con nada—, se cosecha una vez al año y se prensa el mismo día.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="sect sand" style="padding-top:0;background:var(--crema)">
+<section class="sect sand" id="polifenoles" aria-labelledby="poli-t" style="padding-top:0;background:var(--crema)">
   <div class="wrap">
-    <div style="max-width:62ch">
-      <div class="cocina-h">
-        <span class="info-ic"><svg width="24" height="24"><use href="#i-flask"/></svg></span>
-        <h2 class="d3" data-i18n="cocina-h2">Si el aceite de oliva es tan bueno, ¿por qué no me pongo el de la cocina?</h2>
+    <div class="poli-h">
+      <div class="rule-oro"></div>
+      <p class="kicker" data-i18n="poli-kicker">Lo esencial</p>
+      <h2 class="d3" id="poli-t" data-i18n="poli-h2">¿Qué son los polifenoles?</h2>
+    </div>
+    <div class="poli-g">
+      <div class="poli-i">
+        <h3 data-i18n="poli-1-h3">Qué son</h3>
+        <p data-i18n="poli-1-p">Los antioxidantes del aceite de oliva. Los principales son el <em>hidroxitirosol</em> y la <em>oleuropeína</em>. Son los responsables del amargor y de ese picor al final de la garganta cuando probás un aceite de verdad: el picor no es un defecto, es la señal de que los polifenoles están vivos.</p>
       </div>
-      <p class="lead" style="margin-top:1rem" data-i18n="cocina-p1">Podés — mucha gente lo hace. Pero el aceite puro, solo y a diario sobre piel sensible, no siempre ayuda a la barrera cutánea: la capa que retiene la humedad y te protege. No es grave, pero es real.</p>
-      <p class="lead" data-i18n="cocina-p2">Formular resuelve eso: emulsionado y dosificado, da el escualeno y los polifenoles sin ese problema. Por eso nuestros productos son cremas y emulsiones, no aceite de cocina en otro frasco. Y por eso vendemos también el aceite comestible: es el mismo, servido en la mesa.</p>
-    </div>
-
-    <div class="edu" style="margin-top:clamp(34px,4vw,56px)">
-      <a href="producto.html"><span class="info-ic"><svg width="20" height="20"><use href="#i-droplet"/></svg></span><h3 data-i18n="edu-1-h3">Piel húmeda, siempre</h3><p data-i18n="edu-1-p">El aceite no aporta agua: retiene la que ya está. Sobre piel seca es aceite arriba de piel seca. Es gratis y cambia el resultado más que cualquier producto.</p><span class="rd" data-i18n="edu-1-rd">3 min de lectura</span></a>
-      <a href="catalogo.html#exfoliar"><span class="info-ic"><svg width="20" height="20"><use href="#i-brush"/></svg></span><h3 data-i18n="edu-2-h3">Exfoliante fino o grueso</h3><p data-i18n="edu-2-p">El fino es para rostro, cuello y escote. El grueso, para codos, rodillas y talones. Y el trabajo lo hace el grano, no la presión.</p><span class="rd" data-i18n="edu-2-rd">2 min de lectura</span></a>
-      <a href="producto.html"><span class="info-ic"><svg width="20" height="20"><use href="#i-check"/></svg></span><h3 data-i18n="edu-3-h3">Qué esperar y qué no</h3><p data-i18n="edu-3-p">Lo que se nota enseguida es el confort. La piel se renueva en semanas, no en horas: lo demás pide constancia, no cambiar de producto.</p><span class="rd" data-i18n="edu-3-rd">4 min de lectura</span></a>
-    </div>
-
-    <div class="skin acc">
-      <p class="sub" style="margin-top:clamp(30px,3.4vw,44px)" data-i18n="skin-guia-sub">Guía por tipo de piel</p>
-      <details>
-        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-droplet"/></svg></span><span data-i18n="skin-1-sum">Piel seca</span></span></summary>
-        <div class="skin-b">
-          <p data-i18n="skin-1-p1">Le falta grasa. Se siente áspera, tirante, a veces se descama.</p>
-          <p data-i18n="skin-1-p2"><b>Ritual:</b> emulsión de limpieza → neblina → crema humectante facial. Para el cuerpo, exfoliante grueso una vez por semana y emulsión corporal sobre piel húmeda, siempre.</p>
-          <p data-i18n="skin-1-p3"><b>Evitar:</b> agua muy caliente, limpiadores que hagan mucha espuma, exfoliar de más.</p>
-        </div>
-      </details>
-      <details>
-        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-sun"/></svg></span><span data-i18n="skin-2-sum">Piel grasa o mixta</span></span></summary>
-        <div class="skin-b">
-          <p data-i18n="skin-2-p1">Produce sebo de más. Brilla, sobre todo en la zona T.</p>
-          <p data-i18n="skin-2-p2"><b>Ritual:</b> emulsión de limpieza → neblina → emulsión de ácido hialurónico. Máscara de barro una vez por semana.</p>
-          <p data-i18n="skin-2-p3"><b>Evitar:</b> el error clásico de resecarla para controlarla — cuanto más la resecás, más sebo produce. Y saltear la hidratación.</p>
-        </div>
-      </details>
-      <details>
-        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-shield"/></svg></span><span data-i18n="skin-3-sum">Piel sensible o reactiva</span></span></summary>
-        <div class="skin-b">
-          <p data-i18n="skin-3-p1">Se enrojece, pica, reacciona rápido.</p>
-          <p data-i18n="skin-3-p2"><b>Ritual:</b> el mínimo posible. Emulsión de limpieza → crema humectante facial. Nada más, hasta que se estabilice.</p>
-          <p data-i18n="skin-3-p3"><b>Siempre:</b> probá primero en el antebrazo y esperá un día; con una condición diagnosticada, consultá a tu dermatólogo antes.</p>
-        </div>
-      </details>
-      <details>
-        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-wind"/></svg></span><span data-i18n="skin-4-sum">Piel deshidratada</span></span></summary>
-        <div class="skin-b">
-          <p data-i18n="skin-4-p1">No es lo mismo que seca: le falta agua, no grasa. Le puede pasar incluso a una piel grasa.</p>
-          <p data-i18n="skin-4-p2"><b>Cómo la reconocés:</b> se ve opaca, las líneas finas se marcan más, y por más crema que te pongas nunca alcanza.</p>
-          <p data-i18n="skin-4-p3"><b>Ritual:</b> neblina → emulsión de ácido hialurónico, sobre la piel húmeda, dos veces por día.</p>
-        </div>
-      </details>
-      <details>
-        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-leaf"/></svg></span><span data-i18n="skin-5-sum">Piel madura</span></span></summary>
-        <div class="skin-b">
-          <p data-i18n="skin-5-p1">Menos sebo, menos firmeza, más sequedad.</p>
-          <p data-i18n="skin-5-p2"><b>Ritual:</b> emulsión de limpieza → neblina → emulsión de ácido hialurónico → crema humectante facial. Exfoliante fino una vez por semana.</p>
-          <p data-i18n="skin-5-p3"><b>Con honestidad:</b> ningún cosmético revierte el tiempo — pero una rutina sostenida con antioxidantes mantiene la piel hidratada, confortable y protegida del desgaste diario.</p>
-        </div>
-      </details>
+      <div class="poli-i">
+        <h3 data-i18n="poli-2-h3">Qué hacen en la piel</h3>
+        <p data-i18n="poli-2-p">Sobre la piel, los antioxidantes acompañan al cuerpo frente al desgaste diario: el sol, el viento, la contaminación, el aire seco. <em>No lo detienen. Lo acompañan.</em> Y como el aceite de oliva también aporta escualeno —algo que tu piel ya fabrica—, entra sin pelearse.</p>
+      </div>
+      <div class="poli-i">
+        <h3 data-i18n="poli-3-h3">Qué no hacen</h3>
+        <p data-i18n="poli-3-p">No son protector solar ni lo reemplazan: si te exponés al sol, usá uno. Ningún cosmético revierte el paso del tiempo. Lo que sí hace una rutina sostenida es mantener la piel hidratada, confortable y acompañada. <em>Eso es real y no es poco.</em></p>
+      </div>
     </div>
   </div>
 </section>
@@ -805,7 +706,6 @@
           <button class="rq-opt" type="button" data-q="need" data-v="exfoliar"><svg class="ic" width="22" height="22"><use href="#i-brush"/></svg><span data-i18n="rq-need-exfoliar">Exfoliar</span></button>
           <button class="rq-opt" type="button" data-q="need" data-v="capilar"><svg class="ic" width="22" height="22"><use href="#i-wind"/></svg><span data-i18n="rq-need-capilar">Cuidar el pelo</span></button>
           <button class="rq-opt" type="button" data-q="need" data-v="bano"><svg class="ic" width="22" height="22"><use href="#i-sun"/></svg><span data-i18n="rq-need-bano">Darme un baño</span></button>
-          <button class="rq-opt" type="button" data-q="need" data-v="mesa"><svg class="ic" width="22" height="22"><use href="#i-trees"/></svg><span data-i18n="rq-need-mesa">La mesa</span></button>
         </div>
       </div>
 
@@ -865,59 +765,49 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ══ RITUALES YA ARMADOS ══ -->
-<section class="sect sand">
-  <div class="wrap">
-    <div style="max-width:56ch;margin-bottom:clamp(26px,3.2vw,44px)">
-      <p class="kicker" data-i18n="combos-kicker">Combinaciones que funcionan</p>
-      <h2 class="d3" data-i18n="combos-h2">Tres rituales que ya probamos</h2>
-      <p class="lead" style="margin-top:.9rem" data-i18n="combos-lead">No son packs de descuento: son órdenes de uso. Se pueden comprar de a uno, pero juntos hacen más.</p>
-    </div>
-    <div class="combos">
-      <a class="combo" href="catalogo.html">
-        <div class="ph ph5" aria-hidden="true"><img src="img/productos/mascara-de-barro.jpg" alt="" loading="lazy"></div>
-        <div class="combo-b">
-          <h3 data-i18n="combo-1-h3">Ritual de noche</h3>
-          <p data-i18n="combo-1-p">Sacarse el día de la cara sin dejarla tirante, y dejar trabajando algo que hidrate mientras dormís.</p>
-          <ul><li data-i18n="combo-1-li1">Emulsión de limpieza 250 ml</li><li data-i18n="combo-1-li2">Máscara de barro 50 ml <span class="muted">(2 veces por semana)</span></li><li data-i18n="combo-1-li3">Crema humectante facial 50 gr</li></ul>
-          <span class="combo-p">$52.500 <span data-i18n="combo-n-productos-3">3 productos</span></span>
+    <div class="skin acc">
+      <p class="sub" style="margin-top:clamp(30px,3.4vw,44px)" data-i18n="skin-guia-sub">Guía por tipo de piel</p>
+      <details>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-droplet"/></svg></span><span data-i18n="skin-1-sum">Piel seca</span></span></summary>
+        <div class="skin-b">
+          <p data-i18n="skin-1-p1">Le falta grasa. Se siente áspera, tirante, a veces se descama.</p>
+          <p data-i18n="skin-1-p2"><b>Ritual:</b> emulsión de limpieza → neblina → crema humectante facial. Para el cuerpo, exfoliante grueso una vez por semana y emulsión corporal sobre piel húmeda, siempre.</p>
+          <p data-i18n="skin-1-p3"><b>Evitar:</b> agua muy caliente, limpiadores que hagan mucha espuma, exfoliar de más.</p>
         </div>
-      </a>
-      <a class="combo" href="catalogo.html">
-        <div class="ph" aria-hidden="true"><img src="img/productos/sales-de-bano.jpg" alt="" loading="lazy"></div>
-        <div class="combo-b">
-          <h3 data-i18n="combo-2-h3">Piernas cansadas</h3>
-          <p data-i18n="combo-2-p">Para el final del día, después de viajar o de estar mucho tiempo de pie.</p>
-          <ul><li data-i18n="combo-2-li1">Sales de baño 250 gr</li><li data-i18n="combo-2-li2">Emulsión humectante corporal 250 ml</li></ul>
-          <span class="combo-p">$34.700 <span data-i18n="combo-n-productos-2">2 productos</span></span>
+      </details>
+      <details>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-sun"/></svg></span><span data-i18n="skin-2-sum">Piel grasa o mixta</span></span></summary>
+        <div class="skin-b">
+          <p data-i18n="skin-2-p1">Produce sebo de más. Brilla, sobre todo en la zona T.</p>
+          <p data-i18n="skin-2-p2"><b>Ritual:</b> emulsión de limpieza → neblina → emulsión de ácido hialurónico. Máscara de barro una vez por semana.</p>
+          <p data-i18n="skin-2-p3"><b>Evitar:</b> el error clásico de resecarla para controlarla — cuanto más la resecás, más sebo produce. Y saltear la hidratación.</p>
         </div>
-      </a>
-      <a class="combo" href="catalogo.html">
-        <div class="ph ph3" aria-hidden="true"><img src="img/productos/espuma-de-bano.jpg" alt="" loading="lazy"></div>
-        <div class="combo-b">
-          <h3 data-i18n="combo-3-h3">Domingo largo</h3>
-          <p data-i18n="combo-3-p">Un baño de inmersión de verdad, con exfoliación previa y aceite después. Se hace una vez por semana.</p>
-          <ul><li data-i18n="combo-3-li1">Crema exfoliante gruesa 50 gr</li><li data-i18n="combo-3-li2">Espuma de baño 250 ml</li><li data-i18n="combo-2-li2">Emulsión humectante corporal 250 ml</li></ul>
-          <span class="combo-p">$53.000 <span data-i18n="combo-n-productos-3">3 productos</span></span>
+      </details>
+      <details>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-shield"/></svg></span><span data-i18n="skin-3-sum">Piel sensible o reactiva</span></span></summary>
+        <div class="skin-b">
+          <p data-i18n="skin-3-p1">Se enrojece, pica, reacciona rápido.</p>
+          <p data-i18n="skin-3-p2"><b>Ritual:</b> el mínimo posible. Emulsión de limpieza → crema humectante facial. Nada más, hasta que se estabilice.</p>
+          <p data-i18n="skin-3-p3"><b>Siempre:</b> probá primero en el antebrazo y esperá un día; con una condición diagnosticada, consultá a tu dermatólogo antes.</p>
         </div>
-      </a>
-    </div>
-
-    <div style="max-width:56ch;margin:clamp(44px,5vw,72px) 0 clamp(26px,3vw,42px)">
-      <div class="rule-oro"></div>
-      <h2 class="d3" data-i18n="metodo-h2">Cómo se arma un ritual</h2>
-      <p class="lead" style="margin-top:.9rem" data-i18n="metodo-lead">Tres reglas simples. Con esto ya podés armar el tuyo sin que te lo digamos nosotros.</p>
-    </div>
-    <div class="method">
-      <div class="mstep"><span class="mnum">01</span><h3 data-i18n="mstep-1-h3">De lo más líquido a lo más espeso</h3>
-        <p data-i18n="mstep-1-p">Primero la neblina o la emulsión de hialurónico, después la crema, al final el aceite. Al revés, lo espeso bloquea a lo liviano y no entra nada.</p></div>
-      <div class="mstep"><span class="mnum">02</span><h3 data-i18n="mstep-2-h3">Siempre sobre piel húmeda</h3>
-        <p data-i18n="mstep-2-p">El aceite no aporta agua, la retiene. Sobre piel seca es aceite arriba de piel seca. Sobre piel húmeda es hidratación que dura horas.</p></div>
-      <div class="mstep"><span class="mnum">03</span><h3 data-i18n="mstep-3-h3">Exfoliar poco y bien</h3>
-        <p data-i18n="mstep-3-p">Una o dos veces por semana alcanza. Y el trabajo lo hace el grano, no la presión: si frotás fuerte, no exfoliás mejor, irritás.</p></div>
+      </details>
+      <details>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-wind"/></svg></span><span data-i18n="skin-4-sum">Piel deshidratada</span></span></summary>
+        <div class="skin-b">
+          <p data-i18n="skin-4-p1">No es lo mismo que seca: le falta agua, no grasa. Le puede pasar incluso a una piel grasa.</p>
+          <p data-i18n="skin-4-p2"><b>Cómo la reconocés:</b> se ve opaca, las líneas finas se marcan más, y por más crema que te pongas nunca alcanza.</p>
+          <p data-i18n="skin-4-p3"><b>Ritual:</b> neblina → emulsión de ácido hialurónico, sobre la piel húmeda, dos veces por día.</p>
+        </div>
+      </details>
+      <details>
+        <summary><span class="skin-sum"><span class="info-ic"><svg width="18" height="18"><use href="#i-leaf"/></svg></span><span data-i18n="skin-5-sum">Piel madura</span></span></summary>
+        <div class="skin-b">
+          <p data-i18n="skin-5-p1">Menos sebo, menos firmeza, más sequedad.</p>
+          <p data-i18n="skin-5-p2"><b>Ritual:</b> emulsión de limpieza → neblina → emulsión de ácido hialurónico → crema humectante facial. Exfoliante fino una vez por semana.</p>
+          <p data-i18n="skin-5-p3"><b>Con honestidad:</b> ningún cosmético revierte el tiempo — pero una rutina sostenida con antioxidantes mantiene la piel hidratada, confortable y protegida del desgaste diario.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -961,6 +851,7 @@
     </div>
     <div class="ft-bot">
       <span data-i18n="ft-copyright">© 2026 Verde Oliva Olivoterapia</span>
+      <span><a href="terminos.html" data-i18n="ft-terminos-link">Términos de servicio</a> · <a href="privacidad.html" data-i18n="ft-privacidad-link">Política de privacidad</a></span>
       <span data-i18n="ft-independiente">Tienda independiente. El olivar y la casa nos dan origen, no catálogo.</span>
     </div>
   </div>
@@ -986,7 +877,19 @@
         time:'4 minutes',when:'Every night',skin:'All skin types',
         s:[['Cleansing emulsion','250 ml','Removes makeup and cleans without soap. Apply on dry skin and work into an emulsion with lukewarm water.','If your face feels tight after washing, the cleanse was too harsh.'],
            ['Mud mask','50 ml','Clay with polyphenols for the T-zone, enlarged pores, or dull skin.','Ten minutes. Take it off before it fully dries: if it pulls at your skin, you left it on too long.'],
-           ['Face moisturizing cream','50 g','Closes the ritual by putting back what the cleanse took away.','']]}},
+           ['Face moisturizing cream','50 g','Closes the ritual by putting back what the cleanse took away.','']]},
+      bySkin:{
+        seca:{s:[['Emulsión de limpieza','250 ml','$19.000','Desmaquilla y limpia sin jabón. Se aplica sobre piel seca y se emulsiona con agua tibia.','Si después de lavarte la cara la sentís tirante, la limpieza fue demasiado fuerte.','emulsion-de-limpieza'],
+             ['Neblina hidratante','60 ml','$15.500','Después de limpiar, antes de la crema: prepara la piel para que lo que sigue entre mejor.','No dejes que se seque sola — aplicá la crema con la piel todavía húmeda.','neblina-hidratante'],
+             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual reponiendo lo que la limpieza se llevó.','','crema-humectante-facial']],
+          en:[['Cleansing emulsion','250 ml','Removes makeup and cleans without soap. Apply on dry skin and work into an emulsion with lukewarm water.','If your face feels tight after washing, the cleanse was too harsh.'],
+             ['Hydrating mist','60 ml','After cleansing, before the cream: preps skin so what comes next absorbs better.','Don’t let it dry on its own — apply the cream while skin is still damp.'],
+             ['Face moisturizing cream','50 g','Closes the ritual by putting back what the cleanse took away.','']]},
+        sensible:{s:[['Emulsión de limpieza','250 ml','$19.000','Desmaquilla y limpia sin jabón, sin frotar. La opción más suave de la línea.','Si igual sentís ardor o tirantez, aplicá menos cantidad y sin masajear tanto.','emulsion-de-limpieza'],
+             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual. Dos pasos nada más — en piel sensible, menos es más.','','crema-humectante-facial']],
+          en:[['Cleansing emulsion','250 ml','Removes makeup and cleans without soap, without rubbing. The gentlest option in the line.','If you still feel stinging or tightness, use less and massage less.'],
+             ['Face moisturizing cream','50 g','Closes the ritual. Two steps, no more — with sensitive skin, less is more.','']]}
+      }},
     hidratar:{t:'Hidratar de la cara a los pies',d:'Reponer agua y grasa: son dos cosas distintas y la piel necesita las dos. Primero lo que da agua, después lo que la sella.',
       time:'6 minutos',when:'Mañana y noche',skin:'Piel normal a seca',total:'$59.500',
       s:[['Emulsión ácido hialurónico','60 ml','$23.000','Es el paso de agua. Va primero, sobre la piel apenas húmeda, antes de cualquier crema.','Si la piel queda pegajosa, estás usando de más: dos gotas alcanzan.','emulsion-acido-hialuronico'],
@@ -996,7 +899,27 @@
         time:'6 minutes',when:'Morning and night',skin:'Normal to dry skin',
         s:[['Hyaluronic acid emulsion','60 ml','This is the water step. It goes on first, on slightly damp skin, before any cream.','If skin feels sticky, you’re using too much: two drops are enough.'],
            ['Face moisturizing cream','50 g','A cream texture, not a gel. Seals in the hyaluronic acid and adds good fat.',''],
-           ['Body moisturizing emulsion','250 ml','For the body, after the shower, while skin is still damp.','Everything absorbs better on damp skin. It’s free and it changes the result.']]}},
+           ['Body moisturizing emulsion','250 ml','For the body, after the shower, while skin is still damp.','Everything absorbs better on damp skin. It’s free and it changes the result.']]},
+      bySkin:{
+        grasa:{s:[['Emulsión ácido hialurónico','60 ml','$23.000','Es el paso de agua, y en piel grasa o mixta alcanza sin sumar una crema más pesada encima.','Si la piel queda pegajosa, estás usando de más: dos gotas alcanzan.','emulsion-acido-hialuronico'],
+             ['Emulsión humectante corporal','250 ml','$19.000','Para el cuerpo, después del baño. Absorción rápida, sin película grasa.','Sobre piel húmeda todo entra mejor. Es gratis y cambia el resultado.','emulsion-humectante-corporal']],
+          en:[['Hyaluronic acid emulsion','60 ml','This is the water step, and on oily or combination skin it’s enough on its own, without a heavier cream on top.','If skin feels sticky, you’re using too much: two drops are enough.'],
+             ['Body moisturizing emulsion','250 ml','For the body, after the shower. Fast absorption, no oily film.','Everything absorbs better on damp skin. It’s free and it changes the result.']]},
+        seca:{s:[['Neblina hidratante','60 ml','$15.500','El paso de agua antes de la crema. En piel seca, no conviene saltearlo.','Aplicá la crema mientras la piel sigue húmeda, nunca dejes que se seque sola.','neblina-hidratante'],
+             ['Crema humectante facial','50 gr','$18.000','Textura de crema, pensada para piel normal a seca. Sella y suma grasa buena.','','crema-humectante-facial'],
+             ['Emulsión humectante corporal','250 ml','$19.000','Para el cuerpo, después del baño, con la piel todavía húmeda.','Sobre piel húmeda todo entra mejor. Es gratis y cambia el resultado.','emulsion-humectante-corporal']],
+          en:[['Hydrating mist','60 ml','The water step before the cream. On dry skin, it’s not one to skip.','Apply the cream while skin is still damp — never let the mist dry on its own.'],
+             ['Face moisturizing cream','50 g','A cream texture, built for normal to dry skin. Seals in and adds good fat.',''],
+             ['Body moisturizing emulsion','250 ml','For the body, after the shower, while skin is still damp.','Everything absorbs better on damp skin. It’s free and it changes the result.']]},
+        deshidratada:{s:[['Neblina hidratante','60 ml','$15.500','Refresca y prepara antes de cualquier otro paso — es agua, no grasa, lo que le falta a la piel deshidratada.','Aplicá el siguiente paso mientras la piel sigue húmeda.','neblina-hidratante'],
+             ['Emulsión ácido hialurónico','60 ml','$23.000','Hidratación intensa con ácido hialurónico, pensada específicamente para piel deshidratada.','Si la piel queda pegajosa, estás usando de más: dos gotas alcanzan.','emulsion-acido-hialuronico'],
+             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual sellando la hidratación de los dos pasos anteriores.','','crema-humectante-facial']],
+          en:[['Hydrating mist','60 ml','Refreshes and preps before anything else — it’s water, not oil, that dehydrated skin is missing.','Apply the next step while skin is still damp.'],
+             ['Hyaluronic acid emulsion','60 ml','Intense hydration with hyaluronic acid, formulated specifically for dehydrated skin.','If skin feels sticky, you’re using too much: two drops are enough.'],
+             ['Face moisturizing cream','50 g','Closes the ritual, sealing in the hydration from the two steps before it.','']]},
+        sensible:{s:[['Crema humectante facial','50 gr','$18.000','Un solo paso. En piel sensible o reactiva, empezar con lo mínimo es la mejor estrategia.','Probá primero en el antebrazo y esperá un día antes de sumar cualquier otro producto.','crema-humectante-facial']],
+          en:[['Face moisturizing cream','50 g','One step, nothing more. On sensitive or reactive skin, starting minimal is the best strategy.','Test on your forearm first and wait a day before adding anything else.']]}
+      }},
     exfoliar:{t:'Exfoliar una vez por semana',d:'Renovar la superficie para que lo que venga después entre mejor. Grano fino arriba, grano grueso abajo.',
       time:'10 minutos',when:'Una o dos veces por semana',skin:'Evitar sobre piel irritada',total:'$50.000',
       s:[['Crema exfoliante fina','50 gr','$15.500','Rostro, cuello y escote. En círculos suaves, sin presionar.','El trabajo lo hace el grano, no la presión.','crema-exfoliante-fina'],
@@ -1006,7 +929,21 @@
         time:'10 minutes',when:'Once or twice a week',skin:'Avoid on irritated skin',
         s:[['Fine exfoliating cream','50 g','Face, neck and décolletage. Gentle circles, no pressing.','The grain does the work, not the pressure.'],
            ['Coarse exfoliating cream','50 g','Elbows, knees, heels and back, in the shower, on wet skin.',''],
-           ['Body moisturizing emulsion','250 ml','Right after. Freshly exfoliated skin absorbs a lot more.','']]}},
+           ['Body moisturizing emulsion','250 ml','Right after. Freshly exfoliated skin absorbs a lot more.','']]},
+      bySkin:{
+        grasa:{s:[['Crema exfoliante fina','50 gr','$15.500','Rostro, cuello y escote. En círculos suaves, sin presionar.','El trabajo lo hace el grano, no la presión.','crema-exfoliante-fina'],
+             ['Emulsión humectante corporal','250 ml','$19.000','Para el cuerpo. En piel grasa o mixta, mejor esta que el exfoliante grueso — no hace falta tanto para renovar.','Inmediatamente después de la ducha, con la piel húmeda.','emulsion-humectante-corporal']],
+          en:[['Fine exfoliating cream','50 g','Face, neck and décolletage. Gentle circles, no pressing.','The grain does the work, not the pressure.'],
+             ['Body moisturizing emulsion','250 ml','For the body. On oily or combination skin, this works better than the coarse scrub — you don’t need as much to renew it.','Right after the shower, on damp skin.']]},
+        madura:{s:[['Crema exfoliante fina','50 gr','$15.500','Rostro, cuello y escote. En círculos suaves, sin presionar.','El trabajo lo hace el grano, no la presión.','crema-exfoliante-fina'],
+             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual. Ningún exfoliante revierte el tiempo, pero renovar la superficie ayuda a que la hidratación entre mejor.','','crema-humectante-facial']],
+          en:[['Fine exfoliating cream','50 g','Face, neck and décolletage. Gentle circles, no pressing.','The grain does the work, not the pressure.'],
+             ['Face moisturizing cream','50 g','Closes the ritual. No exfoliant reverses time, but renewing the surface helps hydration absorb better.','']]},
+        sensible:{s:[['Crema exfoliante fina','50 gr','$15.500','Rostro, una vez por semana. El único exfoliante que se recomienda en piel sensible, y con cuidado.','Sin presionar, treinta segundos, y nunca sobre piel irritada.','crema-exfoliante-fina'],
+             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual reponiendo lo que el exfoliante renueva.','','crema-humectante-facial']],
+          en:[['Fine exfoliating cream','50 g','Face, once a week. The only exfoliant recommended for sensitive skin, and even then, with care.','No pressing, thirty seconds, and never on irritated skin.'],
+             ['Face moisturizing cream','50 g','Closes the ritual, putting back what the exfoliant renews.','']]}
+      }},
     capilar:{t:'Cuero cabelludo primero',d:'El largo se acomoda solo si el cuero cabelludo está bien. Poca espuma no es poca limpieza.',
       time:'8 minutos',when:'Dos o tres veces por semana',skin:'Cuero cabelludo sensible',total:'$43.000',
       s:[['Shampoo','250 ml','$14.000','Base suave, poca espuma. Masajeá el cuero cabelludo, no el largo.','Con agua dura como la de Mendoza, una segunda pasada corta rinde más que una larga.','shampoo'],
@@ -1026,13 +963,13 @@
         time:'30 minutes',when:'On the weekend',skin:'All skin types',
         s:[['Bath foam','250 ml','A stream under the hot water as the tub fills. Short, stable foam.','Water that’s too hot dries skin out. If yours is dry, lower the temperature, not the time.'],
            ['Bath salts','250 g','A handful. Tired legs, cold weather, after training.','If your skin is very dry, use salts or foam, not both together.'],
-           ['Body moisturizing emulsion','250 ml','On your way out, while skin is still warm. Closes the ritual without a heavy feel.','']]}},
-    mesa:{t:'Donde empieza todo',d:'El mismo aceite, por el camino de siempre. Monovarietal Arauco, prensado una vez al año en la finca.',
-      time:'Lo que dure el pan',when:'Todos los días',skin:'—',total:'$39.000',
-      s:[['Aceite de Oliva Extra Virgen Vallesi Arauco','500 ml','$39.000','Frutado medio, amargo noble y un picor final que dura poco. En crudo: pan tibio, tomate, pescado.','Ese amargo que sentís en la garganta son los polifenoles. Es el mismo compuesto que buscamos para la piel.','aceite-oliva-vallesi']],
-      en:{t:'Where it all starts',d:'The same oil, the same way it always goes. Single-varietal Arauco, pressed once a year at the estate.',
-        time:'As long as the bread lasts',when:'Every day',skin:'—',
-        s:[['Vallesi Arauco Extra Virgin Olive Oil','500 ml','Medium fruitiness, a noble bitterness, and a short finish with a bit of bite. Raw: warm bread, tomato, fish.','That bite you feel at the back of your throat is the polyphenols. It’s the same compound we’re after for skin.']]}}
+           ['Body moisturizing emulsion','250 ml','On your way out, while skin is still warm. Closes the ritual without a heavy feel.','']]},
+      bySkin:{
+        sensible:{s:[['Espuma de baño','250 ml','$19.000','Un chorro bajo el agua tibia — no caliente — mientras se llena la bañera.','En piel sensible, bajá la temperatura del agua, no el tiempo de baño.','espuma-de-bano'],
+             ['Emulsión humectante corporal','250 ml','$19.000','Al salir, con la piel todavía tibia. Sin sales esta vez, para no sumar de más.','','emulsion-humectante-corporal']],
+          en:[['Bath foam','250 ml','A stream under warm — not hot — water as the tub fills.','On sensitive skin, lower the water temperature, not the time in the tub.'],
+             ['Body moisturizing emulsion','250 ml','On your way out, while skin is still warm. No salts this time, to keep it from being too much.','']]}
+      }}
   };
 
   var steps=document.getElementById('steps');
@@ -1069,20 +1006,27 @@
     document.getElementById('rit-desc').textContent=tr.d;
     document.getElementById('rit-time').textContent=tr.time;
     document.getElementById('rit-when').textContent=tr.when;
-    document.getElementById('rit-skin').textContent=tr.skin;
 
-    var full=r.s;
+    var skinLabels = isEn ? SKIN_LABEL_EN : SKIN_LABEL;
+    var variant = null;
+    if(r.bySkin && answers.skin){
+      variant = r.bySkin[answers.skin] || (answers.skin==='deshidratada' ? r.bySkin.seca : null);
+    }
+    document.getElementById('rit-skin').textContent = variant ? skinLabels[answers.skin] : tr.skin;
+
+    var full = variant ? variant.s : r.s;
+    var fullEn = variant ? variant.en : (r.en ? r.en.s : null);
     var showN=(answers.time==='rapido' && full.length>1)?full.length-1:full.length;
     currentSteps=full.slice(0,showN);
 
     var h='';
     currentSteps.forEach(function(s,i){
-      var trs = (isEn && r.en) ? r.en.s[i] : null;
+      var trs = (isEn && fullEn) ? fullEn[i] : null;
       var name = trs ? trs[0] : s[0];
-      var desc = trs ? trs[1] : s[3];
-      var warn = trs ? trs[2] : s[4];
+      var desc = trs ? trs[2] : s[3];
+      var warn = trs ? trs[3] : s[4];
       h+='<li class="step"><span class="step-n">'+(i+1)+'</span><div>'+
-         '<div class="step-t"><a href="producto.html">'+name+'</a><span class="step-f">'+s[1]+'</span><span class="step-p">'+s[2]+'</span></div>'+
+         '<div class="step-t"><a href="producto-'+s[5]+'.html">'+name+'</a><span class="step-f">'+s[1]+'</span><span class="step-p">'+s[2]+'</span></div>'+
          '<p class="step-d">'+desc+'</p>'+
          (warn?'<p class="step-w">'+warn+'</p>':'')+'</div></li>';
     });

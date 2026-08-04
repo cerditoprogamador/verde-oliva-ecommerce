@@ -24,7 +24,7 @@
       }
     });
 
-    [].slice.call(document.querySelectorAll('.poli-i, .oliv-card, .q, .info-card'))
+    [].slice.call(document.querySelectorAll('.poli-i, .oliv-card, .q'))
       .forEach(function(el){ els.push(el); });
 
     var heroInner = document.querySelector('.hero-t .inner');

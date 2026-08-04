@@ -1,6 +1,6 @@
 /* Carrito real de Verde Oliva: modelo de datos persistente + drawer.
    Expone window.VOCart para que cada página lo use desde su propio script inline
-   (ritual builder de index.html, stepper de producto.html, etc.). */
+   (ritual builder de index.html, stepper de cada producto-*.html, etc.). */
 (function(){
   var KEY='vo-cart';
 

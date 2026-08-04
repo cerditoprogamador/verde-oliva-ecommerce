@@ -95,6 +95,21 @@ router.post('/webhooks/mercadopago', async (req, res) => {
 
     if (result.affectedRows === 0) {
       console.warn(`[webhook] orden ${orderId} no actualizada (no existe, o mp_payment_id ya pertenece a otro pago)`);
+    } else if (status === 'approved') {
+      // affectedRows > 0 aca significa que esta UPDATE realmente cambio
+      // algo (mysql2 no cuenta como "affected" un UPDATE que deja los
+      // mismos valores) — asi que esto corre una sola vez por pedido,
+      // nunca dos veces por un reintento de MP con el mismo status.
+      const [items] = await pool.execute(
+        'SELECT sku, qty FROM order_items WHERE order_id = ?',
+        [orderId]
+      );
+      for (const item of items) {
+        await pool.execute(
+          'UPDATE products SET stock_qty = GREATEST(stock_qty - ?, 0) WHERE sku = ?',
+          [item.qty, item.sku]
+        );
+      }
     }
 
     return res.sendStatus(200);

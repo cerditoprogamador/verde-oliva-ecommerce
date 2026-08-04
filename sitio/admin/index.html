@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="../img/logo.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Dashboard — Panel de administrador Verde Oliva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="adm-shell">
+  <div class="adm-sidebar-backdrop" id="admSidebarBackdrop"></div>
+  <aside class="adm-sidebar" id="admSidebar">
+    <div class="adm-sidebar-brand">
+      <span class="logo-m">Verde Oliva</span>
+      <span class="logo-s">panel admin</span>
+    </div>
+    <nav class="adm-nav" id="adm-nav" aria-label="Secciones del panel"></nav>
+    <div class="adm-sidebar-footer">
+      <span id="adm-username"></span>
+      <button type="button" id="adm-logout">Cerrar sesión</button>
+    </div>
+  </aside>
+
+  <div class="adm-content">
+    <header class="adm-topbar">
+      <button class="adm-menu-toggle" type="button" id="admMenuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <span class="adm-topbar-title">Dashboard</span>
+    </header>
+    <main class="adm-main">
+      <div class="wrap">
+        <h1 class="adm-h1">Dashboard</h1>
+        <p class="adm-sub">Resumen general de la tienda.</p>
+        <div id="content">
+          <p class="muted">Cargando…</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<script src="js/admin-common.js"></script>
+<script src="js/admin-dashboard.js"></script>
+</body>
+</html>

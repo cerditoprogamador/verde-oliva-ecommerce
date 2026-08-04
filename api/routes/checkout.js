@@ -25,7 +25,7 @@ router.post('/checkout', requireXhrHeader, requireAuth, async (req, res) => {
 
   let priced;
   try {
-    priced = priceItems(items);
+    priced = await priceItems(items);
   } catch (err) {
     return res.status(err.status || 400).json({ error: err.message });
   }

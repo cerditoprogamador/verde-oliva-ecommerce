@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="../img/logo.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Panel de administrador — Verde Oliva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="adm-login-wrap">
+  <div class="adm-login-card">
+    <span class="logo-m">Verde Oliva</span>
+    <p class="kicker">Panel de administrador</p>
+    <div id="alert"></div>
+    <form id="loginForm" novalidate>
+      <div class="adm-field">
+        <label for="username">Usuario</label>
+        <input type="text" id="username" name="username" autocomplete="username" required>
+      </div>
+      <div class="adm-field">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn btn-block" type="submit">Entrar</button>
+    </form>
+  </div>
+</div>
+<script src="js/admin-common.js"></script>
+<script src="js/admin-login.js"></script>
+</body>
+</html>

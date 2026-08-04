@@ -19,24 +19,24 @@
 <meta name="twitter:image" content="img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 .result{padding:clamp(72px,11vw,132px) 0}
 .result .wrap{max-width:1040px}
-.result-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(2.2rem,6vw,4.5rem);align-items:center}
+.result-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
 .result-state{font-family:var(--fs);font-weight:500;line-height:.96;letter-spacing:-.01em;
- font-size:clamp(3.4rem,6.4vw,5.6rem);color:var(--oliva);border-left:2px solid var(--oro);
- padding-left:clamp(1.1rem,2.2vw,1.9rem);margin:0}
+ font-size:clamp(2.6rem,13vw,3.6rem);color:var(--oliva);border-top:2px solid var(--oro);
+ padding-top:1.2rem;margin:0}
 .result-body{max-width:46ch}
 .result .rule-oro{margin:0 0 1.4rem}
 .result h1{font-size:clamp(1.7rem,3.1vw,2.3rem);margin-bottom:1rem}
 .result .lead{margin:0 0 2.2rem}
 .result-actions{display:flex;flex-direction:column;align-items:flex-start;gap:1rem}
-@media (max-width:760px){
- .result-grid{grid-template-columns:1fr;gap:2rem}
- .result-state{border-left:0;border-top:2px solid var(--oro);padding-left:0;padding-top:1.2rem;
-  font-size:clamp(2.6rem,13vw,3.6rem)}
+@media(min-width:760px){
+ .result-grid{grid-template-columns:5fr 7fr;gap:clamp(2.2rem,6vw,4.5rem)}
+ .result-state{border-top:0;border-left:2px solid var(--oro);padding-top:0;padding-left:clamp(1.1rem,2.2vw,1.9rem);
+  font-size:clamp(3.4rem,6.4vw,5.6rem)}
 }
 </style>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -149,6 +149,7 @@
     </div>
     <div class="ft-bot">
       <span data-i18n="ft-copyright">© 2026 Verde Oliva Olivoterapia</span>
+      <span><a href="terminos.html" data-i18n="ft-terminos-link">Términos de servicio</a> · <a href="privacidad.html" data-i18n="ft-privacidad-link">Política de privacidad</a></span>
       <span data-i18n="ft-independiente">Tienda independiente. El olivar y la casa nos dan origen, no catálogo.</span>
     </div>
   </div>

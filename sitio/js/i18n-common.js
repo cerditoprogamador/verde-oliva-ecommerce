@@ -39,6 +39,9 @@ window.VO_I18N_COMMON = {
   "ft-copyright": "© 2026 Verde Oliva Olivoterapia",
   "ft-independiente": "Independent shop. The grove and the house give us our origin, not our catalog.",
   "ft-independiente-2": "Independent shop, separate from the hotel.",
+  "ft-legal-h": "Legal",
+  "ft-terminos-link": "Terms of service",
+  "ft-privacidad-link": "Privacy policy",
   "crumb-inicio": "Home",
   "crumb-catalogo": "Catalog",
 

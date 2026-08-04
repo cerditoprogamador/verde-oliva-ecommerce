@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="../img/logo.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pedidos — Panel de administrador Verde Oliva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="adm-shell">
+  <div class="adm-sidebar-backdrop" id="admSidebarBackdrop"></div>
+  <aside class="adm-sidebar" id="admSidebar">
+    <div class="adm-sidebar-brand">
+      <span class="logo-m">Verde Oliva</span>
+      <span class="logo-s">panel admin</span>
+    </div>
+    <nav class="adm-nav" id="adm-nav" aria-label="Secciones del panel"></nav>
+    <div class="adm-sidebar-footer">
+      <span id="adm-username"></span>
+      <button type="button" id="adm-logout">Cerrar sesión</button>
+    </div>
+  </aside>
+
+  <div class="adm-content">
+    <header class="adm-topbar">
+      <button class="adm-menu-toggle" type="button" id="admMenuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <span class="adm-topbar-title">Pedidos</span>
+    </header>
+    <main class="adm-main">
+      <div class="wrap">
+        <h1 class="adm-h1">Pedidos</h1>
+        <p class="adm-sub">Estado de pago (lo escribe Mercado Pago) y estado de logística (lo controlás acá).</p>
+        <div class="adm-toolbar">
+          <div class="adm-filters">
+            <select id="filterStatus" class="adm-field" style="min-height:40px;padding:.4rem .6rem">
+              <option value="">Todos los pagos</option>
+              <option value="pending">Pendiente</option>
+              <option value="approved">Aprobado</option>
+              <option value="rejected">Rechazado</option>
+              <option value="cancelled">Cancelado</option>
+              <option value="refunded">Reembolsado</option>
+            </select>
+          </div>
+        </div>
+        <div id="alert"></div>
+        <div id="orderList">
+          <div class="adm-table-wrap">
+            <table class="adm-table">
+              <thead>
+                <tr><th>#</th><th>Cliente</th><th>Fecha</th><th>Total</th><th>Pago</th><th>Logística</th><th>Acciones</th></tr>
+              </thead>
+              <tbody id="rows"><tr><td colspan="7" class="adm-empty">Cargando…</td></tr></tbody>
+            </table>
+          </div>
+          <div class="adm-cards" id="cards"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="adm-modal-overlay" id="modalOverlay">
+  <div class="adm-modal">
+    <h2>Pedido <span id="d-id"></span></h2>
+    <div id="modalAlert"></div>
+    <p><strong>Cliente:</strong> <span id="d-customer"></span></p>
+    <p><strong>Fecha:</strong> <span id="d-date"></span></p>
+    <p><strong>Estado de pago:</strong> <span id="d-status"></span></p>
+    <div class="adm-table-wrap" style="margin:1rem 0">
+      <table class="adm-table">
+        <thead><tr><th>Producto</th><th>Cant.</th><th>Precio</th><th>Subtotal</th></tr></thead>
+        <tbody id="d-items"></tbody>
+      </table>
+    </div>
+    <div class="adm-field">
+      <label for="d-fulfillment">Estado de logística</label>
+      <select id="d-fulfillment">
+        <option value="sin_preparar">Sin preparar</option>
+        <option value="preparando">Preparando</option>
+        <option value="enviado">Enviado</option>
+        <option value="entregado">Entregado</option>
+      </select>
+    </div>
+    <div class="adm-modal-actions">
+      <button class="btn btn-ghost btn-sm" type="button" id="btnClose">Cerrar</button>
+      <button class="btn btn-sm" type="button" id="btnSaveFulfillment">Guardar estado</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/admin-common.js"></script>
+<script src="js/admin-pedidos.js"></script>
+</body>
+</html>

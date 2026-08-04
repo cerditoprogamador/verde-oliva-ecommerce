@@ -8,6 +8,12 @@ const authRoutes = require('./routes/auth');
 const checkoutRoutes = require('./routes/checkout');
 const webhookRoutes = require('./routes/webhooks');
 const orderRoutes = require('./routes/orders');
+const productsPublicRoutes = require('./routes/products-public');
+const adminAuthRoutes = require('./routes/admin-auth');
+const adminProductsRoutes = require('./routes/admin-products');
+const adminOrdersRoutes = require('./routes/admin-orders');
+const adminCustomersRoutes = require('./routes/admin-customers');
+const adminDashboardRoutes = require('./routes/admin-dashboard');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -25,16 +31,45 @@ app.use(sessionMiddleware);
 app.use('/api', authRoutes);
 app.use('/api', checkoutRoutes);
 app.use('/api', orderRoutes);
+app.use('/api', productsPublicRoutes);
+app.use('/api', adminAuthRoutes);
+app.use('/api', adminProductsRoutes);
+app.use('/api', adminOrdersRoutes);
+app.use('/api', adminCustomersRoutes);
+app.use('/api', adminDashboardRoutes);
 // El router de webhooks va aparte: no lleva la mitigacion CSRF (ver
 // comentario en routes/webhooks.js) porque lo llama el servidor de MP,
 // no un navegador con sesion.
 app.use('/api', webhookRoutes);
+
+// --- Panel de administrador: gate server-side sobre los .html estaticos ---
+// Defensa en profundidad, no el limite de seguridad real (eso son las
+// rutas /api/admin/* con requireAdmin, igual que requireAuth.js ya aclara
+// que el modal de login del sitio es "solo UX"). Sin esto, cualquiera
+// podria al menos ver el HTML/CSS del panel aunque ninguna API responda.
+app.use('/admin', (req, res, next) => {
+  const isPublicAsset =
+    req.path === '/login.html' || /^\/(css|js|img)\//.test(req.path);
+  if (isPublicAsset || (req.session && req.session.adminId)) return next();
+  return res.redirect('/admin/login.html');
+});
 
 // --- Sitio estatico ---
 // Mismo origen que la API a proposito: elimina CORS y problemas de cookies
 // cross-origin de entrada (ver plan aprobado, seccion "Arquitectura").
 const sitioDir = path.join(__dirname, '..', 'sitio');
 app.use(express.static(sitioDir));
+
+// --- Ficha generica para productos sin pagina .html propia ---
+// Los 17 SKU originales tienen su producto-<sku>.html hecho a mano (ya
+// servido arriba por express.static); esto SOLO se ejecuta cuando ese
+// archivo no existe (express.static ya llamo a next()), es decir: un
+// producto creado 100% desde el admin. sitio/js/products.js detecta que
+// esta en la ficha generica (body[data-generic-ficha]) y renderiza todo
+// el contenido leyendo /api/products/:sku.
+app.get(/^\/producto-([a-z0-9-]+)\.html$/, (req, res) => {
+  res.sendFile(path.join(sitioDir, 'producto-generic.html'));
+});
 
 // 404 para cualquier /api/* no reconocida (despues de todos los routers).
 app.use('/api', (req, res) => {

@@ -10,7 +10,6 @@ window.VO_I18N_PAGE = {
   "hero-cta-armar": "Build my ritual",
 
   /* ── chips ── */
-  "chip-productos": "All 13 products",
   "chip-eco": "<svg width=\"14\" height=\"14\"><use href=\"#i-leaf\"/></svg>Everyday Care <b>10</b>",
   "chip-spa": "<svg width=\"14\" height=\"14\"><use href=\"#i-droplet\"/></svg>Spa Line <b>2</b>",
   "chip-gourmet": "<svg width=\"14\" height=\"14\"><use href=\"#i-trees\"/></svg>Gourmet <b>1</b>",
@@ -18,7 +17,7 @@ window.VO_I18N_PAGE = {
   "chip-informacion": "<svg width=\"14\" height=\"14\"><use href=\"#i-book\"/></svg>Information",
 
   /* ── polifenoles ── */
-  "poli-kicker": "First things first",
+  "poli-kicker": "The essentials",
   "poli-h2": "What are polyphenols?",
   "poli-1-h3": "What they are",
   "poli-1-p": "The antioxidants in olive oil. The main ones are <em>hydroxytyrosol</em> and <em>oleuropein</em>. They're behind the bitterness and that catch at the back of your throat when you taste a real oil — the sting isn't a flaw, it's the sign the polyphenols are alive.",
@@ -26,21 +25,9 @@ window.VO_I18N_PAGE = {
   "poli-2-p": "On skin, antioxidants support the body against everyday wear: sun, wind, pollution, dry air. <em>They don't stop it. They stand by it.</em> And since olive oil also brings squalene — something your skin already makes — it goes on without a fight.",
   "poli-3-h3": "What they don't do",
   "poli-3-p": "They're not sunscreen and they don't replace one — if you're out in the sun, wear one. No cosmetic reverses the passage of time. What a steady routine does do is keep skin hydrated, comfortable, cared for. <em>That's real, and it's not nothing.</em>",
-  "poli-link": "How olive oil works on skin <svg class=\"ic\" width=\"15\" height=\"15\"><use href=\"#i-down\"/></svg>",
-
-  /* ── productos: intro ── */
-  "prod-kicker": "The catalog",
-  "prod-h2": "Thirteen products, one oil.",
-  "prod-lead": "It all comes from the same Coquimbito grove. What changes between the lines isn't the origin — it's the concentration, the format, and the moment each one is built for.",
-
   /* ── 01 · Eco Cosmética ── */
   "eco-h2": "Everyday Care",
   "eco-lead-1": "The everyday line. Ten products that cover the full cycle: cleansing, exfoliating, moisturizing, washing your hair, taking a bath. Formulas built to hold up over time, not for an instant effect.",
-  "eco-lead-2": "If you've never used olive-oil-based skincare, this is where to start: with the body moisturizing emulsion or the face cream.",
-  "eco-meta-1": "10 products",
-  "eco-meta-2": "From $13,500",
-  "eco-meta-3": "Daily use",
-  "eco-note": "The texture absorbs more slowly than a synthetic product. That's not a flaw — it's the time skin needs to take in what serves it.",
   "sub-rostro": "Face",
   "sub-cuerpo": "Body",
   "sub-bano-capilar": "Bath & hair",
@@ -72,10 +59,6 @@ window.VO_I18N_PAGE = {
   /* ── 02 · Spa de Olivoterapia ── */
   "spa-h2": "Spa Line",
   "spa-lead": "The two formulas Fernanda Herrera uses in the treatment room, in a small, concentrated format. Same concentration, same bottle: there's no separate professional and home version. These are treatment products, not everyday routine.",
-  "spa-meta-1": "2 products",
-  "spa-meta-2": "From $15,500",
-  "spa-meta-3": "Occasional use",
-  "spa-note": "The difference between the treatment room and home isn't the product. It's the hands, and the time you give it.",
   "p-emulsion-acido-hialuronico-t": "Hyaluronic acid emulsion",
   "p-emulsion-acido-hialuronico-f": "60 ml · Dehydration, fine lines",
   "p-neblina-hidratante-t": "Hydrating mist",
@@ -116,20 +99,8 @@ window.VO_I18N_PAGE = {
   "comp-3-p": "The antioxidants. How much you get depends on the variety, how carefully it's harvested, and above all how much time passes between picking and pressing.",
   "comp-4-h3": "Arauco, the variety",
   "comp-4-p": "Argentina's traditional variety: intense, expressive, and uncommon outside of careful small production, because it yields less and asks for more. Ours is single-varietal — no blending — picked once a year and pressed the same day.",
-
-  "cocina-h2": "If olive oil is so good, why not just use the one from the kitchen?",
-  "cocina-p1": "You can — plenty of people do. But pure oil, on its own and daily on sensitive skin, doesn't always help the skin barrier: the layer that holds in moisture and protects you. It's not serious, but it's real.",
-  "cocina-p2": "Formulating solves that: emulsified and dosed, it gives you the squalene and polyphenols without that problem. That's why our products are creams and emulsions, not kitchen oil in a different bottle. And that's why we also sell the edible oil: it's the same oil, served at the table.",
-
-  "edu-1-h3": "Damp skin, always",
-  "edu-1-p": "Oil doesn't add water — it holds in what's already there. On dry skin, it's just oil sitting on dry skin. It's free, and it changes the result more than any product can.",
-  "edu-1-rd": "3 min read",
-  "edu-2-h3": "Fine or coarse exfoliant",
-  "edu-2-p": "The fine one is for face, neck and décolletage. The coarse one, for elbows, knees and heels. And the grain does the work, not the pressure.",
-  "edu-2-rd": "2 min read",
-  "edu-3-h3": "What to expect, and what not to",
-  "edu-3-p": "What you notice right away is comfort. Skin renews itself in weeks, not hours — everything else takes consistency, not a different product.",
-  "edu-3-rd": "4 min read",
+  "comp-bar-aria": "Approximate proportion of the oil's three components: oleic acid is the largest part, with squalene and polyphenols making up a much smaller fraction",
+  "comp-note": "What weighs the least does the most work: oleic acid takes up almost the whole oil, but the effect we're after on skin comes mostly from the smallest fraction. Tap each one to read what it does.",
 
   "skin-guia-sub": "Skin type guide",
   "skin-1-sum": "Dry skin",
@@ -164,7 +135,6 @@ window.VO_I18N_PAGE = {
   "rq-need-exfoliar": "Exfoliate",
   "rq-need-capilar": "Hair care",
   "rq-need-bano": "Take a bath",
-  "rq-need-mesa": "The table",
 
   "rq-2-kicker": "Question 2 of 3",
   "rq-2-h3": "What's your skin type?",
@@ -184,35 +154,6 @@ window.VO_I18N_PAGE = {
   "rit-ver-todos": "See all products <svg class=\"ic\" width=\"15\" height=\"15\"><use href=\"#i-arrow\"/></svg>",
   "rit-alternativas": "See alternatives",
   "rit-agregar": "Add the ritual",
-
-  /* ── rituales ya armados ── */
-  "combos-kicker": "Combinations that work",
-  "combos-h2": "Three rituals we've tested",
-  "combos-lead": "These aren't discount bundles — they're a sequence of use. You can buy them one at a time, but together they do more.",
-  "combo-1-h3": "Night ritual",
-  "combo-1-p": "Getting the day off your face without leaving it tight, and leaving something hydrating to work while you sleep.",
-  "combo-1-li1": "Cleansing emulsion 250 ml",
-  "combo-1-li2": "Clay mask 50 ml <span class=\"muted\">(2 times a week)</span>",
-  "combo-1-li3": "Face moisturizing cream 50 gr",
-  "combo-n-productos-3": "3 products",
-  "combo-2-h3": "Tired legs",
-  "combo-2-p": "For the end of the day, after traveling or being on your feet for hours.",
-  "combo-2-li1": "Bath salts 250 gr",
-  "combo-2-li2": "Body moisturizing emulsion 250 ml",
-  "combo-n-productos-2": "2 products",
-  "combo-3-h3": "Long Sunday",
-  "combo-3-p": "A real soak in the tub, with exfoliation beforehand and oil after. Do it once a week.",
-  "combo-3-li1": "Coarse exfoliating cream 50 gr",
-  "combo-3-li2": "Bath foam 250 ml",
-
-  "metodo-h2": "How to build a ritual",
-  "metodo-lead": "Three simple rules. With this, you can build your own without us telling you how.",
-  "mstep-1-h3": "From lightest to thickest",
-  "mstep-1-p": "Mist or hyaluronic emulsion first, then cream, oil last. Do it backwards and the thick stuff blocks the light stuff — nothing gets in.",
-  "mstep-2-h3": "Always on damp skin",
-  "mstep-2-p": "Oil doesn't add water, it holds it in. On dry skin, it's just oil on dry skin. On damp skin, it's hydration that lasts for hours.",
-  "mstep-3-h3": "Exfoliate less, exfoliate well",
-  "mstep-3-p": "Once or twice a week is enough. And the grain does the work, not the pressure — scrub harder and you don't exfoliate better, you just irritate skin.",
 
   /* ── newsletter ── */
   "news-h2": "News and things we've learned",

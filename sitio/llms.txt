@@ -34,8 +34,28 @@ Precios en pesos argentinos (ARS), sujetos a cambio. Envío sin cargo a todo el 
 ## Páginas
 
 - [Inicio](/index.html): historia de la marca, qué es la olivoterapia, qué son los polifenoles, catálogo por línea y rituales de uso sugeridos.
-- [Catálogo](/catalogo.html): los 13 productos fotografiados, navegables por necesidad (limpiar, hidratar, exfoliar, capilar, bañar, mesa) o por línea, con filtros de precio, formato y tipo de piel.
-- [Ficha de producto — Emulsión humectante corporal 250 ml](/producto.html): para qué sirve, para qué piel, cuándo y cómo usarla, con qué combina, ingredientes (INCI) y seguridad.
+- [Catálogo](/catalogo.html): 13 de los 17 productos, navegables por necesidad (limpiar, hidratar, exfoliar, capilar, bañar, mesa) o por línea, con filtros de precio, formato y tipo de piel. Aceite corporal, Loción hidratante, Aceite miorrelajante y Aceite drenaje linfático tienen ficha propia pero todavía no aparecen en esta grilla.
+- Fichas de producto — una por SKU, misma estructura (para qué sirve, para qué piel, cuándo y cómo usarla, con qué combina, ingredientes/INCI o variedad y prensado para el aceite de mesa, y seguridad):
+  - [Aceite corporal 250 ml](/producto-aceite-corporal.html)
+  - [Acondicionador capilar 250 ml](/producto-acondicionador-capilar.html)
+  - [Crema humectante facial 50 gr](/producto-crema-humectante-facial.html)
+  - [Crema exfoliante fina 50 gr](/producto-crema-exfoliante-fina.html)
+  - [Crema exfoliante gruesa 50 gr](/producto-crema-exfoliante-gruesa.html)
+  - [Emulsión de limpieza 250 ml](/producto-emulsion-de-limpieza.html)
+  - [Emulsión humectante corporal 250 ml](/producto-emulsion-humectante-corporal.html)
+  - [Espuma de baño 250 ml](/producto-espuma-de-bano.html)
+  - [Loción hidratante 250 ml](/producto-locion-hidratante.html)
+  - [Máscara de barro 50 ml](/producto-mascara-de-barro.html)
+  - [Sales de baño 250 gr](/producto-sales-de-bano.html)
+  - [Shampoo 250 ml](/producto-shampoo.html)
+  - [Aceite miorrelajante 300 ml](/producto-aceite-miorrelajante.html)
+  - [Aceite drenaje linfático 300 ml](/producto-aceite-drenaje-linfatico.html)
+  - [Emulsión ácido hialurónico 60 ml](/producto-emulsion-acido-hialuronico.html)
+  - [Neblina hidratante 60 ml](/producto-neblina-hidratante.html)
+  - [Aceite de Oliva Extra Virgen Vallesi Arauco 500 ml](/producto-aceite-oliva-vallesi.html): el único de los 17 que es un producto de mesa, no cosmético.
+- [Nuestra finca](/finca.html): el olivar de 1890 en Coquimbito, Maipú, y la variedad Arauco.
+- [Términos de servicio](/terminos.html): compras, precios, envíos, cambios y devoluciones.
+- [Política de privacidad](/privacidad.html): qué datos se recolectan (login con Google, datos de pedido), para qué se usan y derechos del usuario bajo la Ley 25.326 de Argentina.
 
 ## Notas para agentes y motores de respuesta
 

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<link rel="icon" type="image/png" href="../img/logo.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Productos — Panel de administrador Verde Oliva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<div class="adm-shell">
+  <div class="adm-sidebar-backdrop" id="admSidebarBackdrop"></div>
+  <aside class="adm-sidebar" id="admSidebar">
+    <div class="adm-sidebar-brand">
+      <span class="logo-m">Verde Oliva</span>
+      <span class="logo-s">panel admin</span>
+    </div>
+    <nav class="adm-nav" id="adm-nav" aria-label="Secciones del panel"></nav>
+    <div class="adm-sidebar-footer">
+      <span id="adm-username"></span>
+      <button type="button" id="adm-logout">Cerrar sesión</button>
+    </div>
+  </aside>
+
+  <div class="adm-content">
+    <header class="adm-topbar">
+      <button class="adm-menu-toggle" type="button" id="admMenuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <span class="adm-topbar-title">Productos</span>
+    </header>
+    <main class="adm-main">
+      <div class="wrap">
+        <div class="adm-toolbar">
+          <div>
+            <h1 class="adm-h1">Productos</h1>
+            <p class="adm-sub" style="margin-bottom:0">Precio, stock, disponibilidad y foto de cada SKU. El stock se guarda solo al cambiarlo.</p>
+          </div>
+          <button class="btn btn-sm" type="button" id="btnNew">+ Nuevo producto</button>
+        </div>
+        <div id="alert"></div>
+        <div id="productList">
+          <div class="adm-table-wrap">
+            <table class="adm-table">
+              <thead>
+                <tr><th>Foto</th><th>Nombre</th><th>Línea / Formato</th><th>Precio</th><th>Stock</th><th>Estado</th><th>Acciones</th></tr>
+              </thead>
+              <tbody id="rows"><tr><td colspan="7" class="adm-empty">Cargando…</td></tr></tbody>
+            </table>
+          </div>
+          <div class="adm-cards" id="cards"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="adm-modal-overlay" id="modalOverlay">
+  <div class="adm-modal">
+    <h2 id="modalTitle">Nuevo producto</h2>
+    <div id="modalAlert"></div>
+    <form id="productForm">
+      <input type="hidden" id="f-original-sku">
+      <div class="adm-field">
+        <label for="f-sku">SKU (identificador único, sin espacios ni tildes)</label>
+        <input type="text" id="f-sku" pattern="[a-z0-9-]+" placeholder="ej: crema-nueva" required>
+      </div>
+      <div class="adm-field">
+        <label for="f-name">Nombre</label>
+        <input type="text" id="f-name" required>
+      </div>
+      <div class="adm-field-row">
+        <div class="adm-field">
+          <label for="f-linea">Línea</label>
+          <input type="text" id="f-linea" placeholder="ej: Eco Cosmética">
+        </div>
+        <div class="adm-field">
+          <label for="f-formato">Formato</label>
+          <input type="text" id="f-formato" placeholder="ej: 250 ml">
+        </div>
+      </div>
+      <div class="adm-field-row">
+        <div class="adm-field">
+          <label for="f-price">Precio (ARS)</label>
+          <input type="number" id="f-price" min="0" step="1" required>
+        </div>
+        <div class="adm-field">
+          <label for="f-stock">Stock</label>
+          <input type="number" id="f-stock" min="0" step="1" required>
+        </div>
+      </div>
+      <div class="adm-field">
+        <label for="f-description">Descripción interna (opcional)</label>
+        <textarea id="f-description"></textarea>
+      </div>
+      <div class="adm-field">
+        <label>Fotos (principal + hasta 3 adicionales, para la galería de la ficha)</label>
+        <div class="adm-gallery-slots">
+          <div class="adm-gallery-slot">
+            <img id="f-preview" class="adm-upload-preview" src="" alt="" hidden>
+            <input type="file" id="f-image" accept="image/jpeg,image/png,image/webp">
+            <span class="adm-gallery-slot-label">Principal</span>
+          </div>
+          <div class="adm-gallery-slot">
+            <img id="f-preview-2" class="adm-upload-preview" src="" alt="" hidden>
+            <input type="file" id="f-image-2" accept="image/jpeg,image/png,image/webp">
+            <label class="adm-check adm-gallery-remove"><input type="checkbox" id="f-remove-2"> Quitar</label>
+          </div>
+          <div class="adm-gallery-slot">
+            <img id="f-preview-3" class="adm-upload-preview" src="" alt="" hidden>
+            <input type="file" id="f-image-3" accept="image/jpeg,image/png,image/webp">
+            <label class="adm-check adm-gallery-remove"><input type="checkbox" id="f-remove-3"> Quitar</label>
+          </div>
+          <div class="adm-gallery-slot">
+            <img id="f-preview-4" class="adm-upload-preview" src="" alt="" hidden>
+            <input type="file" id="f-image-4" accept="image/jpeg,image/png,image/webp">
+            <label class="adm-check adm-gallery-remove"><input type="checkbox" id="f-remove-4"> Quitar</label>
+          </div>
+        </div>
+      </div>
+      <label class="adm-check"><input type="checkbox" id="f-active" checked> Activo (visible en la tienda)</label>
+
+      <div class="acc" style="margin-top:1.4rem">
+        <details id="fichaDetails">
+          <summary>Contenido de la ficha (opcional)</summary>
+          <div class="body">
+            <div class="adm-alert" style="background:rgba(176,141,63,.12);color:#8a6d2f;border:1px solid rgba(176,141,63,.3)">
+              Es cosmética, no medicina: no uses palabras que traten/curen/prevengan una condición
+              (ni nombres de afecciones de piel como acné o rosácea), no prometas eliminar arrugas/cicatrices,
+              no menciones protección solar, y evitá "hipoalergénico" o "dermatológicamente probado" sin un estudio que lo respalde.
+            </div>
+            <p class="adm-sub" style="margin-bottom:1rem">
+              Para los 17 productos originales, dejar un campo vacío mantiene el texto que ya está escrito en su ficha.
+              Para un producto nuevo, esto es todo el contenido de su página (no tiene ficha propia todavía).
+              El inglés es opcional por campo: si lo dejás vacío, la ficha en inglés muestra el texto en español
+              (el inglés de marca es una reescritura, no una traducción literal — completalo solo si tenés esa reescritura lista).
+            </p>
+
+            <div class="adm-field-bilingual">
+              <div class="adm-field"><label for="f-ficha-lead">Bajada corta — ES</label><textarea id="f-ficha-lead" rows="2"></textarea></div>
+              <div class="adm-field"><label for="f-ficha-lead-en">Bajada corta — EN (opcional)</label><textarea id="f-ficha-lead-en" rows="2"></textarea></div>
+            </div>
+            <div class="adm-field-bilingual">
+              <div class="adm-field"><label for="f-para-que-sirve">Para qué sirve — ES</label><textarea id="f-para-que-sirve" rows="2"></textarea></div>
+              <div class="adm-field"><label for="f-para-que-sirve-en">Para qué sirve — EN (opcional)</label><textarea id="f-para-que-sirve-en" rows="2"></textarea></div>
+            </div>
+            <div class="adm-field-bilingual">
+              <div class="adm-field"><label for="f-para-que-piel">Para qué piel — ES</label><textarea id="f-para-que-piel" rows="2"></textarea></div>
+              <div class="adm-field"><label for="f-para-que-piel-en">Para qué piel — EN (opcional)</label><textarea id="f-para-que-piel-en" rows="2"></textarea></div>
+            </div>
+            <div class="adm-field-bilingual">
+              <div class="adm-field"><label for="f-cuando-usar">Cuándo usarlo — ES</label><textarea id="f-cuando-usar" rows="2"></textarea></div>
+              <div class="adm-field"><label for="f-cuando-usar-en">Cuándo usarlo — EN (opcional)</label><textarea id="f-cuando-usar-en" rows="2"></textarea></div>
+            </div>
+            <div class="adm-field-bilingual">
+              <div class="adm-field"><label for="f-como-usar">Cómo se usa — ES</label><textarea id="f-como-usar" rows="2"></textarea></div>
+              <div class="adm-field"><label for="f-como-usar-en">Cómo se usa — EN (opcional)</label><textarea id="f-como-usar-en" rows="2"></textarea></div>
+            </div>
+            <div class="adm-field-bilingual">
+              <div class="adm-field"><label for="f-que-esperar">Qué esperar (incluí qué NO hace) — ES</label><textarea id="f-que-esperar" rows="3"></textarea></div>
+              <div class="adm-field"><label for="f-que-esperar-en">Qué esperar — EN (opcional)</label><textarea id="f-que-esperar-en" rows="3"></textarea></div>
+            </div>
+            <div class="adm-field-bilingual">
+              <div class="adm-field"><label for="f-origen">El origen — ES (vacío = texto genérico de la finca)</label><textarea id="f-origen" rows="2"></textarea></div>
+              <div class="adm-field"><label for="f-origen-en">El origen — EN (opcional)</label><textarea id="f-origen-en" rows="2"></textarea></div>
+            </div>
+            <div class="adm-field-bilingual">
+              <div class="adm-field"><label for="f-ingredientes">Ingredientes (INCI) — ES</label><textarea id="f-ingredientes" rows="3"></textarea></div>
+              <div class="adm-field"><label for="f-ingredientes-en">Ingredientes (INCI) — EN (opcional)</label><textarea id="f-ingredientes-en" rows="3"></textarea></div>
+            </div>
+            <div class="adm-field-bilingual">
+              <div class="adm-field"><label for="f-seguridad">Seguridad — ES</label><textarea id="f-seguridad" rows="3"></textarea></div>
+              <div class="adm-field"><label for="f-seguridad-en">Seguridad — EN (opcional)</label><textarea id="f-seguridad-en" rows="3"></textarea></div>
+            </div>
+
+            <label>Combina con (hasta 3 productos, con el porqué de cada uno — ES y EN opcional)</label>
+            <div id="combinaRows"></div>
+          </div>
+        </details>
+      </div>
+      <div class="adm-modal-actions">
+        <button class="btn btn-ghost btn-sm" type="button" id="btnCancel">Cancelar</button>
+        <button class="btn btn-sm" type="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/admin-common.js"></script>
+<script src="js/admin-productos.js"></script>
+</body>
+</html>

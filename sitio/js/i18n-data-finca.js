@@ -33,6 +33,6 @@ window.VO_I18N_PAGE = {
   "finca-cal-4-h3": "Summer",
   "finca-cal-4-p": "Ripening, under strong light. The fruit takes shape.",
 
-  "finca-cierre-p": "This is what's behind every bottle. The catalog is right here.",
-  "finca-cierre-btn": "See the catalog"
+  "finca-cierre-p": "This is what's behind every bottle. The house and the grove have their own story at verdeoliva.com.ar.",
+  "finca-cierre-btn": "Visit verdeoliva.com.ar"
 };

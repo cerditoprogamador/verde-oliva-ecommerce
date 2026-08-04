@@ -12,12 +12,14 @@
     "node": ">=18"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "dotenv": "^17.4.2",
     "express": "^4.22.2",
     "express-mysql-session": "^3.0.3",
     "express-session": "^1.19.0",
     "google-auth-library": "^10.9.1",
     "mercadopago": "^3.2.1",
+    "multer": "^2.2.0",
     "mysql2": "^3.23.2"
   }
 }
