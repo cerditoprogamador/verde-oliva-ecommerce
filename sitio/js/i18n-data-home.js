@@ -58,7 +58,9 @@ window.VO_I18N_PAGE = {
 
   /* ── 02 · Spa de Olivoterapia ── */
   "spa-h2": "Spa Line",
-  "spa-lead": "The two formulas Fernanda Herrera uses in the treatment room, in a small, concentrated format. Same concentration, same bottle: there's no separate professional and home version. These are treatment products, not everyday routine.",
+  "spa-cred": "In the treatment room · Fernanda Herrera",
+  "spa-lead": "The two treatment-room formulas, in a small, concentrated format. Same concentration, same bottle: there's no separate professional and home version.",
+  "spa-note": "Treatment products, not an everyday routine.",
   "p-emulsion-acido-hialuronico-t": "Hyaluronic acid emulsion",
   "p-emulsion-acido-hialuronico-f": "60 ml · Dehydration, fine lines",
   "p-neblina-hidratante-t": "Hydrating mist",
@@ -128,7 +130,7 @@ window.VO_I18N_PAGE = {
   "rut-kicker": "Rituals",
   "rut-h2": "Build your ritual",
   "rut-lead": "Choose what your skin needs and we'll lay out the order of use, with the why behind each step. We organize care by moment, not by product.",
-  "rq-1-kicker": "Question 1 of 3",
+  "rq-1-kicker": "Question 1 of 5",
   "rq-1-h3": "What do you want to work on?",
   "rq-need-limpiar": "Cleanse",
   "rq-need-hidratar": "Moisturize",
@@ -136,24 +138,36 @@ window.VO_I18N_PAGE = {
   "rq-need-capilar": "Hair care",
   "rq-need-bano": "Take a bath",
 
-  "rq-2-kicker": "Question 2 of 3",
-  "rq-2-h3": "What's your skin type?",
+  "rq-2-kicker": "Question 2 of 5",
+  "rq-2-h3": "Anything else you'd like to add to your routine?",
+  "rq-need2-ninguna": "Nothing else, that's plenty",
+
+  "rq-3-kicker": "Question 3 of 5",
+  "rq-3-h3": "What's your skin type?",
   "rq-skin-seca": "Dry",
   "rq-skin-grasa": "Oily or combination",
   "rq-skin-sensible": "Sensitive or reactive",
   "rq-skin-deshidratada": "Dehydrated",
   "rq-skin-madura": "Mature",
 
-  "rq-3-kicker": "Question 3 of 3",
-  "rq-3-h3": "How much time do you have?",
-  "rq-time-rapido": "Quick — just the essentials",
-  "rq-time-completo": "Complete — the full ritual",
+  "rq-4-kicker": "Question 4 of 5",
+  "rq-4-h3": "How many steps would you like your routine to have?",
+  "rq-size-esencial": "Just the essentials — fewer steps",
+  "rq-size-completa": "The complete routine",
+
+  "rq-5-kicker": "Question 5 of 5",
+  "rq-5-h3": "When will you use it?",
+  "rq-when-manana": "In the morning",
+  "rq-when-noche": "At night",
+  "rq-when-ambas": "Morning and night",
+
+  "rq-curating": "Building your ritual…",
 
   "rq-back": "← Back",
   "rq-restart": "Retake the quiz",
   "rit-ver-todos": "See all products <svg class=\"ic\" width=\"15\" height=\"15\"><use href=\"#i-arrow\"/></svg>",
   "rit-alternativas": "See alternatives",
-  "rit-agregar": "Add the ritual",
+  "rit-agregar": "Add the full ritual",
 
   /* ── newsletter ── */
   "news-h2": "News and things we've learned",

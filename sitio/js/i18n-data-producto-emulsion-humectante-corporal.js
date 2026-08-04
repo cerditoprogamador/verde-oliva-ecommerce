@@ -36,7 +36,7 @@ window.VO_I18N_PAGE = {
   "q3-p1": "<b>After the shower</b>, on dry or barely damp skin — it doesn't need water to seal in, unlike the oil. Works in the morning, at night, or as a light base before makeup.",
 
   "q4-h3": "How to use it",
-  "q4-ol": "<li><p><b>Step out of the shower and towel off as usual.</b> No need to leave skin damp like you would with the oil.</p></li><li><p><b>Pump two or three times into your palm.</b> It goes further than it looks — no need to use more.</p></li><li><p><b>Apply in long strokes, bottom to top.</b> Start at the legs, finish at arms and shoulders.</p></li><li><p><b>Let it absorb for a few seconds before dressing.</b> No need to over-massage or wait for the shine to disappear.</p></li>",
+  "q4-ol": "<li><p>Step out of the shower and towel off as usual: unlike the oil, <b>this emulsion doesn't need damp skin</b> to go on.</p></li><li><p><b>Pump two or three times into your palm</b>; it goes further than it looks.</p></li><li><p><b>Apply in long strokes, bottom to top</b>, starting at the legs and finishing at arms and shoulders.</p></li><li><p>Let it absorb for a few seconds before dressing — <b>no need to over-massage</b> or wait for the shine to disappear.</p></li>",
   "q4-safety": "For cosmetic use. If you have a skin condition or are under dermatological treatment, check with your professional first.",
 
   "warn-h3": "What to expect, and what not to",

@@ -22,7 +22,7 @@
 <meta name="twitter:image" content="img/productos/emulsion-humectante-corporal.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 :root{
@@ -31,7 +31,7 @@
  --tinta:#54584B;--linea:rgba(58,68,51,.18);--linea-f:rgba(58,68,51,.10);
  --fs:'Lora',Georgia,'Times New Roman',serif;
  --fb:'Raleway',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
- --e:cubic-bezier(.22,.61,.36,1);--hh:76px}
+ --e:cubic-bezier(.22,.61,.36,1);--hh:61px}
 h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;letter-spacing:-.012em}
 .lead{font-size:clamp(1rem,1.3vw,1.14rem);line-height:1.62;color:var(--tinta);max-width:62ch}
 .dark .lead,.dark .cf,.dark .card-f{color:rgba(247,244,236,.78)}
@@ -50,8 +50,8 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
 .claims svg{color:var(--hoja-t)}
 .toolbar{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);background:var(--crema2);padding:clamp(16px,2vw,22px) 0}
 .viewtoggle{position:relative;display:inline-flex;gap:1.8rem;border-bottom:1px solid var(--linea);margin-bottom:clamp(14px,1.8vw,18px)}
-.viewtoggle .tbunderline{position:absolute;left:0;bottom:-1px;height:2px;background:var(--oro);
- transition:transform .45s var(--e),width .45s var(--e);will-change:transform,width}
+.viewtoggle .tbunderline{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--oro);
+ transform-origin:left center;transition:transform .45s var(--e);will-change:transform}
 .tbtn{position:relative;background:transparent;color:var(--tinta);border:0;padding:.7rem 0;
  font:500 1.1rem/1 var(--fs);letter-spacing:.01em;cursor:pointer;transition:color .3s var(--e)}
 .tbtn[aria-pressed="true"]{color:var(--oliva)}
@@ -169,11 +169,11 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
     <a href="index.html#rutinas" data-i18n="nav-rutinas">Rutinas</a>
     <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
   </nav>
-  <div class="searchbox">
-    <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
+  <form class="searchbox" action="" role="search">
+    <button type="submit" class="search-submit" aria-label="Buscar" data-i18n-aria="buscar-btn-aria"><svg class="ic" width="17" height="17"><use href="#i-search"/></svg></button>
     <label class="sr" for="q" data-i18n="buscar-label">Buscar productos</label>
-    <input id="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-  </div>
+    <input id="q" name="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
+  </form>
   <div class="hdr-u">
     <div class="lang" role="group" aria-label="Idioma"><button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button></div>
     <button class="iconbtn" type="button" aria-label="Mi cuenta" data-i18n-aria="cuenta-aria"><svg width="20" height="20"><use href="#i-user"/></svg></button>
@@ -192,11 +192,11 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
-  <div class="mnav-search">
-    <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
+  <form class="mnav-search" action="" role="search">
+    <button type="submit" class="search-submit" aria-label="Buscar" data-i18n-aria="buscar-btn-aria"><svg class="ic" width="17" height="17"><use href="#i-search"/></svg></button>
     <label class="sr" for="q-mobile" data-i18n="buscar-label">Buscar productos</label>
-    <input id="q-mobile" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-  </div>
+    <input id="q-mobile" name="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
+  </form>
   <nav class="mnav-links" aria-label="Principal mobile">
     <a href="index.html" data-i18n="crumb-inicio">Inicio</a>
     <a href="index.html#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
@@ -620,6 +620,7 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
 <script src="js/cart.js"></script>
 <script src="js/products.js"></script>
 <script src="js/header.js"></script>
+<script src="js/search-predictive.js"></script>
 <script src="js/i18n-common.js"></script>
 <script src="js/i18n-data-catalogo.js"></script>
 <script src="js/auth.js"></script>
@@ -642,8 +643,22 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
   var fSort=document.getElementById('f-sort');
   var fReset=document.getElementById('f-reset');
   var fcount=document.getElementById('fcount');
+  var fSearch=document.getElementById('q');
+  var fSearchMobile=document.getElementById('q-mobile');
+  var searchQuery='';
 
   var TOTAL=13;
+
+  function norm(s){
+    return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+  }
+
+  function syncSearch(value){
+    searchQuery=value;
+    if(fSearch && fSearch.value!==value) fSearch.value=value;
+    if(fSearchMobile && fSearchMobile.value!==value) fSearchMobile.value=value;
+    render();
+  }
 
   function activeContainer(){
     return viewNecesidad.hidden ? viewLinea : viewNecesidad;
@@ -651,6 +666,13 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
 
   function matches(card){
     var d=card.dataset;
+    if(searchQuery.trim()){
+      var q=norm(searchQuery.trim());
+      var nameEl=card.querySelector('.card-t');
+      var descEl=card.querySelector('.card-f');
+      var text=norm((nameEl?nameEl.textContent:'')+' '+(descEl?descEl.textContent:''));
+      if(text.indexOf(q)===-1) return false;
+    }
     if(fLinea.value && d.linea!==fLinea.value) return false;
     if(fNecesidad.value && (' '+d.necesidad+' ').indexOf(' '+fNecesidad.value+' ')===-1) return false;
     if(fFormato.value){
@@ -715,8 +737,9 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
   var viewUnderline=document.querySelector('.viewtoggle .tbunderline');
   function positionUnderline(btn){
     if(!viewUnderline || !btn) return;
-    viewUnderline.style.width=btn.offsetWidth+'px';
-    viewUnderline.style.transform='translateX('+btn.offsetLeft+'px)';
+    var containerWidth=viewUnderline.parentElement.offsetWidth;
+    var scale=containerWidth?btn.offsetWidth/containerWidth:1;
+    viewUnderline.style.transform='translateX('+btn.offsetLeft+'px) scaleX('+scale+')';
   }
   function setView(view){
     var isN=view==='necesidad';
@@ -745,8 +768,20 @@ h1,h2,h3,h4{font-family:var(--fs);font-weight:600;line-height:1.08;margin:0;lett
   });
   fReset.addEventListener('click',function(){
     fLinea.value=''; fNecesidad.value=''; fFormato.value=''; fPrecio.value=''; fPiel.value=''; fSort.value='relevancia';
-    render();
+    syncSearch('');
   });
+
+  [fSearch,fSearchMobile].forEach(function(el){
+    if(!el) return;
+    el.addEventListener('input', function(){ syncSearch(el.value); });
+    var form=el.closest('form');
+    if(form) form.addEventListener('submit', function(e){ e.preventDefault(); syncSearch(el.value); el.blur(); });
+  });
+  var qParam=new URLSearchParams(window.location.search).get('q');
+  if(qParam){
+    searchQuery=qParam;
+    [fSearch,fSearchMobile].forEach(function(el){ if(el) el.value=qParam; });
+  }
 
   render();
 

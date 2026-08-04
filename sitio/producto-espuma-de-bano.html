@@ -25,7 +25,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 .crumbs{padding:.9rem 0;font-size:.82rem;color:var(--tinta);border-bottom:1px solid var(--linea)}
@@ -139,11 +139,11 @@
         <a href="index.html#rutinas" data-i18n="nav-rutinas">Rutinas</a>
         <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
       </nav>
-      <div class="searchbox">
-        <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
+      <form class="searchbox" action="catalogo.html" method="get" role="search">
+        <button type="submit" class="search-submit" aria-label="Buscar" data-i18n-aria="buscar-btn-aria"><svg class="ic" width="17" height="17"><use href="#i-search"/></svg></button>
         <label class="sr" for="q" data-i18n="buscar-label">Buscar productos</label>
-        <input id="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-      </div>
+        <input id="q" name="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
+      </form>
       <div class="hdr-u">
         <div class="lang" role="group" aria-label="Idioma">
           <button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button>
@@ -166,11 +166,11 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
-  <div class="mnav-search">
-    <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
+  <form class="mnav-search" action="catalogo.html" method="get" role="search">
+    <button type="submit" class="search-submit" aria-label="Buscar" data-i18n-aria="buscar-btn-aria"><svg class="ic" width="17" height="17"><use href="#i-search"/></svg></button>
     <label class="sr" for="q-mobile" data-i18n="buscar-label">Buscar productos</label>
-    <input id="q-mobile" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-  </div>
+    <input id="q-mobile" name="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
+  </form>
   <nav class="mnav-links" aria-label="Principal mobile">
     <a href="index.html" data-i18n="crumb-inicio">Inicio</a>
     <a href="catalogo.html" data-i18n="nav-catalogo-2">Catálogo</a>
@@ -393,6 +393,7 @@
 <script src="js/cart.js"></script>
 <script src="js/products.js"></script>
 <script src="js/header.js"></script>
+<script src="js/search-predictive.js"></script>
 <script src="js/i18n-common.js"></script>
 <script src="js/i18n-data-producto-espuma-de-bano.js"></script>
 <script src="js/auth.js"></script>

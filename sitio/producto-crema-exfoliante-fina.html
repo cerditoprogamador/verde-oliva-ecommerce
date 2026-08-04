@@ -25,7 +25,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 .crumbs{padding:.9rem 0;font-size:.82rem;color:var(--tinta);border-bottom:1px solid var(--linea)}
@@ -139,11 +139,11 @@
         <a href="index.html#rutinas" data-i18n="nav-rutinas">Rutinas</a>
         <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
       </nav>
-      <div class="searchbox">
-        <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
+      <form class="searchbox" action="catalogo.html" method="get" role="search">
+        <button type="submit" class="search-submit" aria-label="Buscar" data-i18n-aria="buscar-btn-aria"><svg class="ic" width="17" height="17"><use href="#i-search"/></svg></button>
         <label class="sr" for="q" data-i18n="buscar-label">Buscar productos</label>
-        <input id="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-      </div>
+        <input id="q" name="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
+      </form>
       <div class="hdr-u">
         <div class="lang" role="group" aria-label="Idioma">
           <button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button>
@@ -166,11 +166,11 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
-  <div class="mnav-search">
-    <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
+  <form class="mnav-search" action="catalogo.html" method="get" role="search">
+    <button type="submit" class="search-submit" aria-label="Buscar" data-i18n-aria="buscar-btn-aria"><svg class="ic" width="17" height="17"><use href="#i-search"/></svg></button>
     <label class="sr" for="q-mobile" data-i18n="buscar-label">Buscar productos</label>
-    <input id="q-mobile" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-  </div>
+    <input id="q-mobile" name="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
+  </form>
   <nav class="mnav-links" aria-label="Principal mobile">
     <a href="index.html" data-i18n="crumb-inicio">Inicio</a>
     <a href="catalogo.html" data-i18n="nav-catalogo-2">Catálogo</a>
@@ -246,7 +246,7 @@
     <div class="qa">
       <div class="q">
         <h3><svg width="20" height="20"><use href="#i-droplet"/></svg><span data-i18n="q1-h3">Para qué es</span></h3>
-        <p data-i18n="q1-p1">Para <b>renovar suavemente la piel del rostro</b>, dejarla más lisa y ayudar a que lo que apliques después —crema, emulsión— entre mejor.</p>
+        <p data-i18n="q1-p1">Para <b>renovar suavemente la piel del rostro</b>, dejarla más lisa y ayudar a que lo que apliques después, sea crema o emulsión, entre mejor.</p>
       </div>
 
       <div class="q">
@@ -261,14 +261,14 @@
 
       <div class="q">
         <h3><svg width="20" height="20"><use href="#i-hand"/></svg><span data-i18n="q4-h3">Cómo se usa</span></h3>
-        <ol class="usteps" data-i18n="q4-ol"><li><p><b>Sobre el rostro húmedo,</b> en círculos suaves.</p></li><li><p><b>Treinta segundos alcanzan.</b> No frotar fuerte — el trabajo lo hace el grano, no la presión.</p></li><li><p><b>Enjuagá con agua tibia.</b></p></li></ol>
+        <ol class="usteps" data-i18n="q4-ol"><li><p><b>Sobre el rostro húmedo,</b> en círculos suaves.</p></li><li><p><b>Treinta segundos alcanzan.</b> No hace falta frotar fuerte: el trabajo lo hace el grano, no la presión.</p></li><li><p><b>Enjuagá con agua tibia.</b></p></li></ol>
         <p class="safety" data-i18n="q4-safety">Uso cosmético. Si tenés una condición en la piel o estás bajo tratamiento dermatológico, consultá con tu profesional antes de incorporarlo.</p>
       </div>
     </div>
 
     <div class="warn">
       <h3 data-i18n="warn-h3">Qué esperar, y qué no</h3>
-      <p data-i18n="warn-p"><b style='color:var(--corteza)'>Desde el primer uso</b>, piel más lisa y luminosa al tacto.<br><br>Lo que <b style='color:var(--corteza)'>no</b> hace: no trata el acné ni cierra los poros — el tamaño del poro no se modifica con un exfoliante.</p>
+      <p data-i18n="warn-p"><b style='color:var(--corteza)'>Desde el primer uso</b>, piel más lisa y luminosa al tacto.<br><br>Lo que <b style='color:var(--corteza)'>no</b> hace: no trata el acné ni cierra los poros: el tamaño del poro no se modifica con un exfoliante.</p>
     </div>
   </div>
 </section>
@@ -312,7 +312,7 @@
             <h3 class="card-t" data-i18n="card3-title">Vallesi Arauco</h3>
             <p class="card-f">500 ml</p>
             <p class="card-p">$39.000</p>
-            <p class="card-why" data-i18n="card3-why">El mismo aceite, por el camino de la mesa. No se usa en el rostro — es la otra mitad de la historia.</p>
+            <p class="card-why" data-i18n="card3-why">El mismo aceite, por el camino de la mesa. No se usa en el rostro: es la otra mitad de la historia.</p>
           </div>
         </a>
       </article>
@@ -337,11 +337,11 @@
       <details open><summary data-i18n="acc1-summary">Ingredientes (INCI)</summary>
         <div class="body" data-i18n="acc1-body">Exfoliante de grano fino con base de aceite de oliva extra virgen del olivar de la finca, prensado en frío una vez al año, con aporte natural de polifenoles y vitamina E. Sin perfume sintético, sin siliconas, sin colorantes. Formulado y envasado por Julia en el laboratorio de Maipú, en lotes chicos.<br><br>El listado INCI completo, como exige la normativa, figura impreso en el envase de cada lote.</div></details>
       <details><summary data-i18n="acc2-summary">Por qué el grano es fino</summary>
-        <div class="body" data-i18n="acc2-body">Porque la piel del rostro es más delgada que la del cuerpo. Un grano grueso ahí raspa en vez de renovar — para eso existe la versión gruesa, pensada para codos, rodillas y talones.</div></details>
+        <div class="body" data-i18n="acc2-body">Porque la piel del rostro es más delgada que la del cuerpo. Un grano grueso ahí raspa en vez de renovar; para eso existe la versión gruesa, pensada para codos, rodillas y talones.</div></details>
       <details><summary data-i18n="acc3-summary">Qué son los polifenoles</summary>
-        <div class="body" data-i18n="acc3-body">Son los compuestos con los que el olivo se defiende del sol de altura y del estrés del secano — los responsables del amargor que se siente al probar un aceite recién prensado. Si no amarga ni pica un poco, probablemente le quede poco de lo que buscamos.</div></details>
+        <div class="body" data-i18n="acc3-body">Son los compuestos con los que el olivo se defiende del sol de altura y del estrés del secano: los responsables del amargor que se siente al probar un aceite recién prensado. Si no amarga ni pica un poco, probablemente le quede poco de lo que buscamos.</div></details>
       <details><summary data-i18n="acc4-summary">Seguridad</summary>
-        <div class="body" data-i18n="acc4-body">Uso cosmético. Si tenés una condición en la piel o estás bajo tratamiento dermatológico, consultá con tu profesional antes de incorporarlo.<br><br>Antes de la primera vez, probá en una zona pequeña —el antebrazo— y esperá un día. Es cosmética, no medicamento: no sustituye ningún diagnóstico ni tratamiento.</div></details>
+        <div class="body" data-i18n="acc4-body">Uso cosmético. Si tenés una condición en la piel o estás bajo tratamiento dermatológico, consultá con tu profesional antes de incorporarlo.<br><br>Antes de la primera vez, probá en una zona pequeña, como el antebrazo, y esperá un día. Es cosmética, no medicamento: no sustituye ningún diagnóstico ni tratamiento.</div></details>
       <details><summary data-i18n="acc5-summary">Conservación y vida útil</summary>
         <div class="body" data-i18n="acc5-body">Guardalo lejos de la luz y del calor: doce meses cerrado, seis una vez abierto. Si el olor cambia de fruto a rancio, descartalo aunque quede producto.</div></details>
       <details><summary data-i18n="acc6-summary">Envíos y cambios</summary>
@@ -357,7 +357,7 @@
     <p class="kicker" data-i18n="ritual-kicker">Cómo se integra</p>
     <h2 style="font-size:clamp(1.6rem,3vw,2.3rem);margin-bottom:.9rem" data-i18n="ritual-h2">De cualquier ritual de exfoliar una vez por semana</h2>
     <p class="lead" data-i18n="ritual-lead1">Es el primer paso del ritual facial: renueva la superficie para que la máscara de barro limpie mejor y la crema hidrate mejor después.</p>
-    <p class="lead" style="margin-top:.9rem" data-i18n="ritual-lead2">Una o dos veces por semana alcanza — exfoliar todos los días rompe la barrera y deja la piel peor que al principio.</p>
+    <p class="lead" style="margin-top:.9rem" data-i18n="ritual-lead2">Una o dos veces por semana alcanza: exfoliar todos los días rompe la barrera y deja la piel peor que al principio.</p>
     <p style="margin-top:1.4rem"><a class="link" href="index.html#rutinas"><span data-i18n="ritual-link">Armar este ritual paso a paso</span> <svg class="ic" width="15" height="15" style="display:inline;vertical-align:middle"><use href="#i-arrow"/></svg></a></p>
   </div>
 </section>
@@ -393,6 +393,7 @@
 <script src="js/cart.js"></script>
 <script src="js/products.js"></script>
 <script src="js/header.js"></script>
+<script src="js/search-predictive.js"></script>
 <script src="js/i18n-common.js"></script>
 <script src="js/i18n-data-producto-crema-exfoliante-fina.js"></script>
 <script src="js/auth.js"></script>

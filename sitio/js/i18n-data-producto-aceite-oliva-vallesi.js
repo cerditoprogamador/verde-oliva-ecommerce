@@ -36,7 +36,7 @@ window.VO_I18N_PAGE = {
   "q3-p1": "<b>Raw</b>, on bread with salt, on vegetables, on finished meat, on cheese. High heat mutes its character: if you're frying, use another oil.",
 
   "q4-h3": "How to store it",
-  "q4-ol": "<li><p><b>Away from light and heat.</b> Light and heat are a fresh oil's two enemies.</p></li><li><p><b>Tightly closed between uses.</b></p></li><li><p><b>It's not meant to be kept for years.</b> A fresh oil doesn't wait: it gets eaten.</p></li>",
+  "q4-ol": "<li><p><b>Away from light and heat</b>, a fresh oil's two biggest enemies.</p></li><li><p>Keep <b>the bottle tightly closed</b> between uses.</p></li><li><p>It's not meant to sit around for years: <b>a fresh oil is at its best</b> within the first few months.</p></li>",
   "q4-safety": "100% extra virgin olive oil, no additives, no blending with other oils.",
 
   "warn-h3": "What to expect, and what not to",

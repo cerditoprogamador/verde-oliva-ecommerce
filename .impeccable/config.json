@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-08-04T22:39:10.126Z",
+        "reason": "Inter es la fuente de body/UI documentada en brand/04-identidad-visual.md; usuario confirmo que es intencional"
+      }
+    ]
+  }
+}

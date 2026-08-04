@@ -26,7 +26,7 @@ window.VO_I18N_PAGE = {
   "edu-lead": "This section is on all 17 product pages. The content changes, the structure doesn't: we'd rather you buy the right thing once than the wrong thing three times.",
 
   "q1-h3": "What it's for",
-  "q1-p1": "To <b>gently renew facial skin</b>, leave it smoother and help whatever you apply next — cream, emulsion — absorb better.",
+  "q1-p1": "To <b>gently renew facial skin</b>, leave it smoother and help whatever you apply next, whether cream or emulsion, absorb better.",
 
   "q2-h3": "Who it's for",
   "q2-ul": "<li><b>All skin types:</b> used in moderation, it's the general-use exfoliant.</li><li><b>Reactive skin:</b> once a week, without pressing.</li><li><b>Never on irritated skin</b> or broken skin.</li>",
@@ -35,11 +35,11 @@ window.VO_I18N_PAGE = {
   "q3-p1": "<b>Once or twice a week</b>, at night.",
 
   "q4-h3": "How to use it",
-  "q4-ol": "<li><p><b>On damp skin,</b> in gentle circles.</p></li><li><p><b>Thirty seconds is enough.</b> Don't scrub hard — the grain does the work, not the pressure.</p></li><li><p><b>Rinse with warm water.</b></p></li>",
+  "q4-ol": "<li><p><b>On damp skin,</b> in gentle circles.</p></li><li><p><b>Thirty seconds is enough.</b> No need to scrub hard: the grain does the work, not the pressure.</p></li><li><p><b>Rinse with warm water.</b></p></li>",
   "q4-safety": "For cosmetic use. If you have a skin condition or are under dermatological treatment, check with your professional first.",
 
   "warn-h3": "What to expect, and what not to",
-  "warn-p": "<b style='color:var(--corteza)'>From the first use</b>, smoother, brighter-feeling skin.<br><br>What it does <b style='color:var(--corteza)'>not</b> do: it doesn't treat acne or close pores — pore size doesn't change with an exfoliant.",
+  "warn-p": "<b style='color:var(--corteza)'>From the first use</b>, smoother, brighter-feeling skin.<br><br>What it does <b style='color:var(--corteza)'>not</b> do: it doesn't treat acne or close pores: pore size doesn't change with an exfoliant.",
 
   "combina-kicker": "What it pairs with",
   "combina-h2": "Renews before purifying, and before closing with cream.",
@@ -55,7 +55,7 @@ window.VO_I18N_PAGE = {
 
   "card3-label": "The origin",
   "card3-title": "Vallesi Arauco",
-  "card3-why": "The same oil, by the way of the table. Not used on skin — it's the other half of the story.",
+  "card3-why": "The same oil, by the way of the table. Not used on skin: it's the other half of the story.",
 
   "origen-kicker": "Where it comes from",
   "origen-p": "This exfoliant is formulated with polyphenols from the same Arauco oil that comes from the trees planted in Coquimbito in 1890.",
@@ -65,10 +65,10 @@ window.VO_I18N_PAGE = {
   "acc1-body": "A fine-grain exfoliant built on extra virgin olive oil from our own grove, cold-pressed once a year, with a natural contribution of polyphenols and vitamin E. No synthetic fragrance, no silicones, no dyes. Formulated and bottled by Julia in the Maipú lab, in small batches.<br><br>The full INCI list, as required by regulation, is printed on each batch's packaging.",
 
   "acc2-summary": "Why the grain is fine",
-  "acc2-body": "Because facial skin is thinner than body skin. A coarse grain there scrapes instead of renewing — that's what the coarse version is for, built for elbows, knees and heels.",
+  "acc2-body": "Because facial skin is thinner than body skin. A coarse grain there scrapes instead of renewing; that's what the coarse version is for, built for elbows, knees and heels.",
 
   "acc3-summary": "What polyphenols are",
-  "acc3-body": "They're the compounds the olive tree uses to defend itself against high-altitude sun and dry-farming stress — what causes the bitterness you feel when tasting freshly pressed oil. If it doesn't taste at least a little bitter or peppery, it probably has little of what we're after left in it.",
+  "acc3-body": "They're the compounds the olive tree uses to defend itself against high-altitude sun and dry-farming stress: what causes the bitterness you feel when tasting freshly pressed oil. If it doesn't taste at least a little bitter or peppery, it probably has little of what we're after left in it.",
 
   "acc4-summary": "Safety",
   "acc4-body": "For cosmetic use. If you have a skin condition or are under dermatological treatment, check with your professional first.<br><br>Before the first use, test on a small area of skin and wait a day. It's cosmetics, not medicine: it doesn't substitute for any diagnosis or treatment.",
@@ -82,6 +82,6 @@ window.VO_I18N_PAGE = {
   "ritual-kicker": "How it fits in",
   "ritual-h2": "From any “exfoliate once a week” ritual",
   "ritual-lead1": "It's the first step of the facial ritual: renews the surface so the clay mask cleans better and the cream hydrates better afterward.",
-  "ritual-lead2": "Once or twice a week is enough — exfoliating every day breaks down the skin barrier and leaves it worse than before.",
+  "ritual-lead2": "Once or twice a week is enough: exfoliating every day breaks down the skin barrier and leaves it worse than before.",
   "ritual-link": "Build this ritual step by step"
 };

@@ -25,7 +25,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/base.css">
 <style>
 [id]{scroll-margin-top:calc(var(--hh) + 58px)}
@@ -157,6 +157,35 @@
 .dark .card-t,.dark .card-p{color:var(--crema)}
 .dark .card-l,.dark .card-f{color:rgba(247,244,236,.72)}
 .dark .card-add .btn{background:var(--crema);color:var(--oliva);border-color:var(--crema)}
+/* ── 02 · Spa de Olivoterapia — "la cabina" ──
+   Único bloque oscuro del home y el pivote tonal de la página: Eco es el
+   estante de todos los días y Gourmet la mesa, los dos en crema; este es el
+   interior profesional. Reutiliza .dark de base.css (fondo --oliva, texto
+   --crema, botones y foco ya invertidos) y agrega sólo la composición propia
+   del capítulo: identidad a la izquierda, sticky mientras pasan los productos,
+   y las dos fórmulas a la derecha con aire. Con 2 SKU la grilla estándar de 4
+   columnas los hacía leer como "la sección chica"; así leen como pocos y
+   deliberados, que es exactamente lo que dice el copy. */
+.spa{position:relative;border-top:0;padding:clamp(56px,7vw,104px) 0}
+.spa::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--oro);opacity:.55}
+.spa-grid{display:grid;gap:clamp(32px,4.4vw,72px);grid-template-columns:1fr}
+@media(min-width:960px){
+ .spa-grid{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:start}
+ .spa-id{position:sticky;top:calc(var(--hh) + 36px)}
+}
+.spa-id h2{font-size:clamp(2rem,4.2vw,3.1rem);margin-bottom:1rem}
+/* La credencial (se usa en cabina, y hay una profesional detrás) sale del
+   párrafo y pasa a ser el sello del bloque. El oro va en la línea, nunca en
+   el texto — regla de brand/04. */
+.spa-cred{display:flex;align-items:center;gap:.75rem;margin:0 0 1.5rem;
+ font:500 .67rem/1 var(--fb);letter-spacing:.16em;text-transform:uppercase;color:var(--arena)}
+.spa-cred::after{content:"";flex:1;height:1px;background:rgba(176,141,63,.6)}
+.spa-note{margin:1.7rem 0 0;padding-left:1.15rem;border-left:2px solid var(--oro);
+ font-family:var(--fs);font-style:italic;font-size:clamp(1.15rem,2.1vw,1.5rem);
+ line-height:1.3;color:var(--crema);max-width:24ch}
+.spa .pgrid{grid-template-columns:1fr}
+@media(min-width:560px){.spa .pgrid{grid-template-columns:repeat(2,1fr)}}
+.spa .card-w .ph{aspect-ratio:4/5}
 .gourmet-band{padding:clamp(48px,6vw,88px) 0;border-top:1px solid var(--linea);background:var(--crema)}
 .gourmet-grid{display:grid;gap:clamp(28px,4vw,56px);grid-template-columns:1fr;align-items:center}
 @media(min-width:900px){.gourmet-grid{grid-template-columns:.85fr 1.15fr}}
@@ -225,12 +254,20 @@
 @media(min-width:700px){.rq-opts{grid-template-columns:repeat(3,1fr)}}
 .rq-opts.rq-opts-2{grid-template-columns:1fr;max-width:420px}
 @media(min-width:560px){.rq-opts.rq-opts-2{grid-template-columns:repeat(2,1fr);max-width:520px}}
-.rq-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+.rq-opt{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
  min-height:104px;padding:1rem .7rem;background:var(--crema);border:1px solid var(--linea);border-radius:3px;
  font:500 .84rem/1.25 var(--fb);color:var(--oliva);cursor:pointer;text-align:center;
  transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e),transform .2s var(--e)}
 .rq-opt:hover{border-color:var(--oro);transform:translateY(-2px)}
 .rq-opt svg{color:var(--hoja-t);transition:color .2s var(--e)}
+.rq-curating{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+ padding:clamp(50px,8vw,90px) 0;text-align:center}
+.rq-curating-mark{width:52px;height:52px;border-radius:50%;border:1px solid var(--linea);display:flex;
+ align-items:center;justify-content:center;font:600 .9rem var(--fs);color:var(--oliva);
+ animation:rq-spin 1.4s linear infinite}
+.rq-curating p{font:500 1.05rem var(--fs);color:var(--tinta);margin:0}
+@keyframes rq-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.rq-curating-mark{animation:none}}
 .rq-back{display:block;margin:1.6rem auto 0;background:none;border:0;cursor:pointer;
  font:500 .76rem/1 var(--fb);letter-spacing:.1em;text-transform:uppercase;color:var(--tinta);
  transition:color .2s var(--e)}
@@ -250,21 +287,26 @@
 .rit-meta span{display:inline-flex;align-items:center;gap:.4rem}
 .rit-meta span:not(:first-child)::before{content:"·";margin:0 .6rem;color:var(--linea)}
 .rit-meta svg{color:var(--hoja-t)}
-.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;background:var(--crema);
- border:1px solid var(--linea);border-radius:3px;overflow:hidden}
-.step{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1.2rem clamp(14px,2vw,22px);
- border-bottom:1px solid var(--linea-f);align-items:start}
-.step:last-child{border-bottom:0}
-.step-n{width:34px;height:34px;border-radius:50%;border:1px solid var(--linea);display:flex;align-items:center;
- justify-content:center;font:500 .8rem/1 var(--fb);color:var(--oliva);flex:none;background:var(--crema2)}
-.step-t{display:flex;flex-wrap:wrap;gap:.3rem .8rem;align-items:baseline;margin-bottom:.25rem}
-.step-t a{font-family:var(--fs);font-size:1.3rem;line-height:1.15;text-decoration:none;color:var(--corteza);
+.rit-cards{display:grid;gap:1.1rem;grid-template-columns:repeat(2,1fr)}
+@media(max-width:639px){.rit-cards{grid-template-columns:1fr}}
+.rit-card{background:var(--crema);border:1px solid var(--linea);border-radius:3px;overflow:hidden;
+ display:flex;flex-direction:column}
+.rit-card-img{aspect-ratio:1;background:var(--crema2);overflow:hidden}
+.rit-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.rit-card-b{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:.4rem;flex:1}
+.rit-card-b a{font-family:var(--fs);font-size:1.15rem;line-height:1.2;text-decoration:none;color:var(--corteza);
  cursor:pointer;border-bottom:1px solid transparent;transition:border-color .2s var(--e)}
-.step-t a:hover{border-color:var(--oro)}
-.step-f{font-size:.8rem;color:var(--tinta)}
-.step-p{margin-left:auto;font:500 .92rem/1 var(--fb);white-space:nowrap}
-.step-d{font-size:.9rem;color:var(--tinta);margin:.2rem 0 0}
-.step-w{font-size:.83rem;color:var(--oliva);margin:.5rem 0 0;padding-left:.7rem;border-left:2px solid var(--oro)}
+.rit-card-b a:hover{border-color:var(--oro)}
+.rit-card-f{font-size:.78rem;color:var(--tinta)}
+.rit-card-d{font-size:.86rem;color:var(--tinta);margin:.1rem 0 0}
+.rit-card-w{font-size:.78rem;color:var(--oliva);margin:.3rem 0 0;padding-left:.6rem;border-left:2px solid var(--oro)}
+.rit-card-foot{margin-top:auto;padding-top:.7rem;display:flex;align-items:center;justify-content:space-between;gap:.6rem}
+.rit-card-p{font:500 .95rem/1 var(--fb);white-space:nowrap}
+.rit-card-add{background:none;border:1px solid var(--linea);border-radius:2px;padding:.4rem .8rem;
+ font:600 .72rem/1 var(--fb);letter-spacing:.05em;text-transform:uppercase;color:var(--oliva);cursor:pointer;
+ transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e)}
+.rit-card-add:hover{background:var(--oliva);border-color:var(--oliva);color:var(--crema)}
+.rit-card-add[disabled]{opacity:.6;cursor:default}
 .rit-foot{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
  padding:1.2rem clamp(14px,2vw,22px);background:var(--crema2);border:1px solid var(--linea);border-top:0}
 .rit-total{font:500 1.35rem/1 var(--fb);letter-spacing:-.01em}
@@ -336,11 +378,11 @@
         <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
         <a href="catalogo.html" data-i18n="nav-catalogo">Catálogo completo</a>
       </nav>
-      <div class="searchbox">
-        <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
+      <form class="searchbox" action="catalogo.html" method="get" role="search">
+        <button type="submit" class="search-submit" aria-label="Buscar" data-i18n-aria="buscar-btn-aria"><svg class="ic" width="17" height="17"><use href="#i-search"/></svg></button>
         <label class="sr" for="q" data-i18n="buscar-label">Buscar productos</label>
-        <input id="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-      </div>
+        <input id="q" name="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
+      </form>
       <div class="hdr-u">
         <div class="lang" role="group" aria-label="Idioma">
           <button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button>
@@ -363,11 +405,11 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
-  <div class="mnav-search">
-    <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
+  <form class="mnav-search" action="catalogo.html" method="get" role="search">
+    <button type="submit" class="search-submit" aria-label="Buscar" data-i18n-aria="buscar-btn-aria"><svg class="ic" width="17" height="17"><use href="#i-search"/></svg></button>
     <label class="sr" for="q-mobile" data-i18n="buscar-label">Buscar productos</label>
-    <input id="q-mobile" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-  </div>
+    <input id="q-mobile" name="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
+  </form>
   <nav class="mnav-links" aria-label="Principal mobile">
     <a href="#productos" data-i18n="nav-productos">Productos</a>
     <a href="#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
@@ -529,20 +571,20 @@
   </div>
 </section>
 
-<!-- ── 02 · Spa de Olivoterapia — rediseño editorial ── -->
-<section class="chap" id="spa">
+<!-- ── 02 · Spa de Olivoterapia — "la cabina": el único bloque oscuro del home ── -->
+<section class="dark spa" id="spa">
   <div class="wrap">
-    <div class="chead">
-      <div>
+    <div class="spa-grid">
+
+      <div class="spa-id">
         <span class="cn">02</span>
         <h2 data-i18n="spa-h2">Spa de Olivoterapia</h2>
-        <p class="lead" data-i18n="spa-lead">Las dos fórmulas que Fernanda Herrera usa en cabina, en formato chico y concentrado. Misma concentración, mismo envase: no hay una versión profesional y otra doméstica. Son productos de tratamiento, no de rutina.</p>
+        <p class="spa-cred" data-i18n="spa-cred">En cabina · Fernanda Herrera</p>
+        <p class="lead" data-i18n="spa-lead">Las dos fórmulas del tratamiento en cabina, en formato chico y concentrado. Misma concentración, mismo envase: no hay una versión profesional y otra doméstica.</p>
+        <p class="spa-note" data-i18n="spa-note">Son productos de tratamiento, no de rutina.</p>
       </div>
-    </div>
 
-  <!-- Productos: grilla estándar del sitio -->
-  <div class="wrap" style="padding-top:clamp(26px,3vw,40px);padding-bottom:clamp(44px,5.5vw,72px)">
-    <div class="pgrid" style="grid-template-columns:repeat(2,1fr);max-width:660px">
+      <div class="pgrid">
 
       <article class="card-w"><span class="flag" data-i18n="flag-new">Nuevo</span>
         <a class="card" href="producto-emulsion-acido-hialuronico.html">
@@ -573,6 +615,8 @@
           data-sku="neblina-hidratante" data-name="Neblina hidratante" data-price="15500"
           data-i18n="btn-agregar">Agregar</button></div>
       </article>
+
+      </div>
 
     </div>
   </div>
@@ -692,12 +736,14 @@
       <div class="rq-progress" aria-hidden="true">
         <span class="rq-dot rq-on" data-dot="1"></span><span class="rq-line"></span>
         <span class="rq-dot" data-dot="2"></span><span class="rq-line"></span>
-        <span class="rq-dot" data-dot="3"></span>
+        <span class="rq-dot" data-dot="3"></span><span class="rq-line"></span>
+        <span class="rq-dot" data-dot="4"></span><span class="rq-line"></span>
+        <span class="rq-dot" data-dot="5"></span>
       </div>
 
       <div class="rq-step rq-on" data-step="1">
         <div class="rq-q">
-          <p class="kicker" data-i18n="rq-1-kicker">Pregunta 1 de 3</p>
+          <p class="kicker" data-i18n="rq-1-kicker">Pregunta 1 de 5</p>
           <h3 class="d4" data-i18n="rq-1-h3">¿Qué querés resolver?</h3>
         </div>
         <div class="rq-opts" role="group" aria-label="Qué necesitás">
@@ -711,8 +757,24 @@
 
       <div class="rq-step" data-step="2">
         <div class="rq-q">
-          <p class="kicker" data-i18n="rq-2-kicker">Pregunta 2 de 3</p>
-          <h3 class="d4" data-i18n="rq-2-h3">¿Qué tipo de piel tenés?</h3>
+          <p class="kicker" data-i18n="rq-2-kicker">Pregunta 2 de 5</p>
+          <h3 class="d4" data-i18n="rq-2-h3">¿Algo más que te gustaría sumar a tu rutina?</h3>
+        </div>
+        <div class="rq-opts" role="group" aria-label="Necesidad adicional">
+          <button class="rq-opt" type="button" data-q="need2" data-v="limpiar"><svg class="ic" width="22" height="22"><use href="#i-droplet"/></svg><span data-i18n="rq-need-limpiar">Limpiar</span></button>
+          <button class="rq-opt" type="button" data-q="need2" data-v="hidratar"><svg class="ic" width="22" height="22"><use href="#i-leaf"/></svg><span data-i18n="rq-need-hidratar">Hidratar</span></button>
+          <button class="rq-opt" type="button" data-q="need2" data-v="exfoliar"><svg class="ic" width="22" height="22"><use href="#i-brush"/></svg><span data-i18n="rq-need-exfoliar">Exfoliar</span></button>
+          <button class="rq-opt" type="button" data-q="need2" data-v="capilar"><svg class="ic" width="22" height="22"><use href="#i-wind"/></svg><span data-i18n="rq-need-capilar">Cuidar el pelo</span></button>
+          <button class="rq-opt" type="button" data-q="need2" data-v="bano"><svg class="ic" width="22" height="22"><use href="#i-sun"/></svg><span data-i18n="rq-need-bano">Darme un baño</span></button>
+          <button class="rq-opt" type="button" data-q="need2" data-v="ninguna"><svg class="ic" width="22" height="22"><use href="#i-check"/></svg><span data-i18n="rq-need2-ninguna">Nada más, con eso alcanza</span></button>
+        </div>
+        <button class="rq-back" type="button" data-back data-i18n="rq-back">← Volver</button>
+      </div>
+
+      <div class="rq-step" data-step="3">
+        <div class="rq-q">
+          <p class="kicker" data-i18n="rq-3-kicker">Pregunta 3 de 5</p>
+          <h3 class="d4" data-i18n="rq-3-h3">¿Qué tipo de piel tenés?</h3>
         </div>
         <div class="rq-opts" role="group" aria-label="Tipo de piel">
           <button class="rq-opt" type="button" data-q="skin" data-v="seca"><svg class="ic" width="22" height="22"><use href="#i-droplet"/></svg><span data-i18n="rq-skin-seca">Seca</span></button>
@@ -724,17 +786,35 @@
         <button class="rq-back" type="button" data-back data-i18n="rq-back">← Volver</button>
       </div>
 
-      <div class="rq-step" data-step="3">
+      <div class="rq-step" data-step="4">
         <div class="rq-q">
-          <p class="kicker" data-i18n="rq-3-kicker">Pregunta 3 de 3</p>
-          <h3 class="d4" data-i18n="rq-3-h3">¿Cuánto tiempo le dedicás?</h3>
+          <p class="kicker" data-i18n="rq-4-kicker">Pregunta 4 de 5</p>
+          <h3 class="d4" data-i18n="rq-4-h3">¿Cuántos pasos te gustaría que tenga tu rutina?</h3>
         </div>
-        <div class="rq-opts rq-opts-2" role="group" aria-label="Tiempo disponible">
-          <button class="rq-opt" type="button" data-q="time" data-v="rapido"><svg class="ic" width="22" height="22"><use href="#i-clock"/></svg><span data-i18n="rq-time-rapido">Rápido — lo esencial</span></button>
-          <button class="rq-opt" type="button" data-q="time" data-v="completo"><svg class="ic" width="22" height="22"><use href="#i-clock"/></svg><span data-i18n="rq-time-completo">Completo — el ritual entero</span></button>
+        <div class="rq-opts rq-opts-2" role="group" aria-label="Cantidad de pasos">
+          <button class="rq-opt" type="button" data-q="size" data-v="esencial"><svg class="ic" width="22" height="22"><use href="#i-clock"/></svg><span data-i18n="rq-size-esencial">Lo esencial — menos pasos</span></button>
+          <button class="rq-opt" type="button" data-q="size" data-v="completa"><svg class="ic" width="22" height="22"><use href="#i-clock"/></svg><span data-i18n="rq-size-completa">La rutina completa</span></button>
         </div>
         <button class="rq-back" type="button" data-back data-i18n="rq-back">← Volver</button>
       </div>
+
+      <div class="rq-step" data-step="5">
+        <div class="rq-q">
+          <p class="kicker" data-i18n="rq-5-kicker">Pregunta 5 de 5</p>
+          <h3 class="d4" data-i18n="rq-5-h3">¿Cuándo la vas a usar?</h3>
+        </div>
+        <div class="rq-opts" role="group" aria-label="Cuándo usarla">
+          <button class="rq-opt" type="button" data-q="when" data-v="manana"><svg class="ic" width="22" height="22"><use href="#i-sun"/></svg><span data-i18n="rq-when-manana">A la mañana</span></button>
+          <button class="rq-opt" type="button" data-q="when" data-v="noche"><svg class="ic" width="22" height="22"><use href="#i-clock"/></svg><span data-i18n="rq-when-noche">A la noche</span></button>
+          <button class="rq-opt" type="button" data-q="when" data-v="ambas"><svg class="ic" width="22" height="22"><use href="#i-leaf"/></svg><span data-i18n="rq-when-ambas">Mañana y noche</span></button>
+        </div>
+        <button class="rq-back" type="button" data-back data-i18n="rq-back">← Volver</button>
+      </div>
+    </div>
+
+    <div class="rq-curating" id="rqCurating" hidden>
+      <span class="rq-curating-mark">VO</span>
+      <p data-i18n="rq-curating">Armando tu ritual…</p>
     </div>
 
     <div class="ritual-in" id="rresult">
@@ -755,12 +835,12 @@
         </div>
       </div>
       <div>
-        <ol class="steps" id="steps" aria-live="polite"></ol>
+        <div class="rit-cards" id="steps" aria-live="polite"></div>
         <div class="rit-foot">
           <div class="rit-total"><small>Ritual completo</small><span id="rit-total">$59.500</span></div>
           <div style="display:flex;gap:.6rem;flex-wrap:wrap">
             <a class="btn btn-ghost btn-sm" href="catalogo.html" data-i18n="rit-alternativas">Ver alternativas</a>
-            <button class="btn btn-sm" type="button" id="addall" data-i18n="rit-agregar">Agregar el ritual</button>
+            <button class="btn btn-sm" type="button" id="addall" data-i18n="rit-agregar">Agregar todo el ritual</button>
           </div>
         </div>
       </div>
@@ -859,6 +939,7 @@
 
 <script src="js/cart.js"></script>
 <script src="js/header.js"></script>
+<script src="js/search-predictive.js"></script>
 <script src="js/i18n-common.js"></script>
 <script src="js/i18n-data-home.js"></script>
 <script src="js/auth.js"></script>
@@ -867,115 +948,110 @@
 <script>
 (function(){
   /* ── rituales ── */
-  var R = {
-    limpiar:{t:'Limpiar sin dejar la piel tirante',d:'Sacarse el día de encima no es lo mismo que arrasar con la barrera de la piel. Dos pasos y uno opcional dos veces por semana.',
-      time:'4 minutos',when:'Todas las noches',skin:'Todo tipo de piel',total:'$52.500',
-      s:[['Emulsión de limpieza','250 ml','$19.000','Desmaquilla y limpia sin jabón. Se aplica sobre piel seca y se emulsiona con agua tibia.','Si después de lavarte la cara la sentís tirante, la limpieza fue demasiado fuerte.','emulsion-de-limpieza'],
-         ['Máscara de barro','50 ml','$15.500','Arcilla con polifenoles para zona T, poro dilatado o piel apagada.','Diez minutos. Retirala antes de que seque del todo: si tira, ya te pasaste.','mascara-de-barro'],
-         ['Crema humectante facial','50 gr','$18.000','Cierra el ritual reponiendo lo que la limpieza se llevó.','','crema-humectante-facial']],
-      en:{t:'Cleanse without leaving skin tight',d:'Washing the day off isn’t the same as stripping your skin’s barrier. Two steps, plus one optional step twice a week.',
-        time:'4 minutes',when:'Every night',skin:'All skin types',
-        s:[['Cleansing emulsion','250 ml','Removes makeup and cleans without soap. Apply on dry skin and work into an emulsion with lukewarm water.','If your face feels tight after washing, the cleanse was too harsh.'],
-           ['Mud mask','50 ml','Clay with polyphenols for the T-zone, enlarged pores, or dull skin.','Ten minutes. Take it off before it fully dries: if it pulls at your skin, you left it on too long.'],
-           ['Face moisturizing cream','50 g','Closes the ritual by putting back what the cleanse took away.','']]},
-      bySkin:{
-        seca:{s:[['Emulsión de limpieza','250 ml','$19.000','Desmaquilla y limpia sin jabón. Se aplica sobre piel seca y se emulsiona con agua tibia.','Si después de lavarte la cara la sentís tirante, la limpieza fue demasiado fuerte.','emulsion-de-limpieza'],
-             ['Neblina hidratante','60 ml','$15.500','Después de limpiar, antes de la crema: prepara la piel para que lo que sigue entre mejor.','No dejes que se seque sola — aplicá la crema con la piel todavía húmeda.','neblina-hidratante'],
-             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual reponiendo lo que la limpieza se llevó.','','crema-humectante-facial']],
-          en:[['Cleansing emulsion','250 ml','Removes makeup and cleans without soap. Apply on dry skin and work into an emulsion with lukewarm water.','If your face feels tight after washing, the cleanse was too harsh.'],
-             ['Hydrating mist','60 ml','After cleansing, before the cream: preps skin so what comes next absorbs better.','Don’t let it dry on its own — apply the cream while skin is still damp.'],
-             ['Face moisturizing cream','50 g','Closes the ritual by putting back what the cleanse took away.','']]},
-        sensible:{s:[['Emulsión de limpieza','250 ml','$19.000','Desmaquilla y limpia sin jabón, sin frotar. La opción más suave de la línea.','Si igual sentís ardor o tirantez, aplicá menos cantidad y sin masajear tanto.','emulsion-de-limpieza'],
-             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual. Dos pasos nada más — en piel sensible, menos es más.','','crema-humectante-facial']],
-          en:[['Cleansing emulsion','250 ml','Removes makeup and cleans without soap, without rubbing. The gentlest option in the line.','If you still feel stinging or tightness, use less and massage less.'],
-             ['Face moisturizing cream','50 g','Closes the ritual. Two steps, no more — with sensitive skin, less is more.','']]}
-      }},
-    hidratar:{t:'Hidratar de la cara a los pies',d:'Reponer agua y grasa: son dos cosas distintas y la piel necesita las dos. Primero lo que da agua, después lo que la sella.',
-      time:'6 minutos',when:'Mañana y noche',skin:'Piel normal a seca',total:'$59.500',
-      s:[['Emulsión ácido hialurónico','60 ml','$23.000','Es el paso de agua. Va primero, sobre la piel apenas húmeda, antes de cualquier crema.','Si la piel queda pegajosa, estás usando de más: dos gotas alcanzan.','emulsion-acido-hialuronico'],
-         ['Crema humectante facial','50 gr','$18.000','Textura de crema, no de gel. Sella el hialurónico y suma grasa buena.','','crema-humectante-facial'],
-         ['Emulsión humectante corporal','250 ml','$19.000','Para el cuerpo, después del baño, con la piel todavía húmeda.','Sobre piel húmeda todo entra mejor. Es gratis y cambia el resultado.','emulsion-humectante-corporal']],
-      en:{t:'Hydrate from head to toe',d:'Replacing water and replacing fat are two different things, and skin needs both. Water first, then whatever seals it in.',
-        time:'6 minutes',when:'Morning and night',skin:'Normal to dry skin',
-        s:[['Hyaluronic acid emulsion','60 ml','This is the water step. It goes on first, on slightly damp skin, before any cream.','If skin feels sticky, you’re using too much: two drops are enough.'],
-           ['Face moisturizing cream','50 g','A cream texture, not a gel. Seals in the hyaluronic acid and adds good fat.',''],
-           ['Body moisturizing emulsion','250 ml','For the body, after the shower, while skin is still damp.','Everything absorbs better on damp skin. It’s free and it changes the result.']]},
-      bySkin:{
-        grasa:{s:[['Emulsión ácido hialurónico','60 ml','$23.000','Es el paso de agua, y en piel grasa o mixta alcanza sin sumar una crema más pesada encima.','Si la piel queda pegajosa, estás usando de más: dos gotas alcanzan.','emulsion-acido-hialuronico'],
-             ['Emulsión humectante corporal','250 ml','$19.000','Para el cuerpo, después del baño. Absorción rápida, sin película grasa.','Sobre piel húmeda todo entra mejor. Es gratis y cambia el resultado.','emulsion-humectante-corporal']],
-          en:[['Hyaluronic acid emulsion','60 ml','This is the water step, and on oily or combination skin it’s enough on its own, without a heavier cream on top.','If skin feels sticky, you’re using too much: two drops are enough.'],
-             ['Body moisturizing emulsion','250 ml','For the body, after the shower. Fast absorption, no oily film.','Everything absorbs better on damp skin. It’s free and it changes the result.']]},
-        seca:{s:[['Neblina hidratante','60 ml','$15.500','El paso de agua antes de la crema. En piel seca, no conviene saltearlo.','Aplicá la crema mientras la piel sigue húmeda, nunca dejes que se seque sola.','neblina-hidratante'],
-             ['Crema humectante facial','50 gr','$18.000','Textura de crema, pensada para piel normal a seca. Sella y suma grasa buena.','','crema-humectante-facial'],
-             ['Emulsión humectante corporal','250 ml','$19.000','Para el cuerpo, después del baño, con la piel todavía húmeda.','Sobre piel húmeda todo entra mejor. Es gratis y cambia el resultado.','emulsion-humectante-corporal']],
-          en:[['Hydrating mist','60 ml','The water step before the cream. On dry skin, it’s not one to skip.','Apply the cream while skin is still damp — never let the mist dry on its own.'],
-             ['Face moisturizing cream','50 g','A cream texture, built for normal to dry skin. Seals in and adds good fat.',''],
-             ['Body moisturizing emulsion','250 ml','For the body, after the shower, while skin is still damp.','Everything absorbs better on damp skin. It’s free and it changes the result.']]},
-        deshidratada:{s:[['Neblina hidratante','60 ml','$15.500','Refresca y prepara antes de cualquier otro paso — es agua, no grasa, lo que le falta a la piel deshidratada.','Aplicá el siguiente paso mientras la piel sigue húmeda.','neblina-hidratante'],
-             ['Emulsión ácido hialurónico','60 ml','$23.000','Hidratación intensa con ácido hialurónico, pensada específicamente para piel deshidratada.','Si la piel queda pegajosa, estás usando de más: dos gotas alcanzan.','emulsion-acido-hialuronico'],
-             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual sellando la hidratación de los dos pasos anteriores.','','crema-humectante-facial']],
-          en:[['Hydrating mist','60 ml','Refreshes and preps before anything else — it’s water, not oil, that dehydrated skin is missing.','Apply the next step while skin is still damp.'],
-             ['Hyaluronic acid emulsion','60 ml','Intense hydration with hyaluronic acid, formulated specifically for dehydrated skin.','If skin feels sticky, you’re using too much: two drops are enough.'],
-             ['Face moisturizing cream','50 g','Closes the ritual, sealing in the hydration from the two steps before it.','']]},
-        sensible:{s:[['Crema humectante facial','50 gr','$18.000','Un solo paso. En piel sensible o reactiva, empezar con lo mínimo es la mejor estrategia.','Probá primero en el antebrazo y esperá un día antes de sumar cualquier otro producto.','crema-humectante-facial']],
-          en:[['Face moisturizing cream','50 g','One step, nothing more. On sensitive or reactive skin, starting minimal is the best strategy.','Test on your forearm first and wait a day before adding anything else.']]}
-      }},
-    exfoliar:{t:'Exfoliar una vez por semana',d:'Renovar la superficie para que lo que venga después entre mejor. Grano fino arriba, grano grueso abajo.',
-      time:'10 minutos',when:'Una o dos veces por semana',skin:'Evitar sobre piel irritada',total:'$50.000',
-      s:[['Crema exfoliante fina','50 gr','$15.500','Rostro, cuello y escote. En círculos suaves, sin presionar.','El trabajo lo hace el grano, no la presión.','crema-exfoliante-fina'],
-         ['Crema exfoliante gruesa','50 gr','$15.500','Codos, rodillas, talones y espalda, bajo la ducha, sobre piel mojada.','','crema-exfoliante-gruesa'],
-         ['Emulsión humectante corporal','250 ml','$19.000','Inmediatamente después. La piel recién exfoliada absorbe mucho más.','','emulsion-humectante-corporal']],
-      en:{t:'Exfoliate once a week',d:'Renew the surface so whatever comes next absorbs better. Fine grain up top, coarse grain below.',
-        time:'10 minutes',when:'Once or twice a week',skin:'Avoid on irritated skin',
-        s:[['Fine exfoliating cream','50 g','Face, neck and décolletage. Gentle circles, no pressing.','The grain does the work, not the pressure.'],
-           ['Coarse exfoliating cream','50 g','Elbows, knees, heels and back, in the shower, on wet skin.',''],
-           ['Body moisturizing emulsion','250 ml','Right after. Freshly exfoliated skin absorbs a lot more.','']]},
-      bySkin:{
-        grasa:{s:[['Crema exfoliante fina','50 gr','$15.500','Rostro, cuello y escote. En círculos suaves, sin presionar.','El trabajo lo hace el grano, no la presión.','crema-exfoliante-fina'],
-             ['Emulsión humectante corporal','250 ml','$19.000','Para el cuerpo. En piel grasa o mixta, mejor esta que el exfoliante grueso — no hace falta tanto para renovar.','Inmediatamente después de la ducha, con la piel húmeda.','emulsion-humectante-corporal']],
-          en:[['Fine exfoliating cream','50 g','Face, neck and décolletage. Gentle circles, no pressing.','The grain does the work, not the pressure.'],
-             ['Body moisturizing emulsion','250 ml','For the body. On oily or combination skin, this works better than the coarse scrub — you don’t need as much to renew it.','Right after the shower, on damp skin.']]},
-        madura:{s:[['Crema exfoliante fina','50 gr','$15.500','Rostro, cuello y escote. En círculos suaves, sin presionar.','El trabajo lo hace el grano, no la presión.','crema-exfoliante-fina'],
-             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual. Ningún exfoliante revierte el tiempo, pero renovar la superficie ayuda a que la hidratación entre mejor.','','crema-humectante-facial']],
-          en:[['Fine exfoliating cream','50 g','Face, neck and décolletage. Gentle circles, no pressing.','The grain does the work, not the pressure.'],
-             ['Face moisturizing cream','50 g','Closes the ritual. No exfoliant reverses time, but renewing the surface helps hydration absorb better.','']]},
-        sensible:{s:[['Crema exfoliante fina','50 gr','$15.500','Rostro, una vez por semana. El único exfoliante que se recomienda en piel sensible, y con cuidado.','Sin presionar, treinta segundos, y nunca sobre piel irritada.','crema-exfoliante-fina'],
-             ['Crema humectante facial','50 gr','$18.000','Cierra el ritual reponiendo lo que el exfoliante renueva.','','crema-humectante-facial']],
-          en:[['Fine exfoliating cream','50 g','Face, once a week. The only exfoliant recommended for sensitive skin, and even then, with care.','No pressing, thirty seconds, and never on irritated skin.'],
-             ['Face moisturizing cream','50 g','Closes the ritual, putting back what the exfoliant renews.','']]}
-      }},
-    capilar:{t:'Cuero cabelludo primero',d:'El largo se acomoda solo si el cuero cabelludo está bien. Poca espuma no es poca limpieza.',
-      time:'8 minutos',when:'Dos o tres veces por semana',skin:'Cuero cabelludo sensible',total:'$43.000',
-      s:[['Shampoo','250 ml','$14.000','Base suave, poca espuma. Masajeá el cuero cabelludo, no el largo.','Con agua dura como la de Mendoza, una segunda pasada corta rinde más que una larga.','shampoo'],
-         ['Acondicionador capilar','250 ml','$13.500','De medios a puntas, dos minutos, enjuague abundante.','','acondicionador-capilar'],
-         ['Neblina hidratante','60 ml','$15.500','Entre lavados, sobre el largo seco, para el frizz del aire seco.','','neblina-hidratante']],
-      en:{t:'Scalp first',d:'Hair falls into place on its own once the scalp is right. Little foam doesn’t mean little cleaning.',
-        time:'8 minutes',when:'Two or three times a week',skin:'Sensitive scalp',
-        s:[['Shampoo','250 ml','A mild base, low foam. Massage the scalp, not the length.','With hard water like Mendoza’s, a short second pass works better than one long one.'],
-           ['Hair conditioner','250 ml','Mid-lengths to ends, two minutes, rinse well.',''],
-           ['Hydrating mist','60 ml','Between washes, on dry hair, for frizz from dry air.','']]}},
-    bano:{t:'Un baño de verdad',d:'El único ritual cuyo objetivo no es un resultado sobre la piel. Es tiempo.',
-      time:'30 minutos',when:'Fin de semana',skin:'Todo tipo de piel',total:'$53.200',
-      s:[['Espuma de baño','250 ml','$19.000','Un chorro bajo el agua caliente mientras se llena la bañera. Espuma corta y estable.','El agua muy caliente reseca. Si tenés la piel seca, bajá la temperatura, no el tiempo.','espuma-de-bano'],
-         ['Sales de baño','250 gr','$15.700','Un puñado. Piernas cansadas, frío, después de entrenar.','Si tenés la piel muy seca, usá sales o espuma, no las dos juntas.','sales-de-bano'],
-         ['Emulsión humectante corporal','250 ml','$19.000','Al salir, con la piel todavía tibia. Cierra el ritual sin dejar sensación pesada.','','emulsion-humectante-corporal']],
-      en:{t:'A real bath',d:'The only ritual whose point isn’t a result on your skin. It’s time.',
-        time:'30 minutes',when:'On the weekend',skin:'All skin types',
-        s:[['Bath foam','250 ml','A stream under the hot water as the tub fills. Short, stable foam.','Water that’s too hot dries skin out. If yours is dry, lower the temperature, not the time.'],
-           ['Bath salts','250 g','A handful. Tired legs, cold weather, after training.','If your skin is very dry, use salts or foam, not both together.'],
-           ['Body moisturizing emulsion','250 ml','On your way out, while skin is still warm. Closes the ritual without a heavy feel.','']]},
-      bySkin:{
-        sensible:{s:[['Espuma de baño','250 ml','$19.000','Un chorro bajo el agua tibia — no caliente — mientras se llena la bañera.','En piel sensible, bajá la temperatura del agua, no el tiempo de baño.','espuma-de-bano'],
-             ['Emulsión humectante corporal','250 ml','$19.000','Al salir, con la piel todavía tibia. Sin sales esta vez, para no sumar de más.','','emulsion-humectante-corporal']],
-          en:[['Bath foam','250 ml','A stream under warm — not hot — water as the tub fills.','On sensitive skin, lower the water temperature, not the time in the tub.'],
-             ['Body moisturizing emulsion','250 ml','On your way out, while skin is still warm. No salts this time, to keep it from being too much.','']]}
-      }}
+  /* ── catálogo de pasos: un producto por sku, reusado por cualquier
+     combinación de necesidades que lo incluya (evita duplicar copy). ── */
+  var PRODUCTS = {
+    'emulsion-de-limpieza':{name:'Emulsión de limpieza',format:'250 ml',price:19000,
+      desc:'Desmaquilla y limpia sin jabón. Se aplica sobre piel seca y se emulsiona con agua tibia.',
+      warn:'Si después de lavarte la cara la sentís tirante, la limpieza fue demasiado fuerte.',
+      en:{name:'Cleansing emulsion',desc:'Removes makeup and cleans without soap. Apply on dry skin and work into an emulsion with lukewarm water.',warn:'If your face feels tight after washing, the cleanse was too harsh.'}},
+    'mascara-de-barro':{name:'Máscara de barro',format:'50 ml',price:15500,
+      desc:'Arcilla con polifenoles para zona T, poro dilatado o piel apagada.',
+      warn:'Diez minutos. Retirala antes de que seque del todo: si tira, ya te pasaste.',
+      en:{name:'Mud mask',desc:'Clay with polyphenols for the T-zone, enlarged pores, or dull skin.',warn:'Ten minutes. Take it off before it fully dries: if it pulls at your skin, you left it on too long.'}},
+    'neblina-hidratante':{name:'Neblina hidratante',format:'60 ml',price:15500,
+      desc:'El paso de agua antes de la crema — prepara la piel para que lo que sigue entre mejor.',
+      warn:'No dejes que se seque sola — aplicá el siguiente paso con la piel todavía húmeda.',
+      en:{name:'Hydrating mist',desc:'The water step before the cream — preps skin so what comes next absorbs better.',warn:'Don’t let it dry on its own — apply the next step while skin is still damp.'}},
+    'emulsion-acido-hialuronico':{name:'Emulsión ácido hialurónico',format:'60 ml',price:23000,
+      desc:'Es el paso de agua. Va primero, sobre la piel apenas húmeda, antes de cualquier crema.',
+      warn:'Si la piel queda pegajosa, estás usando de más: dos gotas alcanzan.',
+      en:{name:'Hyaluronic acid emulsion',desc:'This is the water step. It goes on first, on slightly damp skin, before any cream.',warn:'If skin feels sticky, you’re using too much: two drops are enough.'}},
+    'crema-humectante-facial':{name:'Crema humectante facial',format:'50 gr',price:18000,
+      desc:'Cierra cualquier rutina reponiendo lo que los demás pasos se llevaron o dejaron a medio hacer.',
+      warn:'',
+      en:{name:'Face moisturizing cream',desc:'Closes any routine, putting back what the other steps took away or left half-done.',warn:''}},
+    'emulsion-humectante-corporal':{name:'Emulsión humectante corporal',format:'250 ml',price:19000,
+      desc:'Para el cuerpo, después del baño o la ducha, con la piel todavía húmeda.',
+      warn:'Sobre piel húmeda todo entra mejor. Es gratis y cambia el resultado.',
+      en:{name:'Body moisturizing emulsion',desc:'For the body, after the shower, while skin is still damp.',warn:'Everything absorbs better on damp skin. It’s free and it changes the result.'}},
+    'crema-exfoliante-fina':{name:'Crema exfoliante fina',format:'50 gr',price:15500,
+      desc:'Rostro, cuello y escote. En círculos suaves, sin presionar.',
+      warn:'El trabajo lo hace el grano, no la presión.',
+      en:{name:'Fine exfoliating cream',desc:'Face, neck and décolletage. Gentle circles, no pressing.',warn:'The grain does the work, not the pressure.'}},
+    'crema-exfoliante-gruesa':{name:'Crema exfoliante gruesa',format:'50 gr',price:15500,
+      desc:'Codos, rodillas, talones y espalda, bajo la ducha, sobre piel mojada.',warn:'',
+      en:{name:'Coarse exfoliating cream',desc:'Elbows, knees, heels and back, in the shower, on wet skin.',warn:''}},
+    shampoo:{name:'Shampoo',format:'250 ml',price:14000,
+      desc:'Base suave, poca espuma. Masajeá el cuero cabelludo, no el largo.',
+      warn:'Con agua dura como la de Mendoza, una segunda pasada corta rinde más que una larga.',
+      en:{name:'Shampoo',desc:'A mild base, low foam. Massage the scalp, not the length.',warn:'With hard water like Mendoza’s, a short second pass works better than one long one.'}},
+    'acondicionador-capilar':{name:'Acondicionador capilar',format:'250 ml',price:13500,
+      desc:'De medios a puntas, dos minutos, enjuague abundante.',warn:'',
+      en:{name:'Hair conditioner',desc:'Mid-lengths to ends, two minutes, rinse well.',warn:''}},
+    'espuma-de-bano':{name:'Espuma de baño',format:'250 ml',price:19000,
+      desc:'Un chorro bajo el agua caliente mientras se llena la bañera. Espuma corta y estable.',
+      warn:'El agua muy caliente reseca. Si tenés la piel seca, bajá la temperatura, no el tiempo.',
+      en:{name:'Bath foam',desc:'A stream under the hot water as the tub fills. Short, stable foam.',warn:'Water that’s too hot dries skin out. If yours is dry, lower the temperature, not the time.'}},
+    'sales-de-bano':{name:'Sales de baño',format:'250 gr',price:15700,
+      desc:'Un puñado. Piernas cansadas, frío, después de entrenar.',
+      warn:'Si tenés la piel muy seca, usá sales o espuma, no las dos juntas.',
+      en:{name:'Bath salts',desc:'A handful. Tired legs, cold weather, after training.',warn:'If your skin is very dry, use salts or foam, not both together.'}}
   };
 
+  /* ── cada necesidad tiene su propia rutina base (2-3 pasos) y, cuando
+     corresponde, una variante bySkin que la reemplaza entera para ese
+     tipo de piel — mismo criterio curado a mano que antes, solo que ahora
+     cada paso referencia PRODUCTS por sku en vez de repetir el copy. ── */
+  var NEEDS = {
+    limpiar:{label:'Limpiar',labelEn:'Cleanse',
+      t:'Limpiar sin dejar la piel tirante',tEn:'Cleanse without leaving skin tight',
+      d:'Sacarse el día de encima no es lo mismo que arrasar con la barrera de la piel. Dos pasos y uno opcional dos veces por semana.',
+      dEn:'Washing the day off isn’t the same as stripping your skin’s barrier. Two steps, plus one optional step twice a week.',
+      time:'4 minutos',timeEn:'4 minutes',when:'Todas las noches',whenEn:'Every night',skin:'Todo tipo de piel',skinEn:'All skin types',
+      steps:['emulsion-de-limpieza','mascara-de-barro','crema-humectante-facial'],
+      bySkin:{seca:['emulsion-de-limpieza','neblina-hidratante','crema-humectante-facial'],sensible:['emulsion-de-limpieza','crema-humectante-facial']}},
+    hidratar:{label:'Hidratar',labelEn:'Moisturize',
+      t:'Hidratar de la cara a los pies',tEn:'Hydrate from head to toe',
+      d:'Reponer agua y grasa: son dos cosas distintas y la piel necesita las dos. Primero lo que da agua, después lo que la sella.',
+      dEn:'Replacing water and replacing fat are two different things, and skin needs both. Water first, then whatever seals it in.',
+      time:'6 minutos',timeEn:'6 minutes',when:'Mañana y noche',whenEn:'Morning and night',skin:'Piel normal a seca',skinEn:'Normal to dry skin',
+      steps:['emulsion-acido-hialuronico','crema-humectante-facial','emulsion-humectante-corporal'],
+      bySkin:{grasa:['emulsion-acido-hialuronico','emulsion-humectante-corporal'],
+        seca:['neblina-hidratante','crema-humectante-facial','emulsion-humectante-corporal'],
+        deshidratada:['neblina-hidratante','emulsion-acido-hialuronico','crema-humectante-facial'],
+        sensible:['crema-humectante-facial']}},
+    exfoliar:{label:'Exfoliar',labelEn:'Exfoliate',
+      t:'Exfoliar una vez por semana',tEn:'Exfoliate once a week',
+      d:'Renovar la superficie para que lo que venga después entre mejor. Grano fino arriba, grano grueso abajo.',
+      dEn:'Renew the surface so whatever comes next absorbs better. Fine grain up top, coarse grain below.',
+      time:'10 minutos',timeEn:'10 minutes',when:'Una o dos veces por semana',whenEn:'Once or twice a week',skin:'Evitar sobre piel irritada',skinEn:'Avoid on irritated skin',
+      steps:['crema-exfoliante-fina','crema-exfoliante-gruesa','emulsion-humectante-corporal'],
+      bySkin:{grasa:['crema-exfoliante-fina','emulsion-humectante-corporal'],
+        madura:['crema-exfoliante-fina','crema-humectante-facial'],
+        sensible:['crema-exfoliante-fina','crema-humectante-facial']}},
+    capilar:{label:'Cuidar el pelo',labelEn:'Hair care',
+      t:'Cuero cabelludo primero',tEn:'Scalp first',
+      d:'El largo se acomoda solo si el cuero cabelludo está bien. Poca espuma no es poca limpieza.',
+      dEn:'Hair falls into place on its own once the scalp is right. Little foam doesn’t mean little cleaning.',
+      time:'8 minutos',timeEn:'8 minutes',when:'Dos o tres veces por semana',whenEn:'Two or three times a week',skin:'Cuero cabelludo sensible',skinEn:'Sensitive scalp',
+      steps:['shampoo','acondicionador-capilar','neblina-hidratante']},
+    bano:{label:'Darme un baño',labelEn:'Take a bath',
+      t:'Un baño de verdad',tEn:'A real bath',
+      d:'El único ritual cuyo objetivo no es un resultado sobre la piel. Es tiempo.',
+      dEn:'The only ritual whose point isn’t a result on your skin. It’s time.',
+      time:'30 minutos',timeEn:'30 minutes',when:'Fin de semana',whenEn:'On the weekend',skin:'Todo tipo de piel',skinEn:'All skin types',
+      steps:['espuma-de-bano','sales-de-bano','emulsion-humectante-corporal'],
+      bySkin:{sensible:['espuma-de-bano','emulsion-humectante-corporal']}}
+  };
+
+  var NEED_ORDER=['limpiar','exfoliar','hidratar','capilar','bano'];
+  var WHEN_LABEL={manana:'A la mañana',noche:'A la noche',ambas:'Mañana y noche'};
+  var WHEN_LABEL_EN={manana:'In the morning',noche:'At night',ambas:'Morning and night'};
+
   var steps=document.getElementById('steps');
-  var currentNeed='hidratar';
-  var currentSteps=[];
-  var answers={need:null,skin:null,time:null};
+  var currentSteps=[]; /* array de skus del ritual ya armado */
+  var answers={need:null,need2:null,skin:null,size:null,when:null};
 
   var SKIN_LABEL={seca:'Piel seca',grasa:'Piel grasa o mixta',sensible:'Piel sensible o reactiva',deshidratada:'Piel deshidratada',madura:'Piel madura'};
   var SKIN_LABEL_EN={seca:'Dry skin',grasa:'Oily or combination skin',sensible:'Sensitive or reactive skin',deshidratada:'Dehydrated skin',madura:'Mature skin'};
@@ -994,47 +1070,63 @@
     madura:'No cosmetic reverses time, but kept up, this ritual supports skin against everyday wear.'
   };
   function formatPrice(n){ return '$'+n.toLocaleString('es-AR'); }
-  function parsePrice(s){ return parseInt(String(s).replace(/[^0-9]/g,''),10)||0; }
 
-  function render(k){
-    k = k||currentNeed;
-    var r=R[k]; if(!r) return;
-    currentNeed=k;
+  /* rutina de UNA necesidad: su variante bySkin si hay una para el tipo
+     de piel elegido, si no la lista base — recortada a "lo esencial" si
+     el usuario lo pidió, antes de combinarla con la segunda necesidad. */
+  function stepsForNeed(need, skin, size){
+    var n = NEEDS[need]; if(!n) return [];
+    var list = (skin && n.bySkin && n.bySkin[skin]) ? n.bySkin[skin] : n.steps;
+    if(size==='esencial' && list.length>1) list = list.slice(0, list.length-1);
+    return list;
+  }
+
+  /* combina necesidad principal + secundaria (si eligió una y no "ninguna"),
+     en el orden fijo NEED_ORDER, sin repetir un mismo sku. */
+  function composeSteps(need, need2, skin, size){
+    var needs = [need];
+    if(need2 && need2!=='ninguna' && need2!==need) needs.push(need2);
+    var skus=[];
+    NEED_ORDER.forEach(function(k){
+      if(needs.indexOf(k)===-1) return;
+      stepsForNeed(k, skin, size).forEach(function(sku){ if(skus.indexOf(sku)===-1) skus.push(sku); });
+    });
+    return skus;
+  }
+
+  function renderResult(){
     var isEn = document.documentElement.lang==='en';
-    var tr = (isEn && r.en) ? r.en : r;
-    document.getElementById('rit-title').textContent=tr.t;
-    document.getElementById('rit-desc').textContent=tr.d;
-    document.getElementById('rit-time').textContent=tr.time;
-    document.getElementById('rit-when').textContent=tr.when;
+    var n = NEEDS[answers.need];
+    var hasSecond = answers.need2 && answers.need2!=='ninguna' && answers.need2!==answers.need;
+    var n2 = hasSecond ? NEEDS[answers.need2] : null;
+    document.getElementById('rit-title').textContent = n2
+      ? (isEn ? n.labelEn+' + '+n2.labelEn : n.label+' + '+n2.label)
+      : (isEn ? n.tEn : n.t);
+    document.getElementById('rit-desc').textContent = isEn ? n.dEn : n.d;
+    document.getElementById('rit-time').textContent = isEn ? n.timeEn : n.time;
+    document.getElementById('rit-when').textContent = answers.when ? (isEn ? WHEN_LABEL_EN[answers.when] : WHEN_LABEL[answers.when]) : (isEn ? n.whenEn : n.when);
+
+    currentSteps = composeSteps(answers.need, answers.need2, answers.skin, answers.size);
 
     var skinLabels = isEn ? SKIN_LABEL_EN : SKIN_LABEL;
-    var variant = null;
-    if(r.bySkin && answers.skin){
-      variant = r.bySkin[answers.skin] || (answers.skin==='deshidratada' ? r.bySkin.seca : null);
-    }
-    document.getElementById('rit-skin').textContent = variant ? skinLabels[answers.skin] : tr.skin;
-
-    var full = variant ? variant.s : r.s;
-    var fullEn = variant ? variant.en : (r.en ? r.en.s : null);
-    var showN=(answers.time==='rapido' && full.length>1)?full.length-1:full.length;
-    currentSteps=full.slice(0,showN);
+    document.getElementById('rit-skin').textContent = answers.skin ? skinLabels[answers.skin] : (isEn ? n.skinEn : n.skin);
 
     var h='';
-    currentSteps.forEach(function(s,i){
-      var trs = (isEn && fullEn) ? fullEn[i] : null;
-      var name = trs ? trs[0] : s[0];
-      var desc = trs ? trs[2] : s[3];
-      var warn = trs ? trs[3] : s[4];
-      h+='<li class="step"><span class="step-n">'+(i+1)+'</span><div>'+
-         '<div class="step-t"><a href="producto-'+s[5]+'.html">'+name+'</a><span class="step-f">'+s[1]+'</span><span class="step-p">'+s[2]+'</span></div>'+
-         '<p class="step-d">'+desc+'</p>'+
-         (warn?'<p class="step-w">'+warn+'</p>':'')+'</div></li>';
+    currentSteps.forEach(function(sku){
+      var p=PRODUCTS[sku];
+      var tr=(isEn && p.en) ? p.en : p;
+      h+='<div class="rit-card"><div class="rit-card-img"><img src="img/productos/'+sku+'.jpg" alt="" loading="lazy"></div>'+
+         '<div class="rit-card-b"><a href="producto-'+sku+'.html">'+tr.name+'</a><span class="rit-card-f">'+p.format+'</span>'+
+         '<p class="rit-card-d">'+tr.desc+'</p>'+
+         (tr.warn?'<p class="rit-card-w">'+tr.warn+'</p>':'')+
+         '<div class="rit-card-foot"><span class="rit-card-p">'+formatPrice(p.price)+'</span>'+
+         '<button type="button" class="rit-card-add" data-add="'+sku+'">'+(isEn?'Add':'Agregar')+'</button></div></div></div>';
     });
     steps.innerHTML=h;
     steps.classList.remove('fade'); void steps.offsetWidth; steps.classList.add('fade');
 
     var total=0;
-    currentSteps.forEach(function(s){ total+=parsePrice(s[2]); });
+    currentSteps.forEach(function(sku){ total+=PRODUCTS[sku].price; });
     document.getElementById('rit-total').textContent=formatPrice(total);
 
     var tipEl=document.getElementById('rq-skin-tip');
@@ -1047,7 +1139,10 @@
     }
   }
 
-  /* ── quiz: 3 preguntas, avanza sola, arma el ritual al final ── */
+  /* ── quiz: 5 preguntas de una sola opción cada una, avanza sola en cada
+     click. Entre la última pregunta y el resultado se muestra una breve
+     transición "armando tu ritual…", igual criterio que otros quizzes de
+     skincare de referencia (progreso + curating + resultado). ── */
   var rqStep=1;
   function rqShow(n){
     rqStep=n;
@@ -1058,35 +1153,78 @@
       d.classList.toggle('rq-done', idx<n);
     });
   }
-  document.querySelectorAll('.rq-opt').forEach(function(b){
+  function showCurating(cb){
+    document.getElementById('rquiz').classList.add('rq-done');
+    var curating=document.getElementById('rqCurating');
+    curating.hidden=false;
+    curating.scrollIntoView({behavior:'smooth',block:'start'});
+    setTimeout(function(){ curating.hidden=true; cb(); }, 900);
+  }
+  document.querySelectorAll('.rq-opt[data-q="need"]').forEach(function(b){
     b.addEventListener('click',function(){
-      answers[b.dataset.q]=b.dataset.v;
-      if(rqStep<3){ rqShow(rqStep+1); }
-      else {
-        render(answers.need);
-        document.getElementById('rquiz').classList.add('rq-done');
+      answers.need=b.dataset.v;
+      rqShow(2);
+    });
+  });
+  document.querySelectorAll('.rq-opt[data-q="need2"]').forEach(function(b){
+    b.addEventListener('click',function(){
+      answers.need2=b.dataset.v;
+      rqShow(3);
+    });
+  });
+  document.querySelectorAll('.rq-opt[data-q="skin"]').forEach(function(b){
+    b.addEventListener('click',function(){
+      answers.skin=b.dataset.v;
+      rqShow(4);
+    });
+  });
+  document.querySelectorAll('.rq-opt[data-q="size"]').forEach(function(b){
+    b.addEventListener('click',function(){
+      answers.size=b.dataset.v;
+      rqShow(5);
+    });
+  });
+  document.querySelectorAll('.rq-opt[data-q="when"]').forEach(function(b){
+    b.addEventListener('click',function(){
+      answers.when=b.dataset.v;
+      showCurating(function(){
+        renderResult();
         document.getElementById('rresult').classList.add('rq-on');
         document.getElementById('rresult').scrollIntoView({behavior:'smooth',block:'start'});
-      }
+      });
     });
   });
   document.querySelectorAll('[data-back]').forEach(function(b){
     b.addEventListener('click',function(){ if(rqStep>1) rqShow(rqStep-1); });
   });
   document.getElementById('rq-restart').addEventListener('click',function(){
-    answers={need:null,skin:null,time:null};
+    answers={need:null,need2:null,skin:null,size:null,when:null};
     document.getElementById('rresult').classList.remove('rq-on');
     document.getElementById('rquiz').classList.remove('rq-done');
     rqShow(1);
     document.getElementById('rquiz').scrollIntoView({behavior:'smooth',block:'start'});
   });
-  document.addEventListener('vo:lang-changed', function(){ if(answers.need) render(currentNeed); });
+  document.addEventListener('vo:lang-changed', function(){
+    if(answers.need && document.getElementById('rresult').classList.contains('rq-on')) renderResult();
+  });
+
+  document.addEventListener('click', function(e){
+    var addBtn=e.target.closest('[data-add]');
+    if(!addBtn) return;
+    var sku=addBtn.dataset.add, p=PRODUCTS[sku];
+    window.VOCart.add(sku, p.name, p.price, 1);
+    var isEn=document.documentElement.lang==='en';
+    var t=addBtn.textContent; addBtn.textContent=isEn?'Added ✓':'Agregado ✓'; addBtn.disabled=true;
+    setTimeout(function(){ addBtn.textContent=t; addBtn.disabled=false; },1300);
+  });
 
   document.getElementById('addall').addEventListener('click',function(){
-    currentSteps.forEach(function(s){
-      window.VOCart.add(s[5], s[0], parseInt(s[2].replace(/[^0-9]/g,''),10)||0, 1);
+    currentSteps.forEach(function(sku){
+      var p=PRODUCTS[sku];
+      window.VOCart.add(sku, p.name, p.price, 1);
     });
-    var t=this.textContent; this.textContent='Agregado ✓'; this.disabled=true;
+    var isEn=document.documentElement.lang==='en';
+    var t=this.textContent; this.textContent=isEn?'Added ✓':'Agregado ✓'; this.disabled=true;
     var self=this; setTimeout(function(){self.textContent=t;self.disabled=false;},1300);
   });
 
