@@ -1,0 +1,152 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0,0,0,.45)",
+        "createdAt": "2026-08-17T14:51:26.913Z",
+        "reason": "text-shadow/drop-shadow for legibility over photo/video, not a brand fill color — documented as a sanctioned exception in DESIGN.md Typography section"
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgba(0,0,0,.4)",
+        "createdAt": "2026-08-17T14:51:26.992Z",
+        "reason": "text-shadow/drop-shadow for legibility over photo/video, not a brand fill color — documented as a sanctioned exception in DESIGN.md Typography section"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".76rem",
+        "createdAt": "2026-08-17T15:28:04.904Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".78rem",
+        "createdAt": "2026-08-17T15:28:04.987Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".83rem",
+        "createdAt": "2026-08-17T15:28:05.069Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".85rem",
+        "createdAt": "2026-08-17T15:28:05.151Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".88rem",
+        "createdAt": "2026-08-17T15:28:05.231Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".8rem",
+        "createdAt": "2026-08-17T15:28:05.311Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".92rem",
+        "createdAt": "2026-08-17T15:28:05.394Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".94rem",
+        "createdAt": "2026-08-17T15:28:05.472Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".95rem",
+        "createdAt": "2026-08-17T15:28:05.551Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": ".9rem",
+        "createdAt": "2026-08-17T15:28:05.630Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.1rem",
+        "createdAt": "2026-08-17T15:28:05.711Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.25rem",
+        "createdAt": "2026-08-17T15:28:05.787Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.35rem",
+        "createdAt": "2026-08-17T15:28:05.867Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.45rem",
+        "createdAt": "2026-08-17T15:28:05.946Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.5rem",
+        "createdAt": "2026-08-17T15:28:06.027Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.6rem",
+        "createdAt": "2026-08-17T15:28:06.104Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.8rem",
+        "createdAt": "2026-08-17T15:28:06.185Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "1.9rem",
+        "createdAt": "2026-08-17T15:28:06.261Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "2.6rem",
+        "createdAt": "2026-08-17T15:28:06.338Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "2rem",
+        "createdAt": "2026-08-17T15:28:06.415Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "3.6rem",
+        "createdAt": "2026-08-17T15:28:06.492Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "4.4rem",
+        "createdAt": "2026-08-17T15:28:06.572Z",
+        "reason": "Sanctioned page-local editorial type step (chapter numerals, hero lockup, card/caption text at a specific compositional moment) — documented as an intentional pattern in DESIGN.md Typography > 'Sanctioned exception: page-local editorial type steps'"
+      }
+    ]
+  }
+}

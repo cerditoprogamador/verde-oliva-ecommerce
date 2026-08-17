@@ -88,7 +88,6 @@
 .hero-t .inner.in>*:nth-child(3){transition-delay:.27s}
 .hero-t .inner.in>*:nth-child(4){transition-delay:.38s}
 .hero-t h1{text-shadow:0 2px 14px rgba(0,0,0,.4)}
-.hero h1{font-size:clamp(2.3rem,5vw,4rem)}
 .hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem;margin-top:1.7rem}
 .hero-cta .btn-ghost{color:var(--crema);border-color:rgba(247,244,236,.5)}
 .hero-cta .btn-ghost:hover{background:rgba(247,244,236,.15);border-color:var(--crema)}
@@ -163,10 +162,9 @@
 .gourmet-media{position:relative}
 .gourmet-ph{aspect-ratio:4/5;border-radius:2px}
 .gourmet-seal{position:absolute;right:clamp(-8px,-1.5vw,12px);bottom:clamp(-12px,-1.5vw,16px);
- width:92px;height:92px;border-radius:50%;background:var(--terra);color:var(--crema);
+ width:92px;height:92px;border-radius:4px;background:var(--terra);color:var(--crema);
  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
- font:500 .6rem/1.3 var(--fb);letter-spacing:.08em;text-transform:uppercase;
- box-shadow:0 10px 24px -8px rgba(58,68,51,.4)}
+ font:500 .6rem/1.3 var(--fb);letter-spacing:.08em;text-transform:uppercase}
 .gourmet-seal b{font-family:var(--fs);font-size:1.25rem;font-weight:600;letter-spacing:0;
  text-transform:none;margin-top:.1rem}
 .gourmet-kicker{display:inline-flex;align-items:center;gap:.5rem;color:var(--terra-t)}
@@ -225,8 +223,11 @@
 @media(min-width:700px){.rq-opts{grid-template-columns:repeat(3,1fr)}}
 .rq-opts.rq-opts-2{grid-template-columns:1fr;max-width:420px}
 @media(min-width:560px){.rq-opts.rq-opts-2{grid-template-columns:repeat(2,1fr);max-width:520px}}
+.rq-opts.rq-opts-extra{grid-template-columns:1fr;max-width:280px;margin-top:.7rem}
+.rq-opts.rq-opts-extra .rq-opt{min-height:auto;flex-direction:row;justify-content:center;padding:.7rem 1rem;font-size:.8rem;color:var(--tinta);background:transparent}
+.rq-opts.rq-opts-extra .rq-opt small{font-size:.78em;color:var(--tinta);opacity:.8}
 .rq-opt{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
- min-height:104px;padding:1rem .7rem;background:var(--crema);border:1px solid var(--linea);border-radius:3px;
+ min-height:104px;padding:1rem .7rem;background:var(--crema);border:1px solid var(--linea);border-radius:4px;
  font:500 .84rem/1.25 var(--fb);color:var(--oliva);cursor:pointer;text-align:center;
  transition:background .2s var(--e),color .2s var(--e),border-color .2s var(--e),transform .2s var(--e)}
 .rq-opt:hover{border-color:var(--oro);transform:translateY(-2px)}
@@ -251,7 +252,7 @@
 .rit-meta span:not(:first-child)::before{content:"·";margin:0 .6rem;color:var(--linea)}
 .rit-meta svg{color:var(--hoja-t)}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:0;background:var(--crema);
- border:1px solid var(--linea);border-radius:3px;overflow:hidden}
+ border:1px solid var(--linea);border-radius:4px;overflow:hidden}
 .step{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1.2rem clamp(14px,2vw,22px);
  border-bottom:1px solid var(--linea-f);align-items:start}
 .step:last-child{border-bottom:0}
@@ -277,6 +278,11 @@
 .nf input{flex:1 1 220px;min-height:48px;padding:.8rem 1rem;background:transparent;color:var(--corteza);
  border:1px solid var(--linea);border-radius:2px;font:400 .95rem var(--fb)}
 .nf input:focus{outline:2px solid var(--oliva);outline-offset:2px}
+/* Eco Cosmética agrupa 10 productos en 3 sub-líneas (4/2/4): separadores
+   más marcados que el .sub default para que se lea como 3 grupos chicos,
+   no como un bloque de 10 */
+#eco .sub{margin-top:clamp(44px,5.6vw,72px);color:var(--oliva);font-size:.68rem}
+#eco .sub:first-of-type{margin-top:clamp(30px,3.6vw,48px)}
 /* home: escala más grande que el default de base.css */
 .d2{font-size:clamp(2.4rem,5.6vw,4.4rem)}
 .d3{font-size:clamp(2rem,3.8vw,3.1rem)}
@@ -336,11 +342,11 @@
         <a href="finca.html" data-i18n="nav-finca">Nuestra finca</a>
         <a href="catalogo.html" data-i18n="nav-catalogo">Catálogo completo</a>
       </nav>
-      <div class="searchbox">
+      <form class="searchbox" id="searchForm">
         <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
         <label class="sr" for="q" data-i18n="buscar-label">Buscar productos</label>
         <input id="q" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-      </div>
+      </form>
       <div class="hdr-u">
         <div class="lang" role="group" aria-label="Idioma">
           <button type="button" aria-pressed="true">ES</button><span aria-hidden="true">|</span><button type="button" aria-pressed="false">EN</button>
@@ -363,11 +369,11 @@
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
   </div>
-  <div class="mnav-search">
+  <form class="mnav-search" id="searchFormMobile">
     <svg class="ic" width="17" height="17"><use href="#i-search"/></svg>
     <label class="sr" for="q-mobile" data-i18n="buscar-label">Buscar productos</label>
     <input id="q-mobile" type="search" placeholder="Buscar: aceite, crema, sales…" data-i18n-placeholder="buscar-placeholder">
-  </div>
+  </form>
   <nav class="mnav-links" aria-label="Principal mobile">
     <a href="#productos" data-i18n="nav-productos">Productos</a>
     <a href="#polifenoles" data-i18n="nav-polifenoles">Polifenoles</a>
@@ -704,8 +710,10 @@
           <button class="rq-opt" type="button" data-q="need" data-v="limpiar"><svg class="ic" width="22" height="22"><use href="#i-droplet"/></svg><span data-i18n="rq-need-limpiar">Limpiar</span></button>
           <button class="rq-opt" type="button" data-q="need" data-v="hidratar"><svg class="ic" width="22" height="22"><use href="#i-leaf"/></svg><span data-i18n="rq-need-hidratar">Hidratar</span></button>
           <button class="rq-opt" type="button" data-q="need" data-v="exfoliar"><svg class="ic" width="22" height="22"><use href="#i-brush"/></svg><span data-i18n="rq-need-exfoliar">Exfoliar</span></button>
-          <button class="rq-opt" type="button" data-q="need" data-v="capilar"><svg class="ic" width="22" height="22"><use href="#i-wind"/></svg><span data-i18n="rq-need-capilar">Cuidar el pelo</span></button>
           <button class="rq-opt" type="button" data-q="need" data-v="bano"><svg class="ic" width="22" height="22"><use href="#i-sun"/></svg><span data-i18n="rq-need-bano">Darme un baño</span></button>
+        </div>
+        <div class="rq-opts rq-opts-extra" role="group" aria-label="Otra necesidad">
+          <button class="rq-opt" type="button" data-q="need" data-v="capilar"><svg class="ic" width="22" height="22"><use href="#i-wind"/></svg><span data-i18n="rq-need-capilar">Cuidar el pelo</span></button>
         </div>
       </div>
 
@@ -718,8 +726,10 @@
           <button class="rq-opt" type="button" data-q="skin" data-v="seca"><svg class="ic" width="22" height="22"><use href="#i-droplet"/></svg><span data-i18n="rq-skin-seca">Seca</span></button>
           <button class="rq-opt" type="button" data-q="skin" data-v="grasa"><svg class="ic" width="22" height="22"><use href="#i-sun"/></svg><span data-i18n="rq-skin-grasa">Grasa o mixta</span></button>
           <button class="rq-opt" type="button" data-q="skin" data-v="sensible"><svg class="ic" width="22" height="22"><use href="#i-shield"/></svg><span data-i18n="rq-skin-sensible">Sensible o reactiva</span></button>
-          <button class="rq-opt" type="button" data-q="skin" data-v="deshidratada"><svg class="ic" width="22" height="22"><use href="#i-wind"/></svg><span data-i18n="rq-skin-deshidratada">Deshidratada</span></button>
           <button class="rq-opt" type="button" data-q="skin" data-v="madura"><svg class="ic" width="22" height="22"><use href="#i-leaf"/></svg><span data-i18n="rq-skin-madura">Madura</span></button>
+        </div>
+        <div class="rq-opts rq-opts-extra" role="group" aria-label="Otro tipo de piel">
+          <button class="rq-opt" type="button" data-q="skin" data-v="deshidratada"><svg class="ic" width="22" height="22"><use href="#i-wind"/></svg><span data-i18n="rq-skin-deshidratada">Deshidratada <small>(no es lo mismo que seca)</small></span></button>
         </div>
         <button class="rq-back" type="button" data-back data-i18n="rq-back">← Volver</button>
       </div>
@@ -820,11 +830,12 @@
         <h2 class="d4" data-i18n="news-h2">Novedades y cosas que aprendimos</h2>
         <p class="lead" style="margin:.7rem 0 0" data-i18n="news-lead">Un correo por mes. Producto nuevo, cuándo se prensa el aceite y alguna nota corta sobre piel.</p>
       </div>
-      <form class="nf" onsubmit="event.preventDefault();this.reset();this.querySelector('button').textContent='Anotado';">
+      <form class="nf" id="newsForm">
         <label class="sr" for="mail">Correo electrónico</label>
-        <input id="mail" type="email" placeholder="tu@correo.com" required data-i18n-placeholder="news-placeholder">
+        <input id="mail" name="email" type="email" placeholder="tu@correo.com" required data-i18n-placeholder="news-placeholder">
         <button class="btn" type="submit" data-i18n="news-submit">Suscribirme</button>
       </form>
+      <p class="nf-msg" id="newsMsg" role="status" aria-live="polite" style="margin:.6rem 0 0;font-size:.85rem;color:var(--tinta)"></p>
     </div>
   </div>
 </section>
@@ -1106,6 +1117,62 @@
   }
   window.addEventListener('scroll',mark,{passive:true});
   mark();
+
+  /* ── búsqueda: sin backend de catálogo todavía, así que busca entre los
+     productos ya renderizados en esta página y hace scroll al primero que
+     coincide; si no hay coincidencia, manda al catálogo completo con el
+     mismo texto precargado en su propia búsqueda ── */
+  function runSearch(q){
+    q=(q||'').trim().toLowerCase();
+    if(!q) return;
+    var cards=[].slice.call(document.querySelectorAll('.card-t'));
+    var match=cards.find(function(el){ return el.textContent.toLowerCase().indexOf(q)!==-1; });
+    if(match){
+      var card=match.closest('.card-w');
+      card.scrollIntoView({behavior:'smooth',block:'center'});
+      card.style.outline='2px solid var(--oro)';
+      card.style.outlineOffset='4px';
+      setTimeout(function(){ card.style.outline=''; card.style.outlineOffset=''; },1800);
+    } else {
+      window.location.href='catalogo.html?q='+encodeURIComponent(q);
+    }
+  }
+  ['searchForm','searchFormMobile'].forEach(function(id){
+    var f=document.getElementById(id);
+    if(!f) return;
+    f.addEventListener('submit',function(e){ e.preventDefault(); runSearch(f.querySelector('input').value); });
+  });
+
+  /* ── newsletter: suscripción real vía /api/newsletter/subscribe, nunca un estado de éxito simulado ── */
+  var newsForm=document.getElementById('newsForm');
+  var newsMsg=document.getElementById('newsMsg');
+  if(newsForm){
+    newsForm.addEventListener('submit',function(e){
+      e.preventDefault();
+      var btn=newsForm.querySelector('button');
+      var email=newsForm.email.value;
+      var isEn=document.documentElement.lang==='en';
+      btn.disabled=true;
+      newsMsg.textContent='';
+      fetch('/api/newsletter/subscribe',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','X-Requested-With':'XMLHttpRequest'},
+        body:JSON.stringify({email:email})
+      }).then(function(r){ return r.json().then(function(d){ return {ok:r.ok && d.ok, status:r.status}; }); })
+      .catch(function(){ return {ok:false}; })
+      .then(function(res){
+        btn.disabled=false;
+        if(res.ok){
+          newsForm.reset();
+          newsMsg.textContent = isEn ? 'Done — you\'re on the list.' : 'Listo — quedaste anotada.';
+        } else {
+          newsMsg.textContent = isEn
+            ? 'We couldn\'t save that right now. Write to hola@verdeoliva.com.ar and we\'ll add you by hand.'
+            : 'No pudimos guardarlo justo ahora. Escribinos a hola@verdeoliva.com.ar y te anotamos a mano.';
+        }
+      });
+    });
+  }
 
   /* ── video del hero: no autoreproducir si el usuario prefiere menos movimiento ── */
   var heroVideo=document.getElementById('heroVideo');

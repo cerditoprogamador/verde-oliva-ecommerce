@@ -1,6 +1,9 @@
 const express = require('express');
 const { MercadoPagoConfig, Payment } = require('mercadopago');
 const pool = require('../lib/db');
+const { sendMail } = require('../lib/mailer');
+const { getCrossSellProducts } = require('../lib/crossSell');
+const { renderOrderConfirmationEmail } = require('../lib/emailTemplates/orderConfirmation');
 
 const router = express.Router();
 
@@ -101,7 +104,7 @@ router.post('/webhooks/mercadopago', async (req, res) => {
       // mismos valores) — asi que esto corre una sola vez por pedido,
       // nunca dos veces por un reintento de MP con el mismo status.
       const [items] = await pool.execute(
-        'SELECT sku, qty FROM order_items WHERE order_id = ?',
+        'SELECT sku, qty, name, unit_price_cents, line_total_cents FROM order_items WHERE order_id = ?',
         [orderId]
       );
       for (const item of items) {
@@ -110,6 +113,13 @@ router.post('/webhooks/mercadopago', async (req, res) => {
           [item.qty, item.sku]
         );
       }
+
+      // Mail de confirmacion: se dispara sin await (ver comentario arriba
+      // sobre responder 200 rapido) y con su propio catch — un fallo de
+      // SMTP nunca puede afectar la respuesta al webhook de MP.
+      sendOrderConfirmationEmail(orderId, items).catch((err) => {
+        console.error('[webhook] error armando/enviando mail de confirmacion:', err.message);
+      });
     }
 
     return res.sendStatus(200);
@@ -120,5 +130,37 @@ router.post('/webhooks/mercadopago', async (req, res) => {
     return res.sendStatus(200);
   }
 });
+
+/**
+ * Arma y envia el mail de confirmacion para un pedido recien aprobado.
+ * Separado en su propia funcion (en vez de inline en el handler) para que
+ * el .catch() del caller cubra tanto los queries de armado (comprador,
+ * venta cruzada) como el envio en si.
+ */
+async function sendOrderConfirmationEmail(orderId, items) {
+  const [orders] = await pool.execute(
+    `SELECT o.id, o.subtotal_cents, o.created_at, u.email AS customer_email, u.name AS customer_name
+       FROM orders o
+       JOIN users u ON u.id = o.user_id
+      WHERE o.id = ?`,
+    [orderId]
+  );
+  const order = orders[0];
+  if (!order || !order.customer_email) return;
+
+  const skus = items.map((item) => item.sku);
+  const crossSell = await getCrossSellProducts(skus);
+
+  const baseUrl = process.env.PUBLIC_BASE_URL || `http://localhost:${process.env.PORT || 3000}`;
+  const { subject, html } = renderOrderConfirmationEmail({
+    order,
+    items,
+    customerName: order.customer_name,
+    crossSell,
+    baseUrl,
+  });
+
+  await sendMail({ to: order.customer_email, subject, html });
+}
 
 module.exports = router;

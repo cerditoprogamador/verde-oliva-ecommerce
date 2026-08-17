@@ -160,5 +160,13 @@
 <script src="js/i18n-common.js"></script>
 <script src="js/auth.js"></script>
 <script src="js/i18n.js"></script>
+<script>
+/* Compra confirmada: el carrito ya se compró, así que se vacía acá.
+   checkout-pendiente.html y checkout-error.html NO hacen esto — el pago
+   no está confirmado, así que el contenido del carrito sigue vigente. */
+(function(){
+  if(window.VOCart) VOCart.clear();
+})();
+</script>
 </body>
 </html>
